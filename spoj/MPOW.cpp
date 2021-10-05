@@ -5,7 +5,7 @@ using namespace std;
 // Fast Exponentiation
 
 typedef long long ll;
-ll mod = 1000000007;
+ll mod = 1e9 + 7;
 
 int cases, m, n;
 ll mat[55][55];
@@ -24,7 +24,7 @@ void mult(ll (&a)[55][55], ll (&b)[55][55]){
     }
   }
 
-  memcpy(a, temp, 55 * 55);
+  memcpy(a, temp, sizeof(ll) * 55 * 55);
 }
 
 void solve(){
@@ -34,7 +34,7 @@ void solve(){
     for(int j=0; j<m; j++)
       cin >> mat[i][j];
 
-  memcpy(result, mat, 55 * 55);
+  memcpy(result, mat, sizeof(ll) * 55 * 55);
 
   n--; // When n=1 the matrix remains the same.
 
