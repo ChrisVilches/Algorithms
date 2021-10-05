@@ -44,10 +44,12 @@ void solve(){
     mult(mat, mat);
   }
 
-  for(int i=0; i<m; i++)
-    for(int j=0; j<m; j++)
+  for(int i=0; i<m; i++){
+    for(int j=0; j<m; j++){
       printf("%lld ", result[i][j]);
+    }
     printf("\n");
+  }
 }
 
 int main(){
