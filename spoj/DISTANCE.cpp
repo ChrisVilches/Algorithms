@@ -5,9 +5,8 @@ typedef unsigned long long ll;
 
 int dist(vector<int> &a, vector<int> &b){
   int total = 0;
-  for(uint i=0; i<a.size(); i++){
+  for(uint i=0; i<a.size(); i++)
     total += abs(a[i] - b[i]);
-  }
   return total;
 }
 
@@ -24,8 +23,6 @@ int main(){
     }
   }
 
-  // Filter out some points to compare.
-  // Compare N (all) points with 1<<d (dimension combinations) points (avoids O(n^2) comparison).
   vector<vector<int>> pts_compare;
   int combinations = 1<<d;
 
@@ -34,15 +31,14 @@ int main(){
     int idx = 0;
  
     for(int i=0; i<n; i++){
-      int val=0;
+      int val = 0;
 
       for(int j=0; j<d; j++)
         val += (c & 1<<j) ? -pts[i][j] : pts[i][j];
 
-      if(val > max){
-        max = val;
-        idx = i;
-      }
+      if(val <= max) continue;
+      max = val;
+      idx = i;
     }
     pts_compare.push_back(pts[idx]);
   }
