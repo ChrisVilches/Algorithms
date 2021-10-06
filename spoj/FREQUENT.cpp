@@ -17,40 +17,31 @@ struct Node {
   }
 };
 
+// TODO: Use normal stacked array
 vector<Node> tree;
 
 int query(Node &subtree, int i, int j, int orig_i, int orig_j){
-  if(i > j){
-    return INT_MIN;
-  }
-  if(subtree.j < orig_i) return INT_MIN;
-  if(orig_j < subtree.i) return INT_MIN;
+  if(subtree.j < orig_i || orig_j < subtree.i) return INT_MIN;
 
-  //printf("subtree (%d %d) query (%d %d) orig query (%d %d)\n", subtree.i, subtree.j, i, j, orig_i, orig_j);
-
-  // Node has exact query.
   if(subtree.i == i && subtree.j == j)
     return subtree.freq;
-  if(subtree.i == orig_i && subtree.j == orig_j)
-    return subtree.freq;
 
-  // Is leaf.
-  if(!subtree.left && !subtree.right){
-    int total = subtree.freq - abs(i - subtree.i) - abs(j - subtree.j);
-    return total;
-  }
-  //cout << "branch query" << endl;
+  if(!subtree.left && !subtree.right)
+    return subtree.freq - abs(i - subtree.i) - abs(j - subtree.j);
 
-  int a = query(*subtree.left, max(subtree.left->i, orig_i), min(orig_j, subtree.left->j), orig_i, orig_j);
-  int b = query(*subtree.right, max(subtree.right->i, orig_i), min(orig_j, subtree.right->j), orig_i, orig_j);
-
-  return max(a, b);
+  // TODO: Can this be simplified (i.e. max & min)? it's hecka hard to read.
+  return max(
+    query(*subtree.left, max(subtree.left->i, i), min(j, subtree.left->j), orig_i, orig_j),
+    query(*subtree.right, max(subtree.right->i, i), min(j, subtree.right->j), orig_i, orig_j)
+  );
 }
 
 void solve(){
   tree.clear();
   for(int i=0; i<n; i++)
     scanf("%d", &nums[i]);
+
+  // TODO: Tree creation is kinda backwards. Can I fix this to make it more intuitive?
 
   int prev = nums[0];
   int from = 0;
@@ -66,11 +57,6 @@ void solve(){
   Node last_node = Node(from, n - 1, n - from);
   tree.push_back(last_node);
 
-  // Make it even by pushing the last node again.
-  if(tree.size() % 2 != 0){
-    tree.push_back(last_node);
-  }
-
   int n_idx = 0;
 
   while(tree.size() - n_idx){
@@ -82,21 +68,12 @@ void solve(){
     for(; n_idx<tree_size-1; n_idx+=2){
       tree.push_back(Node(&tree[n_idx], &tree[n_idx + 1]));
     }
-    // Make it even by pushing the last node again.
-    if(tree.size() % 2 != 0){
-      //tree.push_back(tree[tree.size() - 1]);
-    }
   }
-
-  Node* root = &tree[tree.size() - 1];
-
-
- // cout << "tree has " << tree.size() << " nodes" << endl;
 
   while(q--){
     int i, j;
     scanf("%d %d", &i, &j);
-    printf("%d\n", query(*root, i - 1, j - 1, i - 1, j - 1));
+    printf("%d\n", query(tree[tree.size() - 1], i - 1, j - 1, i - 1, j - 1));
   }
 }
 
