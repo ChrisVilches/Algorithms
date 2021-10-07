@@ -34,7 +34,7 @@ int main(){
       int val = 0;
 
       for(int j=0; j<d; j++)
-        val += (c & 1<<j) ? -pts[i][j] : pts[i][j];
+        val += (c & 1<<j) ? pts[i][j] : -pts[i][j];
 
       if(val <= max) continue;
       max = val;
