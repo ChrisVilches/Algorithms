@@ -8,16 +8,12 @@ int val[2000];
 int memo[2000][2000];
 
 int knapsack(int item, int capacity){
-  if(memo[item][capacity] != -1) return memo[item][capacity];
   if(capacity <= 0) return 0;
-  if(item == 0)
-    return capacity >= size[0] ? val[0] : 0;
+  if(item < 0) return 0;
+  if(memo[item][capacity] != -1) return memo[item][capacity];
 
   int without = knapsack(item-1, capacity);
-  int with = 0;
-
-  if(capacity - size[item] >= 0)
-    with = val[item] + knapsack(item-1, capacity - size[item]);
+  int with = capacity >= size[item] ? (val[item] + knapsack(item-1, capacity - size[item])) : 0;
 
   return memo[item][capacity] = max(with, without);
 }
