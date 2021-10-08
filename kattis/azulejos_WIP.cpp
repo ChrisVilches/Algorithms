@@ -1,24 +1,38 @@
 #include <bits/stdc++.h>
+#include <algorithm>
 
 using namespace std;
 
 struct Tile {
   int price, height, id;
+  bool operator >(const Tile& t) const{
+    cout << "IS THIS SHIT EVEN EXECUTING!? (>)" << endl;
+    if(id == t.id) return false;
+    return height > t.height;
+  }
+
+  bool operator ==(const Tile& t) const{
+    return id == t.id;
+  }
+
+  bool operator <(const Tile& t) const{
+    //cout << "IS THIS SHIT EVEN EXECUTING!? (<)" << endl;
+    //if(id == t.id){
+    //  cout << "IDS are the same lol" << endl;
+    //}
+    if(id == t.id) return false;
+    return height <= t.height;
+  }
 };
 
 int n;
 
-// NOTE: Partial sort -> The objects in the range [first,last) are modified.
-
 void sort_tiles_by_prices(vector<Tile> &v){
   sort(v.begin(), v.end(), [](Tile &a, Tile &b){
+    /*if(a.price == b.price){
+      return a.height < b.height;
+    }*/
     return a.price <= b.price;
-  });
-}
-
-void sort_tiles_by_height(vector<Tile> &v, int a, int b){
-  std::partial_sort(v.begin(), v.begin() + a, v.begin() + b, [](Tile &a, Tile &b){
-    return a.height > b.height;
   });
 }
 
@@ -34,6 +48,8 @@ void read_tiles(vector<Tile> &v){
   }
 }
 
+int sorted_idx = 0;
+
 int main(){
   cin >> n;
 
@@ -43,100 +59,78 @@ int main(){
   sort_tiles_by_prices(back);
   sort_tiles_by_prices(front);
 
-  int sorted_idx = 0;
-  int bp = back[0].price;
-  int fp = front[0].price;
-  int pre_b = 0;
-  int pre_f = 0;
+  map<int, set<Tile>> back_price_tiles, front_price_tiles;
 
-  int j = 0;
-
-  for(int i=0; i<=n; i++){
-
-    if(i == n){
-      printf(".i stopped at %d ... range [%d, %d)\n", n, pre_b, n);
-    } else {
-      if(back[i].price == bp) continue;
-      printf("i stopped at %d ... range [%d, %d)\n", i, pre_b, i);
-      bp = back[i].price;
-    }
-    pre_b = i;
-
-    /*
-         0 1 2 3 4 5
-Back
-prices:  1 1 1 2 3
-heights: 5 5 5 5 5
-
-Front
-prices:  1 2 2 2 2
-heights: 5 5 5 5 5
-
-0, 0
-1, 2
-3, 3
-4, 4
-
-i [0, 3)
-j [0, 1)
-j [1, 5)
-i [3, 4)
-i [4, 5) maybe
-    */
-
-    if(i == n || j == n){
-      printf(".-------- Fixing heights in range [%d, %d] -------------\n", sorted_idx, n-1);
-      break;
-    }
-
-    printf("Starting a new J loop. i=%d j=%d\n", i, j);
-    for(; j<=n; j++){
-      if(j == i){
-        printf("*-------- Fixing heights in range [%d, %d] ----------------\n", sorted_idx, min(i, j)-1);
-        sorted_idx = min(i, j);
-        //printf("i == j ... %d == %d\n",i ,j);
-        break;
-      }
-
-      if(front[j].price != fp){
-        
-        fp = front[j].price;
-        printf("j stopped at %d ... range [%d, %d]\n", j, pre_f, j-1);
-        pre_f = j;
-
-        printf("-------- Fixing heights in range [%d, %d] ----------------\n", sorted_idx, min(i, j)-1);
-        sorted_idx = min(i, j);
-        // should sort here
-        /*if(i < j){
-          printf("*Fixing heights in range [%d, %d] ----------------\n", sorted_idx, min(i, j)-1);
-          sorted_idx = min(i, j);
-          break;
-        }*/
-      }
-    }
-    //printf("ended loop\n");
-
-    //printf("sorting from %d to %d\n", sorted_idx, min(i, j-1));
-    //printf("after sorting %c needs to catch up\n", increasing);
-    //sort_tiles_by_height(back, sorted_idx, min(i, j-1));
-    //sort_tiles_by_height(front, sorted_idx, min(i, j-1));
-    //sorted_idx = min(i, j-1) + 1;
-  }
+  vector<Tile> back_result;
+  vector<Tile> front_result;
 
   for(int i=0; i<n; i++){
-    if(back[i].height <= front[i].height){
-      cout << "impossible" << endl;
-      return 0;
+    back_price_tiles[back[i].price].insert(back[i]);
+    front_price_tiles[front[i].price].insert(front[i]);
+    //printf("When creating the set, before and after inserting %d, %d (inserted ID: %d)\n", bef, aft, back[i].id);
+  }
+
+  int left = 0;
+  for(int i=0; i<n; i++){
+
+    for(auto it = back_price_tiles.begin(); it != back_price_tiles.end(); it++){
+      cout << "Price: " << it->first << " Set size: " << it->second.size() << endl;;
+
+      //for(auto it2 = it->second.begin(); it2 != it->second.end(); it2++){
+      //  cout << (*it2).
+      //}
+    }
+
+    if((i == n-1) || back[i].price != back[i+1].price || front[i].price != front[i+1].price){
+      if(i == n-1) printf("condition (i == n-1)\n");
+      int sort_from = left;
+      int sort_to = i + 1; // exclusive
+      left = i + 1;
+
+      printf("Sort from %d to %d\n", sort_from, sort_to);
+      for(int j=sort_from; j<sort_to; j++){
+        printf("lower_bound = front[%d].height + 1 (result: %d)\n", j, front[j].height + 1);
+        int lower_bound = front[j].height + 1;
+        front_result.push_back(front[j]);
+        set<Tile> &tiles_same_price = back_price_tiles[back[j].price];
+        std::set<Tile>::iterator it;
+
+        printf("Size of set before getting the lower bound %ld\n", tiles_same_price.size());
+        for(it = tiles_same_price.begin(); it != tiles_same_price.end(); ++it) {
+          //printf("Iterating set value (from price set (%d)): %d (lower_bound: %d)\n", longer_list[i].price, (*it).height, lower_bound);
+          printf("checking (*it).height >= lower_bound --> %d >= %d\n", (*it).height, lower_bound);
+          if((*it).height >= lower_bound){
+            break;
+          }
+        }
+
+        if(it == tiles_same_price.end()){
+          cout << "impossible on j=" << j << endl;
+          return 0;
+        } else {
+          Tile val = *it;
+          back_result.push_back(val);
+
+          int bef = tiles_same_price.size();
+          tiles_same_price.erase(it);
+          int after = tiles_same_price.size();
+          printf("set size bef and aft %d %d\n", bef, after);
+        }
+      }
     }
   }
 
+  printf("n=%d and result lengths are %ld and %ld\n", n, back_result.size(), front_result.size());
+
   for(int i=0; i<n; i++){
-    cout << back[i].id << " ";
+    cout << back_result[i].id << " ";
   }
+
   cout << endl;
 
   for(int i=0; i<n; i++){
-    cout << front[i].id << " ";
+    cout << front_result[i].id << " ";
   }
+
   cout << endl;
 }
