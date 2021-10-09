@@ -44,24 +44,22 @@ int main(){
 
     if(back_set.size() >= front_set.size()){
       add_to_front = front_set.begin();
-      add_to_back = back_set.upper_bound(*add_to_front);
 
-      // TODO: Why does upper_bound not find the value immediately? This shouldn't be necessary.
-      //       (Same for lower_bound below, only one decrement should be necessary).
-      while(add_to_back != back_set.end()){
-        if((*add_to_back).height > (*add_to_front).height) break;
-        ++add_to_back;
-      }
+      // TODO: This has to be done because of some issues with the comparator (can be improved/simplified).
+      Tile t = *add_to_front;
+      t.id = INT_MAX;
+      add_to_back = back_set.upper_bound(t);
     } else {
       add_to_back = back_set.begin();
-      add_to_front = front_set.lower_bound(*add_to_back);
+      Tile t = *add_to_back;
+      t.id = -1;
+      add_to_front = front_set.lower_bound(t);
 
-      while(add_to_front != front_set.begin()){
-        if(add_to_front != front_set.end()){
-          if((*add_to_back).height > (*add_to_front).height) break;
-        }
-        --add_to_front;
+      if(add_to_front == front_set.begin()){
+        cout << "impossible" << endl;
       }
+
+      --add_to_front;
     }
 
     if((add_to_back == back_set.end()) || (add_to_front == front_set.end())){
