@@ -14,11 +14,9 @@ int marker[MAX_N] = {0};
 int gen_type[MAX_N] = {0};
 int closed_values[MAX_N] = {0};
 
-// NOTE: Instead of "closed" maybe an "open" would be better? Then I just compute the difference.
-//        This is prolly easier to implement
-
 int main(){
   cin >> n;
+  set<int> genes;
 
   for(int i=0; i<n; i++){
     scanf(" %c%d ", &c, &num);
@@ -26,45 +24,47 @@ int main(){
     gen_type[i] = num;
   }
 
-  int closed = 0;
+  
 
+  int open = 0;
   for(int pos=0; pos<n; pos++){
     int i = gen_type[pos];
     int m = marker[pos];
 
-    if(closed < 0) throw runtime_error("closed < 0");
+    if(open < 0) throw runtime_error("open < 0");
 
     if(m == S){
       if(gen_status[i] == 0){
-        if(closed > 0){
-          closed--;
-        }
+        
+        genes.insert(i);
+        open++;
       }
       gen_status[i]++;
     } else if(m == E) {
       if(gen_status[i] > 0){
         gen_status[i]--;
         if(gen_status[i] == 0){
-          closed++;
+          open--;
         }
       }
     }
 
-    if(closed < 0) throw runtime_error("closed < 0");
+    if(open < 0) throw runtime_error("open < 0");
   }
+
+  int total_genes = genes.size();
 
   for(int pos=0; pos<n; pos++){
     int i = gen_type[pos];
     int m = marker[pos];
 
-    closed_values[pos] = closed;
+    closed_values[pos] = total_genes - open;
     if(gen_status[i] < 0) throw runtime_error("asd");
-    if(closed < 0) throw runtime_error("closed < 0");
+    if(open < 0) throw runtime_error("open < 0");
 
     if(m == S){
       if(gen_status[i] == 0){
-        if(closed > 0)
-          closed--;
+        open++;
       }
       gen_status[i]++;
       
@@ -72,13 +72,13 @@ int main(){
       if(gen_status[i] > 0){
         gen_status[i]--;
         if(gen_status[i] == 0){
-          closed++;
+          open--;
         }
       }
     }
 
     if(gen_status[i] < 0) throw runtime_error("asd");
-    if(closed < 0) throw runtime_error("closed < 0");
+    if(open < 0) throw runtime_error("open < 0");
   }
 
   int highest = 0;
