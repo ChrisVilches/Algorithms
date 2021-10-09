@@ -107,16 +107,16 @@ int main(){
   for(int i=0; i<n; i++){
     set<Tile>& back_set = back.begin()->second;
     set<Tile>& front_set = front.begin()->second;
-    assertx(front_set.size() > 0);
-    assertx(back_set.size() > 0);
-    cerr << "-------------------- i = " << i << endl;
-    print_map(back);
-    print_map(front);
-    cerr << "Elements in back: ";
-    print_price_set(back_set);
-    cerr << "Elements in front: ";
-    print_price_set(front_set);
-    cerr << "--------------------" << endl;
+    //assertx(front_set.size() > 0);
+    //assertx(back_set.size() > 0);
+    //cerr << "-------------------- i = " << i << endl;
+    //print_map(back);
+    //print_map(front);
+    //cerr << "Elements in back: ";
+    //print_price_set(back_set);
+    //cerr << "Elements in front: ";
+    //print_price_set(front_set);
+    //cerr << "--------------------" << endl;
 
     //fprintf(stderr, "Prices back: %d, front: %d\n", back.begin()->first, front.begin()->first);
 
@@ -125,7 +125,7 @@ int main(){
     if(back_set.size() >= front_set.size()){
       // Add smallest item in back that's taller than the one in front
       add_to_front = front_set.begin();
-      assertx(add_to_front != front_set.end());
+      //assertx(add_to_front != front_set.end());
       add_to_back = back_set.upper_bound(*add_to_front);
 
       if(add_to_back != back_set.end()){
@@ -140,7 +140,7 @@ int main(){
     } else {
       // Add item closest to the one in back (i.e. tallest item possible that's smaller than the one in back)
       add_to_back = back_set.begin();
-      assertx(add_to_back != back_set.end());
+      //assertx(add_to_back != back_set.end());
       add_to_front = --front_set.lower_bound(*add_to_back);
 
       if(add_to_front != front_set.end() && add_to_front != front_set.begin()){
@@ -150,17 +150,9 @@ int main(){
           add_to_front--;
         }
       }
-
-      
     }
 
     if(add_to_back == back_set.end() || add_to_front == front_set.end()){
-      if(add_to_back == back_set.end()){
-        cerr << "add to back is end()" << endl;
-      } else {
-        cerr << "add to front is end()" << endl;
-      }
-
       cout << "impossible" << endl;
       return 0;
     }
@@ -172,7 +164,7 @@ int main(){
       return 0;
     }
 
-    assertx((*add_to_back).height > (*add_to_front).height);
+    //assertx((*add_to_back).height > (*add_to_front).height);
 
     back_result.push_back(*add_to_back);
     front_result.push_back(*add_to_front);
@@ -183,30 +175,30 @@ int main(){
     front_set.erase(add_to_front);
     int b2 = back_set.size();
     int f2 = front_set.size();
-    assertx(b1-1 == b2);
-    assertx(f1-1 == f2);
+    //assertx(b1-1 == b2);
+    //assertx(f1-1 == f2);
 
     if(back_set.size() == 0) back.erase(back.begin());
     if(front_set.size() == 0) front.erase(front.begin());
   }
-
+/*
   assertx(back.size() == 0);
   assertx(front.size() == 0);
   assertx(back_result.size() == n);
-  assertx(front_result.size() == n);
+  assertx(front_result.size() == n);*/
   
-  fprintf(stderr, "size of initial maps %ld %ld\n", back.size(), front.size());
-  fprintf(stderr, "size of back and front result vectors %ld %ld\n", back_result.size(), front_result.size());
+  //fprintf(stderr, "size of initial maps %ld %ld\n", back.size(), front.size());
+  //fprintf(stderr, "size of back and front result vectors %ld %ld\n", back_result.size(), front_result.size());
 
   for(int i=0; i<n; i++){
-    cout << back_result[i].id << " ";
+    printf("%d ", back_result[i].id);
   }
 
-  cout << endl;
+  printf("\n");
 
   for(int i=0; i<n; i++){
-    cout << front_result[i].id << " ";
+    printf("%d ", front_result[i].id);
   }
 
-  cout << endl;
+  printf("\n");
 }
