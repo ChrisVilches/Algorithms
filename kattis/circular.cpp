@@ -12,11 +12,13 @@ char c;
 int gen_status[MAX_N] = {0};
 int marker[MAX_N] = {0};
 int gen_type[MAX_N] = {0};
-int closed_values[MAX_N] = {0};
+int closed[MAX_N] = {0}; // Count how many genes are closed in each position (i.e. the Si -> Ei are balanced)
 
 int main(){
   cin >> n;
-  unordered_set<int> genes;
+  // Skip genes that are not balanced (i.e. "S" count is different from "E" count in the sequence)
+  unordered_set<int> balanced_genes;
+  unordered_set<int> open_genes;
 
   for(int i=0; i<n; i++){
     scanf(" %c%d ", &c, &num);
@@ -24,85 +26,49 @@ int main(){
     gen_type[i] = num;
   }
 
+  // Check which gene types are actually balanced. In the next loops, skip those that are not.
   for(int pos=0; pos<n; pos++){
     int i = gen_type[pos];
     int m = marker[pos];
-    if(m == S){
-      gen_status[i]++;
-    } else if(m == E) {
-      gen_status[i]--;
-    }
-  }
-  for(int pos=0; pos<n; pos++){
-    int i = gen_type[pos];
+    gen_status[i] += m == S ? 1 : -1;
     if(gen_status[i] == 0)
-      genes.insert(i);
+      balanced_genes.insert(i);
+    else
+      balanced_genes.erase(i);
   }
-  memset(gen_status, 0, sizeof gen_status);
 
-  //int open = 0;
-  unordered_set<int> open_genes;
-  for(int pos=0; pos<n; pos++){
-    int i = gen_type[pos];
-    int m = marker[pos];
-    if(genes.find(i) == genes.end()) continue;
+  int iter = 2;
 
-    if(m == S){
-      open_genes.insert(i);
-      if(gen_status[i] == 0){
+  while(iter--){
+    for(int pos=0; pos<n; pos++){
+      int i = gen_type[pos];
+      int m = marker[pos];
+      closed[pos] = balanced_genes.size() - open_genes.size();
+      if(balanced_genes.find(i) == balanced_genes.end()) continue;
+
+      if(m == S){
         open_genes.insert(i);
-      }
-      gen_status[i]++;
-    } else if(m == E) {
-      if(gen_status[i] > 0){
-        gen_status[i]--;
-        if(gen_status[i] == 0){
-          open_genes.erase(i);
-          if(genes.find(i) == genes.end()) throw runtime_error("woooo");
+        gen_status[i]++;
+      } else {
+        // In the first pass, some "end" values might not be associated with any "start".
+        // Therefore check first.
+        if(gen_status[i] > 0){
+          gen_status[i]--;
+          if(gen_status[i] == 0)
+            open_genes.erase(i);
         }
       }
     }
   }
 
-  for(int pos=0; pos<n; pos++){
-    int i = gen_type[pos];
-    int m = marker[pos];
-
-    closed_values[pos] = genes.size() - open_genes.size();
-    //if(gen_status[i] < 0) throw runtime_error("asd");
-    if(genes.find(i) == genes.end()) continue;
-
-    if(m == S){
-      open_genes.insert(i);
-      gen_status[i]++;
-      
-    } else if(m == E) {
-      if(gen_status[i] > 0){
-        gen_status[i]--;
-        if(gen_status[i] == 0){
-          open_genes.erase(i);
-          if(genes.find(i) == genes.end()) throw runtime_error("woooo");
-        }
-      }
-    }
-
-    //if(gen_status[i] < 0) throw runtime_error("asd");
-  }
-
-  int highest = 0;
-  int highest_pos = 0;
+  int highest = 0, highest_pos = 0;
 
   for(int pos=0; pos<n; pos++){
-    if(closed_values[pos] > highest){
-      highest = closed_values[pos];
+    if(closed[pos] > highest){
+      highest = closed[pos];
       highest_pos = pos;
     }
   }
-
-  // e1 s2 e2 s1 
-  // e1 s2 e2 s1 e1 s2 e2 s1 
-  //    |---|
-  //          |---|
 
   printf("%d %d\n", highest_pos+1, highest);
 }
