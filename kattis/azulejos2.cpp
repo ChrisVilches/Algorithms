@@ -4,12 +4,16 @@ using namespace std;
 
 struct Tile {
   int price, height, id;
+  bool operator ==(const Tile& t) const{
+    throw runtime_error("SHOULDNT HAPPEN Lol");
+    cout << "EXECUTING ==" << endl;
+    return id == t.id;
+  }
   bool operator <(const Tile& t) const{
-    if(height != t.height){
-      return height < t.height;
+    if(height == t.height){
+      return id < t.id;
     }
-
-    return id != t.id;
+    return height < t.height;
   }
 };
 
@@ -20,11 +24,11 @@ void read_tiles(map<int, set<Tile>> &row){
   for(int i=0; i<n; i++){
     Tile t;
     t.id = i + 1;
-    cin >> t.price;
+    scanf("%d", &t.price);
     tiles.push_back(t);
   }
   for(int i=0; i<n; i++){
-    cin >> tiles[i].height;
+    scanf("%d", &tiles[i].height);
     row[tiles[i].price].insert(tiles[i]);
   }
 }
@@ -62,7 +66,7 @@ int main(){
 
   read_tiles(back);
   read_tiles(front);
-
+/*
   set<int> s;
   s.insert(2);
   s.insert(5);
@@ -74,7 +78,7 @@ int main(){
   assertx(*s.upper_bound(5) == 7, "4");
   assertx(*s.upper_bound(7) == 8, "4");
   assertx(s.upper_bound(8) == s.end(), "5");
-
+*/
   set<Tile> ss;
   Tile t1;
   t1.id = 555;
@@ -85,74 +89,56 @@ int main(){
   t2.price = 123445;
   t2.height = 2000;
   Tile t3;
-  t2.id = 777;
-  t2.price = 6564645;
-  t2.height = 3000;
+  t3.id = 777;
+  t3.price = 6564645;
+  t3.height = 3000;
+  Tile t4;
+  t4.id = 444;
+  t4.price = 234;
+  t4.height = 500;
 
   ss.insert(t1);
   ss.insert(t2);
-  /*assertx((*ss.begin()).id == 555, "1");
-  assertx((*ss.lower_bound(t1)).id == 555, "2");
-  assertx((*ss.upper_bound(t1)).id == 666, "3"); // THIS ONE SHOULD BE THE NEXT ITEM OF t1!!!!!!!! WTF
-  assertx((*ss.lower_bound(t2)).id == 666, "4");
-  assertx(ss.upper_bound(t2) == ss.end(), "upper bound");
-  assertx(ss.lower_bound(t3) == ss.end(), string("lower bound no funciona como pensaba!?!?!?!?"));
-*/
-  //assertx(back[1].size() == 1, string("price 1 wrong set size"));
-  //assertx(back[2].size() == 2, string("price 2 wrong set size"));
-  //assertx(back[3].size() == 1, string("price 3 wrong set size"));
+ // cout << (*ss.lower_bound(t2)).id << endl;
+  assertx((*ss.find(t1)).id == 555, "4");
+  assertx((*ss.lower_bound(t2)).id == 666, "1");
+  assertx((ss.upper_bound(t2)) == ss.end(), "2");
+  assertx((ss.lower_bound(t3)) == ss.end(), "3");
+  assertx((ss.lower_bound(t4)) == ss.find(t1), "4");
+  assertx((ss.upper_bound(t4)) == ss.find(t1), "4");
 
   vector<Tile> back_result, front_result;
 
   for(int i=0; i<n; i++){
     set<Tile>& back_set = back.begin()->second;
     set<Tile>& front_set = front.begin()->second;
-    //assertx(front_set.size() > 0);
-    //assertx(back_set.size() > 0);
-    //cerr << "-------------------- i = " << i << endl;
-    //print_map(back);
-    //print_map(front);
-    //cerr << "Elements in back: ";
-    //print_price_set(back_set);
-    //cerr << "Elements in front: ";
-    //print_price_set(front_set);
-    //cerr << "--------------------" << endl;
-
-    //fprintf(stderr, "Prices back: %d, front: %d\n", back.begin()->first, front.begin()->first);
-
     set<Tile>::iterator add_to_back, add_to_front;
 
     if(back_set.size() >= front_set.size()){
-      // Add smallest item in back that's taller than the one in front
       add_to_front = front_set.begin();
-      //assertx(add_to_front != front_set.end());
       add_to_back = back_set.upper_bound(*add_to_front);
 
       if(add_to_back != back_set.end()){
-
         if((*add_to_back).height > (*add_to_front).height){
           // OK
         } else {
-          add_to_back++;
+          ++add_to_back;
         }
-
       }
     } else {
-      // Add item closest to the one in back (i.e. tallest item possible that's smaller than the one in back)
       add_to_back = back_set.begin();
-      //assertx(add_to_back != back_set.end());
-      add_to_front = --front_set.lower_bound(*add_to_back);
+      add_to_front = front_set.lower_bound(*add_to_back);
 
-      if(add_to_front != front_set.end() && add_to_front != front_set.begin()){
-        if((*add_to_back).height > (*add_to_front).height){
-          // OK
-        } else {
-          add_to_front--;
+      while(1){
+        if(add_to_front != front_set.end()){
+          if((*add_to_back).height > (*add_to_front).height) break;
         }
+        if(add_to_front == front_set.begin()) break;
+        --add_to_front;
       }
     }
 
-    if(add_to_back == back_set.end() || add_to_front == front_set.end()){
+    if((add_to_back == back_set.end()) || (add_to_front == front_set.end())){
       cout << "impossible" << endl;
       return 0;
     }
@@ -164,31 +150,19 @@ int main(){
       return 0;
     }
 
-    //assertx((*add_to_back).height > (*add_to_front).height);
-
     back_result.push_back(*add_to_back);
     front_result.push_back(*add_to_front);
 
-    int b1 = back_set.size();
-    int f1 = front_set.size();
+    //int b1 = back_set.size();
+    //int f1 = front_set.size();
     back_set.erase(add_to_back);
     front_set.erase(add_to_front);
-    int b2 = back_set.size();
-    int f2 = front_set.size();
-    //assertx(b1-1 == b2);
-    //assertx(f1-1 == f2);
+    //int b2 = back_set.size();
+    //int f2 = front_set.size();
 
     if(back_set.size() == 0) back.erase(back.begin());
     if(front_set.size() == 0) front.erase(front.begin());
   }
-/*
-  assertx(back.size() == 0);
-  assertx(front.size() == 0);
-  assertx(back_result.size() == n);
-  assertx(front_result.size() == n);*/
-  
-  //fprintf(stderr, "size of initial maps %ld %ld\n", back.size(), front.size());
-  //fprintf(stderr, "size of back and front result vectors %ld %ld\n", back_result.size(), front_result.size());
 
   for(int i=0; i<n; i++){
     printf("%d ", back_result[i].id);
