@@ -118,6 +118,14 @@ int main(){
       add_to_front = front_set.begin();
       add_to_back = back_set.upper_bound(*add_to_front);
 
+      while(1){
+        if(add_to_back != back_set.end()){
+          if((*add_to_back).height > (*add_to_front).height) break;
+        }
+        if(add_to_back == back_set.end()) break;
+        ++add_to_back;
+      }
+
       if(add_to_back != back_set.end()){
         if((*add_to_back).height > (*add_to_front).height){
           // OK
