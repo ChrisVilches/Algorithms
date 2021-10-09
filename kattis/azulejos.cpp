@@ -46,6 +46,8 @@ int main(){
       add_to_front = front_set.begin();
       add_to_back = back_set.upper_bound(*add_to_front);
 
+      // TODO: Why does upper_bound not find the value immediately? This shouldn't be necessary.
+      //       (Same for lower_bound below, only one decrement should be necessary).
       while(add_to_back != back_set.end()){
         if((*add_to_back).height > (*add_to_front).height) break;
         ++add_to_back;
