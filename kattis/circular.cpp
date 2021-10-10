@@ -12,7 +12,7 @@ char c;
 int gen_status[MAX_N] = {0};
 int marker[MAX_N] = {0};
 int gen_type[MAX_N] = {0};
-int closed[MAX_N] = {0}; // Count how many genes are closed in each position (i.e. the Si -> Ei are balanced)
+int closed[MAX_N] = {0}; // Count how many genes are closed at each position (i.e. the Si -> Ei are balanced)
 
 int main(){
   cin >> n;
