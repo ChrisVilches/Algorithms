@@ -331,6 +331,13 @@ double arc(p circle_center, p p1, p p2){
   return ret;
 }
 
+bool all_visited(int visited){
+  for(int i=0; i<N; i++){
+    if((visited & (1 << i)) == 0)
+      return false;
+  }
+  return true;
+}
 
 double path(int pole_id, p point_in_circle, double accum, int visited_poles){
   //printf("poleid %d, in circle point %f %f, accum %f\n", pole_id, point_in_circle.first, point_in_circle.second, accum);
@@ -338,34 +345,44 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
   pair<pair<p, p>, bool> res1 = valid_line_from_point_to_circle_border(goal, poles[pole_id], true, visited_poles);
   pair<pair<p, p>, bool> res2 = valid_line_from_point_to_circle_border(goal, poles[pole_id], false, visited_poles);
 
-  if(res1.second || res2.second){
-    pair<p, p> line = res1.second ? res1.first : res2.first;
-    p g = line.first;
-    p in_circle = line.second;
+  double ans = DBL_MAX;
 
-    if(g.first != goal.first || g.second != goal.second){
-      throw runtime_error("we are getting line from goal but the first point is not goal");
+  pair<pair<p, p>, bool> res_list[2] = {res1, res2};
+
+  if(res1.second || res2.second){
+    for(int X=0; X<2; X++){
+        if(!res_list[X].second) continue;
+        pair<p, p> line = res_list[X].first;
+        p g = line.first;
+        p in_circle = line.second;
+
+        if(g.first != goal.first || g.second != goal.second){
+          throw runtime_error("we are getting line from goal but the first point is not goal");
+        }
+
+        validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "when getting direct access to goal");
+        validate_point_belongs_to_circle(in_circle, poles[pole_id], "when getting direct access to goal");
+        double result = accum + arc(poles[pole_id], point_in_circle, in_circle) + dist(line);
+        if(result < ans) ans = result;
     }
 
-    validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "when getting direct access to goal");
-    validate_point_belongs_to_circle(in_circle, poles[pole_id], "when getting direct access to goal");
-    double ret = accum + arc(poles[pole_id], point_in_circle, in_circle) + dist(line);
-    //cout << "returning non zero value, ret: " << ret << endl;
-    return ret;
+    return ans;
   }
+
+  
 
   validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "first point in path");
 
   bool bools[2] = {false, true};
 
-  double ans = DBL_MAX;
+  
   for(int i=0; i<N; i++){
     if(i == pole_id) continue;
     if((visited_poles & (1 << i)) == 0){
       double new_visited_poles = visited_poles | (1 << i);
 
       for(int K=0; K<2; K++){
-        pair<pair<p,p>, bool> res = valid_tangent1_from_circle_to_circle(poles[pole_id], poles[i], bools[K], new_visited_poles);
+        pair<pair<p,p>, bool> res = valid_tangent1_from_circle_to_circle(poles[pole_id], poles[i], bools[K], 0 /* OR new_visited_poles */);
         if(res.second == true){
           pair<p,p> line = res.first;
           validate_point_belongs_to_circle(line.first, poles[pole_id], "first point from tangent");
@@ -374,7 +391,7 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
           if(result < ans) ans = result;
         }
 
-        res = valid_tangent2_from_circle_to_circle(poles[pole_id], poles[i], bools[K], new_visited_poles);
+        res = valid_tangent2_from_circle_to_circle(poles[pole_id], poles[i], bools[K], 0 /* OR new_visited_poles */);
         if(res.second == true){
           pair<p,p> line = res.first;
           validate_point_belongs_to_circle(line.first, poles[pole_id], "first point from tangent");
@@ -457,27 +474,17 @@ void solve(){
 
     int excepting = (1<<i);
 
-    pair<pair<p,p>,bool> res = valid_line_from_point_to_circle_border(make_pair(0,0), poles[i], false, excepting);
+    bool bools[2] = {false, true};
 
-    if(res.second){
-      pair<p,p> line = res.first;
-     // printf("obtained line is from %f %f to %f %f\n", line.first.first, line.first.second, line.second.first, line.second.second);
-      if(line.first.first != 0 || line.first.second != 0) throw runtime_error("first point of line (from robot) is not 0,0");
-      path1 = path(i, line.second, dist(line.first, line.second), pole);
+    for(int K=0; K<2; K++){
+      pair<pair<p,p>, bool> res = valid_line_from_point_to_circle_border(make_pair(0,0), poles[i], bools[K], excepting);
+      if(res.second){
+        pair<p,p> line = res.first;
+        if(line.first.first != 0 || line.first.second != 0) throw runtime_error("first point of line (from robot) is not 0,0");
+        double length = path(i, line.second, dist(line), pole);
+        if(length < ans) ans = length;
+      }
     }
-
-    res = valid_line_from_point_to_circle_border(make_pair(0,0), poles[i], true, excepting);
-
-    if(res.second){
-      pair<p,p> line = res.first;
-      //printf("obtained line is from %f %f to %f %f\n", line.first.first, line.first.second, line.second.first, line.second.second);
-      if(line.first.first != 0 || line.first.second != 0)  throw runtime_error("first point of line (from robot) is not 0,0");
-      path2 = path(i, line.second, dist(line.first, line.second), pole);
-    }
-
-    //ans = min(path1, path2);
-    if(path1 < ans) ans = path1;
-    if(path2 < ans) ans = path2;
   }
 
   if(ans == DBL_MAX){
