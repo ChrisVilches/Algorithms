@@ -149,9 +149,6 @@ p vector_diff(p v1, p v2){
   return make_pair(v1.first - v2.first, v1.second - v2.second);
 }
 
-
-
-
 bool line_intersects_any(p p1, p p2, int excepting){
   for(int i=0; i<N; i++){
     if((excepting & (1<<i)) > 0) continue;
@@ -350,6 +347,7 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
       throw runtime_error("we are getting line from goal but the first point is not goal");
     }
 
+    validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "when getting direct access to goal");
     validate_point_belongs_to_circle(in_circle, poles[pole_id], "when getting direct access to goal");
     double ret = accum + arc(poles[pole_id], point_in_circle, in_circle) + dist(line);
     //cout << "returning non zero value, ret: " << ret << endl;
@@ -358,15 +356,16 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
 
   validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "first point in path");
 
+  bool bools[2] = {false, true};
+
   double ans = DBL_MAX;
   for(int i=0; i<N; i++){
     if(i == pole_id) continue;
     if((visited_poles & (1 << i)) == 0){
       double new_visited_poles = visited_poles | (1 << i);
 
-      int iters = 2;
-      for(int K=0; K<iters; K++){
-        pair<pair<p,p>, bool> res = valid_tangent1_from_circle_to_circle(poles[pole_id], poles[i], K==0, new_visited_poles);
+      for(int K=0; K<2; K++){
+        pair<pair<p,p>, bool> res = valid_tangent1_from_circle_to_circle(poles[pole_id], poles[i], bools[K], new_visited_poles);
         if(res.second == true){
           pair<p,p> line = res.first;
           validate_point_belongs_to_circle(line.first, poles[pole_id], "first point from tangent");
@@ -374,10 +373,8 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
           double result = path(i, line.second, accum + arc(poles[pole_id], point_in_circle, line.first) + dist(line), new_visited_poles);
           if(result < ans) ans = result;
         }
-      }
 
-      for(int K=0; K<iters; K++){
-        pair<pair<p,p>, bool> res = valid_tangent2_from_circle_to_circle(poles[pole_id], poles[i], K==0, new_visited_poles);
+        res = valid_tangent2_from_circle_to_circle(poles[pole_id], poles[i], bools[K], new_visited_poles);
         if(res.second == true){
           pair<p,p> line = res.first;
           validate_point_belongs_to_circle(line.first, poles[pole_id], "first point from tangent");
@@ -434,14 +431,9 @@ pair<pair<p, p>, bool> valid_line_from_point_to_circle_border(p p1, p circle_cen
 }
 
 void solve(){
-  //goal.first += 1000;
-  //goal.second += 1000;
   for(int i=0; i<N; i++){
     double x, y;
     scanf("%le %le", &x, &y);
-    //x += 1000;
-    //y += 1000;
-
     poles[i] = make_pair(x, y);
   }
   bool intersection = false;
@@ -452,7 +444,7 @@ void solve(){
     }
   }
   if(!intersection){
-    printf("%f\n", dist(make_pair(0, 0), goal));
+    printf("%0.5f\n", dist(make_pair(0, 0), goal));
     return;
   }
 
@@ -491,7 +483,7 @@ void solve(){
   if(ans == DBL_MAX){
     printf("0.0\n");
   } else {
-    printf("%f\n", ans);
+    printf("%0.5f\n", ans);
   }
 }
 
@@ -578,6 +570,7 @@ void test_tangent2(){
     x = valid_tangent2_from_circle_to_circle(make_pair(20, 4), make_pair(1000, 34), bools[i], 0); expect(x.second, 23);
     x = valid_tangent2_from_circle_to_circle(make_pair(10, 0), make_pair(876, -40), bools[i], 0); expect(x.second, 23);
     x = valid_tangent2_from_circle_to_circle(make_pair(240, 4), make_pair(845, 0), bools[i], 0); expect(x.second, 23);
+    x = valid_tangent2_from_circle_to_circle(make_pair(845, 0), make_pair(240, 4), bools[i], 0); expect(x.second, 23);
     x = valid_tangent2_from_circle_to_circle(make_pair(-10, 0), make_pair(340, 25), bools[i], 0); expect(x.second, 23);
     x = valid_tangent2_from_circle_to_circle(make_pair(-240, 4), make_pair(500, 4), bools[i], 0); expect(x.second, 23);
   }
