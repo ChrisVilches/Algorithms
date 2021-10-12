@@ -238,20 +238,74 @@ double arc(p circle_center, p p1, p p2){
   return abs(angle * R);
 }
 
+bool onSegmentx(p pt, p q, p r){
+	if (q.first <= max(pt.first, r.first) && q.first >= min(pt.first, r.first) &&
+		q.second <= max(pt.second, r.second) && q.second >= min(pt.second, r.second))
+	return true;
+
+	return false;
+}
+int orientation(p pt, p q, p r){
+	double val = (q.second - pt.second) * (r.first - q.first) -
+			(q.first - pt.first) * (r.second - q.second);
+	if (val == 0) return 0;
+	return (val > 0)? 1: 2;
+}
+bool doIntersect(p p1, p q1, p p2, p q2){
+	int o1 = orientation(p1, q1, p2);
+	int o2 = orientation(p1, q1, q2);
+	int o3 = orientation(p2, q2, p1);
+	int o4 = orientation(p2, q2, q1);
+	if (o1 != o2 && o3 != o4)
+		return true;
+	if (o1 == 0 && onSegmentx(p1, p2, q1)) return true;
+	if (o2 == 0 && onSegmentx(p1, q2, q1)) return true;
+	if (o3 == 0 && onSegmentx(p2, p1, q2)) return true;
+	if (o4 == 0 && onSegmentx(p2, q1, q2)) return true;
+	return false;
+}
+
+void print_line(pair<p,p> line){
+  fprintf(stderr, "Line: (%f, %f) ---> (%f, %f)\n", line.first.first, line.first.second, line.second.first, line.second.second);
+}
+
 double arc_fixed(p cp, pair<p,p> line1, pair<p,p> line2){
   double original_arc = abs(arc(cp, line1.second, line2.first));
   double ang = angle_between_vectors(line1, line2);
 
   double other = (2*PI*R) - original_arc;
 
-  return min(original_arc, other);
+  double magnitude = dist(line1);
+  p vec = vector_diff(line1.second, line1.first);
+  p perpend = make_pair((R/2) * vec.second/magnitude, -(R/2) * vec.first/magnitude);
+  pair<p,p> middle;
+
+  middle.first.first = line1.first.first + perpend.first;
+  middle.first.second = line1.first.second + perpend.second;
+  middle.second.first = line1.second.first + perpend.first;
+  middle.second.second = line1.second.second + perpend.second;
+  //print_line(make_pair(line1.second, perpend));
+
+  if(doIntersect(middle.first, middle.second, line1.second, line2.first)){
+    return other;
+  }
+
+  middle.first.first = line1.first.first - perpend.first;
+  middle.first.second = line1.first.second - perpend.second;
+  middle.second.first = line1.second.first - perpend.first;
+  middle.second.second = line1.second.second - perpend.second;
+  //print_line(make_pair(line1.second, perpend));
+
+  if(doIntersect(middle.first, middle.second, line1.second, line2.first)){
+    return other;
+  }
+  
+  return original_arc;
+  
 }
 
 double ans = DBL_MAX;
 
-void print_line(pair<p,p> line){
-  fprintf(stderr, "Line: (%f, %f) ---> (%f, %f)\n", line.first.first, line.first.second, line.second.first, line.second.second);
-}
 
 double path(int pole_id, p point_in_circle, double accum, int visited_poles, pair<p,p> incoming_line){
   pair<pair<p, p>, bool> res1 = valid_line_from_point_to_circle_border(goal, poles[pole_id], false, visited_poles);
