@@ -354,14 +354,14 @@ vector<int> best_path_idx;
 double ans = DBL_MAX;
 
 double angle_between_vectors(p v1, p v2){
-  double x1 = v2.first;
+  double x1 = v2.first;//refactor names lol
   double y1 = v2.second;
   double x2 = v1.first;
   double y2 = v1.second;
   return atan2((x1*y2)-(y1*x2), (x1*x2)+(y1*y2));
-  double top = (v1.first * v2.first) + (v1.second * v2.second);
+  /*double top = (v1.first * v2.first) + (v1.second * v2.second);
   double bottom = dist(v1) * dist(v2);
-  return acos(top/bottom);
+  return acos(top/bottom);*/
 }
 
 double path(int pole_id, p point_in_circle, double accum, int visited_poles, pair<p,p> incoming_line){
@@ -545,32 +545,16 @@ void solve(){
 
     for(int K=0; K<2; K++){
       bool b = bools[K];
-
       pair<pair<p,p>, bool> res = valid_line_from_point_to_circle_border(make_pair(0,0), poles[i], b, 0);
-
 
       if(res.second){
         pair<p,p> line = res.first;
-        if(i == 5 && b){
-          //printf("Line from (0,0) to pole 5: ");
-          //print_line(res.first);
-          if(line_intersects_any(line.first, line.second, 0)){
-            cout << "wtf" << endl;
-          }
-        }
-
-              
-        //fprintf(stderr, "Trying line (valid: %d): ", 1);
-        //print_line(line);
-        //fprintf(stderr, "\n");
-        
         curr_path.push_back(line);
         curr_path_idx.push_back(i);
         double length = path(i, line.second, dist(line), excepting, line);
         curr_path.pop_back();
         curr_path_idx.pop_back();
         if(length < ans) ans = length;
-        //cerr << "backtrack" << endl;
       }
     }
   }
