@@ -353,30 +353,26 @@ vector<int> best_path_idx;
 
 double ans = DBL_MAX;
 
-double path(int pole_id, p point_in_circle, double accum, int visited_poles){
+double angle_between_vectors(p v1, p v2){
+  double x1 = v2.first;
+  double y1 = v2.second;
+  double x2 = v1.first;
+  double y2 = v1.second;
+  return atan2((x1*y2)-(y1*x2), (x1*x2)+(y1*y2));
+  double top = (v1.first * v2.first) + (v1.second * v2.second);
+  double bottom = dist(v1) * dist(v2);
+  return acos(top/bottom);
+}
+
+double path(int pole_id, p point_in_circle, double accum, int visited_poles, pair<p,p> incoming_line){
   pair<pair<p, p>, bool> res1 = valid_line_from_point_to_circle_border(goal, poles[pole_id], false, visited_poles);
   pair<pair<p, p>, bool> res2 = valid_line_from_point_to_circle_border(goal, poles[pole_id], true, visited_poles);
   if(accum > ans) return accum;
   vector<pair<p, p>> res;
-  if(res1.second) {
-    auto line = res1.first;
-    auto line_vec = vector_diff(line.second, line.first);
-    double first_angle = acos((poles[pole_id].first - point_in_circle.first)/R);
-    double second_angle = acos(line_vec.first/dist(line_vec));
-
-    //if(first_angle < second_angle)
-    res.push_back(res1.first);
-  }
-  if(res2.second){
-    auto line = res2.first;
-    auto line_vec = vector_diff(line.second , line.first);
-    double first_angle = acos((poles[pole_id].first - point_in_circle.first)/R);
-    double second_angle = acos(line_vec.second/dist(line_vec));
-
-    //if(first_angle < second_angle)
-    res.push_back(res2.first);
-  }
+  if(res1.second) res.push_back(res1.first);
+  if(res2.second) res.push_back(res2.first);
   bool bad = false;
+  expect(res.size() <= 2, 3);
 
   for(int i=0; i<res.size(); i++){
     pair<p, p> line = res[i];
@@ -390,30 +386,27 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
     validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "when getting direct access to goal");
     validate_point_belongs_to_circle(in_circle, poles[pole_id], "when getting direct access to goal");
     double result = accum + arc(poles[pole_id], point_in_circle, in_circle) + dist(line);
-
-
     
-    double first_angle = acos((poles[i].first - point_in_circle.first)/R);
-    double third_angle = acos((poles[i].first - in_circle.first)/R);
-
+    p one = vector_diff(point_in_circle, poles[i]);
+    p third = vector_diff(in_circle, poles[i]);
 
     for(int j=0; j<N; j++){
       if(i == j) continue;
       if(dist(vector_diff(poles[j], poles[i])) < R*2){
-
-        // this doesnt change anything. maybe bugged.
-        double mid = acos(vector_diff(poles[i], poles[j]).first / dist(poles[i], poles[j]));
-        if(first_angle < mid && mid < third_angle){
-          //cout << "HAHAHAHA";
+        p two = vector_diff(poles[j], poles[i]);
+        if(angle_between_vectors(one, two) <= angle_between_vectors(one, third)){
           bad = true;
           break;
         }
       }
     }
 
-    if(!bad && result < ans) ans = result;
+    if(!bad && result < ans) {
+      ans = result;
+    }
   }
-  
+
+  /*
   if(!bad && !res.empty()){
 
     best_path = curr_path;
@@ -425,19 +418,12 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
       xx.first = temp;
       best_path.push_back(xx);
     }
-    //cerr << "res is not empty (direct paths from some circle), lines:" << endl;
     for(int z=0; z<res.size(); z++){
-     // if(res[z].second){
-        //cerr << "this line is direct from circle to goal: "<<endl;
-        pair<p,p> pair;
-        pair.first = res[z].second;
-        pair.second = res[z].first;
-        //print_line(pair);
-      //}
+      pair<p,p> pair;
+      pair.first = res[z].second;
+      pair.second = res[z].first;
     }
-    //fprintf(stderr,"Im going to return ans and the incoming point was %f, %f\n", point_in_circle.first, point_in_circle.second);
-    //return ans;
-  }
+  }*/
 
   validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "first point in path");
 
@@ -450,9 +436,6 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
     for(int b=0; b<2; b++){
       auto res1 = valid_tangent1_from_circle_to_circle(poles[pole_id], poles[i], bools[b], new_visited_poles /* OR new_visited_poles */);
       auto res2 = valid_tangent2_from_circle_to_circle(poles[pole_id], poles[i], bools[b], new_visited_poles /* OR new_visited_poles */);
-      
-     // fprintf(stderr, "*validating line (valid: %d): ", res1.second); print_line(res1.first);
-      //fprintf(stderr, "*validating line (valid: %d): ", res2.second); print_line(res2.first);
       if(res1.second) lines.push_back(res1.first);
       if(res2.second) lines.push_back(res2.first);
     }
@@ -460,22 +443,16 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
     for(auto line : lines){
       validate_point_belongs_to_circle(line.first, poles[pole_id], "first point from tangent");
       validate_point_belongs_to_circle(line.second, poles[i], "second point from tangent");
-      
-
-      // Does the exiting tangent (and the initial point) intersect with any circle that's inside this circle?
       bool bad = false;
-      
-      double first_angle = acos((poles[i].first - point_in_circle.first)/R);
-      double third_angle = acos((poles[i].first - line.first.first)/R);
+
+      p one = vector_diff(point_in_circle, poles[i]);
+      p third = vector_diff(line.first, poles[i]);
 
       for(int j=0; j<N; j++){
         if(i == j) continue;
         if(dist(vector_diff(poles[j], poles[i])) < R*2){
-
-          // this doesnt change anything. maybe bugged.
-          double mid = acos(vector_diff(poles[i], poles[j]).first / dist(poles[i], poles[j]));
-          if(first_angle < mid && mid < third_angle){
-            //cout << "HAHAHAHA";
+          p two = vector_diff(poles[j], poles[i]);
+          if(angle_between_vectors(one, two) <= angle_between_vectors(one, third)){
             bad = true;
             break;
           }
@@ -485,11 +462,7 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
 
       curr_path.push_back(line);
       curr_path_idx.push_back(i);
-      //fprintf(stderr, "*Trying line (valid: %d): ", 1);
-      //print_line(line);
-      //fprintf(stderr, "\n");
-      double result = path(i, line.second, accum + arc(poles[pole_id], point_in_circle, line.first) + dist(line), new_visited_poles);
-      //cerr << "backtrack" << endl;
+      double result = path(i, line.second, accum + arc(poles[pole_id], point_in_circle, line.first) + dist(line), new_visited_poles, line);
       curr_path.pop_back();
       curr_path_idx.pop_back();
       if(result < ans) ans = result;
@@ -593,7 +566,7 @@ void solve(){
         
         curr_path.push_back(line);
         curr_path_idx.push_back(i);
-        double length = path(i, line.second, dist(line), excepting);
+        double length = path(i, line.second, dist(line), excepting, line);
         curr_path.pop_back();
         curr_path_idx.pop_back();
         if(length < ans) ans = length;
@@ -705,21 +678,6 @@ void test_tangent2(){
     x = valid_tangent2_from_circle_to_circle(make_pair(-10, 0), make_pair(340, 25), bools[i], 0); expect(x.second, 23);
     x = valid_tangent2_from_circle_to_circle(make_pair(-240, 4), make_pair(500, 4), bools[i], 0); expect(x.second, 23);
   }
-  
-  
-
-  /*
-  line = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(200, 0), true, 0);
-  print_line(line.first);
-  expect(line_eq(line.first, make_pair(make_pair(100, 0), make_pair(100, 0))), 1010);
-  line = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(200, 0), false, 0);
-  print_line(line.first);
-  expect(line_eq(line.first, make_pair(make_pair(100, 0), make_pair(100, 0))), 111);
-
-  
-  line = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(1000, 0), false, 0);
-  print_line(line.first);
-  expect(line_eq(line.first, make_pair(make_pair(100, 0), make_pair(100, 0))), 222);*/
 
   line = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(200, 0), true, 0);
   line = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(500, 0), true, 0);
