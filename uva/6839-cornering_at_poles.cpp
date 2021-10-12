@@ -14,8 +14,6 @@ double sq(double x) {
     return x * x;
 }
 
-void validate_point_belongs_to_circle(p point_in_circle, p circle_center, string msg);
-void validate_point_belongs_to_circle(p point_in_circle, p circle_center);
 pair<pair<p,p>,bool> valid_line_from_point_to_circle_border(p p1, p circle_center, bool which, int excepting);
 constexpr auto eps = 1e-14;
 
@@ -27,29 +25,6 @@ double dist(p p1, p p2){
   return sqrt((a*a) + (b*b));
 }
 
-void expect(bool assertion, int id){
-  if(!assertion){
-    string msg;
-    msg = "Failed: " + to_string(id);
-    cout << msg << endl;
-    //throw runtime_error(msg);
-  }
-}
-bool err_eq(double a, double b){
-  return abs(a - b) < 0.000000001;
-}
-
-double tang2_length(double circle_dist){
-  double half_dist = (circle_dist/2);
-  return 2 * sqrt((half_dist * half_dist) - (R * R));
-}
-bool line_eq(pair<p, p> line1, pair<p, p> line2){
-  bool a = err_eq(line1.first.first , line2.first.first);
-  bool b = err_eq(line1.first.second , line2.first.second);
-  bool c = err_eq(line1.second.first , line2.second.first);
-  bool d = err_eq(line1.second.second , line2.second.second);
-  return a && b && c && d;
-}
 
 double dist(double px, double py, double x1, double y1){
   return dist(make_pair(px, py), make_pair(x1, y1));
@@ -144,10 +119,6 @@ bool intersects(p p1, p p2, p cp){
   return intersects(p1.first, p1.second, p2.first, p2.second, cp.first, cp.second);
 }
 
-void print_line(pair<p, p> line){
-  fprintf(stderr, "Line: %f, %f --> %f, %f\n", line.first.first, line.first.second, line.second.first, line.second.second);
-}
-
 p vector_diff(p v1, p v2){
   return make_pair(v1.first - v2.first, v1.second - v2.second);
 }
@@ -165,20 +136,6 @@ bool line_intersects_any(p p1, p p2, int excepting){
 bool line_intersects_any(p p1, p p2){
   return line_intersects_any(p1, p2, 0);
 }
-void validate_point_belongs_to_circle(p point_in_circle, p circle_center, string msg){ // R always the same
-  if(abs(dist(point_in_circle, circle_center) - 100) > 0.00000001){
-    printf("Dist (validate point belongs to circle) diff with 100 %f: %f\n",abs(dist(point_in_circle, circle_center) - 100),dist(point_in_circle, circle_center));
-    if(msg.size() > 0){
-      cout << msg << endl;
-    }
-    throw runtime_error("");
-  }
-}
-
-void validate_point_belongs_to_circle(p point_in_circle, p circle_center){
-  validate_point_belongs_to_circle(point_in_circle, circle_center, string(""));
-}
-
 
 // The simple tangent calculated by moving the origin->origin distance vector
 pair<pair<p, p>, bool> valid_tangent1_from_circle_to_circle(p circle1, p circle2, bool which, int excepting){
@@ -186,10 +143,6 @@ pair<pair<p, p>, bool> valid_tangent1_from_circle_to_circle(p circle1, p circle2
 
   double modulo = dist(dist_vect);
   p norm = make_pair(dist_vect.first/modulo, dist_vect.second/modulo);
-
-  if(abs(dist(norm) - 1) > 0.000000001){
-    throw runtime_error("normalized vector does not have modulo 1");
-  }
 
   p orig1 = circle1;
   p orig2 = circle2;
@@ -210,9 +163,6 @@ pair<pair<p, p>, bool> valid_tangent1_from_circle_to_circle(p circle1, p circle2
     pair<p, p> empty_line = make_pair(zero, zero);
     return make_pair(empty_line, false);
   }
-
-  validate_point_belongs_to_circle(circle1, orig1, "tangent getter");
-  validate_point_belongs_to_circle(circle2, orig2, "tangent getter");
 
   return make_pair(make_pair(circle1, circle2), true);
 }
@@ -237,22 +187,12 @@ pair<pair<p, p>, bool> valid_tangent2_from_circle_to_circle(p circle1, p circle2
   double modulo = dist(dist_vect);
   p norm = make_pair(dist_vect.first/modulo, dist_vect.second/modulo);
 
-  if(abs(dist(norm) - 1) > 0.000000001){
-    throw runtime_error("normalized vector does not have modulo 1");
-  }
-
   p norm1 = norm;
   p norm2 = norm;
-
-  if(abs(dist(norm1) - 1) > 0.000000001) throw runtime_error("normalized vector does not have modulo 1");
-  if(abs(dist(norm2) - 1) > 0.000000001) throw runtime_error("normalized vector does not have modulo 1");
-
 
   if(which){
     norm1 = rotate_by_angle(norm1, angle);
     norm2 = rotate_by_angle(norm2, angle);
-    //printf("norm1 vector %f %f\n", norm1.first, norm1.second);
-    //printf("norm2 vector %f %f\n", norm2.first, norm2.second);
     circle1.first += norm1.first * R;
     circle1.second += norm1.second * R;
     circle2.first -= norm2.first * R;
@@ -260,20 +200,10 @@ pair<pair<p, p>, bool> valid_tangent2_from_circle_to_circle(p circle1, p circle2
   } else {
     norm1 = rotate_by_angle(norm1, -angle);
     norm2 = rotate_by_angle(norm2, -angle);
-    //printf("norm1 vector %f %f\n", norm1.first, norm1.second);
-    //printf("norm2 vector %f %f\n", norm2.first, norm2.second);
     circle1.first += norm1.first * R;
     circle1.second += norm1.second * R;
     circle2.first -= norm2.first * R;
     circle2.second -= norm2.second * R;
-  }
-
-  // line intersects any circle?
-  if(intersects(circle1, circle2, orig1)){
-    cout << "intersects with circle 1" << endl;
-  }
-  if(intersects(circle1, circle2, orig2)){
-    cout << "intersects with circle 2" << endl;
   }
 
   if(line_intersects_any(circle1, circle2, excepting)){
@@ -282,31 +212,23 @@ pair<pair<p, p>, bool> valid_tangent2_from_circle_to_circle(p circle1, p circle2
     return make_pair(empty_line, false);
   }
 
-  validate_point_belongs_to_circle(circle1, orig1, "tangent getter");
-  validate_point_belongs_to_circle(circle2, orig2, "tangent getter");
-
-  expect(err_eq(dist(make_pair(circle1, circle2)), tang2_length(dist(orig1, orig2))), 67899876);
-  
-
-  double dist_tang = dist(make_pair(circle1, circle2));
-  double dist_circle_center = tang2_length(dist(orig1, orig2));
-
-
-  if(!err_eq(dist_tang, dist_circle_center)){
-    printf("Tan len: %f, dist: %f. Circles (%f, %f) & (%f, %f). Tan from (%f, %f) -> (%f, %f)\n", 
-      dist_tang, dist_circle_center, orig1.first, orig1.second, orig2.first, orig2.second, 
-      circle1.first, circle1.second, circle2.first, circle2.second);
-    p zero = make_pair(0, 0);
-    pair<p, p> empty_line = make_pair(zero, zero);
-    return make_pair(empty_line, false);
-  }
   return make_pair(make_pair(circle1, circle2), true);
 }
 
+double angle_between_vectors(p v1, p v2){
+  double x1 = v2.first;//refactor names lol
+  double y1 = v2.second;
+  double x2 = v1.first;
+  double y2 = v1.second;
+
+  return atan2((x1*y2)-(y1*x2), (x1*x2)+(y1*y2));
+}
 
 double arc(p circle_center, p p1, p p2){
-  validate_point_belongs_to_circle(p1, circle_center, "arc");
-  validate_point_belongs_to_circle(p2, circle_center, "arc");
+
+  double haha = angle_between_vectors(vector_diff(p1, circle_center), vector_diff(p2, circle_center)) * R;
+
+  return abs(haha);
 
   double dx = circle_center.first - p1.first;
   double first = acos(dx/R);
@@ -323,7 +245,8 @@ double arc(p circle_center, p p1, p p2){
   angle_diff = acos((xa * xb + ya * yb) / (sqrt(pow(xa, 2) + pow(ya, 2)) * sqrt(pow(xb, 2) + pow(yb, 2))));
 
   //printf("Angles %f , %f, diff %f\n", first, second, angle_diff);
-  double arc_val = abs(angle_diff * R);
+  double arc_val = angle_diff * R;
+  return arc_val;
   const double total = 2 * PI * R;
   double diff_arc = total - arc_val;
   double ret = min(arc_val, diff_arc);
@@ -337,31 +260,10 @@ double arc(p circle_center, p p1, p p2){
   return ret;
 }
 
-bool all_visited(int visited){
-  for(int i=0; i<N; i++){
-    if((visited & (1 << i)) == 0)
-      return false;
-  }
-  return true;
-}
-
-vector<pair<p,p>> curr_path;
-vector<pair<p,p>> best_path;
-
-vector<int> curr_path_idx;
-vector<int> best_path_idx;
-
 double ans = DBL_MAX;
 
-double angle_between_vectors(p v1, p v2){
-  double x1 = v2.first;//refactor names lol
-  double y1 = v2.second;
-  double x2 = v1.first;
-  double y2 = v1.second;
-  return atan2((x1*y2)-(y1*x2), (x1*x2)+(y1*y2));
-  /*double top = (v1.first * v2.first) + (v1.second * v2.second);
-  double bottom = dist(v1) * dist(v2);
-  return acos(top/bottom);*/
+void print_line(pair<p,p> line){
+  fprintf(stderr, "Line: (%f, %f) ---> (%f, %f)\n", line.first.first, line.first.second, line.second.first, line.second.second);
 }
 
 double path(int pole_id, p point_in_circle, double accum, int visited_poles, pair<p,p> incoming_line){
@@ -372,7 +274,6 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles, pai
   if(res1.second) res.push_back(res1.first);
   if(res2.second) res.push_back(res2.first);
   bool bad = false;
-  expect(res.size() <= 2, 3);
 
   for(int i=0; i<res.size(); i++){
     pair<p, p> line = res[i];
@@ -383,10 +284,11 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles, pai
       throw runtime_error("we are getting line from goal but the first point is not goal");
     }
 
-    validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "when getting direct access to goal");
-    validate_point_belongs_to_circle(in_circle, poles[pole_id], "when getting direct access to goal");
-    double result = accum + arc(poles[pole_id], point_in_circle, in_circle) + dist(line);
+    double arc_dist = arc(poles[pole_id], point_in_circle, in_circle);
+    //arc_dist = (PI * R) - arc_dist; // YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO THIS WORKS!!!!!!!!!!!!!!!!!!
     
+    double result = accum + arc_dist + dist(line);
+
     p one = vector_diff(point_in_circle, poles[i]);
     p third = vector_diff(in_circle, poles[i]);
 
@@ -400,32 +302,19 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles, pai
         }
       }
     }
+/*
+    fprintf(stderr, "Lines (GOOD=%d), incoming line (arc here), tangent leaving the circle towards goal:\n", !bad);
+    print_line(incoming_line);
+    pair<p,p> gl;
+    gl.first = line.second;
+    gl.second = line.first;
+    print_line(gl);
+    fprintf(stderr, "Accum length of this route: %f\n\n", result);*/
 
-    if(!bad && result < ans) {
+    if((arc_dist >= 0) && !bad && result < ans) {
       ans = result;
     }
   }
-
-  /*
-  if(!bad && !res.empty()){
-
-    best_path = curr_path;
-    best_path_idx = curr_path_idx;
-    if(res.size() > 0){
-      auto xx = res[1];
-      auto temp = xx.second;
-      xx.second = xx.first;
-      xx.first = temp;
-      best_path.push_back(xx);
-    }
-    for(int z=0; z<res.size(); z++){
-      pair<p,p> pair;
-      pair.first = res[z].second;
-      pair.second = res[z].first;
-    }
-  }*/
-
-  validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "first point in path");
 
   for(int i=0; i<N; i++){
     if((visited_poles & (1 << i)) != 0) continue;
@@ -441,8 +330,6 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles, pai
     }
 
     for(auto line : lines){
-      validate_point_belongs_to_circle(line.first, poles[pole_id], "first point from tangent");
-      validate_point_belongs_to_circle(line.second, poles[i], "second point from tangent");
       bool bad = false;
 
       p one = vector_diff(point_in_circle, poles[i]);
@@ -460,12 +347,11 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles, pai
       }
       if(bad) continue;
 
-      curr_path.push_back(line);
-      curr_path_idx.push_back(i);
-      double result = path(i, line.second, accum + arc(poles[pole_id], point_in_circle, line.first) + dist(line), new_visited_poles, line);
-      curr_path.pop_back();
-      curr_path_idx.pop_back();
-      if(result < ans) ans = result;
+      double arc_dist = arc(poles[pole_id], point_in_circle, line.first);
+      if(arc_dist >= 0){
+        double result = path(i, line.second, accum + arc_dist + dist(line), new_visited_poles, line);
+        if(result < ans) ans = result;
+      }
     }
   }
 
@@ -501,9 +387,6 @@ pair<pair<p, p>, bool> valid_line_from_point_to_circle_border(p p1, p circle_cen
   tangent = make_pair(tangent.first + p1.first, tangent.second + p1.second);
 
   p target_point = tangent;
-
-  validate_point_belongs_to_circle(target_point, circle_center, "haha");
-  //if(target_point.first == 0 && target_point.second == 0) throw runtime_error("first point of line (from robot) is not 0,0");
 
   bool bad = false;
 
@@ -549,26 +432,11 @@ void solve(){
 
       if(res.second){
         pair<p,p> line = res.first;
-        curr_path.push_back(line);
-        curr_path_idx.push_back(i);
         double length = path(i, line.second, dist(line), excepting, line);
-        curr_path.pop_back();
-        curr_path_idx.pop_back();
         if(length < ans) ans = length;
       }
     }
   }
-
-  cerr << "path:" << endl;
-  for(auto line : best_path){
-    print_line(line);
-  }
-
-  cerr << endl;
-  cerr << "path (POLE ID):" << endl;
-  for(int pole_id : best_path_idx){
-    cerr << pole_id << " ";
-  }cerr << endl;
 
   if(ans == DBL_MAX){
     printf("0.0\n");
@@ -577,153 +445,7 @@ void solve(){
   }
 }
 
-
-void test_intersects(){
-  expect(!intersects(make_pair(-50, 100), make_pair(50, 100), make_pair(0, 0)), 0);
-  expect(intersects(make_pair(-50, 100), make_pair(50, 99.9999999), make_pair(0, 0)), 0);
-  expect(intersects(make_pair(-5, 5), make_pair(5, -5), make_pair(0, 0)), 0);
-  expect(intersects(make_pair(-50, 95), make_pair(50, 95), make_pair(0, 0)), 0);
-  expect(intersects(make_pair(-50, -100), make_pair(50, -99.9999999), make_pair(0, 0)), 0);
-  expect(!intersects(make_pair(-50, -100), make_pair(50, -100), make_pair(0, 0)), 0);
-  expect(!intersects(make_pair(0, 101), make_pair(3, 150), make_pair(0, 0)), 100);
-  expect(!intersects(make_pair(3, 150), make_pair(0, 101), make_pair(0, 0)), -100);
-  expect(!intersects(make_pair(0, 101), make_pair(3, 150), make_pair(0, 0)), 101);
-  expect(intersects(make_pair(0, 150), make_pair(0, 99.99999999), make_pair(0, 0)), 1022);
-  expect(!intersects(make_pair(0, 150), make_pair(0, 100.000001), make_pair(0, 0)), 1022);
-  expect(!intersects(make_pair(0, 150), make_pair(0, 100), make_pair(0, 0)), 102);
-  expect(!intersects(make_pair(0, 150), make_pair(0, 100.00001), make_pair(0, 0)), 1023);
-  expect(intersects(make_pair(0, 150), make_pair(0, 99.99999999), make_pair(0, 0)), 103);
-  expect(intersects(make_pair(0, 99.99999999), make_pair(0, 150), make_pair(0, 0)), 104);
-  expect(!intersects(make_pair(0, 100), make_pair(0, 150), make_pair(0, 0)), 105);
-  expect(intersects(make_pair(0, 99.99999999), make_pair(0, 150), make_pair(0, 0)), 106);
-  expect(intersects(make_pair(0, 0), make_pair(0, 150), make_pair(0, 0)), 106);
-  expect(intersects(make_pair(-15000, 0), make_pair(0, 0), make_pair(0, 0)), 106);
-  expect(intersects(make_pair(0, 0), make_pair(0, 0), make_pair(0, 0)), 106);
-  expect(!intersects(make_pair(0, 99.999999999), make_pair(0, 150), make_pair(0, 0)), 107); // Does not intersect, because of error.
-}
-
-
-
-void test_tangent1(){
-  auto line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(0, 200), true, 0);
-  expect(line_eq(line.first, make_pair(make_pair(-100, 0), make_pair(-100, 200))), 0);
-
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(0, 200), false, 0);
-  expect(line_eq(line.first, make_pair(make_pair(100, 0), make_pair(100, 200))), 1);
-
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(200, 0), true, 0);
-  expect(line_eq(line.first, make_pair(make_pair(0, 100), make_pair(200, 100))), 2);
-
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(200, 0), false, 0);
-  expect(line_eq(line.first, make_pair(make_pair(0, -100), make_pair(200, -100))), 3);
-
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(0, -200), true, 0);
-  expect(line_eq(line.first, make_pair(make_pair(100, 0), make_pair(100, -200))), 4);
-
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(0, -200), false, 0);
-  expect(line_eq(line.first, make_pair(make_pair(-100, 0), make_pair(-100, -200))), 5);
-
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(-200, 0), true, 0);
-  expect(line_eq(line.first, make_pair(make_pair(0, -100), make_pair(-200, -100))), 6);
-
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(-200, 0), false, 0);
-  expect(line_eq(line.first, make_pair(make_pair(0, 100), make_pair(-200, 100))), 7);
-
-  double n = R * cos(PI/4);
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(200, 200), true, 0);
-  expect(line_eq(line.first, make_pair(make_pair(-n, n), make_pair(200-n, 200+n))), 8);
-
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(500, 500), false, 0);
-  expect(line_eq(line.first, make_pair(make_pair(n, -n), make_pair(500+n, 500-n))), 9);
-
-  line = valid_tangent1_from_circle_to_circle(make_pair(0, 0), make_pair(50, 50), false, 0); // Circle inside another one (OK)
-  expect(line_eq(line.first, make_pair(make_pair(n, -n), make_pair(50+n, 50-n))), 10);
-}
-
-
-void test_tangent2(){
-  // Test using the internal validator:
-  pair<pair<p,p>, bool> line;
-  pair<p,p> l1 = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(1000, 0), false, 0).first;
-  pair<p,p> l2 = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(1000, 0), true, 0).first;
-  // Check the two tangents are not same
-  expect(l1.first != l2.first, 0);
-  expect(l1.second != l2.second, 1);
-  for(int i=0; i<2; i++){
-    auto x = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(1000, 0), bools[i], 0); expect(x.second, 23); // ALL VALID
-    x = valid_tangent2_from_circle_to_circle(make_pair(2, 5), make_pair(1000, 0), bools[i], 0); expect(x.second, 23);
-    x = valid_tangent2_from_circle_to_circle(make_pair(-30, 40), make_pair(1000, 0), bools[i], 0); expect(x.second, 23);
-    x = valid_tangent2_from_circle_to_circle(make_pair(230, 45), make_pair(879, -40), bools[i], 0); expect(x.second, 23);
-    x = valid_tangent2_from_circle_to_circle(make_pair(10, 0), make_pair(1000, 2), bools[i], 0); expect(x.second, 23);
-    x = valid_tangent2_from_circle_to_circle(make_pair(20, 4), make_pair(1000, 34), bools[i], 0); expect(x.second, 23);
-    x = valid_tangent2_from_circle_to_circle(make_pair(10, 0), make_pair(876, -40), bools[i], 0); expect(x.second, 23);
-    x = valid_tangent2_from_circle_to_circle(make_pair(240, 4), make_pair(845, 0), bools[i], 0); expect(x.second, 23);
-    x = valid_tangent2_from_circle_to_circle(make_pair(845, 0), make_pair(240, 4), bools[i], 0); expect(x.second, 23);
-    x = valid_tangent2_from_circle_to_circle(make_pair(-10, 0), make_pair(340, 25), bools[i], 0); expect(x.second, 23);
-    x = valid_tangent2_from_circle_to_circle(make_pair(-240, 4), make_pair(500, 4), bools[i], 0); expect(x.second, 23);
-  }
-
-  line = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(200, 0), true, 0);
-  line = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(500, 0), true, 0);
-  line = valid_tangent2_from_circle_to_circle(make_pair(0, 0), make_pair(1000, 0), true, 0);
-  expect(err_eq(dist(line.first), tang2_length(1000)), 0);
-
-
-  // For this tangent, you cannot have circles that are inside each other. But for the belt tangents (the ones that are not crossed
-  // you can have them even in that situation.)
-  expect(!valid_tangent2_from_circle_to_circle(make_pair(80, -100), make_pair(80, 80), true, 0).second, 34);
-  expect(!valid_tangent2_from_circle_to_circle(make_pair(80, -100), make_pair(80, 80), false, 0).second, 35);
-  expect(valid_tangent2_from_circle_to_circle(make_pair(80, -100), make_pair(80+200, -100), false, 0).second, 36);
-}
-
-void test_arc(){
-  // Works nice ;)
-  expect(arc(make_pair(0, 0), make_pair(-100, 0), make_pair(100, 0)) == PI * R, 0);
-  expect(arc(make_pair(0, 0), make_pair(-100, 0), make_pair(0, 100)) == PI * R/2, 0);
-  expect(arc(make_pair(0, 0), make_pair(-100, 0), make_pair(0, -100)) == PI * R/2, 0);
-  double n = R * cos(PI/4);
-  expect(arc(make_pair(0, 0), make_pair(-100, 0), make_pair(-n, n)) == PI * R/4, 4);
-  expect(arc(make_pair(0, 0), make_pair(-n, n), make_pair(-100, 0)) == PI * R/4, 4);
-  expect(arc(make_pair(0, 0), make_pair(-n, n), make_pair(n, -n)) == PI * R, 4);
-  expect(arc(make_pair(0, 0), make_pair(0, 100), make_pair(n, -n)) == (PI/2 + PI/4) * R, 4);
-  expect(arc(make_pair(0, 0), make_pair(n, -n), make_pair(0, 100)) == (PI/2 + PI/4) * R, 4);
-}
-
-void test_rotate_by_angle(){
-  p rotated;
-  rotated = rotate_by_angle(make_pair(2, 0), PI/2);
-  expect(err_eq(rotated.first, 0) && err_eq(rotated.second, 2), 1000);
-  rotated = rotate_by_angle(make_pair(0, 2), PI/2);
-  expect(err_eq(rotated.first, -2) && err_eq(rotated.second, 0), 1001);
-  rotated = rotate_by_angle(make_pair(-2, 0), PI/2);
-  expect(err_eq(rotated.first, 0) && err_eq(rotated.second, -2), 1002);
-}
-
-void test_valid_line_from_point_to_circle_border(){
-  auto line = valid_line_from_point_to_circle_border(make_pair(0, 0), make_pair(100, 100), false, 0).first;
-  expect(line.first.first == 0, 1);
-  expect(line.first.second == 0, 2);
-  expect(line.second.first == 100, 3);
-  expect(err_eq(line.second.second, 0), 4);
-
-  line = valid_line_from_point_to_circle_border(make_pair(0, 0), make_pair(100, 100), true, 0).first;
-  expect(line.first.first == 0, 1);
-  expect(line.first.second == 0, 2);
-  expect(err_eq(line.second.first, 0), 3);
-  expect(err_eq(line.second.second, 100.000000), 4);
-}
-
 int main(){
-  N = 0;
-  // Tests
-  
-  test_rotate_by_angle();
-  test_intersects();
-  test_tangent1();
-  test_tangent2();
-  test_arc();
-  test_valid_line_from_point_to_circle_border();
-  //return 0;
   double gx, gy;
   while(scanf("%d %le %le", &N, &gx, &gy) == 3){
     goal = make_pair(gx, gy);
