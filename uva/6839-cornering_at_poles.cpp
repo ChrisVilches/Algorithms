@@ -351,15 +351,32 @@ vector<pair<p,p>> best_path;
 vector<int> curr_path_idx;
 vector<int> best_path_idx;
 
+double ans = DBL_MAX;
+
 double path(int pole_id, p point_in_circle, double accum, int visited_poles){
   pair<pair<p, p>, bool> res1 = valid_line_from_point_to_circle_border(goal, poles[pole_id], false, visited_poles);
   pair<pair<p, p>, bool> res2 = valid_line_from_point_to_circle_border(goal, poles[pole_id], true, visited_poles);
-
-  double ans = DBL_MAX;
-
+  if(accum > ans) return accum;
   vector<pair<p, p>> res;
-  if(res1.second) res.push_back(res1.first);
-  if(res2.second) res.push_back(res2.first);
+  if(res1.second) {
+    auto line = res1.first;
+    auto line_vec = vector_diff(line.second, line.first);
+    double first_angle = acos((poles[pole_id].first - point_in_circle.first)/R);
+    double second_angle = acos(line_vec.first/dist(line_vec));
+
+    //if(first_angle < second_angle)
+    res.push_back(res1.first);
+  }
+  if(res2.second){
+    auto line = res2.first;
+    auto line_vec = vector_diff(line.second , line.first);
+    double first_angle = acos((poles[pole_id].first - point_in_circle.first)/R);
+    double second_angle = acos(line_vec.second/dist(line_vec));
+
+    //if(first_angle < second_angle)
+    res.push_back(res2.first);
+  }
+  bool bad = false;
 
   for(int i=0; i<res.size(); i++){
     pair<p, p> line = res[i];
@@ -374,11 +391,11 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
     validate_point_belongs_to_circle(in_circle, poles[pole_id], "when getting direct access to goal");
     double result = accum + arc(poles[pole_id], point_in_circle, in_circle) + dist(line);
 
-    bool bad = false;
 
     
     double first_angle = acos((poles[i].first - point_in_circle.first)/R);
     double third_angle = acos((poles[i].first - in_circle.first)/R);
+
 
     for(int j=0; j<N; j++){
       if(i == j) continue;
@@ -396,10 +413,30 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
 
     if(!bad && result < ans) ans = result;
   }
-  if(!res.empty()){
+  
+  if(!bad && !res.empty()){
+
     best_path = curr_path;
     best_path_idx = curr_path_idx;
-    return ans;
+    if(res.size() > 0){
+      auto xx = res[1];
+      auto temp = xx.second;
+      xx.second = xx.first;
+      xx.first = temp;
+      best_path.push_back(xx);
+    }
+    //cerr << "res is not empty (direct paths from some circle), lines:" << endl;
+    for(int z=0; z<res.size(); z++){
+     // if(res[z].second){
+        //cerr << "this line is direct from circle to goal: "<<endl;
+        pair<p,p> pair;
+        pair.first = res[z].second;
+        pair.second = res[z].first;
+        //print_line(pair);
+      //}
+    }
+    //fprintf(stderr,"Im going to return ans and the incoming point was %f, %f\n", point_in_circle.first, point_in_circle.second);
+    //return ans;
   }
 
   validate_point_belongs_to_circle(point_in_circle, poles[pole_id], "first point in path");
@@ -411,8 +448,11 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
     vector<pair<p,p>> lines;
 
     for(int b=0; b<2; b++){
-      auto res1 = valid_tangent1_from_circle_to_circle(poles[pole_id], poles[i], bools[b], 0 /* OR new_visited_poles */);
-      auto res2 = valid_tangent2_from_circle_to_circle(poles[pole_id], poles[i], bools[b], 0 /* OR new_visited_poles */);
+      auto res1 = valid_tangent1_from_circle_to_circle(poles[pole_id], poles[i], bools[b], new_visited_poles /* OR new_visited_poles */);
+      auto res2 = valid_tangent2_from_circle_to_circle(poles[pole_id], poles[i], bools[b], new_visited_poles /* OR new_visited_poles */);
+      
+     // fprintf(stderr, "*validating line (valid: %d): ", res1.second); print_line(res1.first);
+      //fprintf(stderr, "*validating line (valid: %d): ", res2.second); print_line(res2.first);
       if(res1.second) lines.push_back(res1.first);
       if(res2.second) lines.push_back(res2.first);
     }
@@ -445,7 +485,11 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles){
 
       curr_path.push_back(line);
       curr_path_idx.push_back(i);
+      //fprintf(stderr, "*Trying line (valid: %d): ", 1);
+      //print_line(line);
+      //fprintf(stderr, "\n");
       double result = path(i, line.second, accum + arc(poles[pole_id], point_in_circle, line.first) + dist(line), new_visited_poles);
+      //cerr << "backtrack" << endl;
       curr_path.pop_back();
       curr_path_idx.pop_back();
       if(result < ans) ans = result;
@@ -486,7 +530,7 @@ pair<pair<p, p>, bool> valid_line_from_point_to_circle_border(p p1, p circle_cen
   p target_point = tangent;
 
   validate_point_belongs_to_circle(target_point, circle_center, "haha");
-  if(target_point.first == 0 && target_point.second == 0) throw runtime_error("first point of line (from robot) is not 0,0");
+  //if(target_point.first == 0 && target_point.second == 0) throw runtime_error("first point of line (from robot) is not 0,0");
 
   bool bad = false;
 
@@ -504,6 +548,7 @@ pair<pair<p, p>, bool> valid_line_from_point_to_circle_border(p p1, p circle_cen
 }
 
 void solve(){
+  ans = DBL_MAX;
   for(int i=0; i<N; i++){
     double x, y;
     scanf("%le %le", &x, &y);
@@ -529,6 +574,8 @@ void solve(){
       bool b = bools[K];
 
       pair<pair<p,p>, bool> res = valid_line_from_point_to_circle_border(make_pair(0,0), poles[i], b, 0);
+
+
       if(res.second){
         pair<p,p> line = res.first;
         if(i == 5 && b){
@@ -538,6 +585,11 @@ void solve(){
             cout << "wtf" << endl;
           }
         }
+
+              
+        //fprintf(stderr, "Trying line (valid: %d): ", 1);
+        //print_line(line);
+        //fprintf(stderr, "\n");
         
         curr_path.push_back(line);
         curr_path_idx.push_back(i);
@@ -545,6 +597,7 @@ void solve(){
         curr_path.pop_back();
         curr_path_idx.pop_back();
         if(length < ans) ans = length;
+        //cerr << "backtrack" << endl;
       }
     }
   }
