@@ -216,48 +216,35 @@ pair<pair<p, p>, bool> valid_tangent2_from_circle_to_circle(p circle1, p circle2
 }
 
 double angle_between_vectors(p v1, p v2){
+
+ //\ return ((v1.first * v2.first) + (v1.second * v2.second)) / (dist(v1) * dist(v2));
+
   double x1 = v2.first;//refactor names lol
   double y1 = v2.second;
   double x2 = v1.first;
   double y2 = v1.second;
-
   return atan2((x1*y2)-(y1*x2), (x1*x2)+(y1*y2));
 }
 
+double angle_between_vectors(pair<p,p> line1, pair<p,p> line2){
+  return angle_between_vectors(
+    vector_diff(line1.second, line1.first),
+    vector_diff(line2.second, line2.first)
+  );
+}
+
 double arc(p circle_center, p p1, p p2){
+  double angle = angle_between_vectors(vector_diff(p1, circle_center), vector_diff(p2, circle_center));
+  return abs(angle * R);
+}
 
-  double haha = angle_between_vectors(vector_diff(p1, circle_center), vector_diff(p2, circle_center)) * R;
+double arc_fixed(p cp, pair<p,p> line1, pair<p,p> line2){
+  double original_arc = abs(arc(cp, line1.second, line2.first));
+  double ang = angle_between_vectors(line1, line2);
 
-  return abs(haha);
+  double other = (2*PI*R) - original_arc;
 
-  double dx = circle_center.first - p1.first;
-  double first = acos(dx/R);
-  dx = circle_center.first - p2.first;
-  double second = acos(dx/R);
-
-  double angle_diff = abs(second - first);
-
-
-  double xa = circle_center.first - p1.first;
-  double ya = circle_center.second - p1.second;
-  double xb = circle_center.first - p2.first;
-  double yb = circle_center.second - p2.second;
-  angle_diff = acos((xa * xb + ya * yb) / (sqrt(pow(xa, 2) + pow(ya, 2)) * sqrt(pow(xb, 2) + pow(yb, 2))));
-
-  //printf("Angles %f , %f, diff %f\n", first, second, angle_diff);
-  double arc_val = angle_diff * R;
-  return arc_val;
-  const double total = 2 * PI * R;
-  double diff_arc = total - arc_val;
-  double ret = min(arc_val, diff_arc);
-
-  if(ret > total || diff_arc > total){
-    throw runtime_error("Arc or some other values are higher than full perimeter");
-  }
-  if(ret < 0){
-    throw runtime_error("Arc is negative");
-  }
-  return ret;
+  return min(original_arc, other);
 }
 
 double ans = DBL_MAX;
@@ -284,9 +271,11 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles, pai
       throw runtime_error("we are getting line from goal but the first point is not goal");
     }
 
-    double arc_dist = arc(poles[pole_id], point_in_circle, in_circle);
-    //arc_dist = (PI * R) - arc_dist; // YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO THIS WORKS!!!!!!!!!!!!!!!!!!
-    
+    pair<p, p> inv;
+    inv.first = line.second;
+    inv.second = line.first;
+
+    double arc_dist = arc_fixed(poles[pole_id], incoming_line, inv);
     double result = accum + arc_dist + dist(line);
 
     p one = vector_diff(point_in_circle, poles[i]);
@@ -302,14 +291,6 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles, pai
         }
       }
     }
-/*
-    fprintf(stderr, "Lines (GOOD=%d), incoming line (arc here), tangent leaving the circle towards goal:\n", !bad);
-    print_line(incoming_line);
-    pair<p,p> gl;
-    gl.first = line.second;
-    gl.second = line.first;
-    print_line(gl);
-    fprintf(stderr, "Accum length of this route: %f\n\n", result);*/
 
     if((arc_dist >= 0) && !bad && result < ans) {
       ans = result;
@@ -347,11 +328,10 @@ double path(int pole_id, p point_in_circle, double accum, int visited_poles, pai
       }
       if(bad) continue;
 
-      double arc_dist = arc(poles[pole_id], point_in_circle, line.first);
-      if(arc_dist >= 0){
-        double result = path(i, line.second, accum + arc_dist + dist(line), new_visited_poles, line);
-        if(result < ans) ans = result;
-      }
+      double arc_dist = arc_fixed(poles[pole_id], incoming_line, line);
+
+      double result = path(i, line.second, accum + arc_dist + dist(line), new_visited_poles, line);
+      if(result < ans) ans = result;
     }
   }
 
