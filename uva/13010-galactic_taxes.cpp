@@ -2,12 +2,13 @@
 
 using namespace std;
 typedef pair<double, double> pdd;
+typedef pair<double, int> pdi;
 int N, M;
 
 double dijkstra(double t, vector<vector<pair<int, pdd>>> &adj){
   double dist[N];
 	fill(dist, dist+N, 10e9);
-  priority_queue<pair<double, int>> q;
+  priority_queue<pdi, vector<pdi>, greater<pdi>> q;
 
   q.push(make_pair(0, 0));
   dist[0] = 0;
@@ -16,7 +17,6 @@ double dijkstra(double t, vector<vector<pair<int, pdd>>> &adj){
     pair<double, int> u = q.top();
     q.pop();
     vector<pair<int, pdd>> neighbors = adj[u.second];
-    if(u.first > dist[u.second]) continue;
     for(pair<int, pdd> neighbor : neighbors){
       int v = neighbor.first;
       double alt = dist[u.second] + (neighbor.second.first * t + neighbor.second.second);
