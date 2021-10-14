@@ -16,6 +16,7 @@ double dijkstra(double t, vector<vector<pair<int, pdd>>> &adj){
     pair<double, int> u = q.top();
     q.pop();
     vector<pair<int, pdd>> neighbors = adj[u.second];
+    if(u.first > dist[u.second]) continue;
     for(pair<int, pdd> neighbor : neighbors){
       int v = neighbor.first;
       double alt = dist[u.second] + (neighbor.second.first * t + neighbor.second.second);
