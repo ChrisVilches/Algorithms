@@ -4,9 +4,9 @@ using namespace std;
 
 int r, c;
 
-bool possible(multiset<int>& x_set, multiset<int>& y_set){
-  multiset<int> x_set_copy = x_set;
-  multiset<int> y_set_copy = y_set;
+bool possible(set<int>& x_set, set<int>& y_set){
+  set<int> x_set_copy = x_set;
+  set<int> y_set_copy = y_set;
 
   while(x_set.size() > 0){
     auto remaining_x = x_set.begin();
@@ -29,7 +29,7 @@ bool possible(multiset<int>& x_set, multiset<int>& y_set){
 int main(){
   while(scanf("%d %d", &r, &c) == 2){
     int val;
-    multiset<int> x_set, y_set;
+    set<int> x_set, y_set;
 
     for(int i=0; i<r; i++){
       cin >> val;
