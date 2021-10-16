@@ -25,7 +25,7 @@ poly multiply_polynomial(poly p1, poly p2){
 }
 
 void solve(){
-  poly zeros;
+  vector<int> zeros;
   for(uint i=0; i<line.size()-1; i++){
     if(line[i] != line[i+1]){
       int citizen = 2 * (i + 1);
