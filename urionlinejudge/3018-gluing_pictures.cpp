@@ -53,22 +53,6 @@ int compare(int sa_pos, const string& city, const string& name, int name_offset)
   return total;
 }
 
-int compare(string& s1, string& s2){
-  int total = 0;
-  for(int i=0; i<s1.size() && i<s2.size(); i++){
-    if(s1[i] == s2[i]){
-      total++;
-    } else {
-      break;
-    }
-  }
-  return total;
-}
-
-string suffix_at(int i){
-  return city.substr(sa[i]);
-}
-
 int find_suffix_array_position(const string &name_substr){
   int longest_match = 0;
   int match_pos = 0;
@@ -76,64 +60,27 @@ int find_suffix_array_position(const string &name_substr){
   int mid;
   int left = 0;
   int right = city.size() - 1; // TODO: If I recall correctly, it worked after deleting the -1
+  left = 0;
+  right = city.size();
 
-  //cout << "using name_substr = " << name_substr << endl;
-
-  for(int i=0; i<name_substr.size(); i++){
-    left = 0;
-    right = city.size();
-    string name_substr_substr = name_substr.substr(0, i+1); // (?)
-    //cout << "(i=" << i << ") name substr substr = " << name_substr_substr << " , longest_match = " << longest_match << endl;
-    while(left < right){
-      mid = (right + left)/2;
-
-      
-      //cout << "left " << left << " , " << "right " << right << endl;
-      //cout << "testing suffix " << suffix << endl;
-
-      //int m = compare(suffix, name_substr_substr);
-      int m = compare(mid, city, name_substr_substr, 0);
-      if(m > longest_match){
-        longest_match = m;
-        match_pos = mid;
-      }
-
-      //if(m == name_substr_substr.size()) return mid;
-      // string suffix = suffix_at(mid);
-      // bool greater = suffix < name_substr_substr;
-
-      bool greater = name_substr_substr.compare(0, name_substr_substr.size(), city, sa[mid], city.size()-sa[mid]) > 0;
-
-      if(greater){
-        left = mid + 1;
-      } else {
-        right = mid;
-      }
-    }
-  }
-
-  return match_pos;
-/*
   while(left < right){
-    int mid = (right + left)/2;
-    //printf("string size is %d and mid pos is %d\n", city.size(), sa[mid]);
-    if(city[sa[mid]] < name_substr[0]){
+    mid = (right + left)/2;
+    int m = compare(mid, city, name_substr, 0);
+    if(m > longest_match){
+      longest_match = m;
+      match_pos = mid;
+    }
+
+    bool greater = name_substr.compare(0, name_substr.size(), city, sa[mid], city.size()-sa[mid]) > 0;
+
+    if(greater){
       left = mid + 1;
     } else {
       right = mid;
     }
   }
 
-  for(int i=left; i<city.size(); i++){
-    int m = compare(i, city, name_substr, 0);
-    if(m == 0) break;
-    if(m > longest_match){
-      longest_match = m;
-      match_pos = i;
-    }
-  }
   return match_pos;
-  */
 }
 
 int necessary_for_name(const string& name){
