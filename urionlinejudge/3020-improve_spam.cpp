@@ -21,7 +21,7 @@ ll count(int address){
   ll total = 0;
   vector<int> adjacencies = lists[address];
   for(int adj : adjacencies){
-    total += (count(adj) % MOD);
+    total += count(adj);
   }
   total = total % MOD;
   return memo[address] = total;
