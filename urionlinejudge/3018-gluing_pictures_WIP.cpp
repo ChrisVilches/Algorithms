@@ -16,7 +16,7 @@ bool cmp(int x, int y) {
   return (x < S && y < S)? ranks[x] < ranks[y]: x > y;
 }
 
-void suffix_array_build(const string &s) {
+void suffix_array_build(const string &s){
   S = s.size();
   vector<int> tmp;
   for(int i=0; i<S; i++){
@@ -36,13 +36,13 @@ void suffix_array_build(const string &s) {
   }
 }
 
-int compare(int sa_pos, const string& city, const string& name, int name_offset){
+int longest_prefix_match(int sa_pos, const string& city, const string& name, int name_offset){
   int pos_in_string = sa[sa_pos];
   int total = 0;
   for(int i=0; ; i++){
     int pos_city = i + pos_in_string;
     int pos_s = i + name_offset;
-    if(pos_s == name.size() || pos_in_string == city.size()) break;
+    if(pos_s == (int)name.size() || pos_in_string == (int)city.size()) break;
 
     char c1 = city[pos_city];
     char c2 = name[pos_s];
@@ -53,25 +53,22 @@ int compare(int sa_pos, const string& city, const string& name, int name_offset)
   return total;
 }
 
-int find_suffix_array_position(const string &name_substr){
+int find_suffix_array_position(const string &name, int offset){
   int longest_match = 0;
   int match_pos = 0;
-
   int mid;
   int left = 0;
-  int right = city.size() - 1; // TODO: If I recall correctly, it worked after deleting the -1
-  left = 0;
-  right = city.size();
+  int right = city.size() +0; // TODO: If I recall correctly, it worked after deleting the -1
 
   while(left < right){
     mid = (right + left)/2;
-    int m = compare(mid, city, name_substr, 0);
-    if(m > longest_match){
-      longest_match = m;
+    int match = longest_prefix_match(mid, city, name, offset);
+    if(match > longest_match){
+      longest_match = match;
       match_pos = mid;
     }
 
-    bool greater = name_substr.compare(0, name_substr.size(), city, sa[mid], city.size()-sa[mid]) > 0;
+    bool greater = name.compare(offset, name.size() - offset, city, sa[mid], city.size() - sa[mid]) > 0;
 
     if(greater){
       left = mid + 1;
@@ -86,12 +83,19 @@ int find_suffix_array_position(const string &name_substr){
 int necessary_for_name(const string& name){
   hash<string> hasher;
   unordered_set<int> pictures;
-  
   int name_curr_pos = 0;
 
-  while(name_curr_pos < name.size()){
+  unordered_set<char> chars;
+
+  while(name_curr_pos < (int)name.size()){
+
+    // Corner case, (but it doesn't work lol... it returns Wrong Answer)
+    if(chars.find(name[name_curr_pos]) != chars.end()){
+      name_curr_pos++;
+      continue;
+    }
     // Find best match in suffix array.
-    int sa_pos = find_suffix_array_position(name.substr(name_curr_pos));
+    int sa_pos = find_suffix_array_position(name, name_curr_pos);
 
     if(sa_pos == -1) return -1;
 
@@ -99,7 +103,7 @@ int necessary_for_name(const string& name){
     string longest;
 
     // From the best match, get the longest string.
-    for(int i=pos_in_city; i<city.size() && name_curr_pos < name.size(); i++){
+    for(int i=pos_in_city; i<(int)city.size() && name_curr_pos < (int)name.size(); i++){
       if(city[i] == name[name_curr_pos]){
         longest += city[i];
         name_curr_pos++;
@@ -107,11 +111,15 @@ int necessary_for_name(const string& name){
         break;
       }
     }
-   // cerr << "longest: " << longest << endl;
+
     // If no characters were fetched from that string, it means the name cannot be completed.
     if(longest.size() == 0)
       return -1;
 
+    //cout << "inserting: " << longest << endl;
+    if(longest.size() == 1){
+      chars.insert(longest[0]);
+    }
     pictures.insert(hasher(longest));
   }
 
