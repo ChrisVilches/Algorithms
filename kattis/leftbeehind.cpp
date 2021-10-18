@@ -8,7 +8,6 @@ int main(){
     if((a | b) == 0) break;
     if(a + b == 13){
       cout << "Never speak again." << endl;
-      continue;
     } else if(a > b){
       cout << "To the convention." << endl;
     } else if(a < b){
