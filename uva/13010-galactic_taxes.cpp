@@ -7,7 +7,7 @@ int N, M;
 
 double dijkstra(double t, vector<vector<pair<int, pdd>>> &adj){
   double dist[N];
-	fill(dist, dist+N, 10e9);
+  fill(dist, dist+N, 10e9);
   priority_queue<pdi, vector<pdi>, greater<pdi>> q;
 
   q.push(make_pair(0, 0));
