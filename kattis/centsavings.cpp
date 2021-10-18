@@ -29,7 +29,7 @@ ll dp(int n, int d){
 
   if(memo[n][d] != -1) return memo[n][d];
 
-  ll min_money = round_cents(sum_range(0, n-1));
+  ll min_money = sum;
 
   for(int i=0; i<n; i++){
     ll with_divider = round_cents(dp(i, d-1) + round_cents(sum_range(i, n-1)));
