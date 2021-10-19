@@ -49,19 +49,19 @@ struct LCA {
 };
 
 int n;
-ull paths[100001];
+ull dist[100001];
 bool visited[100001];
 
 ull path_length(LCA& lca, int source, int target) {
   int ancestor_idx = lca(source, target);
-  return paths[source] + paths[target] - (2 * paths[ancestor_idx]);
+  return dist[source] + dist[target] - (2 * dist[ancestor_idx]);
 }
 
-void populate_paths(graph& g, int idx, ull accum) {
+void populate_dist(graph& g, int idx, ull accum) {
   if (visited[idx]) return;
   visited[idx] = true;
-  paths[idx] = accum;
-  for (pil adj : g[idx]) populate_paths(g, adj.first, accum + adj.second);
+  dist[idx] = accum;
+  for (pil adj : g[idx]) populate_dist(g, adj.first, accum + adj.second);
 }
 
 void solve() {
@@ -77,7 +77,7 @@ void solve() {
 
   LCA lca(g, 0, n);
 
-  populate_paths(g, 0, 0);
+  populate_dist(g, 0, 0);
 
   scanf("%d", &q);
   while (q--) {
