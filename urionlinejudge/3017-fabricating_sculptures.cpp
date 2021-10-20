@@ -4,44 +4,45 @@
 using namespace std;
 typedef long long int ll;
 
-ll MOD = 1e9 + 7;
+int MOD = 1000000007;
 
 ll memo[5001][5001];
 ll memo2[5001][5001];
-int S, B;
 
 ll dp(int s, int b) {
-  if(s < 0 || b < 0) return 0;
-  if(s == 0 || b == 0) return 0;
-  if(s > b) return 0;
-  if(s == 1 || b == 1 || b == s) return 1;
-  if(memo[s][b] != -1) return (memo[s][b] % MOD);
-  //int  sum = ((dp(s, b-s) % MOD + ((2*dp(s-1, b-1)%MOD)%MOD)%MOD) - dp(s-2, b-2)%MOD) % MOD;
+  if (s == 0 || b == 0) return 0;
+  if (s > b) return 0;
+  if (s == 1 || b == 1 || b == s) return 1;
+  if (memo[s][b] != -1) return memo[s][b];
 
   ll sum;
   sum = 0;
-  sum = (sum + dp(s, b-s)) % MOD;
-  sum = (sum + dp(s-1, b-1)) % MOD;
-  sum = (sum - dp(s-2, b-2)) % MOD;
-  sum = (sum + dp(s-1, b-1)) % MOD;
-  return memo[s][b] = (sum % MOD);
+  sum = (sum + dp(s, b - s)) % MOD;
+  sum = (sum + dp(s - 1, b - 1)) % MOD;
+  sum = (sum + dp(s - 1, b - 1)) % MOD;
+  sum = (sum - dp(s - 2, b - 2)) % MOD;
+  memo[s][b] = sum % MOD;
+  return memo[s][b];
 }
 
-ll dp2(int s, int b){
-  if(s == 0 || b == 0) return 0;
-  if(s > b) return 0;
-  if(s == 1 || b == 1 || b == s) return 1;
+ll dp2(int s, int b) {
+  if (s == 0 || b == 0) return 0;
+  if (s > b) return 0;
+  if (s == 1 || b == 1 || b == s) return 1;
+  if(memo2[s][b] != -1) return memo2[s][b];
 
   ll sum = 0;
-  for(int i=0; i<min(s, b); i++){
-    sum += (i + 1) * dp(s-i, b-s);
+  for (int i = 0; i < min(s, b); i++) {
+    sum += (i + 1) * dp(s - i, b - s);
     sum = sum % MOD;
   }
 
-  return sum;
+  return memo2[s][b] = (int)(sum % MOD);
 }
 
-int main() {/*
+int main() {
+  int S, B;
+  /*
   memset(memo, -1, sizeof memo);
  for(int i=0; i<20; i++){
    for(int j=0; j<20; j++){
@@ -49,10 +50,16 @@ int main() {/*
    }
    cout << endl;
  }*/
-  memset(memo, -1, sizeof memo);
+ for(int i=0; i<5001; i++){
+   for(int j=0; j<5001; j++){
+     memo[i][j] = -1;
+     memo2[i][j] = -1;
+   }
+ }
+  // memset(memo, -1, sizeof memo);
   //memset(memo2, -1, sizeof memo2);
   while (scanf("%d %d", &S, &B) == 2) {
-    //fprintf(stderr, "S=%d B=%d\n", S, B);
-    printf("%lld\n", dp(S, B));
+    // fprintf(stderr, "S=%d B=%d\n", S, B);
+    printf("%d\n", dp2(S, B));
   }
 }
