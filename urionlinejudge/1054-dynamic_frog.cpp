@@ -37,6 +37,10 @@ void solve() {
       ans = max({ans, dist1, dist2});
     }
   }
+  if (ans == 0) {
+    ans = D;
+  }
+
   cout << ans;
 }
 
