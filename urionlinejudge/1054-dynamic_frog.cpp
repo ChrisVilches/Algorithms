@@ -1,27 +1,25 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-string line;
-stringstream ss;
 int N, D;
 
+pair<int, char> read_stone() {
+  char type;
+  int pos;
+  while (scanf("%c", &type) && !(type == 'B' || type == 'S'))
+    ;
+  scanf("%*c%d", &pos);
+
+  return make_pair(pos, type);
+}
+
 void solve() {
-  getline(cin, line);
-  ss = stringstream(line);
-  ss >> N >> D;
-  getline(cin, line);
-  ss = stringstream(line);
+  cin >> N >> D;
 
-  vector<pair<int, char>> stones;
-  stones.push_back(make_pair(0, 'B'));
+  vector<pair<int, char>> stones{make_pair(0, 'B')};
 
-  for (int i = 0; i < N; i++) {
-    char type, skip;
-    int pos;
-    ss >> type >> skip >> pos;
-    stones.push_back(make_pair(pos, type));
-  }
+  for (int i = 0; i < N; i++) stones.push_back(read_stone());
+
   stones.push_back(make_pair(D, 'B'));
 
   int ans = 0;
@@ -43,10 +41,8 @@ void solve() {
 }
 
 int main() {
-  getline(cin, line);
-  ss = stringstream(line);
   int T;
-  ss >> T;
+  cin >> T;
 
   for (int i = 0; i < T; i++) {
     printf("Case %d: ", i + 1);
