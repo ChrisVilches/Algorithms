@@ -1,28 +1,30 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+typedef long double ld;
 
-double dist(double x1, double y1, double x2, double y2) {
+ld dist(ld x1, ld y1, ld x2, ld y2) {
   return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
 }
 
 int main() {
-  double housex, housey;
-  double schoolx, schooly;
-  double speed;
+  ld housex, housey;
+  ld schoolx, schooly;
+  ld speed;
 
-  double lowerx, lowery;
-  double upperx, uppery;
+  ld lowerx, lowery;
+  ld upperx, uppery;
 
-  while (scanf("%lf %lf %lf %lf %lf %lf %lf %lf %lf", &housex, &housey,
+  while (scanf("%Lf %Lf %Lf %Lf %Lf %Lf %Lf %Lf %Lf", &housex, &housey,
                &schoolx, &schooly, &speed, &lowerx, &lowery, &upperx,
                &uppery) == 9) {
-    double path1 = dist(housex, housey, upperx, uppery) +
-                   dist(upperx, uppery, schoolx, schooly);
-    double path2 = dist(housex, housey, lowerx, lowery) +
-                   dist(lowerx, lowery, schoolx, schooly);
-    double min_path = min(path1, path2);
+    ld horizontal_dist = dist(lowerx, 0, upperx, 0);
+    ld p1 = dist(housex, housey, lowerx, uppery) +
+            dist(upperx, uppery, schoolx, schooly);
+    ld p2 = dist(housex, housey, lowerx, lowery) +
+            dist(upperx, lowery, schoolx, schooly);
+    ld min_path = min(p1, p2);
 
-    printf("%.1lf\n", min_path / speed);
+    printf("%.1Lf\n", (min_path + horizontal_dist) / speed);
   }
 }
