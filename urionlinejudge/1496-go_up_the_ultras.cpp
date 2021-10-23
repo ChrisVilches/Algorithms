@@ -5,6 +5,8 @@ using namespace std;
 
 int N, L[MAX], R[MAX], heights[MAX];
 
+// Segment tree, range minimum query, without updates.
+
 struct segtree {
  private:
   vector<int> tree;
