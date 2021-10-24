@@ -2,14 +2,14 @@
 
 using namespace std;
 
-enum { R = 0, G = 1, B = 2 };
-
 #define N 10030
+
+enum { R = 0, G = 1, B = 2 };
+enum { MIN = 0, MAX = 1 };
 
 string line;
 
-int memo[N][3][2];
-int pos, node_idx;
+int memo[N][3][2], pos, node_idx;
 
 struct Node {
   Node* left = nullptr;
@@ -22,28 +22,20 @@ struct Node {
   }
 };
 
-int dp(Node* node, int color, int maximal) {
+int dp(Node* node, int color, int fn) {
   if (node == nullptr) return 0;
   int idx = node->idx;
 
-  if (memo[idx][color][maximal] != -1) return memo[idx][color][maximal];
+  if (memo[idx][color][fn] != -1) return memo[idx][color][fn];
 
-  if (!node->left && !node->right) return color == G;
+  vector<int> colors{R, G, B};
+  colors.erase(find(colors.begin(), colors.end(), color));
 
-  int ret = color == G;
-  int val1, val2;
+  int val1 = dp(node->left, colors[0], fn) + dp(node->right, colors[1], fn);
+  int val2 = dp(node->left, colors[1], fn) + dp(node->right, colors[0], fn);
+  int ret = (color == G) + (fn ? max(val1, val2) : min(val1, val2));
 
-  vector<int> available_colors{R, G, B};
-  available_colors.erase(
-      find(available_colors.begin(), available_colors.end(), color));
-
-  val1 = dp(node->left, available_colors[0], maximal) +
-         dp(node->right, available_colors[1], maximal);
-  val2 = dp(node->left, available_colors[1], maximal) +
-         dp(node->right, available_colors[0], maximal);
-  ret += maximal ? max(val1, val2) : min(val1, val2);
-
-  return (memo[idx][color][maximal] = ret);
+  return (memo[idx][color][fn] = ret);
 }
 
 void insert(Node* subtree) {
@@ -67,8 +59,8 @@ void solve() {
 
   Node tree(node_idx++);
   insert(&tree);
-  int maximal = max({dp(&tree, R, 1), dp(&tree, G, 1), dp(&tree, B, 1)});
-  int minimal = min({dp(&tree, R, 0), dp(&tree, G, 0), dp(&tree, B, 0)});
+  int maximal = max({dp(&tree, R, MAX), dp(&tree, G, MAX), dp(&tree, B, MAX)});
+  int minimal = min({dp(&tree, R, MIN), dp(&tree, G, MIN), dp(&tree, B, MIN)});
 
   printf("%d %d\n", maximal, minimal);
 }
