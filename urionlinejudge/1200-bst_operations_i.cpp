@@ -33,27 +33,31 @@ void insert(Node<char>* tree, char c) {
 vector<char> traversal;
 
 bool search(Node<char>* tree, char c) {
+  if (tree == nullptr) return false;
   if (tree->data == c) return true;
-  bool search_left = tree->left && search(tree->left, c);
-  bool search_right = tree->right && search(tree->right, c);
+  bool search_left = search(tree->left, c);
+  bool search_right = search(tree->right, c);
   return search_left || search_right;
 }
 
 void inorder(Node<char>* tree) {
-  if (tree->left) inorder(tree->left);
+  if (tree == nullptr) return;
+  inorder(tree->left);
   traversal.push_back(tree->data);
-  if (tree->right) inorder(tree->right);
+  inorder(tree->right);
 }
 
 void preorder(Node<char>* tree) {
+  if (tree == nullptr) return;
   traversal.push_back(tree->data);
-  if (tree->left) preorder(tree->left);
-  if (tree->right) preorder(tree->right);
+  preorder(tree->left);
+  preorder(tree->right);
 }
 
 void postorder(Node<char>* tree) {
-  if (tree->left) postorder(tree->left);
-  if (tree->right) postorder(tree->right);
+  if (tree == nullptr) return;
+  postorder(tree->left);
+  postorder(tree->right);
   traversal.push_back(tree->data);
 }
 
