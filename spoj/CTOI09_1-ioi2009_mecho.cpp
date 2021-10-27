@@ -51,12 +51,13 @@ void calculate_bee_times() {
       if (!valid_grid(next_i, next_j)) continue;
       if (grid[next_i][next_j] != 'G') continue;
       grid[next_i][next_j] = 'H';
-      q.push(make_tuple(next_i, next_j, t + 1));
+      q.push(make_tuple(next_i, next_j, t + S));
     }
   }
 }
 
 bool possible(int minutes, pii from, pii to) {
+  //cerr << "test using " << minutes << " minutes" << endl;
   grid_cpy();
   queue<tiiii> q;
   q.push(make_tuple(from.first, from.second, minutes, S));
@@ -64,11 +65,16 @@ bool possible(int minutes, pii from, pii to) {
   while (!q.empty()) {
     auto [i, j, t, s] = q.front();
     q.pop();
-    if (to == make_pair(i, j)) return true;
+    if (to == make_pair(i, j)){
+      //fprintf(stderr, "it's possible\n");
+      return true;
+    }
 
     grid[i][j] = 'T';
 
-    if (bee_times[i][j] < t) continue;
+   // fprintf(stderr, "bee_times[%d][%d] <= t ---> %d <= %d\n", i, j,
+    //        bee_times[i][j], t);
+    if (bee_times[i][j] <= t) continue;
 
     for (int d = 0; d < 4; d++) {
       int next_i = i + di[d];
@@ -78,18 +84,19 @@ bool possible(int minutes, pii from, pii to) {
         continue;
 
       grid[next_i][next_j] = 'T';
-      s--;
-      if (s == 0) {
-        t++;
-        s = S;
-      }
-      q.push(make_tuple(next_i, next_j, t, s));
+
+      q.push(make_tuple(next_i, next_j, t+1, s));
     }
   }
   return false;
 }
 
 void solve() {
+  //cerr << endl
+  //     << "======================================== CASE "
+ //         "========================================"
+ //      << endl
+ //      << endl;
   cin >> N >> S;
   pii mecho, home;
 
@@ -108,11 +115,11 @@ void solve() {
 
   for (int i = 0; i < N; i++) {
     for (int j = 0; j < N; j++) {
-      // cerr << bee_times[i][j] << ' ';
+     // cerr << bee_times[i][j] << ' ';
     }
-    // cerr << endl;
+    //cerr << endl;
   }
-  // cerr << endl;
+  //cerr << endl;
 
   if (!possible(0, mecho, home)) {
     cout << -1 << endl;
@@ -126,14 +133,13 @@ void solve() {
     int mid = (left + right) / 2;
     if (possible(mid, mecho, home)) {
       left = mid + 1;
+      possible_time = mid;
     } else {
       right = mid;
     }
-
-    possible_time = mid;
   }
 
-  cout << possible_time << endl;
+  cout << possible_time/S << endl;
 }
 
 int main() {
