@@ -92,11 +92,6 @@ bool possible(int minutes, pii from, pii to) {
 }
 
 void solve() {
-  //cerr << endl
-  //     << "======================================== CASE "
- //         "========================================"
- //      << endl
- //      << endl;
   cin >> N >> S;
   pii mecho, home;
 
@@ -113,21 +108,13 @@ void solve() {
 
   calculate_bee_times();
 
-  for (int i = 0; i < N; i++) {
-    for (int j = 0; j < N; j++) {
-     // cerr << bee_times[i][j] << ' ';
-    }
-    //cerr << endl;
-  }
-  //cerr << endl;
-
   if (!possible(0, mecho, home)) {
     cout << -1 << endl;
     return;
   }
 
   int left = 0;
-  int right = (N * N) + S;
+  int right = (N * N*N);
   int possible_time;
   while (left < right) {
     int mid = (left + right) / 2;
