@@ -50,8 +50,8 @@ bool is_ultra(segtree& st, int idx) {
   int left = L[idx], right = R[idx];
   int min_height = 0;
 
-  if (left != idx) min_height = max(min_height, st.query(left, idx));
-  if (right != idx) min_height = max(min_height, st.query(idx, right));
+  min_height = max(min_height, st.query(left, idx));
+  min_height = max(min_height, st.query(idx, right));
   int prominence = heights[idx] - min_height;
 
   return prominence >= 150000;
