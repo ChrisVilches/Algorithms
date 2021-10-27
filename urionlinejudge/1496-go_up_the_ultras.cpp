@@ -48,16 +48,11 @@ bool is_ultra(segtree& st, int idx) {
   if (!is_peak(idx)) return false;
 
   int left = L[idx], right = R[idx];
-  int prominence;
+  int min_height = 0;
 
-  if (left == right) {
-    prominence = heights[idx];
-  } else {
-    int min_height = 0;
-    if (left != idx) min_height = max(min_height, st.query(left, idx));
-    if (right != idx) min_height = max(min_height, st.query(idx, right));
-    prominence = heights[idx] - min_height;
-  }
+  if (left != idx) min_height = max(min_height, st.query(left, idx));
+  if (right != idx) min_height = max(min_height, st.query(idx, right));
+  int prominence = heights[idx] - min_height;
 
   return prominence >= 150000;
 }
