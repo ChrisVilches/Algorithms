@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
-
-#include <cassert>
-
 using namespace std;
+
 typedef vector<vector<int>> graph;
 
 char grid[21][21];
 int R, C;
-bool visited[21 * 21 * 20];
-int match[21 * 21 * 20];
+bool visited[21 * 21 * 2];
+int match[21 * 21 * 2];
+int di[] = {-1, 1, 0, 0};
+int dj[] = {0, 0, -1, 1};
 
 bool bpm(graph& g, int u) {
   for (int v : g[u]) {
@@ -42,32 +42,15 @@ void read_grid() {
   }
 }
 
-void print_grid() {
-  for (int i = 0; i < R; i++) {
-    for (int j = 0; j < C; j++) {
-      cerr << grid[i][j] << ' ';
-    }
-    cerr << endl;
-  }
-  cerr << endl;
-}
-
-int di[] = {-1, 1, 0, 0};
-int dj[] = {0, 0, -1, 1};
-
 graph build_graph() {
-  vector<int> nodes[R][C];
-  vector<int> nodes2[R][C];
-  int nodes_idx[R][C];
-  int nodes_idx2[R][C];
-  int idx = 0;
+  pair<vector<int>, vector<int>> nodes[R][C];
+  pair<int, int> nodes_idx[R][C];
 
+  int idx = 0;
   for (int i = 0; i < R; i++) {
     for (int j = 0; j < C; j++) {
-      nodes_idx[i][j] = idx++;
-      if (grid[i][j] == '-') {
-        nodes_idx2[i][j] = idx++;
-      }
+      nodes_idx[i][j].first = idx++;
+      if (grid[i][j] == '-') nodes_idx[i][j].second = idx++;
     }
   }
 
@@ -80,20 +63,24 @@ graph build_graph() {
         int j2 = j + dj[d];
         if (i2 < 0 || j2 < 0 || i2 >= R || j2 >= C) continue;
 
-        nodes[i][j].push_back(nodes_idx[i2][j2]);
-        nodes[i2][j2].push_back(nodes_idx[i][j]);
+       // pair<vector<int>, vector<int>>& curr_cell = nodes[i][j];
+       // pair<vector<int>, vector<int>>& curr_cell = nodes[i][j];
+
+
+        nodes[i][j].first.push_back(nodes_idx[i2][j2].first);
+        nodes[i2][j2].first.push_back(nodes_idx[i][j].first);
 
         if (grid[i2][j2] == '-') {
-          nodes[i][j].push_back(nodes_idx2[i2][j2]);
-          nodes2[i2][j2].push_back(nodes_idx[i][j]);
+          nodes[i][j].first.push_back(nodes_idx[i2][j2].second);
+          nodes[i2][j2].second.push_back(nodes_idx[i][j].first);
         }
 
         if (grid[i][j] == '-') {
-          nodes2[i][j].push_back(nodes_idx[i2][j2]);
-          nodes[i2][j2].push_back(nodes_idx2[i][j]);
+          nodes[i][j].second.push_back(nodes_idx[i2][j2].first);
+          nodes[i2][j2].first.push_back(nodes_idx[i][j].second);
           if (grid[i2][j2] == '-') {
-            nodes2[i][j].push_back(nodes_idx2[i2][j2]);
-            nodes2[i2][j2].push_back(nodes_idx2[i][j]);
+            nodes[i][j].second.push_back(nodes_idx[i2][j2].second);
+            nodes[i2][j2].second.push_back(nodes_idx[i][j].second);
           }
         }
       }
@@ -103,11 +90,8 @@ graph build_graph() {
   graph g;
   for (int i = 0; i < R; i++) {
     for (int j = 0; j < C; j++) {
-      g.push_back(nodes[i][j]);
-
-      if (grid[i][j] == '-') {
-        g.push_back(nodes2[i][j]);
-      }
+      g.push_back(nodes[i][j].first);
+      if (grid[i][j] == '-') g.push_back(nodes[i][j].second);
     }
   }
 
@@ -116,13 +100,9 @@ graph build_graph() {
 
 void solve() {
   read_grid();
-  //print_grid();
   graph g = build_graph();
 
-  int bpm = max_bipartite_matching(g);
-  //cerr << "Bipartite matching: " << bpm << endl;
-
-  cout << (bpm == (g.size()) ? 'Y' : 'N') << endl;
+  cout << (max_bipartite_matching(g) == g.size() ? 'Y' : 'N') << endl;
 }
 
 int main() {
