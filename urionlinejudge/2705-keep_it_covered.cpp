@@ -56,7 +56,7 @@ void connect_bidirectional(pii cell1, pii cell2) {
   auto [i, j] = cell1;
   auto [i2, j2] = cell2;
   char curr_cell = grid[i][j], adj_cell = grid[i2][j2];
-  pair<vi, vi>&curr = nodes[i][j], adj = nodes[i2][j2];
+  pair<vi, vi> &curr = nodes[i][j], &adj = nodes[i2][j2];
   pii curr_idx = nodes_idx[i][j], adj_idx = nodes_idx[i2][j2];
 
   curr.first.push_back(adj_idx.first);
