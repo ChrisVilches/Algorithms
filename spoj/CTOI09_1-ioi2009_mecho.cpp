@@ -4,7 +4,6 @@ using namespace std;
 #define MAX 803
 typedef pair<int, int> pii;
 typedef tuple<int, int, int> tiii;
-typedef tuple<int, int, int, int> tiiii;
 
 char original_grid[MAX][MAX];
 char grid[MAX][MAX];
@@ -28,6 +27,16 @@ inline bool valid_grid(int i, int j) {
   return !(i < 0 || j < 0 || i >= N || j >= N);
 }
 
+inline bool bear_walkable(int i, int j) {
+  return valid_grid(i, j) && (grid[i][j] == 'G' || grid[i][j] == 'D');
+}
+
+inline bool valid_bee_grid(int i, int j) {
+  return valid_grid(i, j) && grid[i][j] == 'G';
+}
+
+inline void visit(int i, int j) { grid[i][j] = 'T'; }
+
 void grid_cpy() {
   for (int i = 0; i < N; i++)
     memcpy(grid[i], original_grid[i], sizeof(char) * N);
@@ -35,7 +44,6 @@ void grid_cpy() {
 
 void calculate_bee_times() {
   grid_cpy();
-  memset(bee_times, 0, sizeof bee_times);
   queue<tiii> q;
   for (int i = 0; i < N; i++)
     for (int j = 0; j < N; j++)
@@ -46,53 +54,42 @@ void calculate_bee_times() {
     q.pop();
     bee_times[i][j] = t;
     for (int d = 0; d < 4; d++) {
-      int next_i = i + di[d];
-      int next_j = j + dj[d];
-      if (!valid_grid(next_i, next_j)) continue;
-      if (grid[next_i][next_j] != 'G') continue;
-      grid[next_i][next_j] = 'H';
-      q.push(make_tuple(next_i, next_j, t + S));
+      int i2 = i + di[d];
+      int j2 = j + dj[d];
+      if (!valid_bee_grid(i2, j2)) continue;
+      visit(i2, j2);
+      q.push(make_tuple(i2, j2, t + S));
     }
   }
 }
 
 bool possible(int minutes, pii from, pii to) {
-  //cerr << "test using " << minutes << " minutes" << endl;
   grid_cpy();
-  queue<tiiii> q;
-  q.push(make_tuple(from.first, from.second, minutes, S));
+  queue<tiii> q;
+  q.push(make_tuple(from.first, from.second, minutes));
 
   while (!q.empty()) {
-    auto [i, j, t, s] = q.front();
+    auto [i, j, t] = q.front();
     q.pop();
-    if (to == make_pair(i, j)){
-      //fprintf(stderr, "it's possible\n");
-      return true;
-    }
+    if (to == make_pair(i, j)) return true;
 
-    grid[i][j] = 'T';
+    visit(i, j);
 
-   // fprintf(stderr, "bee_times[%d][%d] <= t ---> %d <= %d\n", i, j,
-    //        bee_times[i][j], t);
     if (bee_times[i][j] <= t) continue;
 
     for (int d = 0; d < 4; d++) {
-      int next_i = i + di[d];
-      int next_j = j + dj[d];
-      if (!valid_grid(next_i, next_j)) continue;
-      if (!(grid[next_i][next_j] == 'G' || grid[next_i][next_j] == 'D'))
-        continue;
-
-      grid[next_i][next_j] = 'T';
-
-      q.push(make_tuple(next_i, next_j, t+1, s));
+      int i2 = i + di[d];
+      int j2 = j + dj[d];
+      if (!bear_walkable(i2, j2)) continue;
+      visit(i2, j2);
+      q.push(make_tuple(i2, j2, t + 1));
     }
   }
   return false;
 }
 
 void solve() {
-  cin >> N >> S;
+  scanf("%d %d", &N, &S);
   pii mecho, home;
 
   for (int i = 0; i < N; i++)
@@ -108,14 +105,9 @@ void solve() {
 
   calculate_bee_times();
 
-  if (!possible(0, mecho, home)) {
-    cout << -1 << endl;
-    return;
-  }
-
   int left = 0;
-  int right = (N * N*N);
-  int possible_time;
+  int right = (N * N * N);
+  int possible_time = -1;
   while (left < right) {
     int mid = (left + right) / 2;
     if (possible(mid, mecho, home)) {
@@ -126,11 +118,11 @@ void solve() {
     }
   }
 
-  cout << possible_time/S << endl;
+  printf("%d\n", possible_time == -1 ? -1 : possible_time / S);
 }
 
 int main() {
   int T;
-  cin >> T;
+  scanf("%d", &T);
   while (T--) solve();
 }
