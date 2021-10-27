@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
-
-#define llu long long int
 using namespace std;
+typedef long long ll;
 
 struct Point {
   int x, y, id;
@@ -11,7 +10,7 @@ struct Point {
   }
 };
 
-llu cross_product(Point& O, Point& A, Point& B) {
+ll cross_product(Point& O, Point& A, Point& B) {
   return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
 }
 
