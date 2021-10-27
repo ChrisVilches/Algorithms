@@ -55,26 +55,23 @@ void read_grid() {
 void connect_bidirectional(pii cell1, pii cell2) {
   auto [i, j] = cell1;
   auto [i2, j2] = cell2;
-  char curr_cell = grid[i][j], adj_cell = grid[i2][j2];
-  pair<vi, vi> &curr = nodes[i][j], &adj = nodes[i2][j2];
-  pii curr_idx = nodes_idx[i][j], adj_idx = nodes_idx[i2][j2];
+  char c1 = grid[i][j], c2 = grid[i2][j2];
+  pair<vi, vi>&node1 = nodes[i][j], &node2 = nodes[i2][j2];
+  pii idx1 = nodes_idx[i][j], idx2 = nodes_idx[i2][j2];
 
-  curr.first.push_back(adj_idx.first);
-  adj.first.push_back(curr_idx.first);
+  for (int z = 0; z < 2; z++) {
+    for (int x = 0; x < 2; x++) {
+      for (int y = 0; y < 2; y++) {
+        (x == 0 ? node1.first : node1.second)
+            .push_back(y == 0 ? idx2.first : idx2.second);
+        if (c2 == 'o') break;
+      }
 
-  if (adj_cell == '-') {
-    curr.first.push_back(adj_idx.second);
-    adj.second.push_back(curr_idx.first);
-
-    if (curr_cell == '-') {
-      curr.second.push_back(adj_idx.first);
-      adj.first.push_back(curr_idx.second);
+      if (c1 == 'o') break;
     }
-  }
-
-  if (curr_cell == '-') {
-    curr.second.push_back(adj_idx.first);
-    adj.first.push_back(curr_idx.second);
+    swap(c1, c2);
+    swap(idx1, idx2);
+    swap(node1, node2);
   }
 }
 
