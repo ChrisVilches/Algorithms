@@ -15,7 +15,7 @@ double price(int k) {
 }
 
 int main() {
-  cin >> p >> a >> b >> c >> n;
+  cin >> p >> a >> b >> c >> d >> n;
 
   for (int i = 0; i < n; i++) nums[i] = price(i + 1);
 
