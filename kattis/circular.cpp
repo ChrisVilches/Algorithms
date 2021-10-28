@@ -26,7 +26,7 @@ int main(){
     gen_type[i] = num;
   }
 
-  // Check which gene types are actually balanced. In the next loops, skip those that are not.
+  // Check which gene types are actually balanced.
   for(int pos=0; pos<n; pos++){
     int i = gen_type[pos];
     int m = marker[pos];
