@@ -2,7 +2,7 @@
 
 using namespace std;
 
-double polygon_area(vector<pair<double, double> > pts) {
+double polygon_area(vector<pair<double, double>> pts) {
   double area = 0, diff = 0;
   unsigned int last = pts.size() - 1;
   for (unsigned int i = 1; i < last; i++) {
@@ -22,7 +22,7 @@ double polygon_area(vector<pair<double, double> > pts) {
 int main() {
   int n;
   while (scanf("%d", &n) == 1 && n > 0) {
-    vector<pair<double, double> > v;
+    vector<pair<double, double>> v;
 
     while (n--) {
       double x, y;
