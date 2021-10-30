@@ -1,7 +1,7 @@
 n = STDIN.gets.to_i
 
 def one_digit?(n)
-  n.to_s.count('0123456789') == 1
+  n.to_s.count("0123456789") == 1
 end
 
 def multiply(n)
