@@ -43,35 +43,21 @@ void read_grid() {
         ;
 }
 
-// Each cell has:
-// 1 vertex if the cell is an 'o', or
-// 2 vertices if the cell is a '-'.
-//
-// When connecting two cells, all vertices from one cell must be connected
-// to the vertices of the adjacent cell.
-//
-// e.g. If both cells are '-', then in total there are four vertices,
-// and four edges.
-void connect_bidirectional(pii cell1, pii cell2) {
+void connect(pii cell1, pii cell2) {
   auto [i, j] = cell1;
   auto [i2, j2] = cell2;
   char c1 = grid[i][j], c2 = grid[i2][j2];
-  pair<vi, vi>&node1 = nodes[i][j], &node2 = nodes[i2][j2];
-  pii idx1 = nodes_idx[i][j], idx2 = nodes_idx[i2][j2];
+  pair<vi, vi>& node = nodes[i][j];
+  pii adj_idx = nodes_idx[i2][j2];
 
-  for (int z = 0; z < 2; z++) {
-    for (int x = 0; x < 2; x++) {
-      for (int y = 0; y < 2; y++) {
-        (x == 0 ? node1.first : node1.second)
-            .push_back(y == 0 ? idx2.first : idx2.second);
-        if (c2 == 'o') break;
-      }
-
-      if (c1 == 'o') break;
+  for (int x = 0; x < 2; x++) {
+    for (int y = 0; y < 2; y++) {
+      (x == 0 ? node.first : node.second)
+          .push_back(y == 0 ? adj_idx.first : adj_idx.second);
+      if (c2 == 'o') break;
     }
-    swap(c1, c2);
-    swap(idx1, idx2);
-    swap(node1, node2);
+
+    if (c1 == 'o') break;
   }
 }
 
@@ -87,13 +73,11 @@ graph build_graph() {
 
   for (int i = 0; i < R; i++)
     for (int j = 0; j < C; j++) {
-      if ((i + j) % 2 != 0) continue;
-
       for (int d = 0; d < 4; d++) {
         int i2 = i + di[d];
         int j2 = j + dj[d];
         if (i2 < 0 || j2 < 0 || i2 >= R || j2 >= C) continue;
-        connect_bidirectional(make_pair(i, j), make_pair(i2, j2));
+        connect(make_pair(i, j), make_pair(i2, j2));
       }
     }
 
