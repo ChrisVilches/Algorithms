@@ -20,18 +20,19 @@ void bfs() {
     q.pop();
 
     if (i == R - 1) continue;
-    if (grid[i + 1][j] == 'V') continue;
+    char& below = grid[i + 1][j];
+    if (below == 'V') continue;
 
-    if (grid[i + 1][j] == '.') {
-      grid[i + 1][j] = 'V';
+    if (below == '.') {
+      below = 'V';
       q.push(make_pair(i + 1, j));
     } else {
       for (int d = 0; d < 2; d++) {
         int j2 = j + dj[d];
         if (j2 < 0 || j2 == C) continue;
-        char& c = grid[i][j2];
-        if (c == '.') {
-          c = 'V';
+        char& side = grid[i][j2];
+        if (side == '.') {
+          side = 'V';
           q.push(make_pair(i, j2));
         }
       }
