@@ -7,8 +7,8 @@ int N;
 
 inline void remove_coin_from_stack(set<pii>::iterator stack,
                                    set<pii, greater<pii>>& stacks) {
-  stacks.erase(stack);
   pii updated_stack = *stack;
+  stacks.erase(stack);
   updated_stack.first--;
   if (updated_stack.first > 0) stacks.emplace(updated_stack);
 }
