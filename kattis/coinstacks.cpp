@@ -5,60 +5,49 @@ typedef pair<int, int> pii;
 
 int N;
 
-// TODO: NEEDS REFACTOR!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+inline void remove_coin_from_stack(set<pii>::iterator stack,
+                                   set<pii, greater<pii>>& stacks) {
+  stacks.erase(stack);
+  pii updated_stack = *stack;
+  updated_stack.first--;
+  if (updated_stack.first > 0) stacks.emplace(updated_stack);
+}
 
-void solve() {
-  set<pii> stacks;
-  int total_coins = 0;
-
+optional<vector<pii>> solve() {
+  set<pii, greater<pii>> stacks;
   for (int i = 0; i < N; i++) {
     pii s;
     s.second = i;
     cin >> s.first;
-    stacks.emplace(s);
-
-    total_coins += s.first;
+    if (s.first > 0) stacks.emplace(s);
   }
 
   vector<pii> moves;
 
-  while (true) {
-    set<pii>::iterator stack1 = prev(stacks.end());
+  while (!stacks.empty()) {
+    if (stacks.size() == 1) return nullopt;
 
-    while (stack1->first == 0 && stack1 != stacks.begin()) --stack1;
-
-    set<pii>::iterator stack2 = stack1;
-    --stack2;
-    while (stack2->first == 0 && stack2 != stacks.begin()) --stack2;
-
-    if (stack1 == stacks.begin() && stack1->first == 0) break;
-    if (stack2 == stacks.begin() && stack2->first == 0) break;
-
-    total_coins -= 2;
-
-    pii new_stack1 = make_pair(stack1->first - 1, stack1->second);
-    pii new_stack2 = make_pair(stack2->first - 1, stack2->second);
+    set<pii>::iterator stack1 = stacks.begin();
+    set<pii>::iterator stack2 = next(stack1);
 
     moves.push_back(make_pair(stack1->second, stack2->second));
 
-    stacks.erase(stack1);
-    stacks.erase(stack2);
-
-    stacks.emplace(new_stack1);
-    stacks.emplace(new_stack2);
+    remove_coin_from_stack(stack1, stacks);
+    remove_coin_from_stack(stack2, stacks);
   }
 
-  if (total_coins == 0) {
-    cout << "yes" << endl;
-
-    for (pii move : moves) {
-      cout << move.first + 1 << ' ' << move.second + 1 << endl;
-    }
-  } else {
-    cout << "no" << endl;
-  }
+  return moves;
 }
 
 int main() {
-  while (scanf("%d", &N) == 1) solve();
+  while (scanf("%d", &N) == 1) {
+    optional<vector<pii>> moves = solve();
+
+    if (moves.has_value()) {
+      cout << "yes" << endl;
+      for (pii move : moves.value())
+        cout << move.first + 1 << ' ' << move.second + 1 << endl;
+    } else
+      cout << "no" << endl;
+  }
 }
