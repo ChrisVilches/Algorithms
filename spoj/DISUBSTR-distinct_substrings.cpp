@@ -44,21 +44,20 @@ struct SuffixAutomaton {
   }
 };
 
-// Memoization may be needed for bigger strings.
-ll count_aux(SuffixAutomaton& sa, int i) {
+ll dfs(SuffixAutomaton& sa, int i) {
   if (sa.st[i].next.empty()) return 1;
 
   ll count = 1;
 
   for (auto it = sa.st[i].next.begin(); it != sa.st[i].next.end(); it++)
-    count += count_aux(sa, it->second);
+    count += dfs(sa, it->second);
 
   return count;
 }
 
 ll distinct_substrs(string& s) {
   SuffixAutomaton sa(s);
-  return count_aux(sa, 0) - 1;
+  return dfs(sa, 0) - 1;
 }
 
 int main() {
