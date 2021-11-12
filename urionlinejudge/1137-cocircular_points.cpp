@@ -62,7 +62,8 @@ void solve() {
         int count = 0;
 
         for (int p = 0; p < N; p++)
-          if (circle.center.dist(points[p]) == circle.radius) count++;
+          if (fabs(circle.center.dist(points[p]) - circle.radius) < 0.000001)
+            count++;
 
         ans = max(ans, count);
       }
