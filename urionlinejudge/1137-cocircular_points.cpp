@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-typedef tuple<double, double, double> tddd;
 
 int N;
 
