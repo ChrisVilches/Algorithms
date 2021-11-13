@@ -5,11 +5,6 @@ using namespace std;
 struct Point {
   double x, y;
   Point(double x, double y) : x(x), y(y) {}
-  bool operator<(const Point& p) const {
-    if (y == p.y) return x < p.x;
-    return y < p.y;
-  }
-
   Point operator-(const Point& p) const { return Point(x - p.x, y - p.y); }
 };
 
@@ -22,19 +17,17 @@ struct Line {
     return fabs(a * p.x + b * p.y + c) / (sqrt(a * a + b * b));
   }
 
-  static Line from_two_points(Point& p, Point& q) {
-    double a = q.y - p.y;
-    double b = p.x - q.x;
-    double c = a * (p.x) + b * (p.y);
+  static Line from_vector(Point v) {
+    double a = -v.y;
+    double b = v.x;
+    double c = a * (v.x) + b * (v.y);
     return Line(a, b, c);
   }
 };
 
-int cross_product(Point& O, Point& A, Point& B) {
-  return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
-}
-
 int N;
+
+inline double cross(Point p, Point q) { return p.x * q.y - p.y * q.x; }
 
 void solve() {
   vector<Point> points;
@@ -48,52 +41,16 @@ void solve() {
   double diff = DBL_MAX;
 
   for (int i = 0; i < N; i++) {
-    vector<Point> p2;
-    for (int j = 0; j < N; j++) {
-      if (i == j) continue;
-      p2.push_back(points[j] - points[i]);
-    }
-
-    for (int j = 0; j < (int)p2.size(); j++) {
+    for (int j = i; j < N; j++) {
       double side1 = 0;
       double side2 = 0;
 
-      Point zero(0, 0);
+      Line line = Line::from_vector(points[j] - points[i]);
 
-      Line line = Line::from_two_points(zero, p2[j]);
-
-      bool iter = false;
-
-      for (Point& p : p2) {
+      for (int k = 0; k < N; k++) {
+        Point p = points[k] - points[i];
         double dist = line.distance(p);
-        if (fabs(dist) < 0.001) continue;
-
-        iter = true;
-        double side = cross_product(zero, p2[j], p);
-
-        if (side > 0)
-          side1 += dist;
-        else
-          side2 += dist;
-      }
-
-      if (iter) diff = min(diff, fabs(side1 - side2));
-    }
-  }
-
-  for (int i = 0; i < N; i++) {
-    break;
-    for (int j = 0; j < N; j++) {
-      if (i == j) continue;
-
-      double side1 = 0;
-      double side2 = 0;
-
-      Line line = Line::from_two_points(points[i], points[j]);
-
-      for (Point& p : points) {
-        double dist = line.distance(p);
-        double side = cross_product(points[i], points[j], p);
+        double side = cross(points[j] - points[i], p);
 
         if (side > 0)
           side1 += dist;
