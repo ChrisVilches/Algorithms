@@ -56,7 +56,7 @@ ll build(int p, int prev_idx) {
   return memo[p][prev_idx] = ret;
 }
 
-void solve() {
+int main() {
   cin >> house.x >> house.y;
   cin >> gate.x >> gate.y >> N;
 
