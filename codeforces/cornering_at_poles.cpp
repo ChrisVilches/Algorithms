@@ -38,6 +38,16 @@ struct Segment {
     int sgn2 = sgn(q.to(s.p) ^ s.to_vec());
     return sgn1 == 0 || sgn2 == 0 || sgn1 == sgn2;
   }
+
+  ld dist_point(Point P) {
+    Segment L = *this;
+    if ((P - L.p) * L.to_vec() < 0)
+      return P.dist(L.p);
+    else if ((P - L.q) * L.to_vec() > 0)
+      return P.dist(L.q);
+    else
+      return fabs(L.to_vec() ^ (P - L.p)) / L.to_vec().magnitude();
+  }
 };
 
 struct Circle;
@@ -48,18 +58,7 @@ struct Circle {
   ld radius;
   Circle(Point c, ld r) : center(c), radius(r) {}
 
-  bool intersect(Segment s) {
-    ld left = 0L, right = 1L;
-    while (fabs(left - right) > 0.01L) {
-      ld third = (right - left) / 3L;
-      ld third1 = left + third, third2 = right - third;
-      if (s.scale(third1).q.dist(center) > s.scale(third2).q.dist(center))
-        left = third1;
-      else
-        right = third2;
-    }
-    return s.scale(left).q.dist(center) < radius;
-  }
+  inline bool intersect(Segment s) { return s.dist_point(center) < radius; }
 
   ld arc(Segment incoming_tan, Segment outgoing_tan) {
     Point a = center.to(incoming_tan.q);
@@ -139,7 +138,7 @@ bool movement_possible(Segment& s, int ignore_pole_idx1, int ignore_pole_idx2) {
   return true;
 }
 
-bool valid_tangent_traversal(int pole_idx, Segment in_tan, Segment out_tan) {
+bool valid_tangent_traversal(int pole_idx, Segment& in_tan, Segment& out_tan) {
   if (!in_tan.same_direction(out_tan)) return false;
   for (int i = 0; i < (int)poles.size(); i++) {
     if (pole_idx == i) continue;
@@ -148,7 +147,7 @@ bool valid_tangent_traversal(int pole_idx, Segment in_tan, Segment out_tan) {
   return true;
 }
 
-void traverse(int pole_idx, Segment from, bitset<8> visited, ld dist) {
+void traverse(int pole_idx, Segment& from, bitset<8> visited, ld dist) {
   if (dist > min_dist) return;
   Circle& curr_pole = poles[pole_idx];
 
@@ -183,13 +182,12 @@ void solve() {
     return;
   }
 
-  for (int i = 0; i < (int)poles.size(); i++) {
-    bitset<8> visited;
-
+  for (int i = 0; i < (int)poles.size(); i++)
     for (Segment& tangent : point_circle_tangents(robot, poles[i]))
-      if (movement_possible(tangent, i, -1))
+      if (movement_possible(tangent, i, -1)) {
+        bitset<8> visited;
         traverse(i, tangent, visited.set(i), tangent.length());
-  }
+      }
 
   printf("%.8Lf\n", min_dist == DBL_MAX ? 0.0 : min_dist);
 }
@@ -200,11 +198,11 @@ int main() {
   while (scanf("%d", &N) == 1) {
     min_dist = DBL_MAX;
     poles.clear();
-    cin >> goal.x >> goal.y;
+    scanf("%Le %Le", &goal.x, &goal.y);
 
     while (N--) {
       Point p;
-      cin >> p.x >> p.y;
+      scanf("%Le %Le", &p.x, &p.y);
       poles.push_back(Circle(p, 100L));
     }
     solve();
