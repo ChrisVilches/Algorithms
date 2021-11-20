@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long double ld;
+typedef pair<ld, int> pdi;
 const ld EPS = 1e-12;
 
 inline int sgn(int n) { return n < 0 ? -1 : n > 0; }
@@ -124,6 +125,14 @@ struct Circle {
   }
 };
 
+struct Node {
+  Point point;
+  int id;
+  vector<pdi> edges;
+  Node(Point p, int id) : point(p), id(id) {}
+  Node() {}
+};
+
 vector<Circle> poles;
 Point robot(0, 0), goal;
 ld min_dist;
@@ -134,38 +143,30 @@ bool movement_valid(Segment& s) {
   return true;
 }
 
-bool tangent_movement_valid(int pole_idx, Segment& in_tan, Segment& out_tan) {
-  if (!poles[pole_idx].tangents_same_direction(in_tan, out_tan)) return false;
+bool arc_intersect_any_circle(int pole_idx, Segment& in_tan, Segment& out_tan) {
   for (int i = 0; i < (int)poles.size(); i++) {
     if (pole_idx == i) continue;
-    if (poles[pole_idx].arc_intersects(poles[i], in_tan, out_tan)) return false;
+    if (poles[pole_idx].arc_intersects(poles[i], in_tan, out_tan)) return true;
   }
-  return movement_valid(out_tan);
+  return false;
 }
 
-void traverse(int pole_idx, Segment& from, bitset<8> visited, ld dist) {
-  if (dist > min_dist) return;
-  Circle& curr_pole = poles[pole_idx];
+vector<Node> graph;
+unordered_map<int, vector<int>> points_in_pole;
+int node_id;
 
-  for (Segment& tangent : curr_pole.tangents_from_point(goal)) {
-    tangent = tangent.invert();
-    if (!tangent_movement_valid(pole_idx, from, tangent)) continue;
-    min_dist =
-        min(min_dist, dist + tangent.length() + curr_pole.arc(from, tangent));
-    return;
-  }
-
-  for (int i = 0; i < (int)poles.size(); i++)
-    if (!visited[i])
-      for (Segment& tangent : curr_pole.tangents_to(poles[i]))
-        if (tangent_movement_valid(pole_idx, from, tangent)) {
-          ld arc = curr_pole.arc(from, tangent);
-          bitset<8> v = visited;
-          traverse(i, tangent, v.set(i), dist + tangent.length() + arc);
-        }
+int add_node(Point p, int pole_idx) {
+  int new_node_id = node_id;
+  graph.push_back(Node(p, node_id++));
+  if (pole_idx > -1) points_in_pole[pole_idx].push_back(new_node_id);
+  return new_node_id;
 }
+
+inline int add_node(Point p) { return add_node(p, -1); }
 
 void solve() {
+  node_id = 0;
+  graph.clear();
   Segment direct_robot_goal(robot, goal);
 
   if (movement_valid(direct_robot_goal)) {
@@ -173,12 +174,82 @@ void solve() {
     return;
   }
 
-  for (int i = 0; i < (int)poles.size(); i++)
-    for (Segment& tangent : poles[i].tangents_from_point(robot))
-      if (movement_valid(tangent))
-        traverse(i, tangent, bitset<8>(1 << i), tangent.length());
+  for (int i = 0; i < (int)poles.size(); i++) points_in_pole[i] = vector<int>();
 
-  printf("%.8Lf\n", min_dist == DBL_MAX ? 0.0 : min_dist);
+  const int ROBOT_NODE_ID = add_node(robot);
+  const int GOAL_NODE_ID = add_node(goal);
+
+  for (int i = 0; i < (int)poles.size(); i++) {
+    for (Segment& tangent : poles[i].tangents_from_point(robot))
+      if (movement_valid(tangent)) {
+        int n = add_node(tangent.q, i);
+        graph[ROBOT_NODE_ID].edges.push_back(make_pair(tangent.length(), n));
+      }
+
+    for (Segment& tangent : poles[i].tangents_from_point(goal))
+      if (movement_valid(tangent)) {
+        int n = add_node(tangent.q, i);
+        graph[n].edges.push_back(make_pair(tangent.length(), GOAL_NODE_ID));
+      }
+
+    for (int j = i + 1; j < (int)poles.size(); j++)
+      for (Segment& tangent : poles[i].tangents_to(poles[j]))
+        if (movement_valid(tangent)) {
+          int n1 = add_node(tangent.p, i);
+          int n2 = add_node(tangent.q, j);
+          graph[n1].edges.push_back(make_pair(tangent.length(), n2));
+          graph[n2].edges.push_back(make_pair(tangent.length(), n1));
+        }
+  }
+
+  for (int i = 0; i < (int)poles.size(); i++) {
+    for (int j = 0; j < (int)points_in_pole[i].size(); j++)
+      for (int k = j + 1; k < (int)points_in_pole[i].size(); k++) {
+        int p1 = points_in_pole[i][j];
+        int p2 = points_in_pole[i][k];
+
+        Point center = poles[i].center;
+        Point in_pt = graph[p1].point;
+        Point out_pt = graph[p2].point;
+
+        array<pair<Segment, Segment>, 4> tangent_combinations{
+            make_pair(Segment(in_pt + center.to(in_pt).rot_ccw(), in_pt),
+                      Segment(out_pt, out_pt + center.to(out_pt).rot_cw())),
+            make_pair(Segment(in_pt + center.to(in_pt).rot_cw(), in_pt),
+                      Segment(out_pt, out_pt + center.to(out_pt).rot_ccw()))};
+
+        for (pair<Segment, Segment> combination : tangent_combinations) {
+          auto [in_tan, out_tan] = combination;
+          if (!arc_intersect_any_circle(i, in_tan, out_tan)) {
+            ld arc = poles[i].arc(in_tan, out_tan);
+            graph[p1].edges.push_back(make_pair(arc, p2));
+            graph[p2].edges.push_back(make_pair(arc, p1));
+          }
+        }
+      }
+  }
+
+  vector<ld> dist(graph.size(), DBL_MAX);
+
+  priority_queue<pdi, vector<pdi>, greater<pdi>> q;
+
+  q.push(make_pair(0, ROBOT_NODE_ID));
+  dist[ROBOT_NODE_ID] = 0;
+
+  while (!q.empty()) {
+    pdi u = q.top();
+    q.pop();
+    for (pdi v : graph[u.second].edges) {
+      Node neighbor = graph[v.second];
+      ld alt = dist[u.second] + v.first;
+      if (alt < dist[v.second]) {
+        dist[v.second] = alt;
+        q.push(make_pair(alt, v.second));
+      }
+    }
+  }
+
+  printf("%.8Lf\n", dist[GOAL_NODE_ID] == DBL_MAX ? 0.0 : dist[GOAL_NODE_ID]);
 }
 
 int main() {
