@@ -57,7 +57,7 @@ struct Circle {
 int N;
 vector<Circle> trees;
 
-inline ld shortest_distance_to_origin(Circle& c) {
+inline ld dist_closest_point(Circle& c) {
   return c.center.magnitude() - c.radius;
 }
 
@@ -74,7 +74,7 @@ ld distance_to_first_visible_circle(Segment s) {
 
     for (int i = 0; i < (int)trees.size(); i++)
       if (trees[i].intersect(s.scale(mid))) {
-        min_dist = shortest_distance_to_origin(trees[i]);
+        min_dist = dist_closest_point(trees[i]);
         intersects = true;
         break;
       }
@@ -101,7 +101,7 @@ void solve() {
   ld ans = 0;
 
   sort(trees.begin(), trees.end(), [](Circle& c1, Circle& c2) {
-    return shortest_distance_to_origin(c1) < shortest_distance_to_origin(c2);
+    return dist_closest_point(c1) < dist_closest_point(c2);
   });
 
   vector<Segment> segments;
