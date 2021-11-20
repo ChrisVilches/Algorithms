@@ -6,8 +6,6 @@ typedef pair<int, int> pii;
 
 double EPS = 1e-12;
 
-// Segment to segment distance using ternary search.
-
 struct Segment;
 
 struct Point {
@@ -16,6 +14,9 @@ struct Point {
   Point() {}
   Point operator+(const Point& p) { return Point(x + p.x, y + p.y); }
   Point operator-(const Point& p) const { return Point(x - p.x, y - p.y); }
+  inline double operator^(const Point& p) const {
+    return (x * p.y) - (y * p.x);
+  }
   Point scale(double f) { return Point(x * f, y * f); }
   Point to(const Point& p) const { return p - *this; }
   double operator*(const Point& p) { return x * p.x + y * p.y; }
@@ -30,29 +31,31 @@ struct Segment {
   Segment(Point p, Point q) : p(p), q(q) {}
   Segment() {}
 
-  Segment scale(double f) { return Segment(p, p + (q - p).scale(f)); }
-
   double dist(Segment& s) {
-    double left = 0L;
-    double right = 1L;
-    while (fabs(left - right) > 0.0000001L) {
-      double third = (right - left) / 3L;
-      double third1 = left + third;
-      double third2 = right - third;
-      Point p1 = scale(third1).q;
-      Point p2 = scale(third2).q;
-      if (p1.dist(s) > p2.dist(s))
-        left = third1;
-      else
-        right = third2;
-    }
-    return scale(left).q.dist(s);
+    if (intersect(s)) return 0;
+    return min({s.p.dist(*this), s.q.dist(*this), p.dist(s), q.dist(s)});
+  }
+
+  int orientation(Point p, Point q, Point r) {
+    int val = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
+    if (val == 0) return 0;
+    return (val > 0) ? 1 : 2;
+  }
+
+  bool intersect(const Segment& s) {
+    Point p1 = p;
+    Point q1 = q;
+    Point p2 = s.p;
+    Point q2 = s.q;
+    int o1 = orientation(p1, q1, p2);
+    int o2 = orientation(p1, q1, q2);
+    int o3 = orientation(p2, q2, p1);
+    int o4 = orientation(p2, q2, q1);
+    return (o1 != o2 && o3 != o4);
   }
 };
 
-double dist2(Point p, Point q) { return q.to(p) * q.to(p); }
-
-Point project_point_segment(Segment s, Point c) {
+Point project_point_segment(Segment& s, Point c) {
   Point p = s.p;
   Point q = s.q;
   double r = p.to(q) * p.to(q);
@@ -63,9 +66,7 @@ Point project_point_segment(Segment s, Point c) {
   return p + p.to(q).scale(r);
 }
 
-double Point::dist(Segment& s) {
-  return sqrt(dist2(*this, project_point_segment(s, *this)));
-}
+double Point::dist(Segment& s) { return dist(project_point_segment(s, *this)); }
 
 int N;
 
@@ -127,11 +128,7 @@ struct Graph {
   }
 };
 
-int round_up(double n) {
-  if (n < 1) return 0;
-  if (fabs(floor(n) - n) <= 0.00001) return floor(n);
-  return ceil(n);
-}
+int round_up(double n) { return fabs(floor(n) - n) < EPS ? floor(n) : ceil(n); }
 
 void solve() {
   vector<Segment> segments;
