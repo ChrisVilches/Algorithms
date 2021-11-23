@@ -48,12 +48,6 @@ ll remove_area(vector<Point>& points) {
   return area_removed;
 }
 
-void remove_and_rotate(vector<Point>& points, ll* area) {
-  ll area_removed = remove_area(points);
-  *area -= area_removed;
-  for (Point& p : points) p.rotate();
-}
-
 void solve() {
   vector<Point> points;
 
@@ -79,7 +73,10 @@ void solve() {
   ll perimeter = 2 * (x_side + y_side);
   ll area = x_side * y_side;
 
-  for (int i = 0; i < 4; i++) remove_and_rotate(points, &area);
+  for (int i = 0; i < 4; i++) {
+    area -= remove_area(points);
+    for (Point& p : points) p.rotate();
+  }
 
   cout << perimeter << " " << area << endl;
 }
