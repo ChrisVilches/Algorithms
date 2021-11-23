@@ -133,7 +133,6 @@ double dp(int visited, int curr_idx) {
 
 void solve() {
   tiles.clear();
-  memset(memo, -10, sizeof memo);
   memset(ok, 0, sizeof ok);
 
   for (int i = 0; i < N; i++) {
