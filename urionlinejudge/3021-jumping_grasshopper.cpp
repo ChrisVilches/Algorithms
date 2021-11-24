@@ -62,7 +62,7 @@ struct Segtree {
       return lv;
     }
 
-    int mid = lv + (rv - lv) / 2;
+    int mid = (lv + rv) / 2;
     int rs = query_first(left(v), lv, mid, l, r, x);
     if (rs != -1) return rs;
     return query_first(right(v), mid + 1, rv, l, r, x);
@@ -85,7 +85,7 @@ struct Segtree {
       return lv;
     }
 
-    int mid = lv + (rv - lv) / 2;
+    int mid = (lv + rv) / 2;
     int rs = query_first_reverse(right(v), mid + 1, rv, l, r, x);
     if (rs != -1) return rs;
     return query_first_reverse(left(v), lv, mid, l, r, x);
