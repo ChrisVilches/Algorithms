@@ -50,12 +50,12 @@ struct Segtree {
     if (l <= lv && rv <= r) {
       if (tree[v] <= x) return -1;
       while (lv != rv) {
-        int mid = lv + (rv - lv) / 2;
-        if (tree[2 * v] > x) {
-          v = 2 * v;
+        int mid = (lv + rv) / 2;
+        if (tree[left(v)] > x) {
+          v = left(v);
           rv = mid;
         } else {
-          v = 2 * v + 1;
+          v = right(v);
           lv = mid + 1;
         }
       }
@@ -63,9 +63,9 @@ struct Segtree {
     }
 
     int mid = lv + (rv - lv) / 2;
-    int rs = query_first(2 * v, lv, mid, l, r, x);
+    int rs = query_first(left(v), lv, mid, l, r, x);
     if (rs != -1) return rs;
-    return query_first(2 * v + 1, mid + 1, rv, l, r, x);
+    return query_first(right(v), mid + 1, rv, l, r, x);
   }
 
   int query_first_reverse(int v, int lv, int rv, int l, int r, int x) {
@@ -73,22 +73,22 @@ struct Segtree {
     if (l <= lv && rv <= r) {
       if (tree[v] <= x) return -1;
       while (lv != rv) {
-        int mid = lv + (rv - lv) / 2;
-        if (tree[2 * v + 1] < x) {
-          v = 2 * v;
-          rv = mid;
-        } else {
-          v = 2 * v + 1;
+        int mid = (lv + rv) / 2;
+        if (tree[right(v)] > x) {
+          v = right(v);
           lv = mid + 1;
+        } else {
+          v = left(v);
+          rv = mid;
         }
       }
       return lv;
     }
 
     int mid = lv + (rv - lv) / 2;
-    int rs = query_first_reverse(2 * v + 1, mid + 1, rv, l, r, x);
+    int rs = query_first_reverse(right(v), mid + 1, rv, l, r, x);
     if (rs != -1) return rs;
-    return query_first_reverse(2 * v, lv, mid, l, r, x);
+    return query_first_reverse(left(v), lv, mid, l, r, x);
   }
 
  public:
@@ -131,20 +131,17 @@ int main() {
     for (int i = 0; i < N; i++) scanf("%d", &heights[i]);
 
     st = Segtree(heights, N);
+    char c;
+    int jump_from, plant_idx, new_height;
 
     while (M--) {
-      char c;
-      int jump_from;
-      scanf(" %c ", &c);
+      scanf(" %c", &c);
       if (c == 'L' || c == 'R') {
         scanf("%d", &jump_from);
-        jump_from--;
-        printf("%d\n", query_jump(jump_from, c == 'R') + 1);
+        printf("%d\n", query_jump(jump_from - 1, c == 'R') + 1);
       } else if (c == 'U') {
-        int plant, new_height;
-        scanf("%d %d", &plant, &new_height);
-        plant--;
-        st.update(plant, new_height);
+        scanf("%d %d", &plant_idx, &new_height);
+        st.update(plant_idx - 1, new_height);
       }
     }
   }
