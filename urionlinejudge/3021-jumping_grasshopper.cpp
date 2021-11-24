@@ -111,36 +111,19 @@ struct Segtree {
 
 Segtree st;
 
-// Has a O(N) loop, but works faster than Segment Tree, for some reason.
-// For segment tree, these can be used instead (same result as iterative):
-// st.query_first(from, N - 1, heights[from])
-// st.query_first_reverse(0, from - 1, heights[from])
 int query_jump(int from, bool to_right) {
-  int next_tallest_idx = -1;
+  int first_taller_than_max = -1;
 
   if (to_right) {
     int left_max = max(st.max_query(0, from), heights[from]);
-
-    int first_taller_than_left_max = st.query_first(from + 1, N - 1, left_max);
-
-    if (first_taller_than_left_max != -1) return first_taller_than_left_max;
-
-    for (int i = from + 1; i < N; i++)
-      if (heights[i] > heights[from]) return query_jump(i, !to_right);
-
+    first_taller_than_max = st.query_first(from + 1, N - 1, left_max);
   } else {
     int right_max = max(st.max_query(from + 1, N - 1), heights[from]);
-
-    int first_taller_than_right_max =
-        st.query_first_reverse(0, from - 1, right_max);
-
-    if (first_taller_than_right_max != -1) return first_taller_than_right_max;
-
-    for (int i = from - 1; i >= 0; i--)
-      if (heights[i] > heights[from]) return query_jump(i, !to_right);
+    first_taller_than_max = st.query_first_reverse(0, from - 1, right_max);
   }
 
-  return from;
+  if (first_taller_than_max != -1) return first_taller_than_max;
+  return query_jump(from + (to_right ? 1 : -1), !to_right);
 }
 
 int main() {
