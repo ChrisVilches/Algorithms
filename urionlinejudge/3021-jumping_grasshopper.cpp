@@ -45,7 +45,7 @@ struct Segtree {
     }
   }
 
-  int query_first(int v, int lv, int rv, int l, int r, int x) {
+  int first_greater(int v, int lv, int rv, int l, int r, int x) {
     if (lv > r || rv < l) return -1;
     if (l <= lv && rv <= r) {
       if (tree[v] <= x) return -1;
@@ -63,12 +63,12 @@ struct Segtree {
     }
 
     int mid = (lv + rv) / 2;
-    int rs = query_first(left(v), lv, mid, l, r, x);
+    int rs = first_greater(left(v), lv, mid, l, r, x);
     if (rs != -1) return rs;
-    return query_first(right(v), mid + 1, rv, l, r, x);
+    return first_greater(right(v), mid + 1, rv, l, r, x);
   }
 
-  int query_first_reverse(int v, int lv, int rv, int l, int r, int x) {
+  int first_greater_reverse(int v, int lv, int rv, int l, int r, int x) {
     if (lv > r || rv < l) return -1;
     if (l <= lv && rv <= r) {
       if (tree[v] <= x) return -1;
@@ -86,9 +86,9 @@ struct Segtree {
     }
 
     int mid = (lv + rv) / 2;
-    int rs = query_first_reverse(right(v), mid + 1, rv, l, r, x);
+    int rs = first_greater_reverse(right(v), mid + 1, rv, l, r, x);
     if (rs != -1) return rs;
-    return query_first_reverse(left(v), lv, mid, l, r, x);
+    return first_greater_reverse(left(v), lv, mid, l, r, x);
   }
 
  public:
@@ -98,12 +98,12 @@ struct Segtree {
     build(1, 0, n - 1);
   }
 
-  int query_first(int i, int j, int higher_than) {
-    return query_first(1, 0, N - 1, i, j, higher_than);
+  int first_greater(int i, int j, int higher_than) {
+    return first_greater(1, 0, N - 1, i, j, higher_than);
   }
 
-  int query_first_reverse(int i, int j, int higher_than) {
-    return query_first_reverse(1, 0, N - 1, i, j, higher_than);
+  int first_greater_reverse(int i, int j, int higher_than) {
+    return first_greater_reverse(1, 0, N - 1, i, j, higher_than);
   }
   int max_query(int i, int j) { return max_query(1, 0, n - 1, i, j); }
   void update(int pos, int val) { return update(1, 0, n - 1, pos, val); }
@@ -115,11 +115,11 @@ int query_jump(int from, bool to_right) {
   int first_taller_than_max = -1;
 
   if (to_right) {
-    int left_max = max(st.max_query(0, from), heights[from]);
-    first_taller_than_max = st.query_first(from + 1, N - 1, left_max);
+    int left_max = st.max_query(0, from);
+    first_taller_than_max = st.first_greater(from, N - 1, left_max);
   } else {
-    int right_max = max(st.max_query(from + 1, N - 1), heights[from]);
-    first_taller_than_max = st.query_first_reverse(0, from - 1, right_max);
+    int right_max = st.max_query(from, N - 1);
+    first_taller_than_max = st.first_greater_reverse(0, from, right_max);
   }
 
   if (first_taller_than_max != -1) return first_taller_than_max;
