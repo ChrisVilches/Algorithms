@@ -53,8 +53,8 @@ double p_continue(int i, int j, int k) {
 }
 
 double p(int i, int j, int k) {
-  if (j == 75) return 0;
-  if (i + k > 75) return 1 - p(j, i, 0);
+  if (j == MAX_SCORE) return 0;
+  if (i + k > MAX_SCORE) return 1 - p(j, i, 0);
   if (k == 0) return solve(i, j);
   if (p_memo[i][j][k] > -1) return p_memo[i][j][k];
 
