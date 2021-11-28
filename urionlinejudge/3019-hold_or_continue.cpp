@@ -3,10 +3,10 @@ using namespace std;
 
 #define MAX_SCORE 75
 
-double p_memo[MAX_SCORE][MAX_SCORE][MAX_SCORE];
+double memo[MAX_SCORE][MAX_SCORE][MAX_SCORE];
 
 double p_approximate(int A, int B) {
-  if (p_memo[A][B][0] > -1) return p_memo[A][B][0];
+  if (memo[A][B][0] > -1) return memo[A][B][0];
 
   double p = 0.5;
 
@@ -39,7 +39,7 @@ double p_approximate(int A, int B) {
     p = a[0];
   }
 
-  return p_memo[A][B][0] = p;
+  return memo[A][B][0] = p;
 }
 
 double p(int i, int j, int k);
@@ -55,7 +55,7 @@ double p_continue(int i, int j, int k) {
 double p(int i, int j, int k) {
   if (j == MAX_SCORE) return 0;
   if (i + k > MAX_SCORE) return 1 - p(j, i, 0);
-  if (p_memo[i][j][k] > -1) return p_memo[i][j][k];
+  if (memo[i][j][k] > -1) return memo[i][j][k];
 
   double probability;
 
@@ -64,11 +64,11 @@ double p(int i, int j, int k) {
   else
     probability = max(p_hold(i, j, k), p_continue(i, j, k));
 
-  return p_memo[i][j][k] = probability;
+  return memo[i][j][k] = probability;
 }
 
 int main() {
-  memset(p_memo, -1, sizeof p_memo);
+  memset(memo, -1, sizeof memo);
 
   int Q;
   while (scanf("%d", &Q) == 1)
