@@ -3,11 +3,11 @@ using namespace std;
 
 #define MAX_SCORE 75
 
-double solve_memo[MAX_SCORE][MAX_SCORE];
 double p_memo[MAX_SCORE][MAX_SCORE][MAX_SCORE];
 
-double solve(int A, int B) {
-  if (solve_memo[A][B] > -1) return solve_memo[A][B];
+double p_approximate(int A, int B) {
+  if (p_memo[A][B][0] > -1) return p_memo[A][B][0];
+
   double p = 0.5;
 
   array<double, MAX_SCORE + 1> a;
@@ -21,7 +21,7 @@ double solve(int A, int B) {
       } else if (A + i == MAX_SCORE) {
         a[i] = 1;
       } else {
-        a[i] = 1 - solve(B, A + i);
+        a[i] = 1 - p_approximate(B, A + i);
       }
     }
 
@@ -39,7 +39,7 @@ double solve(int A, int B) {
     p = a[0];
   }
 
-  return solve_memo[A][B] = p;
+  return p_memo[A][B][0] = p;
 }
 
 double p(int i, int j, int k);
@@ -55,19 +55,24 @@ double p_continue(int i, int j, int k) {
 double p(int i, int j, int k) {
   if (j == MAX_SCORE) return 0;
   if (i + k > MAX_SCORE) return 1 - p(j, i, 0);
-  if (k == 0) return solve(i, j);
   if (p_memo[i][j][k] > -1) return p_memo[i][j][k];
 
-  return p_memo[i][j][k] = max(p_hold(i, j, k), p_continue(i, j, k));
+  double probability;
+
+  if (k == 0)
+    probability = p_approximate(i, j);
+  else
+    probability = max(p_hold(i, j, k), p_continue(i, j, k));
+
+  return p_memo[i][j][k] = probability;
 }
 
 int main() {
   memset(p_memo, -1, sizeof p_memo);
-  memset(solve_memo, -1, sizeof solve_memo);
 
-  int q;
-  while (scanf("%d", &q) == 1)
-    while (q--) {
+  int Q;
+  while (scanf("%d", &Q) == 1)
+    while (Q--) {
       int C, H, X;
       cin >> C >> H >> X;
 
