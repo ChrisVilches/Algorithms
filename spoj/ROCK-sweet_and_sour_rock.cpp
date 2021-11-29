@@ -11,23 +11,14 @@ int dp(int n) {
   if (memo[n] != -1) return memo[n];
 
   int ans = 0;
-  int zeros = 0;
-  int ones = 0;
+  int sweetness = 0;
 
   for (int i = n; i < N; i++) {
-    if (segments[i] == 0)
-      zeros++;
-    else
-      ones++;
+    sweetness += segments[i] ? 1 : -1;
 
-    int curr_length = i - n + 1;
+    int curr_length = sweetness > 0 ? i - n + 1 : 0;
 
-    if (zeros >= ones) curr_length = 0;
-
-    int cut = curr_length + dp(i + 1);
-    int dont_cut = curr_length;
-
-    ans = max({ans, cut, dont_cut});
+    ans = max(ans, curr_length + dp(i + 1));
   }
 
   return memo[n] = ans;
