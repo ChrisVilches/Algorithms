@@ -7,15 +7,15 @@ int N;
 int h_index(vector<int> &nums) {
   sort(nums.begin(), nums.end());
 
-  int h_index = 0;
+  int h = 0;
 
   for (int i = 0; i < (int)nums.size(); i++) {
     int citations = nums[i];
     int papers = (int)nums.size() - i;
 
-    if (papers <= citations) h_index = max(h_index, papers);
+    if (papers <= citations) h = max(h, papers);
   }
-  return h_index;
+  return h;
 }
 
 void solve() {
