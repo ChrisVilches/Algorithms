@@ -240,7 +240,6 @@ void solve() {
     pdi u = q.top();
     q.pop();
     for (pdi v : graph[u.second].edges) {
-      Node neighbor = graph[v.second];
       ld alt = dist[u.second] + v.first;
       if (alt < dist[v.second]) {
         dist[v.second] = alt;
