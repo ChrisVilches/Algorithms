@@ -61,7 +61,7 @@ int parent[MAX];
 
 set<pair<int, int>> queries_set;
 
-void disjoint_set_initialize(int n) {
+void disjoint_sets_initialize(int n) {
   for (int i = 0; i < n; i++) parent[i] = i;
 }
 
@@ -157,7 +157,7 @@ void print_result() {
 int main() {
   while (scanf("%d %d", &N, &Q) == 2) {
     queries_set.clear();
-    disjoint_set_initialize(Q);
+    disjoint_sets_initialize(Q);
     memset(segment_visited, 0, sizeof segment_visited);
 
     read_data();
