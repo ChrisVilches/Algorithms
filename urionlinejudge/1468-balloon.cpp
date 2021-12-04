@@ -3,8 +3,7 @@
 using namespace std;
 
 /*
-Micro-optimized for world record.
-(World Record on Beecrowd) 0.077s
+Micro-optimized.
 */
 
 void print(uint32_t n) {
