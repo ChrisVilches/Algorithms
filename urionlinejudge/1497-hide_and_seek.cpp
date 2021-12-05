@@ -9,12 +9,14 @@ struct Point {
   Point() {}
 
   inline int quad() const { return y != 0 ? (y > 0) : x > 0; }
-  Point to(const Point& p) const { return p - *this; }
+  inline Point to(const Point& p) const { return p - *this; }
 
   bool operator<(const Point& p) const {
     return quad() != p.quad() ? quad() > p.quad() : (*this ^ p) > 0;
   }
-  Point operator-(const Point& p) const { return Point(x - p.x, y - p.y); }
+  inline Point operator-(const Point& p) const {
+    return Point(x - p.x, y - p.y);
+  }
   inline ll operator^(const Point& p) const { return x * p.y - y * p.x; }
 };
 
@@ -22,34 +24,24 @@ struct Segment {
   Point p, q;
   Segment(Point p, Point q) : p(p), q(q) {}
   Segment() {}
-  Segment operator-(const Point& o) const { return Segment(p - o, q - o); }
-
-  int orientation(Point p, Point q, Point r) {
-    ll val = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
-    if (val == 0) return 0;
-    return (val > 0) ? 1 : 2;
+  inline Segment operator-(const Point& o) const {
+    return Segment(p - o, q - o);
   }
 
-  bool intersect(const Segment& s) {
-    Point p1 = p;
-    Point q1 = q;
-    Point p2 = s.p;
-    Point q2 = s.q;
-    int o1 = orientation(p1, q1, p2);
-    int o2 = orientation(p1, q1, q2);
-    int o3 = orientation(p2, q2, p1);
-    int o4 = orientation(p2, q2, q1);
-    return (o1 != o2 && o3 != o4);
+  inline bool intersects_positive_x_axis() const {
+    if (p.y * q.y > 0) return false;
+    return p.x + (q.x - p.x) * p.y / (p.y - q.y) >= 0;
   }
 };
 
 int S, K, W;
-const Segment positive_x_axis(Point(0, 0), Point(10000000L, 0));
 Point kids[10001];
 Segment walls[10001];
 set<int> curr_walls;
 
-inline void handle_segment(int segment_idx) {
+inline int sgn(ll x) { return (x > 0) - (x < 0); }
+
+inline void toggle_segment(int segment_idx) {
   if (curr_walls.count(segment_idx))
     curr_walls.erase(segment_idx);
   else
@@ -60,11 +52,9 @@ bool kid_visible(const Point& center, const Point& kid) {
   for (auto it = curr_walls.begin(); it != curr_walls.end(); it++) {
     Segment s = walls[*it] - center;
 
-    ll cross1 = s.p ^ (s.p.to(kid));
+    ll cross1 = s.p ^ kid;
     ll cross2 = s.p.to(kid) ^ kid.to(s.q);
-
-    if (cross1 > 0 && cross2 > 0) return false;
-    if (cross1 < 0 && cross2 < 0) return false;
+    if (sgn(cross1) == sgn(cross2)) return false;
   }
 
   return true;
@@ -74,20 +64,20 @@ int can_see_count(const Point& center, vector<pair<Point, int>>& events) {
   curr_walls.clear();
   int visible_kids = 0;
 
-  for (pair<Point, int>& ev : events) {
+  for (auto& ev : events) {
     auto [_, segment_idx] = ev;
 
     if (~segment_idx) {
       Segment s = walls[segment_idx] - center;
-      if (s.intersect(positive_x_axis)) curr_walls.insert(segment_idx);
+      if (s.intersects_positive_x_axis()) curr_walls.insert(segment_idx);
     }
   }
 
-  for (pair<Point, int>& ev : events) {
+  for (auto& ev : events) {
     auto [p, segment_idx] = ev;
 
     if (~segment_idx)
-      handle_segment(segment_idx);
+      toggle_segment(segment_idx);
     else if (kid_visible(center, p))
       visible_kids++;
   }
