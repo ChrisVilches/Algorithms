@@ -55,7 +55,7 @@ int N, Q;
 Point queries[MAX];
 Segment segments[MAX];
 pair<int, int> removed[MAX];
-pair<Point, int> events[2 * MAX];
+pair<Point, int> events[MAX];
 int parent[MAX];
 
 set<pair<int, int>> queries_set;
