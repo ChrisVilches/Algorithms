@@ -54,7 +54,6 @@ int N, Q;
 
 Point queries[MAX];
 Segment segments[MAX];
-bool segment_visited[MAX];
 pair<int, int> removed[MAX];
 pair<Point, int> events[2 * MAX];
 int parent[MAX];
@@ -92,19 +91,13 @@ void sweep_line() {
   pair<int, int> q, lower_bnd = make_pair(0, -1);
 
   for (int i = 0; i < N; i++) {
-    events[ev_n++] = make_pair(segments[i].p, i);
-    events[ev_n++] = make_pair(segments[i].q, i);
+    events[ev_n++] = make_pair(segments[i].exit(), i);
   }
 
   sort(events, events + ev_n);
 
   for (int i = 0; i < ev_n; i++) {
     segment_idx = events[i].second;
-
-    if (!segment_visited[segment_idx]) {
-      segment_visited[segment_idx] = true;
-      continue;
-    }
 
     Segment& segment = segments[segment_idx];
 
@@ -158,7 +151,6 @@ int main() {
   while (scanf("%d %d", &N, &Q) == 2) {
     queries_set.clear();
     disjoint_sets_initialize(Q);
-    memset(segment_visited, 0, sizeof segment_visited);
 
     read_data();
     sweep_line();
