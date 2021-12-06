@@ -11,8 +11,6 @@ double dis[MAX][MAX];
 Point points[MAX];
 int N;
 
-inline int bits_1_count(ll i) { return bitset<MAX>(i).count(); }
-
 inline bool cmp(tuple<double, bool, int>& A, tuple<double, bool, int>& B) {
   if (get<0>(A) < get<0>(B))
     return true;
@@ -53,16 +51,17 @@ void points_inside(int i, double r, unordered_set<ll>& out) {
     else
       covered &= ~(1LL << point_idx);
 
-    out.insert(covered);
+    out.emplace(covered);
   }
 }
 
 unordered_set<ll> all_subsets;
 
-int max_points(double r) {
-  int bit_count = 0;
+bool covers_all_points(double r) {
   int subsets_size;
   all_subsets.clear();
+
+  ll all_bits = (1LL << N) - 1;
 
   for (int i = 0; i < N; i++) points_inside(i, r, all_subsets);
 
@@ -71,12 +70,10 @@ int max_points(double r) {
   subsets_size = (int)subsets.size();
 
   for (int i = 0; i < subsets_size; i++)
-    for (int j = i + 1; j < subsets_size; j++) {
-      bit_count = max(bit_count, bits_1_count(subsets[i] | subsets[j]));
-      if (bit_count == N) break;
-    }
+    for (int j = i + 1; j < subsets_size; j++)
+      if ((subsets[i] | subsets[j]) == all_bits) return true;
 
-  return bit_count;
+  return false;
 }
 
 void solve() {
@@ -94,13 +91,13 @@ void solve() {
     for (int j = i + 1; j < N; j++)
       dis[i][j] = dis[j][i] = fabs(points[i] - points[j]);
 
-  while (right - left > 0.0005) {
+  while (right - left > 0.0003) {
     mid = (right + left) / 2;
 
-    if (max_points(mid) < N)
-      left = mid;
-    else
+    if (covers_all_points(mid))
       right = mid;
+    else
+      left = mid;
   }
 
   printf("%.2f\n", left);
