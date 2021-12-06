@@ -6,29 +6,33 @@ typedef long long ll;
 
 int N;
 char nums[MAX];
-ll memo[2][MAX];
+int memo[MAX];
 const ll MOD = 1e9 + 7;
 
 inline void mult(ll& a, ll b) { a = (a * b) % MOD; }
 inline void add(ll& a, ll b) { a = (a + b) % MOD; }
 
-ll dp(bool first, int n) {
+int dp(int n) {
   if (n == N) return 0;
-  if (~memo[first][n]) return memo[first][n];
+  if (~memo[n]) return memo[n];
 
-  ll total = dp(false, n + 1);
+  ll total = (ll)dp(n + 1);
 
-  if (nums[n] == '2' && !first)
-    mult(total, 2);
-  else if (nums[n] == '3')
-    add(total, 1);
+  switch (nums[n]) {
+    case '2':
+      mult(total, 2);
+      break;
+    case '3':
+      total++;
+      break;
+  }
 
-  return memo[first][n] = total;
+  return memo[n] = (int)total;
 }
 
 int main() {
   while (scanf("%d", &N) == 1) {
-    memset(memo, -1, sizeof memo);
+    memset(memo, -1, sizeof(int) * N);
     for (int i = 0; i < N; i++) {
       char c = '\0';
       // Read '1', '2', '3' while skipping spaces.
@@ -38,12 +42,17 @@ int main() {
 
     ll total = 0;
     ll ones = 0;
-    for (int i = 0; i < N; i++)
-      if (nums[i] == '1')
-        ones++;
-      else if (nums[i] == '2')
-        add(total, ones * dp(true, i));
+    for (int i = 0; i < N; i++) {
+      switch (nums[i]) {
+        case '1':
+          ones++;
+          break;
+        case '2':
+          add(total, ones * (dp(i) - dp(i + 1)));
+          break;
+      }
+    }
 
-    printf("%lld\n", total);
+    printf("%lld\n", total % MOD);
   }
 }
