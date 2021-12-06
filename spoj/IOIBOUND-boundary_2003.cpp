@@ -10,10 +10,15 @@ struct Point {
   inline bool operator<(const Point& p) const {
     return quad() != p.quad() ? quad() > p.quad() : (*this ^ p) > 0;
   }
+  bool operator<=(const Point& p) const { return (*this < p) || zero_deg(p); }
   inline Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
   inline bool operator!=(const Point& p) const { return x != p.x || y != p.y; }
   inline void operator-=(const Point& p) { x -= p.x, y -= p.y; }
   inline ll operator^(const Point& p) const { return x * p.y - y * p.x; }
+  inline ll operator*(const Point& p) const { return x * p.x + y * p.y; }
+  bool zero_deg(const Point& p) const {
+    return !(*this ^ p) && (*this * p) > 0;
+  }
 };
 
 struct Rock {
@@ -54,8 +59,8 @@ int radial_sweep() {
   for (int i = 0; i < ev_n; i++) {
     auto [rock, r_idx] = events[i];
 
-    for (; posts[p] < rock || (curr_rocks[r_idx] && !(posts[p] ^ rock)); p++)
-      visible += (curr_rocks_count == 0);
+    for (; posts[p] <= rock; p++)
+      visible += !curr_rocks_count && !rock.zero_deg(posts[p]);
 
     toggle_rock(r_idx);
   }
