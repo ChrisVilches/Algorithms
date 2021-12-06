@@ -27,10 +27,7 @@ struct Rock {
     endpoint_b = vertices.back();
   }
 
-  bool intersects_positive_x_axis() const {
-    const Point &p = endpoint_a, &q = endpoint_b;
-    return (p.y * q.y <= 0) && p.x + (q.x - p.x) * p.y / (p.y - q.y) >= 0;
-  }
+  bool intersects_positive_x_axis() const { return endpoint_b < endpoint_a; }
 };
 
 int N, R, ev_n, curr_rocks_count;
@@ -57,7 +54,7 @@ int radial_sweep() {
   for (int i = 0; i < ev_n; i++) {
     auto [rock, r_idx] = events[i];
 
-    for (; (posts[p] < rock) || (curr_rocks[r_idx] && !(posts[p] ^ rock)); p++)
+    for (; posts[p] < rock || (curr_rocks[r_idx] && !(posts[p] ^ rock)); p++)
       visible += (curr_rocks_count == 0);
 
     toggle_rock(r_idx);
