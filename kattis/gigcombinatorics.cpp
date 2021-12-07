@@ -48,7 +48,7 @@ int main() {
           ones++;
           break;
         case '2':
-          add(total, ones * (dp(i) - dp(i + 1)));
+          add(total, ones * dp(i + 1));
           break;
       }
     }
