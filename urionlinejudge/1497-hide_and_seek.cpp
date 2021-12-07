@@ -29,8 +29,8 @@ struct Segment {
   }
 
   inline bool intersects_positive_x_axis() const {
-    if (p.y * q.y > 0) return false;
-    return p.x + (q.x - p.x) * p.y / (p.y - q.y) >= 0;
+    if ((p ^ q) > 0) return q < p;
+    return p < q;
   }
 };
 
