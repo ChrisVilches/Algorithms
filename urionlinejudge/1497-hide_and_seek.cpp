@@ -14,9 +14,7 @@ struct Point {
   bool operator<(const Point& p) const {
     return quad() != p.quad() ? quad() > p.quad() : (*this ^ p) > 0;
   }
-  inline Point operator-(const Point& p) const {
-    return Point(x - p.x, y - p.y);
-  }
+  inline Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
   inline ll operator^(const Point& p) const { return x * p.y - y * p.x; }
 };
 
@@ -24,10 +22,7 @@ struct Segment {
   Point p, q;
   Segment(Point p, Point q) : p(p), q(q) {}
   Segment() {}
-  inline Segment operator-(const Point& o) const {
-    return Segment(p - o, q - o);
-  }
-
+  inline Segment operator-(const Point& o) const { return {p - o, q - o}; }
   inline bool intersects_positive_x_axis() const {
     if ((p ^ q) > 0) return q < p;
     return p < q;
