@@ -26,10 +26,12 @@ struct Rock {
   Point endpoint_a, endpoint_b;
 
   void compute_endpoints() {
-    sort(vertices.begin(), vertices.end(),
-         [](const Point& p, const Point& q) { return (p ^ q) > 0; });
     endpoint_a = vertices.front();
-    endpoint_b = vertices.back();
+    endpoint_b = vertices.front();
+    for (Point& v : vertices) {
+      if ((endpoint_a ^ v) < 0) endpoint_a = v;
+      if ((endpoint_b ^ v) > 0) endpoint_b = v;
+    }
   }
 
   bool intersects_positive_x_axis() const { return endpoint_b < endpoint_a; }
