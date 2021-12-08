@@ -18,8 +18,7 @@ double dijkstra(double t) {
   while (!q.empty()) {
     pair<double, int> u = q.top();
     q.pop();
-    vector<pair<int, pii>> neighbors = graph[u.second];
-    for (pair<int, pii> neighbor : neighbors) {
+    for (pair<int, pii>& neighbor : graph[u.second]) {
       int v = neighbor.first;
       double alt =
           dist[u.second] + (neighbor.second.first * t + neighbor.second.second);
