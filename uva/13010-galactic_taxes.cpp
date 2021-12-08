@@ -9,7 +9,7 @@ double dist[1001];
 vector<vector<pair<int, pii>>> graph;
 
 double dijkstra(double t) {
-  fill(dist, dist + N, 1e9);
+  fill(dist, dist + N, 1e10);
   priority_queue<pdi, vector<pdi>, greater<pdi>> q;
 
   q.push(make_pair(0, 0));
