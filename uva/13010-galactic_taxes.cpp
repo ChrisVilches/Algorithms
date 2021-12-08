@@ -33,33 +33,34 @@ double dijkstra(double t) {
 }
 
 int main() {
-  scanf("%d %d", &N, &M);
-  graph.assign(N, vector<pair<int, pii>>());
+  while (scanf("%d %d", &N, &M) == 2) {
+    graph.assign(N, vector<pair<int, pii>>());
 
-  while (M--) {
-    int source, target, a, b;
-    scanf("%d %d %d %d", &source, &target, &a, &b);
-    source--;
-    target--;
+    while (M--) {
+      int source, target, a, b;
+      scanf("%d %d %d %d", &source, &target, &a, &b);
+      source--;
+      target--;
 
-    graph[source].push_back({target, {a, b}});
-    graph[target].push_back({source, {a, b}});
+      graph[source].push_back({target, {a, b}});
+      graph[target].push_back({source, {a, b}});
+    }
+
+    double left = 0;
+    double right = 60 * 24;
+    int iters = 80;
+
+    while (iters--) {
+      double third = (right - left) / 3;
+      double t1 = left + third;
+      double t2 = right - third;
+
+      if (dijkstra(t1) < dijkstra(t2))
+        left = t1;
+      else
+        right = t2;
+    }
+
+    printf("%0.5f\n", dijkstra(left));
   }
-
-  double left = 0;
-  double right = 60 * 24;
-  int iters = 80;
-
-  while (iters--) {
-    double third = (right - left) / 3;
-    double t1 = left + third;
-    double t2 = right - third;
-
-    if (dijkstra(t1) < dijkstra(t2))
-      left = t1;
-    else
-      right = t2;
-  }
-
-  printf("%0.5f\n", dijkstra(left));
 }
