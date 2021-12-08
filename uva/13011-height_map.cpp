@@ -32,11 +32,12 @@ int north_faces(int (&m)[MAX][MAX], int r, int c) {
       int top = m[i + 1][j];
       switch (face) {
         case true:
-          if (continuous(prev_bottom, prev_top, bottom, top)) break;
-          if (bottom < top)
-            total++;
-          else
+          if (bottom >= top) {
             face = false;
+            break;
+          }
+          if (continuous(prev_bottom, prev_top, bottom, top)) break;
+          if (bottom < top) total++;
           break;
         case false:
           if (bottom < top) {
