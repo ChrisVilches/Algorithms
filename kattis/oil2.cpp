@@ -47,7 +47,6 @@ ll maximum_amount(Point& center) {
   ll curr = 0;
 
   ll subtract = 0;
-  ll add = 0;
 
   for (int i = 0; i < (int)events.size(); i++) {
     auto [p, width, segment_idx] = events[i];
@@ -55,18 +54,17 @@ ll maximum_amount(Point& center) {
 
     if (active[segment_idx])
       subtract += width;
-    else
-      add += width;
+    else {
+      curr += width;
+      ans = max(ans, curr);
+    }
 
     active[segment_idx] = !active[segment_idx];
 
     if ((p ^ next_point) == 0) continue;
 
-    curr += add;
-    ans = max(ans, curr);
     curr -= subtract;
     subtract = 0;
-    add = 0;
   }
 
   return ans;
