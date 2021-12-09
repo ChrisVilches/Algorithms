@@ -70,10 +70,11 @@ void solve() {
 
   items = 0;
 
-  for (int i = 0; i < (int)graph.size(); i++) {
-    dfs(i);
-    items++;
-  }
+  for (int i = 0; i < (int)graph.size(); i++)
+    if (!visited[i]) {
+      dfs(i);
+      items++;
+    }
 
   printf("%d %d\n", dp(true, items - 1, B), dp(false, items - 1, B));
 }
