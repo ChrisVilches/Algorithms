@@ -30,7 +30,7 @@ struct BIT {
   vector<int> A;
   void update(int i, int v) {
     i++;
-    for (; i <= bit_n; i += i & -i) A[i] += v;
+    for (; i < bit_n; i += i & -i) A[i] += v;
   }
 };
 

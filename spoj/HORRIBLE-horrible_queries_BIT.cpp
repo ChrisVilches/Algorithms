@@ -7,14 +7,16 @@ struct BIT {
   BIT() {}
   BIT(int n) : bit_n(n + 1) { A.assign(bit_n, 0); }
 
-  void update(int i, ll val) {
-    for (; i < bit_n; i += i & -i) A[i] += val;
+  ll query(int i) {
+    i++;
+    ll sum = 0;
+    for (; i > 0; i -= i & -i) sum += A[i];
+    return sum;
   }
 
-  ll query(int i) {
-    ll ret = 0;
-    for (; i > 0; i -= i & -i) ret += A[i];
-    return ret;
+  void update(int i, ll v) {
+    i++;
+    for (; i < bit_n; i += i & -i) A[i] += v;
   }
 
  private:
@@ -55,11 +57,9 @@ void solve() {
     int is_range_sum_query, p, q;
     ll v;
     scanf("%d %d %d", &is_range_sum_query, &p, &q);
+    q--;
+    p--;
 
-    if (p <= 0) p = 1;  // for uDebug test case.
-
-    // q--;
-    // p--;
     if (is_range_sum_query)
       printf("%lld\n", range_bit.range_sum(p, q));
     else {
