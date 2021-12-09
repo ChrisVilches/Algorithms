@@ -19,16 +19,13 @@ ll pillar_height(int i) { return H - ground[i].y; }
 ll cost_pillar(int i) { return ALPHA * pillar_height(i); }
 ll cost_arc(int i, int j) { return BETA * pow(dist(i, j), 2); }
 
-// Includes the cost of only the left pillar (plus the arc).
-ll cost(int i, int j) { return cost_pillar(i) + cost_arc(i, j); }
-
-bool arc_ok(int i, int j) {
+bool arc_possible(int i, int j) {
   ld arc_radius = (ld)dist(i, j) / 2L;
   return arc_right_max[i] >= arc_radius && arc_left_max[j] >= arc_radius;
 }
 
 void precompute_arc_bounds_right(const int point) {
-  ld r = H - ground[point].y;
+  ld r = pillar_height(point);
   for (int i = point + 1; i < N; i++) {
     ld center_x = ground[point].x + r;
     ld center_y = H - r;
@@ -43,7 +40,7 @@ void precompute_arc_bounds_right(const int point) {
 }
 
 void precompute_arc_bounds_left(const int point) {
-  ld r = H - ground[point].y;
+  ld r = pillar_height(point);
   for (int i = point - 1; i >= 0; i--) {
     ld center_x = ground[point].x - r;
     ld center_y = H - r;
@@ -60,10 +57,14 @@ void precompute_arc_bounds_left(const int point) {
 ll dp(int n) {
   if (~memo[n]) return memo[n];
 
-  ll min_cost = arc_ok(n, N - 1) ? cost(n, N - 1) + cost_pillar(N - 1) : INF;
+  ll min_cost = INF;
+
+  if (arc_possible(n, N - 1))
+    min_cost = cost_pillar(n) + cost_arc(n, N - 1) + cost_pillar(N - 1);
 
   for (int i = n + 1; i < N - 1; i++)
-    min_cost = min(min_cost, arc_ok(n, i) ? cost(n, i) + dp(i) : INF);
+    if (arc_possible(n, i))
+      min_cost = min(min_cost, cost_pillar(n) + cost_arc(n, i) + dp(i));
 
   return memo[n] = min_cost;
 }
