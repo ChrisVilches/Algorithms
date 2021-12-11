@@ -12,17 +12,6 @@ int N, S;
 int di[] = {-1, 1, 0, 0};
 int dj[] = {0, 0, -1, 1};
 
-inline bool correct_char(char c) {
-  return c == 'H' || c == 'G' || c == 'T' || c == 'M' || c == 'D';
-}
-
-char read_cell() {
-  char c;
-  while (scanf("%c", &c) && !correct_char(c))
-    ;
-  return c;
-}
-
 inline bool valid_grid(int i, int j) {
   return !(i < 0 || j < 0 || i >= N || j >= N);
 }
@@ -94,7 +83,7 @@ void solve() {
 
   for (int i = 0; i < N; i++)
     for (int j = 0; j < N; j++) {
-      original_grid[i][j] = read_cell();
+      scanf(" %c", &original_grid[i][j]);
       if (original_grid[i][j] == 'D')
         home = make_pair(i, j);
       else if (original_grid[i][j] == 'M') {
