@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+Also solves https://www.codechef.com/problems/CB04
+But first line of the input contains the number of test cases T.
+*/
+
 struct Point {
   int x, y;
   Point(int x, int y) : x(x), y(y) {}
