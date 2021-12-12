@@ -34,16 +34,16 @@ int count(vector<Point>& points) {
   int ans = 2;
   int curr = 2;
 
-  for (int i = 0; i < (int)points.size(); i++) {
+  for (int i = 1; i < (int)points.size(); i++) {
     Point p = points[i];
-    Point next_point = points[(i + 1) % points.size()];
+    Point prev_point = points[i - 1];
 
-    ans = max(ans, curr);
-
-    if ((p ^ next_point) == 0)
+    if ((p ^ prev_point) == 0)
       curr++;
     else
       curr = 2;
+
+    ans = max(ans, curr);
   }
   return ans;
 }
