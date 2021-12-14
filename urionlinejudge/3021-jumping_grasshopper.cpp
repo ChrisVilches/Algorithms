@@ -45,13 +45,14 @@ struct Segtree {
     }
   }
 
-  int first_greater(int v, int lv, int rv, int l, int r, int x) {
+  int first_greater(int v, int lv, int rv, int l, int r, int x, bool to_right) {
     if (lv > r || rv < l) return -1;
     if (l <= lv && rv <= r) {
       if (tree[v] <= x) return -1;
       while (lv != rv) {
         int mid = (lv + rv) / 2;
-        if (tree[left(v)] > x) {
+        if ((to_right && tree[left(v)] > x) ||
+            (!to_right && tree[right(v)] <= x)) {
           v = left(v);
           rv = mid;
         } else {
@@ -63,32 +64,15 @@ struct Segtree {
     }
 
     int mid = (lv + rv) / 2;
-    int rs = first_greater(left(v), lv, mid, l, r, x);
-    if (rs != -1) return rs;
-    return first_greater(right(v), mid + 1, rv, l, r, x);
-  }
-
-  int first_greater_reverse(int v, int lv, int rv, int l, int r, int x) {
-    if (lv > r || rv < l) return -1;
-    if (l <= lv && rv <= r) {
-      if (tree[v] <= x) return -1;
-      while (lv != rv) {
-        int mid = (lv + rv) / 2;
-        if (tree[right(v)] > x) {
-          v = right(v);
-          lv = mid + 1;
-        } else {
-          v = left(v);
-          rv = mid;
-        }
-      }
-      return lv;
+    if (to_right) {
+      int rs = first_greater(left(v), lv, mid, l, r, x, to_right);
+      if (rs != -1) return rs;
+      return first_greater(right(v), mid + 1, rv, l, r, x, to_right);
+    } else {
+      int rs = first_greater(right(v), mid + 1, rv, l, r, x, to_right);
+      if (rs != -1) return rs;
+      return first_greater(left(v), lv, mid, l, r, x, to_right);
     }
-
-    int mid = (lv + rv) / 2;
-    int rs = first_greater_reverse(right(v), mid + 1, rv, l, r, x);
-    if (rs != -1) return rs;
-    return first_greater_reverse(left(v), lv, mid, l, r, x);
   }
 
  public:
@@ -99,11 +83,11 @@ struct Segtree {
   }
 
   int first_greater(int i, int j, int higher_than) {
-    return first_greater(1, 0, N - 1, i, j, higher_than);
+    return first_greater(1, 0, N - 1, i, j, higher_than, true);
   }
 
   int first_greater_reverse(int i, int j, int higher_than) {
-    return first_greater_reverse(1, 0, N - 1, i, j, higher_than);
+    return first_greater(1, 0, N - 1, i, j, higher_than, false);
   }
   int max_query(int i, int j) { return max_query(1, 0, n - 1, i, j); }
   void update(int pos, int val) { return update(1, 0, n - 1, pos, val); }
