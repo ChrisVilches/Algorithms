@@ -8,7 +8,7 @@ Micro-optimized.
 
 int N, Q;
 tiii tree[4 * 100004];
-short lazy[4 * 100004];
+int lazy[4 * 100004];
 
 void print(uint32_t n) {
   if (n / 10) print(n / 10);
@@ -107,7 +107,7 @@ int main() {
 
   while (scanf("%d", &N) == 1) {
     Q = read_int();
-    memset(lazy, 0, sizeof(short) * 4 * (N + 1));
+    memset(lazy, 0, sizeof(int) * 4 * (N + 1));
     initialize_tree(1, 0, N);
 
     while (Q--) {
