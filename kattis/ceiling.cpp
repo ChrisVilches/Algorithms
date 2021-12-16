@@ -6,7 +6,6 @@ int n, k;
 
 struct Tree {
   int value = -1;
-  Tree() {}
   Tree(int v) : value(v) {}
   unique_ptr<Tree> left, right;
 
@@ -42,14 +41,14 @@ struct Tree {
 };
 
 void solve() {
-  int node;
+  int value;
   unordered_set<uint64_t> trees;
   for (int i = 0; i < n; i++) {
-    Tree t;
-    cin >> t.value;
+    cin >> value;
+    Tree t(value);
     for (int j = 1; j < k; j++) {
-      cin >> node;
-      t.insert(node);
+      cin >> value;
+      t.insert(value);
     }
 
     trees.emplace(t.hash(1));
