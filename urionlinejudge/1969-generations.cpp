@@ -41,35 +41,22 @@ void build_tree(int p, int L, int R) {
   }
 }
 
-struct FastFibonacci {
-  ll get(ll n, ll mod) {
-    fast_fib(n, mod);
-    return ans[0];
-  }
-
- private:
-  ll a, b, c, d, ans[2];
-  void fast_fib(ll n, ll mod) {
-    if (n == 0) {
-      ans[0] = 0, ans[1] = 1;
-      return;
-    }
-    fast_fib(n >> 1, mod);
-    a = ans[0], b = ans[1], c = 2 * b - a;
+ll fast_fibonacci(ll n, ll mod) {
+  function<pair<ll, ll>(ll)> fib;
+  fib = [mod, &fib](ll n) -> pair<ll, ll> {
+    if (n == 0) return {0, 1};
+    auto [a, b] = fib(n >> 1);
+    ll c = 2 * b - a;
     if (c < 0) c += mod;
     c = (a * c) % mod;
-    d = (a * a + b * b) % mod;
-    if (n & 1) {
-      ans[0] = d;
-      ans[1] = c + d;
-    } else {
-      ans[0] = c;
-      ans[1] = d;
-    }
-  }
-};
+    ll d = (a * a + b * b) % mod;
+    return n & 1 ? make_pair(d, c + d) : make_pair(c, d);
+  };
 
-ll possibilities(ll x) { return FastFibonacci().get(x - 1, mod); }
+  return fib(n).first;
+}
+
+ll possibilities(ll x) { return fast_fibonacci(x - 1, mod); }
 
 int main() {
   int G, E;
