@@ -52,7 +52,6 @@ struct Segtree {
 
 int N, Q;
 int nums[100'001];
-int tree[4 * 100'001];
 
 void solve() {
   for (int i = 0; i < N; i++) {
