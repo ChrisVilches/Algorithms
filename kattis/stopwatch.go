@@ -9,7 +9,7 @@ func main() {
 
 	fmt.Scan(&N)
 
-	curr_time := 0
+	currTime := 0
 	total := 0
 
 	if N%2 == 1 {
@@ -18,12 +18,12 @@ func main() {
 	}
 
 	for i := 0; i < N; i++ {
-		prev_time := curr_time
+		prevTime := currTime
 
-		fmt.Scan(&curr_time)
+		fmt.Scan(&currTime)
 
 		if i%2 == 1 {
-			total += curr_time - prev_time
+			total += currTime - prevTime
 		}
 	}
 
