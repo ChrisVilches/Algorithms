@@ -6,33 +6,26 @@ int n, k;
 
 struct Tree {
   int value = -1;
-  Tree* left = nullptr;
-  Tree* right = nullptr;
-  ~Tree() {
-    if (left) delete (left);
-    if (right) delete (right);
-  }
+  Tree() {}
+  Tree(int v) : value(v) {}
+  unique_ptr<Tree> left, right;
 
   void insert(int node) {
     if (value <= node) {
-      if (right) {
+      if (right)
         right->insert(node);
-      } else {
-        right = new Tree();
-        right->value = node;
-      }
+      else
+        right = make_unique<Tree>(node);
     } else {
-      if (left) {
+      if (left)
         left->insert(node);
-      } else {
-        left = new Tree();
-        left->value = node;
-      }
+      else
+        left = make_unique<Tree>(node);
     }
   }
 
-  long long hash(int factor) {
-    long long total = 0;
+  uint64_t hash(int factor) {
+    uint64_t total = 0;
 
     if (left)
       total += 0x7c2123c * left->hash(factor + 1) * factor;
@@ -50,7 +43,7 @@ struct Tree {
 
 void solve() {
   int node;
-  unordered_set<long long> trees;
+  unordered_set<uint64_t> trees;
   for (int i = 0; i < n; i++) {
     Tree t;
     cin >> t.value;
