@@ -6,7 +6,7 @@ struct Sphere {
   double r, x, y, z;
   double volume() const { return 4 * M_PI * pow(r, 3) / 3; }
 
-  double partial_volume(double z0) {
+  double partial_volume(double z0) const {
     if (z0 <= z) {
       double min_z = z - r;
       z0 = max(z0, min_z);
@@ -20,7 +20,7 @@ struct Sphere {
 
  private:
   // https://en.wikipedia.org/wiki/Spherical_cap
-  double cap(double h) { return (M_PI * h * h / 3) * (3 * r - h); }
+  double cap(double h) const { return (M_PI * h * h / 3) * (3 * r - h); }
 } holes[10'007];
 
 double cheese_volume(double z) {
@@ -57,6 +57,6 @@ int main() {
     }
 
     printf("%.9f\n", (left - prev_partition) / 1000);
-    prev_partition += left - prev_partition;
+    prev_partition = left;
   }
 }
