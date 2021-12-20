@@ -33,9 +33,7 @@ void solve() {
   for (int i = 0; i < N; i++) cin >> seq[i];
   for (int i = 0; i < M; i++) cin >> run[i];
 
-  int ans = calculate(0, seq, run);
-
-  ans = min(ans, calculate(1, seq, run));
+  int ans = min(calculate(0, seq, run), calculate(1, seq, run));
 
   cout << ans << endl;
 }
