@@ -2,8 +2,10 @@
 using namespace std;
 typedef long long ll;
 
-char sequence[1'000'007];
-ll psum[1'000'007];
+#define MAX_N 1000007
+
+char sequence[MAX_N];
+ll psum[MAX_N];
 
 ll sum_range(int l, int r) { return psum[r + 1] - psum[l]; }
 
