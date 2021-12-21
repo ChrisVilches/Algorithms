@@ -12,19 +12,18 @@ double dijkstra(double t) {
   fill(dist, dist + N, 1e10);
   priority_queue<pdi, vector<pdi>, greater<pdi>> q;
 
-  q.push(make_pair(0, 0));
+  q.push({0, 0});
   dist[0] = 0;
 
   while (!q.empty()) {
-    pair<double, int> u = q.top();
+    auto [_, u] = q.top();
     q.pop();
-    for (pair<int, pii>& neighbor : graph[u.second]) {
-      int v = neighbor.first;
-      double alt =
-          dist[u.second] + (neighbor.second.first * t + neighbor.second.second);
+    for (auto& [v, weight] : graph[u]) {
+      auto [a, b] = weight;
+      double alt = dist[u] + (a * t + b);
       if (alt < dist[v]) {
         dist[v] = alt;
-        q.push(make_pair(alt, v));
+        q.push({alt, v});
       }
     }
   }
