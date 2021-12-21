@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+typedef pair<int, int> pii;
 
 const int INF = 10e8;
 
@@ -8,12 +9,11 @@ const int INF = 10e8;
 
 int nodes, edges, init_node, queries;
 int dist[10000];
-auto comp = [](pair<int, int> a, pair<int, int> b) { return a.second > b.second; };
 
 void dijkstra(map<int, vector<pair<int, int>>>& graph) {
   fill(dist, dist + nodes, INF);
 
-  priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(comp)> q(comp);
+  priority_queue<pii, vector<pii>, greater<pii>> q;
 
   q.push({0, init_node});
   dist[init_node] = 0;
