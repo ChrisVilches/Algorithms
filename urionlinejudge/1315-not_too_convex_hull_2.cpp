@@ -90,7 +90,7 @@ int main() {
     for (int i = 0; i < N; i++)
       for (int j = i + 1;; j++) {
         j %= N;
-        if ((points[j] ^ (Point(0, 0) - points[i])) < 0) break;
+        if ((points[i] ^ points[j]) < 0) break;
         convex_hulls[i].push_back(create_convex_hull(i, j));
       }
 
