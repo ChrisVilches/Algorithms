@@ -183,13 +183,13 @@ void solve() {
     for (Segment& tangent : poles[i].tangents_from_point(robot))
       if (movement_valid(tangent)) {
         int n = add_node(tangent.q, i);
-        graph[ROBOT_NODE_ID].edges.push_back(make_pair(tangent.length(), n));
+        graph[ROBOT_NODE_ID].edges.push_back({tangent.length(), n});
       }
 
     for (Segment& tangent : poles[i].tangents_from_point(goal))
       if (movement_valid(tangent)) {
         int n = add_node(tangent.q, i);
-        graph[n].edges.push_back(make_pair(tangent.length(), GOAL_NODE_ID));
+        graph[n].edges.push_back({tangent.length(), GOAL_NODE_ID});
       }
 
     for (int j = i + 1; j < (int)poles.size(); j++)
@@ -197,8 +197,8 @@ void solve() {
         if (movement_valid(tangent)) {
           int n1 = add_node(tangent.p, i);
           int n2 = add_node(tangent.q, j);
-          graph[n1].edges.push_back(make_pair(tangent.length(), n2));
-          graph[n2].edges.push_back(make_pair(tangent.length(), n1));
+          graph[n1].edges.push_back({tangent.length(), n2});
+          graph[n2].edges.push_back({tangent.length(), n1});
         }
   }
 
@@ -222,8 +222,8 @@ void solve() {
           auto [in_tan, out_tan] = combination;
           if (!arc_intersect_any_circle(i, in_tan, out_tan)) {
             ld arc = poles[i].arc(in_tan, out_tan);
-            graph[p1].edges.push_back(make_pair(arc, p2));
-            graph[p2].edges.push_back(make_pair(arc, p1));
+            graph[p1].edges.push_back({arc, p2});
+            graph[p2].edges.push_back({arc, p1});
           }
         }
       }
@@ -233,17 +233,17 @@ void solve() {
 
   priority_queue<pdi, vector<pdi>, greater<pdi>> q;
 
-  q.push(make_pair(0, ROBOT_NODE_ID));
+  q.push({0, ROBOT_NODE_ID});
   dist[ROBOT_NODE_ID] = 0;
 
   while (!q.empty()) {
-    pdi u = q.top();
+    auto [_, u] = q.top();
     q.pop();
-    for (pdi v : graph[u.second].edges) {
-      ld alt = dist[u.second] + v.first;
-      if (alt < dist[v.second]) {
-        dist[v.second] = alt;
-        q.push(make_pair(alt, v.second));
+    for (auto& [weight, v] : graph[u].edges) {
+      ld alt = dist[u] + weight;
+      if (alt < dist[v]) {
+        dist[v] = alt;
+        q.push({alt, v});
       }
     }
   }
