@@ -63,19 +63,17 @@ double dijkstra(graph_t& graph) {
 
   priority_queue<pdi, vector<pdi>, greater<pdi>> q;
 
-  q.push(make_pair(start.node_idx, 0));
+  q.push({0, start.node_idx});
   dist[start.node_idx] = 0;
 
   while (!q.empty()) {
-    pair<int, int> u = q.top();
+    auto [_, u] = q.top();
     q.pop();
-    auto neighbors = graph[u.first];
-    for (pair<int, double> neighbor : neighbors) {
-      int v = neighbor.first;
-      double alt = dist[u.first] + neighbor.second;
+    for (auto& [v, weight] : graph[u]) {
+      double alt = dist[u] + weight;
       if (alt < dist[v]) {
         dist[v] = alt;
-        q.push(make_pair(v, alt));
+        q.push({alt, v});
       }
     }
   }
@@ -90,14 +88,13 @@ void add_edges_from_start() {
 
       if (route_valid(line, i, -1))
         graph[start.node_idx].push_back(
-            make_pair(obstacle[i].endpoint(e).node_idx, line.length()));
+            {obstacle[i].endpoint(e).node_idx, line.length()});
     }
 
   Segment line_start_goal(start, goal);
 
   if (route_valid(line_start_goal, -1, -1))
-    graph[start.node_idx].push_back(
-        make_pair(goal.node_idx, line_start_goal.length()));
+    graph[start.node_idx].push_back({goal.node_idx, line_start_goal.length()});
 }
 
 void add_edges_from_segments() {
@@ -113,15 +110,14 @@ void add_edges_from_segments() {
 
           if (route_valid(line, i, j))
             graph[obsi.endpoint(e).node_idx].push_back(
-                make_pair(obsj.endpoint(f).node_idx, line.length()));
+                {obsj.endpoint(f).node_idx, line.length()});
         }
     }
 
     for (int e = 0; e < 2; e++) {
       Segment line(obsi.endpoint(e), goal);
       if (route_valid(line, i, -1))
-        graph[obsi.endpoint(e).node_idx].push_back(
-            make_pair(goal.node_idx, line.length()));
+        graph[obsi.endpoint(e).node_idx].push_back({goal.node_idx, line.length()});
     }
   }
 }
@@ -149,8 +145,7 @@ void solve() {
 }
 
 int main() {
-  while (scanf("%d %d %d %d %d", &start.x, &start.y, &goal.x, &goal.y, &N) ==
-         5) {
+  while (scanf("%d %d %d %d %d", &start.x, &start.y, &goal.x, &goal.y, &N) == 5) {
     if (!(start.x || start.y || goal.x || goal.y || N)) break;
     solve();
   }
