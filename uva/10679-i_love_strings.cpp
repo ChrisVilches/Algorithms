@@ -33,8 +33,7 @@ struct SuffixAutomaton {
         st[clone].len = st[p].len + 1;
         st[clone].next = st[q].next;
         st[clone].link = st[q].link;
-        while (p != -1 && st[p].next[c] == q)
-          st[p].next[c] = clone, p = st[p].link;
+        while (p != -1 && st[p].next[c] == q) st[p].next[c] = clone, p = st[p].link;
 
         st[q].link = st[cur].link = clone;
       }
