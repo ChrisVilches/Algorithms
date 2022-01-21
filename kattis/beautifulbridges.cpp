@@ -55,14 +55,12 @@ void precompute_arc_bounds_left(const int point) {
 }
 
 ll dp(int n) {
+  if (n == N - 1) return cost_pillar(n);
   if (~memo[n]) return memo[n];
 
   ll min_cost = INF;
 
-  if (arc_possible(n, N - 1))
-    min_cost = cost_pillar(n) + cost_arc(n, N - 1) + cost_pillar(N - 1);
-
-  for (int i = n + 1; i < N - 1; i++)
+  for (int i = n + 1; i < N; i++)
     if (arc_possible(n, i))
       min_cost = min(min_cost, cost_pillar(n) + cost_arc(n, i) + dp(i));
 
