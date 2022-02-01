@@ -29,7 +29,7 @@ KMP
 
 * [spoj/NAJPF-pattern_find.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/NAJPF-pattern_find.cpp)
 
-### Segment Trees / Bit Trees
+### Segment Trees And Bit Trees
 
 Segment tree
 
@@ -54,7 +54,7 @@ BIT (Fenwick tree)
 
 ### Geometry
 
-Radial sweep
+Radial sweep (and polar sort)
 
 * [codechef/REDBLUE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/REDBLUE.cpp)
 * [kattis/maxcolinear.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxcolinear.cpp)
@@ -100,6 +100,7 @@ Tangents & arcs
 Geometry with dynamic programming
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
+* [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
 * [urionlinejudge/1315-not_too_convex_hull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull.cpp)
 * [urionlinejudge/2665-hipercampo.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2665-hipercampo.cpp)
 * [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
@@ -107,7 +108,6 @@ Geometry with dynamic programming
 
 Misc
 
-* [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [kattis/countingtriangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/countingtriangles.cpp)
 * [spoj/PIR-pyramids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PIR-pyramids.cpp)
@@ -119,7 +119,7 @@ Misc
 
 ### Graphs
 
-BFS/DFS
+BFS, DFS
 
 * [kattis/fontan.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fontan.cpp)
 * [spoj/BITMAP-bitmap.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BITMAP-bitmap.cpp)
@@ -162,7 +162,7 @@ Counting, combinatorics, math
 * [urionlinejudge/3017-fabricating_sculptures.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3017-fabricating_sculptures.cpp)
 * [urionlinejudge/3020-improve_spam.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3020-improve_spam.cpp)
 
-Maximization/minimization
+Maximization, minimization
 
 * [atcoder/A-frog_1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/A-frog_1.cpp)
 * [google/plates.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/plates.cpp)
@@ -190,7 +190,7 @@ Probability
 * [spoj/CLEANRBT-cleaning_robot.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CLEANRBT-cleaning_robot.cpp)
 * [urionlinejudge/3019-hold_or_continue.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3019-hold_or_continue.cpp)
 
-### Binary/ternary Search
+### Binary Search, Ternary Search
 
 Binary search
 

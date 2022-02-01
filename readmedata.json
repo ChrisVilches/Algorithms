@@ -36,7 +36,7 @@
     ]
   },
   {
-    "header": "Segment trees / BIT trees",
+    "header": "Segment trees and BIT trees",
     "items": [
       {
         "title": "Segment tree",
@@ -69,7 +69,7 @@
     "header": "Geometry",
     "items": [
       {
-        "title": "Radial sweep",
+        "title": "Radial sweep (and polar sort)",
         "files": [
           "build the perfect house",
           "boundary",
@@ -130,7 +130,8 @@
           "not too convex hull cpp",
           "impenetrable wall",
           "arranging tiles",
-          "hipercampo"
+          "hipercampo",
+          "beautifulbridges"
         ]
       },
       {
@@ -139,7 +140,6 @@
           "cheese 2",
           "elevator",
           "2840-balloon",
-          "beautifulbridges",
           "the closest pair problem",
           "countingtriangles",
           "isosceles triangles cpp",
@@ -153,7 +153,7 @@
     "header": "Graphs",
     "items": [
       {
-        "title": "BFS/DFS",
+        "title": "BFS, DFS",
         "files": [
           "bitmap bitmap cpp",
           "mecho",
@@ -207,7 +207,7 @@
         ]
       },
       {
-        "title": "Maximization/minimization",
+        "title": "Maximization, minimization",
         "files": [
           "beautifulbridges",
           "frog 1 cpp",
@@ -241,7 +241,7 @@
     ]
   },
   {
-    "header": "Binary/ternary search",
+    "header": "Binary search, ternary search",
     "items": [
       {
         "title": "Binary search",
