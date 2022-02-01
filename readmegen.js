@@ -69,7 +69,7 @@ function findUniqueFilePath (simplifiedFilename, allFiles) {
 
 const toLink = x => 'https://' + path.join(URL_PREFIX, x)
 
-async function main () {
+function main () {
   const allFiles = getAllFiles('./')
 
   data.forEach(category => {
@@ -78,9 +78,14 @@ async function main () {
     category.items.forEach(item => {
       console.log(`\n${item.title}\n`)
 
-      item.files
+      const files = item.files
         .map(f => findUniqueFilePath(f, allFiles))
-        .sort((a, b) => a === b ? 0 : (a < b ? -1 : 1))
+
+      if (files.length !== (new Set(files).size)) {
+        throw new Error(`Files in "${category.header}" -> "${item.title}" are not unique`)
+      }
+
+      files.sort((a, b) => a === b ? 0 : (a < b ? -1 : 1))
         .forEach(file => console.log(`* [${file}](${toLink(file)})`))
     })
   })
