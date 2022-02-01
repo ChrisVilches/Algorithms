@@ -5,7 +5,7 @@ const data = require('./readmedata.json')
 const path = require('path')
 const fs = require('fs')
 
-const URL_PREFIX = 'https://github.com/ChrisVilches/Algorithms/blob/main/'
+const URL_PREFIX = 'github.com/ChrisVilches/Algorithms/blob/main/'
 
 const IGNORE_DIR_PATTERNS = [
   '.git/',
@@ -67,7 +67,7 @@ function findUniqueFilePath (simplifiedFilename, allFiles) {
   return found
 }
 
-const toLink = x => path.join(URL_PREFIX, x)
+const toLink = x => 'https://' + path.join(URL_PREFIX, x)
 
 async function main () {
   const allFiles = getAllFiles('./')
