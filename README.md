@@ -29,7 +29,7 @@ KMP
 
 * [spoj/NAJPF-pattern_find.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/NAJPF-pattern_find.cpp)
 
-### Segment Trees And Bit Trees
+### Segment Tree, Fenwick Tree
 
 Segment tree
 
