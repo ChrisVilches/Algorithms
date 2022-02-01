@@ -187,7 +187,6 @@ Probability
 
 * [kattis/bachetsgame.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bachetsgame.cpp)
 * [spoj/AE2A-dice.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AE2A-dice.cpp)
-* [spoj/CLEANRBT-cleaning_robot.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CLEANRBT-cleaning_robot.cpp)
 * [urionlinejudge/3019-hold_or_continue.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3019-hold_or_continue.cpp)
 
 ### Binary Search, Ternary Search
