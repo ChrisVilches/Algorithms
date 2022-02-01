@@ -108,7 +108,7 @@ Geometry with dynamic programming
 Misc
 
 * [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
-* [kattis/cheese.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese.cpp)
+* [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [kattis/countingtriangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/countingtriangles.cpp)
 * [spoj/PIR-pyramids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PIR-pyramids.cpp)
 * [urionlinejudge/1124-elevator.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1124-elevator.cpp)
@@ -194,7 +194,7 @@ Probability
 
 Binary search
 
-* [kattis/cheese.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese.cpp)
+* [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [spoj/AGGRCOW-aggressive_cows.kt](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AGGRCOW-aggressive_cows.kt)
 * [spoj/BBIN-busqueda_binaria.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN-busqueda_binaria.cpp)
 * [spoj/BBIN2-busqueda_binaria_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN2-busqueda_binaria_2.cpp)
