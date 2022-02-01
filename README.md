@@ -8,6 +8,8 @@
 
 Trie
 
+* [kattis/bing.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/bing.cpp)
+* [kattis/phonelist.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/phonelist.cpp)
 * [uva/12506-shortest_names.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/uva/12506-shortest_names.cpp)
 * [uva/12526-cellphone_typing.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/uva/12526-cellphone_typing.cpp)
 
@@ -22,6 +24,10 @@ Suffix Automaton
 * [spoj/LCS-longest_common_substring.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/LCS-longest_common_substring.cpp)
 * [urionlinejudge/3018-gluing_pictures_suffix_automaton.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3018-gluing_pictures_suffix_automaton.cpp)
 * [uva/10679-i_love_strings.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/uva/10679-i_love_strings.cpp)
+
+KMP
+
+* [spoj/NAJPF-pattern_find.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/NAJPF-pattern_find.cpp)
 
 ### Segment Trees / Bit Trees
 
@@ -104,6 +110,7 @@ Misc
 * [kattis/beautifulbridges.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
 * [kattis/cheese.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese.cpp)
 * [kattis/countingtriangles.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/countingtriangles.cpp)
+* [spoj/PIR-pyramids.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/PIR-pyramids.cpp)
 * [urionlinejudge/1124-elevator.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1124-elevator.cpp)
 * [urionlinejudge/1295-the_closest_pair_problem.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1295-the_closest_pair_problem.cpp)
 * [urionlinejudge/1378-isosceles_triangles.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1378-isosceles_triangles.cpp)
@@ -116,9 +123,13 @@ BFS/DFS
 
 * [kattis/fontan.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/fontan.cpp)
 * [spoj/BITMAP-bitmap.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/BITMAP-bitmap.cpp)
+* [spoj/BUGLIFE-a_bugs_life.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/BUGLIFE-a_bugs_life.cpp)
 * [spoj/CLEANRBT-cleaning_robot.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/CLEANRBT-cleaning_robot.cpp)
 * [spoj/CTOI09_1-ioi2009_mecho.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/CTOI09_1-ioi2009_mecho.cpp)
+* [spoj/MAKEMAZE-validate_the_maze.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/MAKEMAZE-validate_the_maze.cpp)
+* [urionlinejudge/1082-connected_components.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1082-connected_components.cpp)
 * [urionlinejudge/1100-knight_moves.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1100-knight_moves.cpp)
+* [uva/13011-height_map.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/uva/13011-height_map.cpp)
 
 Bipartite matching & max flow
 
@@ -185,6 +196,8 @@ Binary search
 
 * [kattis/cheese.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese.cpp)
 * [spoj/AGGRCOW-aggressive_cows.kt](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/AGGRCOW-aggressive_cows.kt)
+* [spoj/BBIN-busqueda_binaria.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN-busqueda_binaria.cpp)
+* [spoj/BBIN2-busqueda_binaria_2.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN2-busqueda_binaria_2.cpp)
 * [spoj/TAP2013F-flowers_of_babylon.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/TAP2013F-flowers_of_babylon.cpp)
 * [urionlinejudge/1108-towers_for_mobile_telephony.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1108-towers_for_mobile_telephony.cpp)
 * [urionlinejudge/1549-splitting_the_coke.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1549-splitting_the_coke.cpp)
@@ -206,7 +219,14 @@ Ternary search
 
 Tree problems
 
+* [kattis/ceiling.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/ceiling.cpp)
 * [kattis/kitten.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/kitten.cpp)
+* [spoj/PT07Y-is_it_a_tree.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/PT07Y-is_it_a_tree.cpp)
+* [spoj/THREECOL-threecoloring_of_binary_trees.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/THREECOL-threecoloring_of_binary_trees.cpp)
+* [urionlinejudge/1135-ants_colony.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1135-ants_colony.cpp)
+* [urionlinejudge/1195-binary_search_tree.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1195-binary_search_tree.cpp)
+* [urionlinejudge/1200-bst_operations_i.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1200-bst_operations_i.cpp)
+* [urionlinejudge/1493-disjoint_water_supply.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1493-disjoint_water_supply.cpp)
 * [urionlinejudge/3020-improve_spam.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3020-improve_spam.cpp)
 
 ### Other Data Structures & Algorithms
@@ -214,8 +234,16 @@ Tree problems
 Union find + Minimum spanning tree
 
 * [kattis/cats.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/cats.cpp)
+* [urionlinejudge/1152-dark_roads.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1152-dark_roads.cpp)
 * [urionlinejudge/1468-balloon.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1468-balloon.cpp)
 * [urionlinejudge/3014-cut_inequality_down.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3014-cut_inequality_down.cpp)
+
+Prefix sum
+
+* [kattis/centsavings.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/kattis/centsavings.cpp)
+* [spoj/CSUMQ-cumulative_sum_query.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/spoj/CSUMQ-cumulative_sum_query.cpp)
+* [urionlinejudge/2010-keep_it_energized.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
+* [uva/10324-zeros_and_ones.cpp](https:/github.com/ChrisVilches/Algorithms/blob/main/uva/10324-zeros_and_ones.cpp)
 
 Lowest common ancestor
 

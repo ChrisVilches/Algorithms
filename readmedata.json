@@ -6,7 +6,9 @@
         "title": "Trie",
         "files": [
           "cellphone typing",
-          "shortest name"
+          "shortest name",
+          "phonelist",
+          "bing"
         ]
       },
       {
@@ -23,6 +25,12 @@
           "lcs longest common substring",
           "i love strings",
           "distinct substrings"
+        ]
+      },
+      {
+        "title": "KMP",
+        "files": [
+          "pattern find"
         ]
       }
     ]
@@ -135,7 +143,8 @@
           "the closest pair problem",
           "countingtriangles",
           "isosceles triangles cpp",
-          "cake cut"
+          "cake cut",
+          "pir pyramids"
         ]
       }
     ]
@@ -150,7 +159,11 @@
           "mecho",
           "knight moves",
           "cleaning robot",
-          "fontan"
+          "fontan",
+          "connected components",
+          "height map",
+          "validate the maze",
+          "a bugs life"
         ]
       },
       {
@@ -244,7 +257,9 @@
           "keep it energized",
           "forest",
           "lasers",
-          "gluing pictures cpp"
+          "gluing pictures cpp",
+          "busqueda binaria cpp",
+          "busqueda binaria 2"
         ]
       },
       {
@@ -264,7 +279,14 @@
         "title": "Tree problems",
         "files": [
           "kitten",
-          "improve spam"
+          "improve spam",
+          "is it a tree",
+          "threecoloring of binary trees",
+          "ceiling cpp",
+          "ants colony",
+          "bst operations i",
+          "binary search tree",
+          "disjoint water supply"
         ]
       }
     ]
@@ -277,7 +299,17 @@
         "files": [
           "cut inequality down",
           "cats",
-          "1468 balloon"
+          "1468 balloon",
+          "dark roads"
+        ]
+      },
+      {
+        "title": "Prefix sum",
+        "files": [
+          "cumulative sum query",
+          "zeros and ones",
+          "centsavings",
+          "keep it energized"
         ]
       },
       {
