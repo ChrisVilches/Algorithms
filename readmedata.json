@@ -1,0 +1,311 @@
+[
+  {
+    "header": "Strings",
+    "items": [
+      {
+        "title": "Trie",
+        "files": [
+          "cellphone typing",
+          "shortest name"
+        ]
+      },
+      {
+        "title": "Suffix Array",
+        "files": [
+          "stringmultimatching",
+          "gluing pictures cpp"
+        ]
+      },
+      {
+        "title": "Suffix Automaton",
+        "files": [
+          "gluing pictures suffix automaton",
+          "lcs longest common substring",
+          "i love strings",
+          "distinct substrings"
+        ]
+      }
+    ]
+  },
+  {
+    "header": "Segment trees / BIT trees",
+    "items": [
+      {
+        "title": "Segment tree",
+        "files": [
+          "jumping grasshopper",
+          "horrible queries cpp",
+          "supercomputer",
+          "rmqsq range minimum query cpp",
+          "go up the ultras",
+          "keep it energized",
+          "shopping in fdi",
+          "frequent values",
+          "generations",
+          "man elephant and mouse",
+          "dangerous trail"
+        ]
+      },
+      {
+        "title": "BIT (Fenwick tree)",
+        "files": [
+          "golnaldinho cpp",
+          "fence the vegetables fail",
+          "horrible queries BIT",
+          "haybale stacking"
+        ]
+      }
+    ]
+  },
+  {
+    "header": "Geometry",
+    "items": [
+      {
+        "title": "Radial sweep",
+        "files": [
+          "build the perfect house",
+          "boundary",
+          "kattis/oil",
+          "dazzling stars.cpp",
+          "garden fence",
+          "hide and seek cpp",
+          "flowers of babylon",
+          "towers for mobile telephony",
+          "redblue",
+          "maxcolinear"
+        ]
+      },
+      {
+        "title": "Convex hull",
+        "files": [
+          "kattis/convexhull",
+          "spoj/bsheep build the fence",
+          "onion layers",
+          "dazzling stars 2",
+          "ingrest"
+        ]
+      },
+      {
+        "title": "Sweep line",
+        "files": [
+          "fence the vegetables cpp",
+          "fence the vegetables fail",
+          "1468-balloon"
+        ]
+      },
+      {
+        "title": "Segment to segment distance",
+        "files": [
+          "toboggan of marbles",
+          "deathly hallows"
+        ]
+      },
+      {
+        "title": "Circle & segment intersection",
+        "files": [
+          "cornering at poles cpp"
+        ]
+      },
+      {
+        "title": "Tangents & arcs",
+        "files": [
+          "cornering at poles cpp",
+          "build the perfect house",
+          "forest",
+          "fruitslicer"
+        ]
+      },
+      {
+        "title": "Geometry with dynamic programming",
+        "files": [
+          "elastico",
+          "not too convex hull cpp",
+          "impenetrable wall",
+          "arranging tiles",
+          "hipercampo"
+        ]
+      },
+      {
+        "title": "Misc",
+        "files": [
+          "cheese.cpp",
+          "elevator",
+          "2840-balloon",
+          "beautifulbridges",
+          "the closest pair problem",
+          "countingtriangles",
+          "isosceles triangles cpp",
+          "cake cut"
+        ]
+      }
+    ]
+  },
+  {
+    "header": "Graphs",
+    "items": [
+      {
+        "title": "BFS/DFS",
+        "files": [
+          "bitmap bitmap cpp",
+          "mecho",
+          "knight moves",
+          "cleaning robot",
+          "fontan"
+        ]
+      },
+      {
+        "title": "Bipartite matching & max flow",
+        "files": [
+          "attacking rooks",
+          "bookclub",
+          "escapeplan",
+          "blood groups",
+          "keep it covered",
+          "my tshirt suits me",
+          "maxflow"
+        ]
+      },
+      {
+        "title": "Dijkstra",
+        "files": [
+          "cornering at poles dijkstra",
+          "regatta of scientists",
+          "galactic taxes",
+          "shortestpath1"
+        ]
+      }
+    ]
+  },
+  {
+    "header": "Dynamic programming",
+    "items": [
+      {
+        "title": "Counting, combinatorics, math",
+        "files": [
+          "impenetrable wall",
+          "disjoint water supply",
+          "just a bit sorted",
+          "fabricating sculptures",
+          "improve spam",
+          "gigcombinatorics cpp",
+          "permutationdescent",
+          "tritiling",
+          "badxor"
+        ]
+      },
+      {
+        "title": "Maximization/minimization",
+        "files": [
+          "beautifulbridges",
+          "frog 1 cpp",
+          "plates",
+          "3dprinter",
+          "centsavings",
+          "kattis coke",
+          "nikola",
+          "black or white",
+          "bytelandian gold coins",
+          "the knapsack problem",
+          "exposing corruption",
+          "keep it energized",
+          "sweet and sour rock",
+          "threecoloring of binary trees",
+          "not too convex hull cpp",
+          "hipercampo",
+          "leverage mdt",
+          "elastico"
+        ]
+      },
+      {
+        "title": "Probability",
+        "files": [
+          "hold or continue",
+          "dice",
+          "bachetsgame",
+          "cleaning robot"
+        ]
+      }
+    ]
+  },
+  {
+    "header": "Binary/ternary search",
+    "items": [
+      {
+        "title": "Binary search",
+        "files": [
+          "through the desert",
+          "build the perfect house",
+          "arranging tiles",
+          "cheese cpp",
+          "aggressive cows",
+          "flowers of babylon",
+          "towers for mobile telephony",
+          "splitting the coke",
+          "keep it energized",
+          "forest",
+          "lasers",
+          "gluing pictures cpp"
+        ]
+      },
+      {
+        "title": "Ternary search",
+        "files": [
+          "galactic taxes",
+          "pogro challenge",
+          "the largest and smallest box"
+        ]
+      }
+    ]
+  },
+  {
+    "header": "Trees",
+    "items": [
+      {
+        "title": "Tree problems",
+        "files": [
+          "kitten",
+          "improve spam"
+        ]
+      }
+    ]
+  },
+  {
+    "header": "Other data structures & algorithms",
+    "items": [
+      {
+        "title": "Union find + Minimum spanning tree",
+        "files": [
+          "cut inequality down",
+          "cats",
+          "1468 balloon"
+        ]
+      },
+      {
+        "title": "Lowest common ancestor",
+        "files": [
+          "ants colony"
+        ]
+      },
+      {
+        "title": "Rope",
+        "files": [
+          "joinstrings"
+        ]
+      },
+      {
+        "title": "Ordered set",
+        "files": [
+          "gcpc"
+        ]
+      },
+      {
+        "title": "Fast exponentiation, fast fibonacci, etc",
+        "files": [
+          "easy fibonacci",
+          "generations",
+          "power of matrix"
+        ]
+      }
+    ]
+  }
+]
