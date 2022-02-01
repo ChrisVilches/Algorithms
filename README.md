@@ -195,6 +195,7 @@ Probability
 Binary search
 
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
+* [kattis/stringmultimatching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stringmultimatching.cpp)
 * [spoj/AGGRCOW-aggressive_cows.kt](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AGGRCOW-aggressive_cows.kt)
 * [spoj/BBIN-busqueda_binaria.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN-busqueda_binaria.cpp)
 * [spoj/BBIN2-busqueda_binaria_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN2-busqueda_binaria_2.cpp)
@@ -203,6 +204,7 @@ Binary search
 * [urionlinejudge/1549-splitting_the_coke.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1549-splitting_the_coke.cpp)
 * [urionlinejudge/1646-forest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1646-forest.cpp)
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
+* [urionlinejudge/2014-blood_groups.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2014-blood_groups.cpp)
 * [urionlinejudge/2104-lasers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2104-lasers.cpp)
 * [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
 * [urionlinejudge/3013-build_the_perfect_house.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3013-build_the_perfect_house.cpp)
