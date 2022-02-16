@@ -54,7 +54,7 @@ fn count(n: usize, points: &Vec<Point>) -> i64 {
     let vec1: Point = points[i].to(&points[i + 1]);
 
     let mut lo = i + 1;
-    let mut hi = n + i - 1;
+    let mut hi = n + i;
 
     while lo < hi {
       let mid = (lo + hi) / 2;

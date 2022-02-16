@@ -24,7 +24,7 @@ ll count(vector<Point>& points) {
     Point vec1 = points[i].to(points[i + 1]);
 
     int lo = i + 1;
-    int hi = N + i - 1;
+    int hi = N + i;
 
     while (lo < hi) {
       int mid = (lo + hi) / 2;
