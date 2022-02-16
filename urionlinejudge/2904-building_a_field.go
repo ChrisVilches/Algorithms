@@ -22,7 +22,6 @@ func possible() bool {
 		for ; j < N; j++ {
 			if curr == half {
 				partitions++
-				break
 			}
 
 			if curr >= half {
