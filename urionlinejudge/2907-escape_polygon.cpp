@@ -45,15 +45,18 @@ ll count(vector<Point>& points) {
 }
 
 int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
   cin >> N;
-  vector<Point> points(N);
+  vector<Point> points(N * 2);
 
   for (int i = 0; i < N; i++) {
     cin >> points[i].x >> points[i].y;
   }
 
   for (int i = 0; i < N; i++) {
-    points.push_back(points[i]);
+    points[N + i] = points[i];
   }
 
   cout << count(points) << endl;
