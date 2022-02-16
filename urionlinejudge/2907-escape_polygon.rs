@@ -78,7 +78,7 @@ fn main() {
   let n = read_int() as usize;
   let mut points = Vec::<Point>::new();
 
-  for _i in 0..n {
+  for _ in 0..n {
     points.push(read_point());
   }
 
