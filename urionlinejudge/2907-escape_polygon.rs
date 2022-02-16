@@ -39,16 +39,16 @@ impl Point {
   }
 }
 
-fn tetrahedral_number(n: i32) -> i64 {
-  (n * (n + 1) * (n + 2) / 6).into()
+fn tetrahedral_number(n: i64) -> i64 {
+  n * (n + 1) * (n + 2) / 6
 }
 
-fn triangular_number(n: i32) -> i64 {
-  (n * (n + 1) / 2).into()
+fn triangular_number(n: i64) -> i64 {
+  n * (n + 1) / 2
 }
 
 fn count(n: usize, points: &Vec<Point>) -> i64 {
-  let mut ans = tetrahedral_number((n - 2) as i32);
+  let mut ans = tetrahedral_number((n - 2) as i64);
 
   for i in 0..n {
     let vec1: Point = points[i].to(&points[i + 1]);
@@ -68,7 +68,7 @@ fn count(n: usize, points: &Vec<Point>) -> i64 {
       }
     }
 
-    ans -= triangular_number((lo - i - 2) as i32);
+    ans -= triangular_number((lo - i - 2) as i64);
   }
 
   ans
