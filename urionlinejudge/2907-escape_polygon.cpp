@@ -21,7 +21,7 @@ ll count(vector<Point>& points) {
   ll ans = tetrahedral_number(N - 2);
 
   for (int i = 0; i < N; i++) {
-    Point vec1 = points[i].to(points.at(i + 1));
+    Point vec1 = points[i].to(points[i + 1]);
 
     int lo = i + 1;
     int hi = N + i - 1;
@@ -29,7 +29,7 @@ ll count(vector<Point>& points) {
     while (lo < hi) {
       int mid = (lo + hi) / 2;
 
-      Point vec2 = points[mid].to(points.at(mid + 1));
+      Point vec2 = points[mid].to(points[mid + 1]);
 
       if (vec1.cross(vec2) >= 0) {
         lo = mid + 1;
