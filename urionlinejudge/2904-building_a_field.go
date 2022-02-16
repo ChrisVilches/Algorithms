@@ -9,15 +9,14 @@ var (
 )
 
 func possible() bool {
-	partitions := 0
-	curr := nums[0]
-	j := 1
-
 	if totalLength%2 != 0 {
 		return false
 	}
 
 	half := totalLength / 2
+	partitions := 0
+	curr := nums[0]
+	j := 1
 
 	for i := 0; i < N; i++ {
 		for ; j < N; j++ {
