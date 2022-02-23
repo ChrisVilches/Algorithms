@@ -9,7 +9,7 @@ int calculate(const int first_bit, vector<int> seq, vector<int> run) {
   auto remaining = run.begin();
 
   for (auto it = seq.begin(); it != seq.end(); it++) {
-    if (*remaining > 0 && *it != curr_bit) {
+    if (*it != curr_bit) {
       auto swap_bit = find(it, seq.end(), curr_bit);
 
       if (swap_bit == seq.end()) return INT_MAX;
