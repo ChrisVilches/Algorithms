@@ -4,41 +4,33 @@ using namespace std;
 
 struct Point {
   int x, y;
-  Point(int x, int y) : x(x), y(y) {}
-  Point() {}
 
-  Point operator-(const Point& p) const { return Point(x - p.x, y - p.y); }
+  Point operator-(const Point& p) const { return Point{x - p.x, y - p.y}; }
   int cross(const Point& p) const { return x * p.y - y * p.x; }
-  bool operator<(const Point& p) const { return cross(p) >= 0; }
+  bool operator<(const Point& p) const { return cross(p) > 0; }
 };
 
-int N;
+int N, memo[1000][1000];
 
 vector<Point> points;
+const Point origin{0, 0};
 
-int memo[1000][1000];
-
-int convex_hull(int p, int prev_idx) {
+int dp(int p, int prev_idx) {
   if (memo[p][prev_idx] != -1) return memo[p][prev_idx];
-  if (p == (int)points.size()) return 0;
 
   int ret = 0;
 
   Point& curr = points[p];
   Point& prev = points[prev_idx];
 
-  for (int i = p + 1; i <= (int)points.size(); i++) {
-    Point next = points[i % points.size()];
+  for (int i = p + 1; i < (int)points.size(); i++) {
+    const Point& next = points[i];
 
     Point prev_curr = curr - prev;
     Point curr_next = next - curr;
-    Point next_origin = Point(0, 0) - next;
 
-    int o1 = prev_curr.cross(curr_next);
-    int o2 = curr_next.cross(next_origin);
-
-    if (o1 >= 0 && o2 >= 0) {
-      ret = max(ret, 1 + convex_hull(i, p));
+    if (prev_curr.cross(curr_next) > 0) {
+      ret = max(ret, 1 + dp(i, p));
     }
   }
 
@@ -47,22 +39,22 @@ int convex_hull(int p, int prev_idx) {
 
 void solve() {
   memset(memo, -1, sizeof memo);
-  points.clear();
+  points = vector<Point>(N);
 
-  while (N--) {
-    Point p;
-    cin >> p.x >> p.y;
-    points.push_back(p);
+  for (int i = 0; i < N; i++) {
+    cin >> points[i].x >> points[i].y;
   }
 
   sort(points.begin(), points.end());
-  points.insert(points.begin(), Point(0, 0));
+  points.insert(points.begin(), origin);
 
-  int ans = 3;
-  for (int i = 1; i < (int)points.size() - 2; i++)
-    ans = max(ans, 1 + convex_hull(i, 0));
+  int ans = 0;
 
-  cout << ans << endl;
+  for (int i = 1; i < (int)points.size(); i++) {
+    ans = max(ans, 1 + dp(i, 0));
+  }
+
+  cout << (1 + ans) << endl;
 }
 
 int main() {
