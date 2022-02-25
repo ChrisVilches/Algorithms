@@ -13,7 +13,6 @@ struct Point {
 int N, memo[1000][1000];
 
 vector<Point> points;
-const Point origin{0, 0};
 
 int dp(int p, int prev_idx) {
   if (memo[p][prev_idx] != -1) return memo[p][prev_idx];
@@ -46,7 +45,7 @@ void solve() {
   }
 
   sort(points.begin(), points.end());
-  points.insert(points.begin(), origin);
+  points.insert(points.begin(), Point{0, 0});
 
   int ans = 0;
 
