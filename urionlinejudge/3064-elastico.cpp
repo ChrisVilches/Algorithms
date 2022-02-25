@@ -19,8 +19,8 @@ int dp(int p, int prev_idx) {
 
   int ret = 0;
 
-  Point& curr = points[p];
-  Point& prev = points[prev_idx];
+  const Point& curr = points[p];
+  const Point& prev = points[prev_idx];
 
   for (int i = p + 1; i < (int)points.size(); i++) {
     const Point& next = points[i];
