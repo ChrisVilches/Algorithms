@@ -5,43 +5,6 @@ using namespace std;
 
 double memo[MAX_SCORE][MAX_SCORE][MAX_SCORE];
 
-double p_approximate(int A, int B) {
-  if (memo[A][B][0] > -1) return memo[A][B][0];
-
-  double p = 0.5;
-
-  array<double, MAX_SCORE + 1> a;
-
-  for (int t = 0; t < 40; t++) {
-    swap(A, B);
-
-    for (int i = 0; i <= MAX_SCORE; i++) {
-      if (i == 0 || A + i > MAX_SCORE) {
-        a[i] = 1 - p;
-      } else if (A + i == MAX_SCORE) {
-        a[i] = 1;
-      } else {
-        a[i] = 1 - p_approximate(B, A + i);
-      }
-    }
-
-    for (int i = MAX_SCORE - A - 1; i >= 0; i--) {
-      double curr = 1 - p;
-      for (int dice = 2; dice <= 6; dice++) {
-        if (i + dice <= MAX_SCORE) {
-          curr += a[i + dice];
-        } else {
-          curr += 1 - p;
-        }
-      }
-      a[i] = max(a[i], curr / 6);
-    }
-    p = a[0];
-  }
-
-  return memo[A][B][0] = p;
-}
-
 double p(int i, int j, int k);
 
 double p_hold(int i, int j, int k) { return 1 - p(j, i + k, 0); }
@@ -50,6 +13,38 @@ double p_continue(int i, int j, int k) {
   double result = 1 - p(j, i, 0);
   for (int dice = 2; dice <= 6; dice++) result += p(i, j, k + dice);
   return result / 6;
+}
+
+double p_approximate(int i, int j) {
+  double prob = 0.5;
+
+  array<double, MAX_SCORE + 1> approx;
+
+  for (int t = 0; t < 41; t++) {
+    for (int k = MAX_SCORE; k >= 0; k--) {
+      double hold = 0;
+      double roll = 0;
+
+      if (k > 0 && i + k <= MAX_SCORE) {
+        hold = p_hold(i, j, k);
+      }
+
+      for (int dice = 1; dice <= 6; dice++) {
+        if (dice == 1 || k + dice > MAX_SCORE) {
+          roll += 1 - prob;
+        } else {
+          roll += approx[k + dice];
+        }
+      }
+
+      approx[k] = max(hold, roll / 6);
+    }
+
+    prob = approx[0];
+    swap(i, j);
+  }
+
+  return prob;
 }
 
 double p(int i, int j, int k) {
