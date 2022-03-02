@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-double dp[76][76][76][38];
+double memo[76][76][76][38];
 
 double p(int i, int j, int k, int t);
 
@@ -22,14 +22,14 @@ double p_continue(int i, int j, int k, int t) {
 double p(int i, int j, int k, int t) {
   if (t == 0) return 0.5;
   if (j == 75) return 0;
-  if (i + k > 75) return 1 - p(j, i, 0, t - 1);
-  if (dp[i][j][k][t] > -1) return dp[i][j][k][t];
+  if (i + k > 75) return 1 - p(j, i, 0, t);
+  if (memo[i][j][k][t] > -1) return memo[i][j][k][t];
 
-  return dp[i][j][k][t] = max(p_hold(i, j, k, t), p_continue(i, j, k, t));
+  return memo[i][j][k][t] = max(p_hold(i, j, k, t), p_continue(i, j, k, t));
 }
 
 int main() {
-  memset(dp, -1, sizeof dp);
+  memset(memo, -1, sizeof memo);
   int q, C, H, X;
 
   while (scanf("%d", &q) == 1) {
