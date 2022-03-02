@@ -23,7 +23,7 @@ double p_approximate(int i, int j) {
   for (int t = 0; t < 41; t++) {
     for (int k = MAX_SCORE; k >= 0; k--) {
       double hold = 0;
-      double roll = 0;
+      double cont = 0;
 
       if (k > 0 && i + k <= MAX_SCORE) {
         hold = p_hold(i, j, k);
@@ -31,13 +31,13 @@ double p_approximate(int i, int j) {
 
       for (int dice = 1; dice <= 6; dice++) {
         if (dice == 1 || k + dice > MAX_SCORE) {
-          roll += 1 - prob;
+          cont += 1 - prob;
         } else {
-          roll += approx[k + dice];
+          cont += approx[k + dice];
         }
       }
 
-      approx[k] = max(hold, roll / 6);
+      approx[k] = max(hold, cont / 6);
     }
 
     prob = approx[0];
