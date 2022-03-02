@@ -23,7 +23,7 @@ int main() {
   while (iter--) {
     for (int i = 0; i < 75; i++) {
       for (int j = 0; j < 75; j++) {
-        for (int k = 75; k >= 0; k--) {
+        for (int k = 75 - i; k >= 0; k--) {
           solution[i][j][k] = max(p_hold(i, j, k), p_continue(i, j, k));
         }
       }
