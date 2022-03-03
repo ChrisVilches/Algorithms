@@ -7,9 +7,9 @@ struct Point {
   Point(int x, int y) : x(x), y(y) {}
   Point() {}
   Point operator-(const Point& p) const { return Point(x - p.x, y - p.y); }
-  inline int operator^(const Point& p) const { return x * p.y - y * p.x; }
+  int cross(const Point& p) const { return x * p.y - y * p.x; }
   bool operator<(const Point& p) const {
-    return quad() != p.quad() ? quad() > p.quad() : (*this ^ p) > 0;
+    return quad() != p.quad() ? quad() > p.quad() : cross(p) > 0;
   }
   inline int quad() const { return y != 0 ? (y > 0) : x > 0; }
 } points[107];
@@ -54,7 +54,7 @@ ConvexHull create_convex_hull(const int start_idx, const int last_idx) {
     while (vertices.size() >= 2) {
       Point a = points[i] - *(next(vertices.rbegin()));
       Point b = points[i] - *vertices.rbegin();
-      if ((a ^ b) > 0) break;
+      if (a.cross(b) > 0) break;
       vertices.pop_back();
     }
 
@@ -65,7 +65,7 @@ ConvexHull create_convex_hull(const int start_idx, const int last_idx) {
 
   double area = 0;
   for (int i = 0; i < (int)vertices.size() - 1; i++)
-    area += fabs(vertices[i] ^ vertices[i + 1]) / 2L;
+    area += fabs(vertices[i].cross(vertices[i + 1])) / 2L;
 
   return {start_idx, last_idx, covered, area};
 }
@@ -90,7 +90,7 @@ int main() {
     for (int i = 0; i < N; i++)
       for (int j = i + 1;; j++) {
         j %= N;
-        if ((points[i] ^ points[j]) < 0) break;
+        if (points[i].cross(points[j]) < 0) break;
         convex_hulls[i].push_back(create_convex_hull(i, j));
       }
 
