@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+#define INF std::numeric_limits<double>::max()
 
 struct Point {
   int x, y;
@@ -23,11 +24,11 @@ double memo[105][55][105];
 
 double dp(int idx, int b, int covered) {
   if (b == 0 && covered == 0) return 0;
-  if (b == 0 && covered != 0) return DBL_MAX;
-  if (b != 0 && covered <= 0) return DBL_MAX;
+  if (b == 0 && covered != 0) return INF;
+  if (b != 0 && covered <= 0) return INF;
   if (memo[idx][b][covered] > 0) return memo[idx][b][covered];
 
-  double min_area = DBL_MAX;
+  double min_area = INF;
 
   for (ConvexHull& c : convex_hulls[idx]) {
     double area = c.area + dp((c.last_idx + 1) % N, b - 1, covered - c.covered);
@@ -92,7 +93,7 @@ int main() {
         convex_hulls[i].push_back(create_convex_hull(i, j));
       }
 
-    double min_area = DBL_MAX;
+    double min_area = INF;
 
     for (int i = 0; i < N; i++) {
       min_area = min(min_area, dp(i, B, N));
