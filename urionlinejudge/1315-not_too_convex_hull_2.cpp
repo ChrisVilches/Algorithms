@@ -94,7 +94,9 @@ int main() {
 
     double min_area = DBL_MAX;
 
-    for (int i = 0; i < N; i++) min_area = min(min_area, dp(i, B, N));
+    for (int i = 0; i < N; i++) {
+      min_area = min(min_area, dp(i, B, N));
+    }
 
     printf("%.2f\n", min_area);
   }
