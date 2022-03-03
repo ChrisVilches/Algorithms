@@ -4,9 +4,7 @@ using namespace std;
 
 struct Point {
   int x, y;
-  Point(int x, int y) : x(x), y(y) {}
-  Point() {}
-  Point operator-(const Point& p) const { return Point(x - p.x, y - p.y); }
+  Point operator-(const Point& p) const { return Point{x - p.x, y - p.y}; }
   int cross(const Point& p) const { return x * p.y - y * p.x; }
   bool operator<(const Point& p) const {
     return quad() != p.quad() ? quad() > p.quad() : cross(p) > 0;
