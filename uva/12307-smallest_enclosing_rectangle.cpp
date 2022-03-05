@@ -5,7 +5,8 @@ typedef long double ld;
 struct Point {
   ld x, y;
   inline Point operator-(const Point& p) const { return Point{x - p.x, y - p.y}; }
-  inline Point to(const Point& p) const { return *this - p; }
+  inline Point operator+(const Point& p) const { return Point{x + p.x, y + p.y}; }
+  inline Point to(const Point& p) const { return p - *this; }
   ld operator*(const Point& p) const { return x * p.x + y * p.y; }
   inline ld magnitude() const { return sqrt((x * x) + (y * y)); }
   Point normalize() const { return Point{x / magnitude(), y / magnitude()}; }
@@ -18,14 +19,11 @@ struct Point {
   }
 };
 
-ld cross_product(Point& O, Point& A, Point& B) {
+ld cross_product(Point O, Point& A, Point& B) {
   return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
 }
 
-ld cross_product(Point& A, Point& B) {
-  Point o = Point{0, 0};
-  return cross_product(o, A, B);
-}
+ld cross_product(Point A, Point B) { return cross_product(Point{0, 0}, A, B); }
 
 vector<Point> convex_hull(vector<Point>& A) {
   int n = A.size(), k = 0;
@@ -45,13 +43,14 @@ vector<Point> convex_hull(vector<Point>& A) {
 }
 
 int N;
+ld EPS = 1e-10;
 vector<Point> hull;
 
-Point get_projection(const Point o, const Point p1, const Point p2) {
-  const Point vec1 = o.to(p1);
-  const Point vec2 = o.to(p2);
-  ld proj = (vec1 * vec2) / vec1.magnitude();
-  return o - vec1.normalize().scale(proj);
+Point get_projection(const Point& o, const Point& p, const Point& q) {
+  const Point a = o.to(p);
+  const Point b = o.to(q);
+  ld proj = (a * b) / a.magnitude();
+  return o + a.normalize().scale(proj);
 }
 
 vector<Point> soften_polygon(const vector<Point>& polygon) {
@@ -65,16 +64,16 @@ vector<Point> soften_polygon(const vector<Point>& polygon) {
 
     bool should_soften = b.to(a) * b.to(c) >= 0;
 
-    if (should_soften) res.push_back(a - a.to(b).rot_ccw(-0.00000001).scale(0.9999999));
+    if (should_soften) res.push_back(a + a.to(b).rot_ccw(-EPS).scale(1 - EPS));
     res.push_back(b);
-    if (should_soften) res.push_back(c - c.to(b).rot_ccw(0.00000001).scale(0.9999999));
+    if (should_soften) res.push_back(c + c.to(b).rot_ccw(EPS).scale(1 - EPS));
   }
 
   return res;
 }
 
-Point edge_at(int i) { return hull[i % hull.size()].to(hull[(i + 1) % hull.size()]); }
-Point vertex_at(int i) { return hull[i % hull.size()]; }
+inline Point vertex_at(int i) { return hull[i % hull.size()]; }
+inline Point edge_at(int i) { return vertex_at(i).to(vertex_at(i + 1)); }
 
 pair<ld, ld> get_rectangle(int i, int j, int k, int l) {
   Point v1 = get_projection(vertex_at(i), vertex_at(i + 1), vertex_at(j));
@@ -100,29 +99,11 @@ void solve() {
   hull = soften_polygon(convex_hull(points));
 
   for (int i = 0, j = 1, k = 2, l = 3; i < (int)hull.size(); i++) {
-    Point edge1 = edge_at(i);
+    Point edge = edge_at(i);
 
-    for (;; j++) {
-      Point edge2 = edge_at(j);
-
-      if (edge1 * edge2 > 0) continue;
-
-      for (;; k++) {
-        if (k <= j) continue;
-        Point edge3 = edge_at(k);
-
-        if (cross_product(edge1, edge3) > 0) continue;
-
-        for (;; l++) {
-          if (l <= k) continue;
-          Point edge4 = edge_at(l);
-          if (edge1 * edge4 < 0) continue;
-          break;
-        }
-        break;
-      }
-      break;
-    }
+    while (edge * edge_at(j) > 0) j++;
+    while (k <= j || cross_product(edge, edge_at(k)) > 0) k++;
+    while (l <= k || edge * edge_at(l) < 0) l++;
 
     auto [new_area, new_perimeter] = get_rectangle(i, j, k, l);
 
