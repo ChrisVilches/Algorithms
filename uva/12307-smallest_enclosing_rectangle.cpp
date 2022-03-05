@@ -8,7 +8,7 @@ struct Point {
   inline Point operator+(const Point& p) const { return Point{x + p.x, y + p.y}; }
   inline Point to(const Point& p) const { return p - *this; }
   ld operator*(const Point& p) const { return x * p.x + y * p.y; }
-  inline ld magnitude() const { return sqrt((x * x) + (y * y)); }
+  inline ld magnitude() const { return hypot(x, y); }
   Point normalize() const { return Point{x / magnitude(), y / magnitude()}; }
   inline ld dist(const Point& p) { return to(p).magnitude(); }
   Point scale(ld f) const { return Point{x * f, y * f}; }
