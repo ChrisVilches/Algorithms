@@ -88,6 +88,7 @@
         "files": [
           "kattis/convexhull",
           "spoj/bsheep build the fence",
+          "not too convex hull 2",
           "onion layers",
           "dazzling stars 2",
           "ingrest"
@@ -127,11 +128,22 @@
         "title": "Geometry with dynamic programming",
         "files": [
           "elastico",
-          "not too convex hull cpp",
+          "not too convex hull 2",
           "impenetrable wall",
           "arranging tiles",
           "hipercampo",
           "beautifulbridges cpp"
+        ]
+      },
+      {
+        "title": "Convex polygons + two-pointers",
+        "files": [
+          "cake cut",
+          "smallest enclosing rectangle",
+          "escape polygon 2",
+          "building a field go",
+          "largesttriangle",
+          "arranging tiles"
         ]
       },
       {
@@ -224,7 +236,7 @@
           "keep it energized",
           "sweet and sour rock",
           "threecoloring of binary trees",
-          "not too convex hull cpp",
+          "not too convex hull 2",
           "hipercampo",
           "leverage mdt",
           "elastico"
