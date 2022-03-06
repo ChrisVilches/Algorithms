@@ -131,7 +131,7 @@
           "impenetrable wall",
           "arranging tiles",
           "hipercampo",
-          "beautifulbridges"
+          "beautifulbridges cpp"
         ]
       },
       {
@@ -175,7 +175,8 @@
           "blood groups",
           "keep it covered",
           "my tshirt suits me",
-          "maxflow"
+          "maxflow",
+          "monkeys in the emei mountain"
         ]
       },
       {
@@ -209,7 +210,7 @@
       {
         "title": "Maximization, minimization",
         "files": [
-          "beautifulbridges",
+          "beautifulbridges cpp",
           "frog 1 cpp",
           "plates",
           "3dprinter",
@@ -232,7 +233,7 @@
       {
         "title": "Probability",
         "files": [
-          "hold or continue",
+          "hold or continue cpp",
           "dice",
           "bachetsgame"
         ]
