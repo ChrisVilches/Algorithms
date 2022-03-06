@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+typedef pair<int, int> pii;
 
 // Use dynamic memory for the Ford Fulkerson Algorithm because checking whether the V
 // value is correct is cancer.
@@ -74,7 +75,7 @@ int ford_fulkerson(int (&g)[V][V], int rgraph[][V], int s, int t) {
   return max_flow;
 }
 
-pair<int, int> get_time_range(int t) {
+pii get_time_range(int t) {
   auto t_it = all_times.find(t);
   return {*t_it, *next(t_it)};
 }
@@ -153,10 +154,10 @@ void build_graph() {
   }
 }
 
-vector<pair<int, int>> group_numbers(vector<int>& nums) {
+vector<pii> group_numbers(vector<int>& nums) {
   sort(nums.begin(), nums.end());
 
-  vector<pair<int, int>> res;
+  vector<pii> res;
 
   for (int n : nums)
     if (!res.empty() && res.back().second + 1 == n)
@@ -173,12 +174,12 @@ void print_allocation() {
   map<int, vector<int>> solutions;
 
   for (const auto [time_value, time_node_idx] : times) {
-    set<pair<int, int>> monkeys_to_allocate;
+    set<pii, less<pii>> monkeys_to_allocate;
 
     for (const int monkey_idx : monkey_node_idx_list) {
       int flow = g[monkey_idx][time_node_idx] - rgraph[monkey_idx][time_node_idx];
 
-      if (flow > 0) monkeys_to_allocate.insert({-flow, monkey_idx});
+      if (flow > 0) monkeys_to_allocate.insert({flow, monkey_idx});
     }
 
     const int end = *next(all_times.find(time_value));
@@ -198,7 +199,7 @@ void print_allocation() {
   }
 
   for (auto& [_, solution] : solutions) {
-    vector<pair<int, int>> pairs = group_numbers(solution);
+    vector<pii> pairs = group_numbers(solution);
 
     cout << pairs.size();
 
