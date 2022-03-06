@@ -2,24 +2,26 @@
 using namespace std;
 typedef pair<int, int> pii;
 
-// Use dynamic memory for the Ford Fulkerson Algorithm because checking whether the V
-// value is correct is cancer.
-
 #define V 1000
 int g[V][V], rgraph[V][V];
 bool visited[V];
 array<int, 50001> available;
-int N, M, total_required;
+int N, M;
 const int S = 0;
 const int T = 1;
 
-// TODO: Use less maps and stuff (organize data in a more compact way)
-map<int, int> times;
-map<int, int> time_inverse;
-vector<int> monkey_node_idx_list;
-set<int> all_times;
-map<int, tuple<int, int, int>> monkey_tuples;
+struct Monkey {
+  int v, a, b, node_idx;
+};
 
+struct Time {
+  Time(int t) : start(t) {}
+  int start, end = -1, node_idx = -1;
+  int amount() const { return end - start; }
+};
+
+vector<Monkey> monkeys;
+map<int, Time> times;
 vector<vector<int>> edges;
 
 bool bfs(int rgraph[][V], int s, int t, array<int, V>& parent) {
@@ -75,82 +77,55 @@ int ford_fulkerson(int (&g)[V][V], int rgraph[][V], int s, int t) {
   return max_flow;
 }
 
-pii get_time_range(int t) {
-  auto t_it = all_times.find(t);
-  return {*t_it, *next(t_it)};
-}
-
 void add_edge(int u, int v, int c) {
   edges.at(u).push_back(v);
   edges.at(v).push_back(u);
   g[u][v] = c;
 }
 
-int get_time_node(const int t) {
-  auto it = all_times.lower_bound(t);
-
-  if (*it > t) it--;
-
-  int sanitized_t = *it;
-
-  // TODO: Rename "sanitized"
-  if (times.count(sanitized_t)) return times[sanitized_t];
-
-  edges.push_back(vector<int>());
-  const int idx = edges.size() - 1;
-  times[sanitized_t] = idx;
-  time_inverse[idx] = sanitized_t;
-
-  return idx;
-}
-
 void build_graph() {
   times.clear();
-  time_inverse.clear();
-  monkey_node_idx_list.clear();
-  all_times.clear();
 
   memset(g, 0, sizeof g);
-  total_required = 0;
 
   edges.assign(2, vector<int>());
 
-  vector<tuple<int, int, int>> monkeys;
-
-  for (int i = 0; i < N; i++) {
-    int v, a, b;
-    cin >> v >> a >> b;
-    monkeys.push_back({v, a, b});
-  }
-
-  for (tuple<int, int, int> m : monkeys) {
-    all_times.emplace(get<1>(m));
-    all_times.emplace(get<2>(m));
-  }
-
-  for (int i = 0; i < N; i++) {
-    auto [v, a, b] = monkeys[i];
-
-    edges.push_back(vector<int>());
-    const int monkey_node_idx = edges.size() - 1;
-    monkey_tuples[monkey_node_idx] = monkeys[i];
-
-    for (int t = a; t < b;) {
-      int time_node_idx = get_time_node(t);
-      auto [from, to] = get_time_range(time_inverse[time_node_idx]);
-      add_edge(monkey_node_idx, time_node_idx, to - from);
-      t = to;
-    }
-
-    add_edge(S, monkey_node_idx, v);
-    monkey_node_idx_list.push_back(monkey_node_idx);
-    total_required += v;
+  for (const Monkey& m : monkeys) {
+    times.emplace(m.a, m.a);
+    times.emplace(m.b, m.b);
   }
 
   for (auto it = times.begin(); it != times.end(); it++) {
-    auto [time_value, time_node_idx] = *it;
-    auto [from, to] = get_time_range(time_value);
-    add_edge(time_node_idx, T, M * (to - from));
+    if (next(it) == times.end()) break;
+
+    Time& curr_time = it->second;
+    Time next_time = next(it)->second;
+    curr_time.end = next_time.start;
+  }
+
+  times.erase(prev(times.end()));
+
+  for (auto& [_, time] : times) {
+    edges.push_back(vector<int>());
+    time.node_idx = edges.size() - 1;
+  }
+
+  for (Monkey& m : monkeys) {
+    edges.push_back(vector<int>());
+    const int monkey_node_idx = edges.size() - 1;
+
+    for (int t = m.a; t < m.b;) {
+      const Time& time = times.at(t);
+      add_edge(monkey_node_idx, time.node_idx, time.amount());
+      t = time.end;
+    }
+
+    add_edge(S, monkey_node_idx, m.v);
+    m.node_idx = monkey_node_idx;
+  }
+
+  for (const auto [_, time] : times) {
+    add_edge(time.node_idx, T, M * time.amount());
   }
 }
 
@@ -168,47 +143,41 @@ vector<pii> group_numbers(vector<int>& nums) {
   return res;
 }
 
-void print_allocation() {
+int edge_flow(int u, int v) { return g[u][v] - rgraph[u][v]; }
+
+vector<vector<pii>> get_allocation() {
   fill(available.begin(), available.end(), M);
 
   map<int, vector<int>> solutions;
 
-  for (const auto [time_value, time_node_idx] : times) {
+  for (const auto& [_, time] : times) {
     set<pii, less<pii>> monkeys_to_allocate;
 
-    for (const int monkey_idx : monkey_node_idx_list) {
-      int flow = g[monkey_idx][time_node_idx] - rgraph[monkey_idx][time_node_idx];
+    for (const Monkey& monkey : monkeys) {
+      int flow = edge_flow(monkey.node_idx, time.node_idx);
 
-      if (flow > 0) monkeys_to_allocate.insert({flow, monkey_idx});
+      if (flow > 0) monkeys_to_allocate.emplace(flow, monkey.node_idx);
     }
 
-    const int end = *next(all_times.find(time_value));
-
-    int t = time_value;
+    int t = time.start;
 
     for (const auto& [flow, monkey_idx] : monkeys_to_allocate) {
       for (int f = 0; f < flow; t++) {
-        if (t == end) t = time_value;
+        if (t == time.end) t = time.start;
         if (available[t] == 0) continue;
 
         solutions[monkey_idx].push_back(t);
-        available.at(t)--;
+        available[t]--;
         f++;
       }
     }
   }
 
-  for (auto& [_, solution] : solutions) {
-    vector<pii> pairs = group_numbers(solution);
+  vector<vector<pii>> res;
 
-    cout << pairs.size();
+  for (auto& [_, solution] : solutions) res.push_back(group_numbers(solution));
 
-    for (const auto& [a, b] : pairs) {
-      cout << " (" << a << "," << b + 1 << ")";
-    }
-
-    cout << endl;
-  }
+  return res;
 }
 
 int main() {
@@ -218,6 +187,17 @@ int main() {
   int test_case = 1;
 
   while (cin >> N >> M && N) {
+    int total_required = 0;
+
+    monkeys.clear();
+
+    for (int i = 0; i < N; i++) {
+      Monkey m;
+      cin >> m.v >> m.a >> m.b;
+      monkeys.push_back(m);
+      total_required += m.v;
+    }
+
     build_graph();
 
     const int flow = ford_fulkerson(g, rgraph, S, T);
@@ -225,6 +205,18 @@ int main() {
     cout << "Case " << (test_case++) << ": " << (flow == total_required ? "Yes" : "No")
          << endl;
 
-    if (flow == total_required) print_allocation();
+    if (flow == total_required) {
+      auto allocation = get_allocation();
+
+      for (auto& alloc : allocation) {
+        cout << alloc.size();
+
+        for (const auto& [a, b] : alloc) {
+          cout << " (" << a << "," << b + 1 << ")";
+        }
+
+        cout << endl;
+      }
+    }
   }
 }
