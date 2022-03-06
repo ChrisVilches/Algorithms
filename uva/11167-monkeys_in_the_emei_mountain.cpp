@@ -24,18 +24,14 @@ struct FordFulkerson {
 
     memset(g, 0, sizeof g);
 
-    for (int u = 0; u < (int)original_graph.size(); u++) {
-      for (const auto& [v, c] : original_graph[u]) {
-        g[u][v] = c;
-      }
-    }
+    for (int u = 0; u < (int)original_graph.size(); u++)
+      for (const auto& [v, c] : original_graph[u]) g[u][v] = c;
   }
 
   int edge_flow(const int u, const int v) const { return g[u][v] - rgraph[u][v]; }
 
   int calculate_flow(const int s, const int t) {
-    int u, v;
-    int max_flow = 0;
+    int u, v, max_flow = 0;
 
     memcpy(rgraph, g, sizeof g);
 
@@ -104,41 +100,34 @@ tuple<int, int, vector<vector<pii>>> build_graph() {
     return graph.size() - 1;
   };
 
-  int source = add_node();
-  int sink = add_node();
+  const int source = add_node();
+  const int sink = add_node();
 
   for (const Monkey& m : monkeys) {
     periods.emplace(m.a, m.a);
     periods.emplace(m.b, m.b);
   }
 
-  for (auto it = periods.begin(); it != periods.end(); it++) {
-    if (next(it) == periods.end()) break;
-
+  for (auto it = periods.begin(); next(it) != periods.end(); it++) {
     Period& curr_period = it->second;
     Period next_period = next(it)->second;
     curr_period.end = next_period.start;
+    curr_period.node_idx = add_node();
+    add_edge(curr_period.node_idx, sink, M * curr_period.length());
   }
 
   periods.erase(prev(periods.end()));
 
-  for (auto& [_, period] : periods) period.node_idx = add_node();
-
   for (Monkey& m : monkeys) {
-    const int monkey_node_idx = add_node();
+    m.node_idx = add_node();
+    add_edge(source, m.node_idx, m.v);
 
     for (int t = m.a; t < m.b;) {
       const Period& period = periods.at(t);
-      add_edge(monkey_node_idx, period.node_idx, period.length());
+      add_edge(m.node_idx, period.node_idx, period.length());
       t = period.end;
     }
-
-    add_edge(source, monkey_node_idx, m.v);
-    m.node_idx = monkey_node_idx;
   }
-
-  for (const auto [_, period] : periods)
-    add_edge(period.node_idx, sink, M * period.length());
 
   return {source, sink, graph};
 }
@@ -158,8 +147,7 @@ vector<pii> group_numbers(vector<int>& nums) {
 }
 
 vector<vector<pii>> get_allocation(FordFulkerson<1000>& ff) {
-  array<int, 50001> available;
-  fill(available.begin(), available.end(), M);
+  vector<int> available(periods.rbegin()->second.end, M);
 
   map<int, vector<int>> solutions;
 
@@ -168,13 +156,12 @@ vector<vector<pii>> get_allocation(FordFulkerson<1000>& ff) {
 
     for (const Monkey& monkey : monkeys) {
       int flow = ff.edge_flow(monkey.node_idx, period.node_idx);
-
       if (flow > 0) monkeys_to_allocate.emplace(flow, monkey.node_idx);
     }
 
     int t = period.start;
 
-    for (const auto& [flow, monkey_idx] : monkeys_to_allocate) {
+    for (const auto& [flow, monkey_idx] : monkeys_to_allocate)
       for (int f = 0; f < flow; t++) {
         if (t == period.end) t = period.start;
         if (available[t] == 0) continue;
@@ -183,7 +170,6 @@ vector<vector<pii>> get_allocation(FordFulkerson<1000>& ff) {
         available[t]--;
         f++;
       }
-    }
   }
 
   vector<vector<pii>> res;
@@ -202,37 +188,28 @@ int main() {
   while (cin >> N >> M && N) {
     int total_required = 0;
 
-    monkeys.clear();
+    monkeys.assign(N, Monkey());
     periods.clear();
 
     for (int i = 0; i < N; i++) {
-      Monkey m;
-      cin >> m.v >> m.a >> m.b;
-      monkeys.push_back(m);
-      total_required += m.v;
+      cin >> monkeys[i].v >> monkeys[i].a >> monkeys[i].b;
+      total_required += monkeys[i].v;
     }
 
-    auto [source, sink, graph] = build_graph();
+    const auto [source, sink, graph] = build_graph();
 
     FordFulkerson<1000> ff(graph);
 
-    const int flow = ff.calculate_flow(source, sink);
+    const bool has_solution = total_required == ff.calculate_flow(source, sink);
 
-    cout << "Case " << (test_case++) << ": " << (flow == total_required ? "Yes" : "No")
-         << endl;
+    cout << "Case " << (test_case++) << ": " << (has_solution ? "Yes" : "No") << endl;
 
-    if (flow == total_required) {
-      auto allocation = get_allocation(ff);
+    if (!has_solution) continue;
 
-      for (auto& alloc : allocation) {
-        cout << alloc.size();
-
-        for (const auto& [a, b] : alloc) {
-          cout << " (" << a << "," << b + 1 << ")";
-        }
-
-        cout << endl;
-      }
+    for (auto& alloc : get_allocation(ff)) {
+      cout << alloc.size();
+      for (const auto& [a, b] : alloc) cout << " (" << a << "," << b + 1 << ")";
+      cout << endl;
     }
   }
 }
