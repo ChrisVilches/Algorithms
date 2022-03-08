@@ -43,6 +43,7 @@ Segment tree
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
 * [urionlinejudge/2531-shopping_in_fdi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2531-shopping_in_fdi.cpp)
 * [urionlinejudge/2655-dangerous_trail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2655-dangerous_trail.cpp)
+* [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)
 * [urionlinejudge/3021-jumping_grasshopper.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3021-jumping_grasshopper.cpp)
 
 BIT (Fenwick tree)
@@ -57,6 +58,7 @@ BIT (Fenwick tree)
 Radial sweep (and polar sort)
 
 * [codechef/REDBLUE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/REDBLUE.cpp)
+* [kattis/leylines.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/leylines.cpp)
 * [kattis/maxcolinear.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxcolinear.cpp)
 * [kattis/oil2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oil2.cpp)
 * [spoj/IOIBOUND-boundary_2003.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/IOIBOUND-boundary_2003.cpp)
@@ -71,6 +73,7 @@ Convex hull
 
 * [kattis/convexhull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexhull.cpp)
 * [spoj/BSHEEP-build_the_fence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BSHEEP-build_the_fence.cpp)
+* [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
 * [urionlinejudge/1464-onion_layers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1464-onion_layers.cpp)
 * [urionlinejudge/2541-ingrest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2541-ingrest.cpp)
 * [urionlinejudge/3015-dazzling_stars_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3015-dazzling_stars_2.cpp)
@@ -101,10 +104,19 @@ Geometry with dynamic programming
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
 * [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
-* [urionlinejudge/1315-not_too_convex_hull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull.cpp)
+* [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
 * [urionlinejudge/2665-hipercampo.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2665-hipercampo.cpp)
 * [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
 * [urionlinejudge/3064-elastico.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3064-elastico.cpp)
+
+Convex polygons + two-pointers
+
+* [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
+* [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
+* [urionlinejudge/2904-building_a_field.go](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2904-building_a_field.go)
+* [urionlinejudge/2907-escape_polygon_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2907-escape_polygon_2.cpp)
+* [uva/12307-smallest_enclosing_rectangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12307-smallest_enclosing_rectangle.cpp)
+* [uva/13006-cake_cut.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13006-cake_cut.cpp)
 
 Misc
 
@@ -140,6 +152,7 @@ Bipartite matching & max flow
 * [urionlinejudge/1490-attacking_rooks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1490-attacking_rooks.cpp)
 * [urionlinejudge/2014-blood_groups.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2014-blood_groups.cpp)
 * [urionlinejudge/2705-keep_it_covered.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2705-keep_it_covered.cpp)
+* [uva/11167-monkeys_in_the_emei_mountain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11167-monkeys_in_the_emei_mountain.cpp)
 
 Dijkstra
 
@@ -176,7 +189,7 @@ Maximization, minimization
 * [spoj/KNAPSACK-the_knapsack_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/KNAPSACK-the_knapsack_problem.cpp)
 * [spoj/ROCK-sweet_and_sour_rock.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ROCK-sweet_and_sour_rock.cpp)
 * [spoj/THREECOL-threecoloring_of_binary_trees.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/THREECOL-threecoloring_of_binary_trees.cpp)
-* [urionlinejudge/1315-not_too_convex_hull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull.cpp)
+* [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
 * [urionlinejudge/2008-exposing_corruption.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2008-exposing_corruption.cpp)
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
 * [urionlinejudge/2665-hipercampo.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2665-hipercampo.cpp)

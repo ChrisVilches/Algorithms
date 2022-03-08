@@ -6,7 +6,7 @@ struct Point {
   ll x, y;
   inline Point operator-(const Point& p) const { return Point{x - p.x, y - p.y}; }
   inline ll cross(const Point& p) const { return x * p.y - y * p.x; }
-  inline Point to(const Point& p) const { return *this - p; }
+  inline Point to(const Point& p) const { return p - *this; }
 } points[100001];
 
 int N;

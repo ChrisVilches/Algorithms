@@ -8,7 +8,7 @@ struct Point {
   ll x, y;
   Point operator-(const Point& p) const { return Point{x - p.x, y - p.y}; }
   ll cross(const Point& p) const { return x * p.y - y * p.x; }
-  Point to(const Point& p) const { return *this - p; }
+  Point to(const Point& p) const { return p - *this; }
 };
 
 int N;
