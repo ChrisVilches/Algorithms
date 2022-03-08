@@ -10,17 +10,10 @@ struct Point {
   }
   ld cross(const Point& p) const { return x * p.y - y * p.x; }
   bool operator<(const Point& p) const {
-    return quad() != p.quad() ? quad() > p.quad() : cross(p) > 0;
+    return is_above() != p.is_above() ? is_above() : cross(p) > 0;
   }
-  inline int quad() const { return y != 0 ? (y > 0) : x > 0; }
+  bool is_above() const { return y > 0 || (y == 0 && x > 0); }
   inline ld magnitude() const { return hypot(x, y); }
-
-  // Note: Quad and is_above is the same!!!
-  bool is_above() const {
-    if (y != 0) return y > 0;
-    return x > 0;
-  }
-
   inline Point reflection() const { return Point{-x, -y}; }
 };
 
@@ -39,8 +32,7 @@ int count(vector<Point>& points) {
   for (int i = 0; i < (int)points.size(); i++) {
     const Point& p = points[i];
 
-    // if (p.is_above() && p.y <= T) {
-    if (p.y >= 0 && p.y <= T) {
+    if (p.is_above() && p.y <= T) {
       inside[i] = true;
       curr++;
     }
@@ -73,6 +65,7 @@ int count(vector<Point>& points) {
 
     inside[idx] = !inside[idx];
 
+    // TODO: Necessary?
     if (p.cross(next_p) != 0) {
       curr -= subtract;
       subtract = 0;
