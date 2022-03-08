@@ -43,6 +43,7 @@ Segment tree
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
 * [urionlinejudge/2531-shopping_in_fdi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2531-shopping_in_fdi.cpp)
 * [urionlinejudge/2655-dangerous_trail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2655-dangerous_trail.cpp)
+* [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)
 * [urionlinejudge/3021-jumping_grasshopper.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3021-jumping_grasshopper.cpp)
 
 BIT (Fenwick tree)
