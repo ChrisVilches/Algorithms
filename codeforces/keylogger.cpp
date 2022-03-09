@@ -19,9 +19,7 @@ int main() {
 
     for (int i = 0; i < N - 1; i++) cin >> deltas[i];
 
-    for (int k = 0; k < K; k++) {
-      dp[N - 1][k + 1] = 1 + dp[N - 1][k];
-    }
+    iota(dp[N - 1], dp[N - 1] + K + 1, 0);
 
     for (int p = N - 2; p >= 0; p--) {
       for (int k = 0; k < K; k++) {
