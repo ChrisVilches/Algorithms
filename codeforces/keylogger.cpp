@@ -30,7 +30,8 @@ int main() {
         int from = lower_bound(T[k], T[k] + K, deltas[p] - L) - T[k];
         int to = upper_bound(T[k], T[k] + K, deltas[p] + L) - T[k];
 
-        dp[p][k + 1] += (dp[p + 1][to] - dp[p + 1][from] + MOD) % MOD;
+        dp[p][k + 1] += dp[p + 1][to] - dp[p + 1][from] + MOD;
+        dp[p][k + 1] %= MOD;
       }
     }
 
