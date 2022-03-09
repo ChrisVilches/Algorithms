@@ -5,7 +5,7 @@ typedef long long ll;
 int K, N;
 ll L;
 ll MOD = 1e9 + 7;
-ll T[800][800], zero = 0, dp[10007][800], deltas[10007];
+ll T[800][800], dp[10007][800], deltas[10007];
 
 int main() {
   ios_base::sync_with_stdio(false);
