@@ -4,10 +4,10 @@ typedef long long ll;
 
 // https://oeis.org/A002674
 
-ll MOD = 1e9 + 7;
-ll factorial[300001];  // TODO: Should be less??????? I think 2 * n
+#define MAX 100001
 
-// TODO: Bullshit implementation. Refactor
+ll MOD = 1e9 + 7;
+ll factorial[MAX * 2];
 
 ll gcd_extended(ll a, ll b, ll& x, ll& y) {
   if (a == 0) {
@@ -44,7 +44,7 @@ int main() {
   factorial[0] = 1;
   factorial[1] = 1;
 
-  for (int i = 2; i < 300001; i++) {
+  for (int i = 2; i < MAX * 2; i++) {
     factorial[i] = i * factorial[i - 1];
     factorial[i] %= MOD;
   }
