@@ -5,24 +5,26 @@ typedef long long ll;
 ll cost(vector<ll> nums, const ll target) {
   ll cost = 0;
   ll surplus = 0;
+  bool solved;
 
-solve:
+  do {
+    solved = true;
 
-  for (ll& curr : nums) {
-    cost += surplus;
+    for (ll& curr : nums) {
+      cost += surplus;
 
-    if (curr < target) {
-      const ll moved = min(surplus, target - curr);
-      curr += moved;
-      surplus -= moved;
-    } else if (curr > target) {
-      surplus += curr - target;
-      curr = target;
+      if (curr < target) {
+        const ll moved = min(surplus, target - curr);
+        curr += moved;
+        surplus -= moved;
+      } else if (curr > target) {
+        surplus += curr - target;
+        curr = target;
+      }
+
+      if (curr != target) solved = false;
     }
-  }
-
-  for (ll n : nums)
-    if (n != target) goto solve;
+  } while (!solved);
 
   return cost;
 }
