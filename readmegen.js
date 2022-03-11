@@ -1,5 +1,8 @@
 // Format using:
 // standard this_file.js --fix
+//
+// Execute and copy STDOUT to clipboard:
+// node this_file.js | xclip -selection clipboard
 
 const data = require('./readmedata.json')
 const path = require('path')
@@ -72,8 +75,13 @@ const toLink = x => 'https://' + path.join(URL_PREFIX, x)
 function main () {
   const allFiles = getAllFiles('./')
 
+  let printNewLine = false
+
   data.forEach(category => {
-    console.log(`\n### ${capitalizeAllWords(category.header)}`)
+    if (printNewLine) console.log()
+    printNewLine = true
+
+    console.log(`### ${capitalizeAllWords(category.header)}`)
 
     category.items.forEach(item => {
       console.log(`\n${item.title}\n`)

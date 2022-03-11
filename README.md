@@ -177,6 +177,7 @@ Counting, combinatorics, math
 * [kattis/gigcombinatorics.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/gigcombinatorics.cpp)
 * [kattis/permutationdescent.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/permutationdescent.cpp)
 * [kattis/tritiling.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/tritiling.cpp)
+* [matcomgrader/H-round_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/H-round_table.cpp)
 * [spoj/BADXOR-bad_xor.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BADXOR-bad_xor.cpp)
 * [urionlinejudge/1493-disjoint_water_supply.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1493-disjoint_water_supply.cpp)
 * [urionlinejudge/2009-just_a_bit_sorted.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2009-just_a_bit_sorted.cpp)
@@ -289,3 +290,8 @@ Fast exponentiation, fast fibonacci, etc
 * [spoj/MPOW-power_of_matrix.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MPOW-power_of_matrix.cpp)
 * [urionlinejudge/1151-easy_fibonacci.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1151-easy_fibonacci.cpp)
 * [urionlinejudge/1969-generations.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1969-generations.cpp)
+
+Modular division
+
+* [codeforces/cqxym_count_permutations.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cqxym_count_permutations.cpp)
+* [matcomgrader/H-round_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/H-round_table.cpp)

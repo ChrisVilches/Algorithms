@@ -228,7 +228,8 @@
           "permutationdescent",
           "tritiling",
           "badxor",
-          "keylogger"
+          "keylogger",
+          "round table"
         ]
       },
       {
@@ -369,6 +370,13 @@
           "easy fibonacci",
           "generations",
           "power of matrix"
+        ]
+      },
+      {
+        "title": "Modular division",
+        "files": [
+          "cqxym count permutations",
+          "round table"
         ]
       }
     ]
