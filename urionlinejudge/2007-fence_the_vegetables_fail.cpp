@@ -37,10 +37,8 @@ struct BIT {
 int P, V;
 
 void compress(vector<Point>& points) {
-  sort(points.begin(), points.end(), [](const Point& p, const Point& q) {
-    if (p.y == q.y) return p.x < q.x;
-    return p.y < q.y;
-  });
+  sort(points.begin(), points.end(),
+       [](const Point& p, const Point& q) { return p.y < q.y; });
 
   int y = 0;
   int curr = points[0].y;
