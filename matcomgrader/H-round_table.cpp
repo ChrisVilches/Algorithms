@@ -39,23 +39,22 @@ ll mod_divide(ll a, ll b, ll m) {
 ll mult(const initializer_list<ll>& args) {
   ll res = 1;
 
-  for (auto it = args.begin(); it != args.end(); it++) {
-    res = (res * *it) % MOD;
+  for (const ll val : args) {
+    res = (res * val) % MOD;
   }
-
   return res;
 }
 
-ll dp(const int n) {
+ll dp(const ll n) {
   if (n == 1) return 0;
   if (n == 2) return 8;
-  if (n == 3) return 192;  // TODO: Refactor
+  if (n == 3) return 192;
   if (~memo[n]) return memo[n];
 
-  ll a = mult({2, n, (4L * n * n) - (8L * n) + 5, dp(n - 1)});
-  ll b = mult({4, n - 1, n, 2L * n - 1, dp(n - 2)});
+  ll a = mult({2, n, (4 * n * n) - (8 * n) + 5, dp(n - 1)});
+  ll b = mult({4, n - 1, n, 2 * n - 1, dp(n - 2)});
 
-  return memo[n] = mod_divide(a + b, (2 * n - 3), MOD);
+  return memo[n] = mod_divide(a + b, 2 * n - 3, MOD);
 }
 
 int main() {
