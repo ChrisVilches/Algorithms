@@ -46,8 +46,14 @@ Segment tree
 * [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)
 * [urionlinejudge/3021-jumping_grasshopper.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3021-jumping_grasshopper.cpp)
 
+Segment tree + Lazy propagation
+
+* [spoj/HORRIBLE-horrible_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries.cpp)
+* [urionlinejudge/1477-man_elephant_and_mouse.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1477-man_elephant_and_mouse.cpp)
+
 BIT (Fenwick tree)
 
+* [codeforces/excellent_views.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/excellent_views.cpp)
 * [spoj/HAYBALE-haybale_stacking.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HAYBALE-haybale_stacking.cpp)
 * [spoj/HORRIBLE-horrible_queries_BIT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries_BIT.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
@@ -145,6 +151,7 @@ BFS, DFS
 
 Bipartite matching & max flow
 
+* [codeforces/halting_wolf.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/halting_wolf.cpp)
 * [kattis/bookclub.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bookclub.cpp)
 * [kattis/escapeplan.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/escapeplan.cpp)
 * [kattis/maxflow.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxflow.cpp)
@@ -166,6 +173,7 @@ Dijkstra
 Counting, combinatorics, math
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
+* [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [kattis/gigcombinatorics.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/gigcombinatorics.cpp)
 * [kattis/permutationdescent.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/permutationdescent.cpp)
 * [kattis/tritiling.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/tritiling.cpp)
@@ -262,6 +270,11 @@ Prefix sum
 Lowest common ancestor
 
 * [urionlinejudge/1135-ants_colony.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1135-ants_colony.cpp)
+
+Coordinate (or arrays in general) compression
+
+* [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
+* [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)
 
 Rope
 

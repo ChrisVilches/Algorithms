@@ -56,12 +56,20 @@
         ]
       },
       {
+        "title": "Segment tree + Lazy propagation",
+        "files": [
+          "horrible queries cpp",
+          "man elephant and mouse"
+        ]
+      },
+      {
         "title": "BIT (Fenwick tree)",
         "files": [
           "golnaldinho cpp",
           "fence the vegetables fail",
           "horrible queries BIT",
-          "haybale stacking"
+          "haybale stacking",
+          "excellent views"
         ]
       }
     ]
@@ -190,7 +198,8 @@
           "keep it covered",
           "my tshirt suits me",
           "maxflow",
-          "monkeys in the emei mountain"
+          "monkeys in the emei mountain",
+          "halting wolf"
         ]
       },
       {
@@ -218,7 +227,8 @@
           "gigcombinatorics cpp",
           "permutationdescent",
           "tritiling",
-          "badxor"
+          "badxor",
+          "keylogger"
         ]
       },
       {
@@ -332,6 +342,13 @@
         "title": "Lowest common ancestor",
         "files": [
           "ants colony"
+        ]
+      },
+      {
+        "title": "Coordinate (or arrays in general) compression",
+        "files": [
+          "fence the vegetables fail",
+          "fundraising"
         ]
       },
       {
