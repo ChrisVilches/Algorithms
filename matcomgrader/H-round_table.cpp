@@ -52,7 +52,7 @@ ll dp(const ll n) {
   if (~memo[n]) return memo[n];
 
   ll a = mult({2, n, (4 * n * n) - (8 * n) + 5, dp(n - 1)});
-  ll b = mult({4, n - 1, n, 2 * n - 1, dp(n - 2)});
+  ll b = mult({4, n - 1, n, (2 * n) - 1, dp(n - 2)});
 
   return memo[n] = mod_divide(a + b, 2 * n - 3, MOD);
 }
