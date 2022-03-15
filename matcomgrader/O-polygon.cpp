@@ -191,8 +191,7 @@ int main() {
   cin.tie(NULL);
 
   while (cin >> N) {
-    memset(dist, 0, sizeof dist);
-    memset(visited, 0, sizeof visited);
+    fill(visited, visited + N, 0);
     global_triangle_idx = 0;
     diagonal_triangles.clear();
 
