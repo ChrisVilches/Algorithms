@@ -1,0 +1,226 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef vector<int> vi;
+struct Point;
+typedef pair<Point, Point> pp;
+
+#define MAX 100001
+
+struct LCA {
+  const int root, n, log2_n;
+  vector<vi> parent;
+  vi depth;
+
+  LCA(const vector<vi>& graph, int root)
+      : root(root),
+        n(graph.size()),
+        log2_n(log2(n) + 1),
+        parent(log2_n, vi(n)),
+        depth(n) {
+    dfs(graph, root, root, 1);
+    for (int k = 0; k + 1 < log2_n; ++k) {
+      parent.push_back(vi(n, root));
+      for (int v = n - 1; v >= 0; --v) parent[k + 1][v] = parent[k][parent[k][v]];
+    }
+  }
+
+  void dfs(const vector<vi>& graph, int from, int par, int d) {
+    parent[0][from] = par;
+    depth[from] = d;
+    for (int to : graph[from])
+      if (depth[to] == 0) dfs(graph, to, from, d + 1);
+  }
+
+  int operator()(int v1, int v2) {
+    if (depth[v1] < depth[v2]) swap(v1, v2);
+    for (int k = 0; k < log2_n; ++k)
+      if ((depth[v1] - depth[v2]) >> k & 1) v1 = parent[k][v1];
+    if (v1 == v2) return v1;
+    for (int k = log2_n - 1; k >= 0; --k) {
+      int p_v1 = parent[k][v1], p_v2 = parent[k][v2];
+      if (p_v1 != p_v2) v1 = p_v1, v2 = p_v2;
+    }
+    return parent[0][v1];
+  }
+};
+
+struct Point {
+  ll x, y;
+  bool operator==(const Point& p) const { return x == p.x && y == p.y; }
+  Point operator-(const Point& p) const { return Point{x - p.x, y - p.y}; }
+  ll operator^(const Point& p) const { return x * p.y - y * p.x; }
+  bool operator<(const Point& p) const { return y == p.y ? x < p.x : y < p.y; }
+  Point to(const Point& p) const { return p - *this; }
+  static Point from_stdin() {
+    Point p;
+    cin >> p.x >> p.y;
+    return p;
+  }
+};
+
+int N, Q, dist[MAX];
+bool visited[MAX];
+int global_triangle_idx = 0;
+map<pp, vector<int>> diagonal_triangles;
+
+pp make_normalized_pair(Point a, Point b) {
+  return a < b ? make_pair(a, b) : make_pair(b, a);
+}
+
+struct Node {
+  Node(const vector<Point>& polygon, const vector<pp>& diagonals) {
+    split(polygon, diagonals);
+  }
+
+  int query_triangle_idx(const Point& p) const {
+    if (leaf()) return idx;
+
+    const auto [u, v] = divider;
+    int child_idx = (u.to(v) ^ u.to(p)) < 0 ? 0 : 1;
+    return children[child_idx]->query_triangle_idx(p);
+  }
+
+ private:
+  pp divider;
+  int idx;
+  array<unique_ptr<Node>, 2> children{nullptr, nullptr};
+
+  bool leaf() const { return children[0] == nullptr && children[1] == nullptr; }
+
+  void set_best_divider(const vector<Point>& polygon, const vector<pp>& diagonals) {
+    int best_vertices_diff = INT_MAX;
+    map<Point, int> point_to_index;
+
+    for (int i = 0; i < (int)polygon.size(); i++) point_to_index[polygon[i]] = i;
+
+    for (const auto& [u, v] : diagonals) {
+      int side1 = abs(point_to_index[u] - point_to_index[v]);
+      int side2 = polygon.size() - side1;
+      int diff = abs(side1 - side2);
+
+      if (diff < best_vertices_diff) {
+        best_vertices_diff = diff;
+        divider = {u, v};
+      }
+    }
+  }
+
+  array<vector<pp>, 2> divide_diagonals(const vector<pp>& diagonals) const {
+    array<vector<pp>, 2> res;
+    auto diag = divider.first.to(divider.second);
+
+    for (const auto& [u, v] : diagonals) {
+      ll cross1 = diag ^ (divider.first.to(u));
+      ll cross2 = diag ^ (divider.first.to(v));
+      if (cross1 == 0 && cross2 == 0) continue;
+
+      res[cross1 > 0 || cross2 > 0].push_back({u, v});
+    }
+
+    return res;
+  }
+
+  array<vector<Point>, 2> divide_polygon(const vector<Point>& polygon) const {
+    vector<Point> polygon1, polygon2;
+    int i = find(polygon.begin(), polygon.end(), divider.first) - polygon.begin();
+
+    for (;; i = (i + 1) % polygon.size()) {
+      polygon1.push_back(polygon[i]);
+      if (polygon1.back() == divider.second) break;
+    }
+
+    for (;; i = (i + 1) % polygon.size()) {
+      polygon2.push_back(polygon[i]);
+      if (polygon2.back() == divider.first) break;
+    }
+
+    return {polygon1, polygon2};
+  }
+
+  void split(const vector<Point>& polygon, const vector<pp>& diagonals) {
+    if (polygon.size() == 3) {
+      const Point &p = polygon[0], &q = polygon[1], &r = polygon[2];
+
+      idx = global_triangle_idx++;
+      diagonal_triangles[make_normalized_pair(p, q)].push_back(idx);
+      diagonal_triangles[make_normalized_pair(q, r)].push_back(idx);
+      diagonal_triangles[make_normalized_pair(r, p)].push_back(idx);
+      return;
+    }
+
+    set_best_divider(polygon, diagonals);
+
+    const auto [polygon1, polygon2] = divide_polygon(polygon);
+    const auto [diag1, diag2] = divide_diagonals(diagonals);
+
+    children = {make_unique<Node>(polygon1, diag1), make_unique<Node>(polygon2, diag2)};
+  }
+};
+
+int path_length(LCA& lca, int source, int target) {
+  int ancestor_idx = lca(source, target);
+  return dist[source] + dist[target] - (2 * dist[ancestor_idx]);
+}
+
+void populate_dist(const vector<vi>& g, int u, int accum) {
+  if (visited[u]) return;
+  visited[u] = true;
+  dist[u] = accum;
+  for (int v : g[u]) populate_dist(g, v, accum + 1);
+}
+
+pair<int, vector<vi>> make_graph() {
+  vector<vi> graph(N - 2);
+
+  for (auto const& [_, triangles_idx] : diagonal_triangles) {
+    if (triangles_idx.size() < 2) continue;
+
+    int node_idx1 = triangles_idx[0];
+    int node_idx2 = triangles_idx[1];
+
+    graph[node_idx1].push_back(node_idx2);
+    graph[node_idx2].push_back(node_idx1);
+  }
+
+  return {0, graph};
+}
+
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  while (cin >> N) {
+    memset(dist, 0, sizeof dist);
+    memset(visited, 0, sizeof visited);
+    global_triangle_idx = 0;
+    diagonal_triangles.clear();
+
+    vector<Point> polygon(N);
+    vector<pp> diagonals;
+
+    for (int i = 0; i < N; i++) polygon[i] = Point::from_stdin();
+
+    for (int i = 0; i < N - 3; i++) {
+      int u, v;
+      cin >> u >> v;
+      diagonals.push_back({polygon[u - 1], polygon[v - 1]});
+    }
+
+    Node tree_root(polygon, diagonals);
+
+    auto [root_idx, graph] = make_graph();
+    populate_dist(graph, root_idx, 0);
+
+    LCA lca(graph, root_idx);
+
+    cin >> Q;
+
+    while (Q--) {
+      int node_idx1 = tree_root.query_triangle_idx(Point::from_stdin());
+      int node_idx2 = tree_root.query_triangle_idx(Point::from_stdin());
+
+      cout << path_length(lca, node_idx1, node_idx2) << '\n';
+    }
+  }
+}
