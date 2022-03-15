@@ -25,14 +25,14 @@ struct LCA {
     }
   }
 
-  void dfs(const vector<vi>& graph, int from, int par, int d) {
-    parent[0][from] = par;
-    depth[from] = d;
-    for (int to : graph[from])
-      if (depth[to] == 0) dfs(graph, to, from, d + 1);
+  void dfs(const vector<vi>& graph, int u, int par, int d) {
+    parent[0][u] = par;
+    depth[u] = d;
+    for (int v : graph[u])
+      if (depth[v] == 0) dfs(graph, v, u, d + 1);
   }
 
-  int operator()(int v1, int v2) {
+  int operator()(int v1, int v2) const {
     if (depth[v1] < depth[v2]) swap(v1, v2);
     for (int k = 0; k < log2_n; ++k)
       if ((depth[v1] - depth[v2]) >> k & 1) v1 = parent[k][v1];
@@ -59,22 +59,35 @@ struct Point {
   }
 };
 
-int N, Q, dist[MAX];
-bool visited[MAX];
-int global_triangle_idx = 0;
+int N, Q, dist[MAX], global_triangle_idx = 0;
 map<pp, vector<int>> diagonal_triangles;
 
-pp make_normalized_pair(Point a, Point b) {
+pp make_normalized_pair(const Point& a, const Point& b) {
   return a < b ? make_pair(a, b) : make_pair(b, a);
 }
 
 struct Node {
   Node(const vector<Point>& polygon, const vector<pp>& diagonals) {
-    split(polygon, diagonals);
+    if (polygon.size() == 3) {
+      const Point &p = polygon[0], &q = polygon[1], &r = polygon[2];
+
+      idx = global_triangle_idx++;
+      diagonal_triangles[make_normalized_pair(p, q)].push_back(idx);
+      diagonal_triangles[make_normalized_pair(q, r)].push_back(idx);
+      diagonal_triangles[make_normalized_pair(r, p)].push_back(idx);
+      return;
+    }
+
+    set_best_divider(polygon, diagonals);
+
+    const auto [polygon1, polygon2] = divide_polygon(polygon);
+    const auto [diag1, diag2] = divide_diagonals(diagonals);
+
+    children = {make_unique<Node>(polygon1, diag1), make_unique<Node>(polygon2, diag2)};
   }
 
   int query_triangle_idx(const Point& p) const {
-    if (leaf()) return idx;
+    if (children[0] == nullptr && children[1] == nullptr) return idx;
 
     const auto [u, v] = divider;
     int child_idx = (u.to(v) ^ u.to(p)) < 0 ? 0 : 1;
@@ -85,8 +98,6 @@ struct Node {
   pp divider;
   int idx;
   array<unique_ptr<Node>, 2> children{nullptr, nullptr};
-
-  bool leaf() const { return children[0] == nullptr && children[1] == nullptr; }
 
   void set_best_divider(const vector<Point>& polygon, const vector<pp>& diagonals) {
     int best_vertices_diff = INT_MAX;
@@ -108,11 +119,11 @@ struct Node {
 
   array<vector<pp>, 2> divide_diagonals(const vector<pp>& diagonals) const {
     array<vector<pp>, 2> res;
-    auto diag = divider.first.to(divider.second);
+    const auto [a, b] = divider;
 
     for (const auto& [u, v] : diagonals) {
-      ll cross1 = diag ^ (divider.first.to(u));
-      ll cross2 = diag ^ (divider.first.to(v));
+      ll cross1 = a.to(b) ^ (a.to(u));
+      ll cross2 = a.to(b) ^ (a.to(v));
       if (cross1 == 0 && cross2 == 0) continue;
 
       res[cross1 > 0 || cross2 > 0].push_back({u, v});
@@ -137,35 +148,15 @@ struct Node {
 
     return {polygon1, polygon2};
   }
-
-  void split(const vector<Point>& polygon, const vector<pp>& diagonals) {
-    if (polygon.size() == 3) {
-      const Point &p = polygon[0], &q = polygon[1], &r = polygon[2];
-
-      idx = global_triangle_idx++;
-      diagonal_triangles[make_normalized_pair(p, q)].push_back(idx);
-      diagonal_triangles[make_normalized_pair(q, r)].push_back(idx);
-      diagonal_triangles[make_normalized_pair(r, p)].push_back(idx);
-      return;
-    }
-
-    set_best_divider(polygon, diagonals);
-
-    const auto [polygon1, polygon2] = divide_polygon(polygon);
-    const auto [diag1, diag2] = divide_diagonals(diagonals);
-
-    children = {make_unique<Node>(polygon1, diag1), make_unique<Node>(polygon2, diag2)};
-  }
 };
 
-int path_length(LCA& lca, int source, int target) {
+int path_length(const LCA& lca, int source, int target) {
   int ancestor_idx = lca(source, target);
-  return dist[source] + dist[target] - (2 * dist[ancestor_idx]);
+  return dist[source] + dist[target] - 2 * dist[ancestor_idx];
 }
 
 void populate_dist(const vector<vi>& g, int u, int accum) {
-  if (visited[u]) return;
-  visited[u] = true;
+  if (~dist[u]) return;
   dist[u] = accum;
   for (int v : g[u]) populate_dist(g, v, accum + 1);
 }
@@ -173,15 +164,13 @@ void populate_dist(const vector<vi>& g, int u, int accum) {
 pair<int, vector<vi>> make_graph() {
   vector<vi> graph(N - 2);
 
-  for (auto const& [_, triangles_idx] : diagonal_triangles) {
-    if (triangles_idx.size() < 2) continue;
+  auto add_edge = [&](int u, int v) -> void {
+    graph[u].push_back(v);
+    graph[v].push_back(u);
+  };
 
-    int node_idx1 = triangles_idx[0];
-    int node_idx2 = triangles_idx[1];
-
-    graph[node_idx1].push_back(node_idx2);
-    graph[node_idx2].push_back(node_idx1);
-  }
+  for (auto const& [_, triangles_idx] : diagonal_triangles)
+    if (triangles_idx.size() == 2) add_edge(triangles_idx[0], triangles_idx[1]);
 
   return {0, graph};
 }
@@ -191,7 +180,7 @@ int main() {
   cin.tie(NULL);
 
   while (cin >> N) {
-    fill(visited, visited + N, 0);
+    fill(dist, dist + N, -1);
     global_triangle_idx = 0;
     diagonal_triangles.clear();
 
