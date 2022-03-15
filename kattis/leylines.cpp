@@ -22,9 +22,7 @@ ld T;
 bool inside[3007];
 
 int count(vector<Point>& points) {
-  int ans = 0;
   int curr = 0;
-  int subtract = 0;
 
   memset(inside, 0, sizeof inside);
   vector<pair<Point, int>> events;
@@ -50,26 +48,13 @@ int count(vector<Point>& points) {
 
   sort(events.begin(), events.end());
 
-  ans = curr;
+  int ans = curr;
 
-  for (int i = 0; i < (int)events.size(); i++) {
-    const auto& [p, idx] = events[i];
-    const Point& next_p = events[(i + 1) % events.size()].first;
-
-    if (inside[idx]) {
-      subtract++;
-    } else {
-      curr++;
-      ans = max(ans, curr);
-    }
-
+  for (const auto& [_, idx] : events) {
+    curr += inside[idx] ? -1 : 1;
     inside[idx] = !inside[idx];
 
-    // TODO: Necessary?
-    if (p.cross(next_p) != 0) {
-      curr -= subtract;
-      subtract = 0;
-    }
+    ans = max(ans, curr);
   }
 
   return ans;
@@ -81,7 +66,6 @@ int main() {
 
     for (int i = 0; i < N; i++) cin >> points[i].x >> points[i].y;
 
-    // TODO: Some cases give WA if I remove this line. Can I do it without it?
     T += 1e-8;
 
     int ans = 0;
