@@ -128,12 +128,12 @@ Misc
 
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [kattis/countingtriangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/countingtriangles.cpp)
+* [matcomgrader/O-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/O-polygon.cpp)
 * [spoj/PIR-pyramids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PIR-pyramids.cpp)
 * [urionlinejudge/1124-elevator.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1124-elevator.cpp)
 * [urionlinejudge/1295-the_closest_pair_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1295-the_closest_pair_problem.cpp)
 * [urionlinejudge/1378-isosceles_triangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1378-isosceles_triangles.cpp)
 * [urionlinejudge/2840-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2840-balloon.cpp)
-* [uva/13006-cake_cut.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13006-cake_cut.cpp)
 
 ### Graphs
 
@@ -270,6 +270,7 @@ Prefix sum
 
 Lowest common ancestor
 
+* [matcomgrader/O-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/O-polygon.cpp)
 * [urionlinejudge/1135-ants_colony.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1135-ants_colony.cpp)
 
 Coordinate (or arrays in general) compression

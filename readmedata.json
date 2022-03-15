@@ -165,8 +165,8 @@
           "the closest pair problem",
           "countingtriangles",
           "isosceles triangles cpp",
-          "cake cut",
-          "pir pyramids"
+          "pir pyramids",
+          "matcomgrader o polygon"
         ]
       }
     ]
@@ -342,7 +342,8 @@
       {
         "title": "Lowest common ancestor",
         "files": [
-          "ants colony"
+          "ants colony",
+          "matcomgrader o polygon"
         ]
       },
       {
