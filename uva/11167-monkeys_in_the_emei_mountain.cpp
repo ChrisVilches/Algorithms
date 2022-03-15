@@ -146,13 +146,13 @@ vector<pii> group_numbers(vector<int>& nums) {
   return res;
 }
 
-vector<vector<pii>> get_allocation(FordFulkerson<1000>& ff) {
+vector<vector<pii>> get_allocation(const FordFulkerson<1000>& ff) {
   vector<int> available(periods.rbegin()->second.end, M);
 
   map<int, vector<int>> solutions;
 
   for (const auto& [_, period] : periods) {
-    set<pii, less<pii>> monkeys_to_allocate;
+    set<pii> monkeys_to_allocate;
 
     for (const Monkey& monkey : monkeys) {
       int flow = ff.edge_flow(monkey.node_idx, period.node_idx);
