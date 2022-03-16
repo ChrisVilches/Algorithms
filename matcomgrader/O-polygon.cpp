@@ -164,13 +164,11 @@ void populate_dist(const vector<vi>& g, int u, int accum) {
 pair<int, vector<vi>> make_graph() {
   vector<vi> graph(N - 2);
 
-  auto add_edge = [&](int u, int v) -> void {
-    graph[u].push_back(v);
-    graph[v].push_back(u);
-  };
-
   for (auto const& [_, triangles_idx] : diagonal_triangles)
-    if (triangles_idx.size() == 2) add_edge(triangles_idx[0], triangles_idx[1]);
+    if (triangles_idx.size() == 2) {
+      graph[triangles_idx[0]].push_back(triangles_idx[1]);
+      graph[triangles_idx[1]].push_back(triangles_idx[0]);
+    }
 
   return {0, graph};
 }
