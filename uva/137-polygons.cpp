@@ -65,11 +65,11 @@ vector<Point> sort_vertices(vector<Point> polygon_vertices) {
   Point centroid = point_set_centroid(polygon_vertices);
   for (Point& p : polygon_vertices) p = p - centroid;
   sort(polygon_vertices.begin(), polygon_vertices.end());
+  for (Point& p : polygon_vertices) p = p + centroid;
   return polygon_vertices;
 }
 
-vector<Point> polygon_intersection_origin_center(const vector<Point>& p1,
-                                                 const vector<Point>& p2) {
+vector<Point> polygon_intersection(const vector<Point>& p1, const vector<Point>& p2) {
   vector<Point> result;
 
   for (const Point& p : p1)
@@ -131,7 +131,7 @@ int main() {
     reverse(polygon1.begin(), polygon1.end());
     reverse(polygon2.begin(), polygon2.end());
 
-    vector<Point> intersection = polygon_intersection_origin_center(polygon1, polygon2);
+    vector<Point> intersection = polygon_intersection(polygon1, polygon2);
 
     ld area1 = polygon_area(polygon1);
     ld area2 = polygon_area(polygon2);
