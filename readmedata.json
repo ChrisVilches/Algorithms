@@ -157,6 +157,12 @@
         ]
       },
       {
+        "title": "Polygon intersection",
+        "files": [
+          "uva 137 polygons"
+        ]
+      },
+      {
         "title": "Misc",
         "files": [
           "cheese 2",

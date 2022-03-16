@@ -124,6 +124,10 @@ Convex polygons + two-pointers
 * [uva/12307-smallest_enclosing_rectangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12307-smallest_enclosing_rectangle.cpp)
 * [uva/13006-cake_cut.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13006-cake_cut.cpp)
 
+Polygon intersection
+
+* [uva/137-polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/137-polygons.cpp)
+
 Misc
 
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
