@@ -56,6 +56,7 @@ BIT (Fenwick tree)
 * [codeforces/excellent_views.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/excellent_views.cpp)
 * [spoj/HAYBALE-haybale_stacking.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HAYBALE-haybale_stacking.cpp)
 * [spoj/HORRIBLE-horrible_queries_BIT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries_BIT.cpp)
+* [urionlinejudge/1856-aryas_death_list.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1856-aryas_death_list.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/2792-golnaldinho.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2792-golnaldinho.cpp)
 
