@@ -86,7 +86,7 @@ void add_values(const int occurrence, const int enemy) {
 }
 
 void set_positions() {
-  map<int, int> occurrences;
+  unordered_map<int, int> occurrences;
 
   for (int init : initial_values) occurrences[init] = 1;
 
