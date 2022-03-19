@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
+typedef pair<int, int> pii;
 
 struct Point {
   ll x, y;
@@ -10,6 +11,8 @@ struct Point {
 };
 
 struct Segment {
+  int idx;
+  int original_idx;
   Point p, q;
   static Segment from_stdin() {
     Segment s;
@@ -20,12 +23,43 @@ struct Segment {
   Point to_vec() const { return p.to(q); }
 
   bool operator<(const Segment& s) const {
-    if (q.x < s.p.x) {
-      return (to_vec() ^ (q.to(s.p))) > 0;
+    if (p.x < s.p.x) {
+      // THIS enters first (in the sweep line)
+      return (to_vec() ^ p.to(s.p)) < 0;
     } else {
-      return (to_vec() ^ p.to(s.q)) > 0;
+      return (s.to_vec() ^ s.p.to(p)) > 0;
     }
+
+    /*
+    ll X1 = p.x;
+    ll Y1 = p.y;
+    ll X2 = q.x;
+    ll Y2 = q.y;
+
+    ll tX1 = t.p.x;
+    ll tY1 = t.p.y;
+    ll tX2 = t.q.x;
+    ll tY2 = t.q.y;
+
+    bool ret;
+
+    if (X1 > tX1) {
+      ret = (Y1 - tY1) * (tX2 - tX1) < (X1 - tX1) * (tY2 - tY1);
+    } else {
+      ret = (tY1 - Y1) * (X2 - X1) > (tX1 - X1) * (Y2 - Y1);
+    }
+
+    return !ret;*/
   }
+
+  /*
+    bool operator<(const Segment& s) const {
+      if (q.x < s.p.x) {
+        return (to_vec() ^ (q.to(s.p))) < 0;
+      } else {
+        return (to_vec() ^ p.to(s.q)) < 0;
+      }
+    }*/
 };
 
 vector<int> toposort(const vector<vector<int>>& graph) {
@@ -36,7 +70,7 @@ vector<int> toposort(const vector<vector<int>>& graph) {
     if (visited[u]) return;
     visited[u] = true;
 
-    for (const int v : graph[u]) dfs(v);
+    for (const int v : graph.at(u)) dfs(v);
     order.push_back(u);
   };
 
@@ -91,20 +125,62 @@ void solve() {
   vector<Segment> segments;
 
   for (int i = 0; i < N; i++) segments.push_back(Segment::from_stdin());
+  for (int i = 0; i < N; i++) segments[i].original_idx = i;
 
-  set<pair<int, int>> covered;
+  set<pii> covered;
   map<int, ll> collected;
 
   vector<ll> ans(N);
 
-  for (const int idx : sort_segments(segments)) {
-    // sort(segments.rbegin(), segments.rend());
-    // for (int idx = 0; idx < (int)segments.size(); idx++) {
-    const Segment& s = segments[idx];
+  sort(segments.begin(), segments.end(),
+       [](const Segment& a, const Segment& b) { return a.p.x < b.p.x; });
+
+  vector<vector<int>> graph(N + 1);
+
+  for (int i = 0; i < N; i++) segments[i].idx = i;
+  set<Segment> s;
+  priority_queue<pii, vector<pii>, greater<pii>> events;
+
+  for (int i = 0; i < N; i++) {
+    while (!events.empty() && events.top().first < segments[i].p.x) {
+      s.erase(segments.at(events.top().second));
+      events.pop();
+    }
+
+    auto it = s.insert(segments[i]).first;
+
+    if (it == s.begin())
+      graph[N].push_back(i);
+    else
+      graph.at((--it)->idx).push_back(i);
+
+    events.push({segments[i].q.x, i});
+  }
+
+  // cerr << "World" << endl;
+
+  // cerr << "<toposort>" << endl;
+
+  auto toposorted = toposort(graph);
+  // cerr << "N = " << N << endl;
+  // for (int xx : toposorted) {
+  //   cerr << xx << " ";
+  //}/
+  // cerr << endl;
+  // cerr << "</toposort>" << endl;
+
+  // cerr << "<loop>" << endl;
+
+  // for (const int idx : sort_segments(segments)) {
+  for (int iii = 1; iii < (int)toposorted.size(); iii++) {
+    int idx = toposorted[iii];
+    //  sort(segments.rbegin(), segments.rend());
+    //  for (int idx = 0; idx < (int)segments.size(); idx++) {
+    const Segment& s = segments.at(idx);
     const int left = s.p.x;
     const int right = s.q.x;
 
-    ans[idx] = right - left;
+    ans.at(s.original_idx) = right - left;
 
     int covered_left = left;
     int covered_right = right;
@@ -121,7 +197,7 @@ void solve() {
 
       if (right < from || to < left) break;
 
-      ans[idx] -= min(to, right) - max(left, from);
+      ans[s.original_idx] -= min(to, right) - max(left, from);
 
       covered_left = min(from, covered_left);
       covered_right = max(to, covered_right);
@@ -135,12 +211,14 @@ void solve() {
       const auto it = collected.lower_bound(left);
       if (it == collected.end() || right < it->first) break;
 
-      ans[idx] += it->second;
+      ans[s.original_idx] += it->second;
       collected.erase(it);
     }
 
-    collected[s.lowest_point().x] = ans[idx];
+    collected[s.lowest_point().x] = ans[s.original_idx];
   }
+
+  // cerr << "</loop>" << endl;
 
   for (ll a : ans) cout << a << endl;
 }
