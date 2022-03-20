@@ -79,14 +79,17 @@ Radial sweep (and polar sort)
 Convex hull
 
 * [kattis/convexhull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexhull.cpp)
+* [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
 * [spoj/BSHEEP-build_the_fence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BSHEEP-build_the_fence.cpp)
 * [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
 * [urionlinejudge/1464-onion_layers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1464-onion_layers.cpp)
 * [urionlinejudge/2541-ingrest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2541-ingrest.cpp)
 * [urionlinejudge/3015-dazzling_stars_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3015-dazzling_stars_2.cpp)
+* [uva/12307-smallest_enclosing_rectangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12307-smallest_enclosing_rectangle.cpp)
 
 Sweep line
 
+* [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
 * [urionlinejudge/1468-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1468-balloon.cpp)
 * [urionlinejudge/1748-fence_the_vegetables.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1748-fence_the_vegetables.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
@@ -172,6 +175,10 @@ Dijkstra
 * [kattis/shortestpath1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/shortestpath1.cpp)
 * [urionlinejudge/1370-regatta_of_scientists.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1370-regatta_of_scientists.cpp)
 * [uva/13010-galactic_taxes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13010-galactic_taxes.cpp)
+
+Topological sort
+
+* [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
 
 ### Dynamic Programming
 

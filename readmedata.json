@@ -102,7 +102,9 @@
           "not too convex hull 2",
           "onion layers",
           "dazzling stars 2",
-          "ingrest"
+          "ingrest",
+          "largesttriangle",
+          "smallest enclosing rectangle"
         ]
       },
       {
@@ -110,7 +112,8 @@
         "files": [
           "fence the vegetables cpp",
           "fence the vegetables fail",
-          "1468-balloon"
+          "1468-balloon",
+          "november rain"
         ]
       },
       {
@@ -216,6 +219,12 @@
           "regatta of scientists",
           "galactic taxes",
           "shortestpath1"
+        ]
+      },
+      {
+        "title": "Topological sort",
+        "files": [
+          "november rain"
         ]
       }
     ]
