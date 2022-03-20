@@ -107,9 +107,8 @@ void solve() {
       auto it = covered.lower_bound({left, -1});
 
       if (it == covered.end() ||
-          (it->first != left && it != covered.begin() && left < prev(it)->second)) {
+          (it->first != left && it != covered.begin() && left < prev(it)->second))
         it--;
-      }
 
       auto const [from, to] = *it;
 
