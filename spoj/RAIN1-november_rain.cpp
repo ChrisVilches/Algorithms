@@ -2,7 +2,6 @@
 using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
-const ll INF = 1LL << 31;
 
 struct Point {
   ll x, y;
@@ -57,9 +56,7 @@ vector<Segment> sort_segments(vector<Segment>& segments) {
 
   vector<vector<int>> graph(N + 1);
 
-  const Segment above{Point{-1, INF}, Point{INF, INF}};
-
-  set<pair<Segment, int>> s{{above, N}};
+  set<pair<Segment, int>> s;
 
   priority_queue<pii, vector<pii>, greater<pii>> events;
 
@@ -71,7 +68,7 @@ vector<Segment> sort_segments(vector<Segment>& segments) {
     }
 
     const auto it = s.insert({segments[i], i}).first;
-    graph[prev(it)->second].push_back(i);
+    graph[it == s.begin() ? N : prev(it)->second].push_back(i);
 
     events.push({segments[i].q.x, i});
   }
