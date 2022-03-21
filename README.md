@@ -121,6 +121,7 @@ Geometry with dynamic programming
 
 Convex polygons + two-pointers
 
+* [atcoder/B-longest_segment.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/B-longest_segment.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
 * [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
 * [urionlinejudge/2904-building_a_field.go](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2904-building_a_field.go)
