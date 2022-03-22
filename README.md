@@ -45,6 +45,7 @@ Segment tree
 * [urionlinejudge/2655-dangerous_trail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2655-dangerous_trail.cpp)
 * [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)
 * [urionlinejudge/3021-jumping_grasshopper.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3021-jumping_grasshopper.cpp)
+* [uva/12532-interval_product.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12532-interval_product.cpp)
 
 Segment tree + Lazy propagation
 
@@ -142,6 +143,7 @@ Misc
 * [urionlinejudge/1124-elevator.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1124-elevator.cpp)
 * [urionlinejudge/1295-the_closest_pair_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1295-the_closest_pair_problem.cpp)
 * [urionlinejudge/1378-isosceles_triangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1378-isosceles_triangles.cpp)
+* [urionlinejudge/1455-icpc_finals.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1455-icpc_finals.cpp)
 * [urionlinejudge/2840-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2840-balloon.cpp)
 
 ### Graphs
@@ -156,6 +158,7 @@ BFS, DFS
 * [spoj/MAKEMAZE-validate_the_maze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MAKEMAZE-validate_the_maze.cpp)
 * [urionlinejudge/1082-connected_components.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1082-connected_components.cpp)
 * [urionlinejudge/1100-knight_moves.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1100-knight_moves.cpp)
+* [uva/1103-ancient_messages.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/1103-ancient_messages.cpp)
 * [uva/13011-height_map.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13011-height_map.cpp)
 
 Bipartite matching & max flow
