@@ -3,7 +3,6 @@ using namespace std;
 typedef long long ll;
 
 const ll INF = INT_MAX;
-int N, M, Q;
 
 struct Edge {
   int u, v;
@@ -27,23 +26,17 @@ vector<ll> bellman_ford(const int V, const vector<Edge>& edges, const int src) {
 }
 
 void solve() {
+  int N, M;
   cin >> N >> M;
-  vector<Edge> edges;
+  vector<Edge> edges(M);
 
   for (int i = 0; i < M; i++) {
-    int u, v;
-    ll w;
-    cin >> u >> v >> w;
-    edges.push_back(Edge{u, v, w});
+    cin >> edges[i].u >> edges[i].v >> edges[i].w;
   }
 
   const auto dist = bellman_ford(N, edges, 0);
 
-  if (dist.empty()) {
-    cout << "possible" << endl;
-  } else {
-    cout << "not possible" << endl;
-  }
+  cout << (dist.empty() ? "possible" : "not possible") << endl;
 }
 
 int main() {
