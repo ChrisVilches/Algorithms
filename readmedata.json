@@ -226,6 +226,12 @@
         ]
       },
       {
+        "title": "Bellman–Ford",
+        "files": [
+          "wormholes"
+        ]
+      },
+      {
         "title": "Topological sort",
         "files": [
           "november rain"

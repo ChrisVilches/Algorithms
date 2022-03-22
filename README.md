@@ -180,6 +180,10 @@ Dijkstra
 * [urionlinejudge/1370-regatta_of_scientists.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1370-regatta_of_scientists.cpp)
 * [uva/13010-galactic_taxes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13010-galactic_taxes.cpp)
 
+Bellman–Ford
+
+* [uva/558-wormholes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/558-wormholes.cpp)
+
 Topological sort
 
 * [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
