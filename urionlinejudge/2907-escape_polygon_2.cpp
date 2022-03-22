@@ -11,33 +11,35 @@ struct Point {
 
 int N;
 
-ll triangular_number(ll n) { return n * (n + 1) / 2; }
+ll C2(const ll n) { return n * (n - 1) / 2; }
+ll C3(const ll n) { return n * (n - 1) * (n - 2) / 6; }
 
 ll count() {
-  ll ans = 0;
+  ll ans = C3(N);
 
   for (int i = 0, j = 1; i < N; i++) {
     Point vec1 = points[i].to(points[(i + 1) % N]);
-
-    ans += triangular_number(i - 1);
 
     for (;; j++) {
       Point vec2 = points[j % N].to(points[(j + 1) % N]);
       if (vec1.cross(vec2) < 0) break;
     }
 
-    ans -= triangular_number(j - i - 2);
+    ans -= C2(j - i - 1);
   }
 
   return ans;
 }
 
 int main() {
-  scanf("%d", &N);
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
-  for (int i = 0; i < N; i++) {
-    scanf("%lld %lld", &points[i].x, &points[i].y);
+  while (cin >> N) {
+    for (int i = 0; i < N; i++) {
+      cin >> points[i].x >> points[i].y;
+    }
+
+    cout << count() << endl;
   }
-
-  cout << count() << endl;
 }
