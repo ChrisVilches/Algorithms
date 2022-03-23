@@ -123,12 +123,13 @@ Geometry with dynamic programming
 Convex polygons + two-pointers
 
 * [atcoder/B-longest_segment.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/B-longest_segment.cpp)
+* [codeforces/very_simple_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/very_simple_problem.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
+* [urionlinejudge/2015-cake_cut.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2015-cake_cut.cpp)
 * [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
 * [urionlinejudge/2904-building_a_field.go](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2904-building_a_field.go)
 * [urionlinejudge/2907-escape_polygon_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2907-escape_polygon_2.cpp)
 * [uva/12307-smallest_enclosing_rectangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12307-smallest_enclosing_rectangle.cpp)
-* [uva/13006-cake_cut.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13006-cake_cut.cpp)
 
 Polygon intersection
 
@@ -199,6 +200,7 @@ Counting, combinatorics, math
 * [kattis/tritiling.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/tritiling.cpp)
 * [matcomgrader/H-round_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/H-round_table.cpp)
 * [spoj/BADXOR-bad_xor.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BADXOR-bad_xor.cpp)
+* [urionlinejudge/1319-hyperactive_girl.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1319-hyperactive_girl.cpp)
 * [urionlinejudge/1493-disjoint_water_supply.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1493-disjoint_water_supply.cpp)
 * [urionlinejudge/2009-just_a_bit_sorted.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2009-just_a_bit_sorted.cpp)
 * [urionlinejudge/3017-fabricating_sculptures.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3017-fabricating_sculptures.cpp)

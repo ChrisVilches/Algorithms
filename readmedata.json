@@ -153,13 +153,14 @@
       {
         "title": "Convex polygons + two-pointers",
         "files": [
-          "cake cut",
+          "urionlinejudge 2015 cake cut",
           "smallest enclosing rectangle",
           "escape polygon 2",
           "building a field go",
           "largesttriangle",
           "arranging tiles",
-          "longest segment"
+          "longest segment",
+          "very simple problem"
         ]
       },
       {
@@ -255,7 +256,8 @@
           "tritiling",
           "badxor",
           "keylogger",
-          "round table"
+          "round table",
+          "hyperactive girl"
         ]
       },
       {
