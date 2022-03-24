@@ -284,6 +284,10 @@ Union find + Minimum spanning tree
 * [urionlinejudge/1468-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1468-balloon.cpp)
 * [urionlinejudge/3014-cut_inequality_down.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3014-cut_inequality_down.cpp)
 
+Sparse Table
+
+* [urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp)
+
 Prefix sum
 
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)

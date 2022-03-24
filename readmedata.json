@@ -45,7 +45,7 @@
           "horrible queries cpp",
           "supercomputer",
           "rmqsq range minimum query cpp",
-          "go up the ultras",
+          "go up the ultras cpp",
           "keep it energized",
           "shopping in fdi",
           "frequent values",
@@ -357,6 +357,12 @@
           "cats",
           "1468 balloon",
           "dark roads"
+        ]
+      },
+      {
+        "title": "Sparse Table",
+        "files": [
+          "go up the ultras sparse table"
         ]
       },
       {

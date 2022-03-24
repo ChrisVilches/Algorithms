@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template <class T, class TFunc>
+template <class T, class TAssociativeFn>
 struct Segtree {
   Segtree(T* arr, int _n) : n(_n), A(arr) {
     tree.assign(4 * n, 0);
@@ -13,7 +13,7 @@ struct Segtree {
  private:
   vector<T> tree;
   int n;
-  TFunc fn;
+  TAssociativeFn fn;
   T* A;
   inline int left(int p) { return p << 1; }
   inline int right(int p) { return (p << 1) + 1; }
