@@ -20,13 +20,13 @@ struct Segment {
   Point p, q;
   inline Segment operator-(const Point& o) const { return {p - o, q - o}; }
   inline bool intersects_positive_x_axis() const {
-    if (p.cross(q) > 0) return q < p;
-    return p < q;
+    const auto [a, b] = sorted_endpoints();
+    return b < a;
   }
 
-  Point first_point() const { return p.cross(q) > 0 ? p : q; }
-  Point second_point() const { return p.cross(q) > 0 ? q : p; }
-  pair<Point, Point> sorted_endpoints() const { return {first_point(), second_point()}; }
+  pair<Point, Point> sorted_endpoints() const {
+    return p.cross(q) > 0 ? make_pair(p, q) : make_pair(q, p);
+  }
 
   bool operator<(const Segment& s) const {
     const auto [p1, q1] = sorted_endpoints();
@@ -67,13 +67,7 @@ int visible_count(const Point& center, vector<pair<Point, int>>& events) {
   for (const auto& [p, segment_idx] : events) {
     if (~segment_idx) {
       const Segment s = walls[segment_idx] - center;
-
-      if (curr_walls.count(s)) {
-        curr_walls.erase(s);
-      } else {
-        curr_walls.insert(s);
-      }
-
+      curr_walls.insert(s).second || curr_walls.erase(s);
     } else {
       ans += kid_visible(p);
     }

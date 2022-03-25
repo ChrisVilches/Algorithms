@@ -7,7 +7,7 @@ int N, L[MAX], R[MAX], heights[MAX];
 
 // Segment tree, range minimum query, without updates.
 
-struct segtree {
+struct Segtree {
  private:
   vector<int> tree;
   int n;
@@ -32,7 +32,7 @@ struct segtree {
   }
 
  public:
-  segtree(int* arr, int _n) : n(_n) {
+  Segtree(int* arr, int _n) : n(_n) {
     tree.assign(4 * n, 0);
     build(arr, 1, 0, n - 1);
   }
@@ -44,7 +44,7 @@ bool is_peak(int idx) {
   return (heights[idx - 1] < heights[idx]) && (heights[idx] > heights[idx + 1]);
 }
 
-bool is_ultra(segtree& st, int idx) {
+bool is_ultra(Segtree& st, int idx) {
   if (!is_peak(idx)) return false;
 
   int left = L[idx], right = R[idx];
@@ -76,7 +76,7 @@ void solve() {
 
   populate_left_right();
 
-  segtree st(heights, N + 1);
+  Segtree st(heights, N + 1);
 
   bool space = false;
   for (int i = 1; i < N - 1; i++) {

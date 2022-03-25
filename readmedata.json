@@ -87,7 +87,7 @@
           "kattis/oil",
           "dazzling stars.cpp",
           "garden fence",
-          "hide and seek cpp",
+          "hide and seek 2 cpp",
           "flowers of babylon",
           "towers for mobile telephony",
           "redblue",
@@ -315,7 +315,8 @@
           "busqueda binaria cpp",
           "busqueda binaria 2",
           "blood groups",
-          "stringmultimatching"
+          "stringmultimatching",
+          "keylogger"
         ]
       },
       {

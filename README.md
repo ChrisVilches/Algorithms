@@ -73,7 +73,7 @@ Radial sweep (and polar sort)
 * [spoj/TAP2013F-flowers_of_babylon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/TAP2013F-flowers_of_babylon.cpp)
 * [urionlinejudge/1108-towers_for_mobile_telephony.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1108-towers_for_mobile_telephony.cpp)
 * [urionlinejudge/1336-garden_fence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1336-garden_fence.cpp)
-* [urionlinejudge/1497-hide_and_seek.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1497-hide_and_seek.cpp)
+* [urionlinejudge/1497-hide_and_seek_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1497-hide_and_seek_2.cpp)
 * [urionlinejudge/3013-build_the_perfect_house.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3013-build_the_perfect_house.cpp)
 * [urionlinejudge/3015-dazzling_stars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3015-dazzling_stars.cpp)
 
@@ -238,6 +238,7 @@ Probability
 
 Binary search
 
+* [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [kattis/stringmultimatching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stringmultimatching.cpp)
 * [spoj/AGGRCOW-aggressive_cows.kt](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AGGRCOW-aggressive_cows.kt)

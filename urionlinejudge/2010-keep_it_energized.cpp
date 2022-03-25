@@ -1,30 +1,8 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-
 #define MAX 100007
 
-int N, M, E_prefix[MAX], cost[MAX];
-
-struct Shop {
-  int level, energy, cost, to;
-  void read() {
-    cin >> level >> energy >> cost;
-    level--;
-  }
-
-  void compute_range() {
-    int left = level, right = N;
-    while (left <= right) {
-      int mid = (left + right) / 2;
-      if (E_prefix[mid] <= energy + E_prefix[level])
-        left = mid + 1;
-      else
-        right = mid - 1;
-    }
-    to = right;
-  }
-} S[MAX];
+int N, M, psum[MAX], cost[MAX];
 
 struct Segtree {
  private:
@@ -75,38 +53,50 @@ struct Segtree {
   void update(int pos, int val) { return update(1, 0, n - 1, pos, val); }
 };
 
-inline bool decreasing(const Shop& s1, const Shop& s2) {
-  return s1.level > s2.level;
-}
+struct Shop {
+  int level, energy, cost, to;
+
+  static Shop from_stdin() {
+    Shop s;
+    cin >> s.level >> s.energy >> s.cost;
+    s.level--;
+    s.compute_range();
+    return s;
+  }
+
+  void compute_range() {
+    to = upper_bound(psum, psum + N + 1, energy + psum[level]) - psum - 1;
+  }
+
+  inline bool operator<(const Shop& s) { return level < s.level; }
+};
 
 void solve() {
-  E_prefix[0] = 0;
+  psum[0] = 0;
   for (int i = 0; i < N; i++) {
-    cin >> E_prefix[i + 1];
-    E_prefix[i + 1] += E_prefix[i];
+    cin >> psum[i + 1];
+    psum[i + 1] += psum[i];
   }
 
-  for (int i = 0; i < M; i++) {
-    S[i].read();
-    S[i].compute_range();
-  }
+  vector<Shop> shops(M);
 
-  sort(S, S + M, decreasing);
+  for (int i = 0; i < M; i++) shops[i] = Shop::from_stdin();
 
-  fill(cost, cost + N + 1, INT_MAX);
+  sort(shops.rbegin(), shops.rend());
+
+  fill(cost, cost + N, INT_MAX);
   cost[N] = 0;
 
   Segtree st(cost, N + 1);
 
-  for (int i = 0; i < M; i++) {
-    Shop& shop = S[i];
+  for (const Shop& shop : shops) {
     int min_val = st.query(shop.level + 1, shop.to);
-    if (min_val >= INT_MAX) continue;
+    if (min_val == INT_MAX) continue;
 
     st.update(shop.level, min(cost[shop.level], min_val + shop.cost));
   }
 
-  cout << (cost[0] >= INT_MAX ? -1 : cost[0]) << endl;
+  cout << (cost[0] == INT_MAX ? -1 : cost[0]) << endl;
 }
 
 int main() {
