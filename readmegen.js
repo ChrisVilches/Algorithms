@@ -7,6 +7,7 @@
 const data = require('./readmedata.json')
 const path = require('path')
 const fs = require('fs')
+const { prettyCapitalize } = require('./pretty-capitalize')
 
 const URL_PREFIX = 'github.com/ChrisVilches/Algorithms/blob/main/'
 
@@ -47,10 +48,6 @@ function getAllFiles (directory) {
 
 const normalizeString = x => x.replace(/[^a-zA-Z0-9\s]/g, ' ').replace(/\s+/g, ' ').toLowerCase()
 
-const capitalize = x => x[0].toUpperCase() + x.substr(1).toLowerCase()
-
-const capitalizeAllWords = x => x.trim().replace(/\s+/g, ' ').split(' ').map(capitalize).join(' ')
-
 function findUniqueFilePath (simplifiedFilename, allFiles) {
   let found = null
   simplifiedFilename = normalizeString(simplifiedFilename)
@@ -81,10 +78,10 @@ function main () {
     if (printNewLine) console.log()
     printNewLine = true
 
-    console.log(`### ${capitalizeAllWords(category.header)}`)
+    console.log(`### ${prettyCapitalize(category.header)}`)
 
     category.items.forEach(item => {
-      console.log(`\n${item.title}\n`)
+      console.log(`\n${prettyCapitalize(item.title)}\n`)
 
       const files = item.files
         .map(f => findUniqueFilePath(f, allFiles))

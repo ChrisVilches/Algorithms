@@ -31,7 +31,7 @@ KMP
 
 ### Segment Tree, Fenwick Tree
 
-Segment tree
+Segment Tree
 
 * [kattis/supercomputer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/supercomputer.cpp)
 * [spoj/FREQUENT-frequent_values.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/FREQUENT-frequent_values.cpp)
@@ -47,12 +47,12 @@ Segment tree
 * [urionlinejudge/3021-jumping_grasshopper.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3021-jumping_grasshopper.cpp)
 * [uva/12532-interval_product.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12532-interval_product.cpp)
 
-Segment tree + Lazy propagation
+Segment Tree + Lazy Propagation
 
 * [spoj/HORRIBLE-horrible_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries.cpp)
 * [urionlinejudge/1477-man_elephant_and_mouse.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1477-man_elephant_and_mouse.cpp)
 
-BIT (Fenwick tree)
+BIT (Fenwick Tree)
 
 * [codeforces/excellent_views.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/excellent_views.cpp)
 * [spoj/HAYBALE-haybale_stacking.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HAYBALE-haybale_stacking.cpp)
@@ -63,7 +63,7 @@ BIT (Fenwick tree)
 
 ### Geometry
 
-Radial sweep (and polar sort)
+Radial Sweep (and Polar Sort)
 
 * [codechef/REDBLUE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/REDBLUE.cpp)
 * [kattis/leylines.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/leylines.cpp)
@@ -77,7 +77,7 @@ Radial sweep (and polar sort)
 * [urionlinejudge/3013-build_the_perfect_house.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3013-build_the_perfect_house.cpp)
 * [urionlinejudge/3015-dazzling_stars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3015-dazzling_stars.cpp)
 
-Convex hull
+Convex Hull
 
 * [kattis/convexhull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexhull.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
@@ -88,30 +88,30 @@ Convex hull
 * [urionlinejudge/3015-dazzling_stars_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3015-dazzling_stars_2.cpp)
 * [uva/12307-smallest_enclosing_rectangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12307-smallest_enclosing_rectangle.cpp)
 
-Sweep line
+Sweep Line
 
 * [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
 * [urionlinejudge/1468-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1468-balloon.cpp)
 * [urionlinejudge/1748-fence_the_vegetables.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1748-fence_the_vegetables.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 
-Segment to segment distance
+Segment to Segment Distance
 
 * [urionlinejudge/1223-toboggan_of_marbles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1223-toboggan_of_marbles.cpp)
 * [urionlinejudge/1844-the_deathly_hallows.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1844-the_deathly_hallows.cpp)
 
-Circle & segment intersection
+Circle & Segment Intersection
 
 * [codeforces/cornering_at_poles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cornering_at_poles.cpp)
 
-Tangents & arcs
+Tangents & Arcs
 
 * [codeforces/cornering_at_poles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cornering_at_poles.cpp)
 * [kattis/fruitslicer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fruitslicer.cpp)
 * [urionlinejudge/1646-forest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1646-forest.cpp)
 * [urionlinejudge/3013-build_the_perfect_house.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3013-build_the_perfect_house.cpp)
 
-Geometry with dynamic programming
+Geometry with Dynamic Programming
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
 * [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
@@ -120,7 +120,7 @@ Geometry with dynamic programming
 * [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
 * [urionlinejudge/3064-elastico.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3064-elastico.cpp)
 
-Convex polygons + two-pointers
+Convex Polygons + Two-Pointers
 
 * [atcoder/B-longest_segment.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/B-longest_segment.cpp)
 * [codeforces/very_simple_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/very_simple_problem.cpp)
@@ -131,7 +131,7 @@ Convex polygons + two-pointers
 * [urionlinejudge/2907-escape_polygon_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2907-escape_polygon_2.cpp)
 * [uva/12307-smallest_enclosing_rectangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12307-smallest_enclosing_rectangle.cpp)
 
-Polygon intersection
+Polygon Intersection
 
 * [uva/137-polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/137-polygons.cpp)
 
@@ -162,7 +162,7 @@ BFS, DFS
 * [uva/1103-ancient_messages.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/1103-ancient_messages.cpp)
 * [uva/13011-height_map.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13011-height_map.cpp)
 
-Bipartite matching & max flow
+Bipartite Matching & Max Flow
 
 * [codeforces/halting_wolf.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/halting_wolf.cpp)
 * [kattis/bookclub.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bookclub.cpp)
@@ -182,17 +182,17 @@ Dijkstra
 * [urionlinejudge/1370-regatta_of_scientists.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1370-regatta_of_scientists.cpp)
 * [uva/13010-galactic_taxes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13010-galactic_taxes.cpp)
 
-Bellman–Ford
+Bellman-Ford
 
 * [uva/558-wormholes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/558-wormholes.cpp)
 
-Topological sort
+Topological Sort
 
 * [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
 
 ### Dynamic Programming
 
-Counting, combinatorics, math
+Counting, Combinatorics, Math
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
@@ -207,7 +207,7 @@ Counting, combinatorics, math
 * [urionlinejudge/3017-fabricating_sculptures.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3017-fabricating_sculptures.cpp)
 * [urionlinejudge/3020-improve_spam.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3020-improve_spam.cpp)
 
-Maximization, minimization
+Maximization, Minimization
 
 * [atcoder/A-frog_1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/A-frog_1.cpp)
 * [codeforces/boredom.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/boredom.cpp)
@@ -237,7 +237,7 @@ Probability
 
 ### Binary Search, Ternary Search
 
-Binary search
+Binary Search
 
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
@@ -257,7 +257,7 @@ Binary search
 * [urionlinejudge/3018-gluing_pictures.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3018-gluing_pictures.cpp)
 * [uva/11935-through_the_desert.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11935-through_the_desert.cpp)
 
-Ternary search
+Ternary Search
 
 * [urionlinejudge/1294-the_largest_and_smallest_box.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1294-the_largest_and_smallest_box.cpp)
 * [urionlinejudge/2517-pogro_challenge.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2517-pogro_challenge.cpp)
@@ -265,7 +265,7 @@ Ternary search
 
 ### Trees
 
-Tree problems
+Tree Problems
 
 * [kattis/ceiling.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/ceiling.cpp)
 * [kattis/kitten.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/kitten.cpp)
@@ -279,7 +279,7 @@ Tree problems
 
 ### Other Data Structures & Algorithms
 
-Union find + Minimum spanning tree
+Union Find + Minimum Spanning Tree
 
 * [kattis/cats.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cats.cpp)
 * [urionlinejudge/1152-dark_roads.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1152-dark_roads.cpp)
@@ -290,7 +290,7 @@ Sparse Table
 
 * [urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp)
 
-Prefix sum
+Prefix Sum
 
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [kattis/centsavings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/centsavings.cpp)
@@ -298,12 +298,12 @@ Prefix sum
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
 * [uva/10324-zeros_and_ones.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/10324-zeros_and_ones.cpp)
 
-Lowest common ancestor
+Lowest Common Ancestor
 
 * [matcomgrader/O-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/O-polygon.cpp)
 * [urionlinejudge/1135-ants_colony.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1135-ants_colony.cpp)
 
-Coordinate (or arrays in general) compression
+Coordinate (or Arrays in General) Compression
 
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)
@@ -312,17 +312,17 @@ Rope
 
 * [kattis/joinstrings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/joinstrings.cpp)
 
-Ordered set
+Ordered Set
 
 * [kattis/gcpc.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/gcpc.cpp)
 
-Fast exponentiation, fast fibonacci, etc
+Fast Exponentiation, Fast Fibonacci, Etc
 
 * [spoj/MPOW-power_of_matrix.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MPOW-power_of_matrix.cpp)
 * [urionlinejudge/1151-easy_fibonacci.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1151-easy_fibonacci.cpp)
 * [urionlinejudge/1969-generations.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1969-generations.cpp)
 
-Modular division
+Modular Division
 
 * [codeforces/cqxym_count_permutations.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cqxym_count_permutations.cpp)
 * [matcomgrader/H-round_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/H-round_table.cpp)
