@@ -180,6 +180,7 @@ Dijkstra
 * [codeforces/cornering_at_poles_dijkstra.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cornering_at_poles_dijkstra.cpp)
 * [kattis/shortestpath1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/shortestpath1.cpp)
 * [urionlinejudge/1370-regatta_of_scientists.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1370-regatta_of_scientists.cpp)
+* [uva/10986-sending_email.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/10986-sending_email.cpp)
 * [uva/13010-galactic_taxes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13010-galactic_taxes.cpp)
 
 Bellman-Ford
