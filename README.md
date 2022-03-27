@@ -181,6 +181,7 @@ Dijkstra
 * [kattis/shortestpath1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/shortestpath1.cpp)
 * [urionlinejudge/1370-regatta_of_scientists.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1370-regatta_of_scientists.cpp)
 * [uva/10986-sending_email.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/10986-sending_email.cpp)
+* [uva/11833-route_change.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11833-route_change.cpp)
 * [uva/13010-galactic_taxes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13010-galactic_taxes.cpp)
 
 Bellman-Ford
@@ -298,6 +299,7 @@ Prefix Sum
 * [spoj/CSUMQ-cumulative_sum_query.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CSUMQ-cumulative_sum_query.cpp)
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
 * [uva/10324-zeros_and_ones.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/10324-zeros_and_ones.cpp)
+* [uva/11833-route_change.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11833-route_change.cpp)
 
 Lowest Common Ancestor
 
