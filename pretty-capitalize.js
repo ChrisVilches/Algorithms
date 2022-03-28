@@ -1,4 +1,4 @@
-const ALPHABET = /[a-zA-Z]+/g
+const ALPHABET = /[a-zA-Z']+/g
 
 const MINOR_WORDS = [
   'of',
