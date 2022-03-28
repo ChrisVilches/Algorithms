@@ -12,13 +12,13 @@ struct Point {
   int value;
 
   Point move_to_upper() const {
-    if (y > 0) return Point{x, y, type, value};
-    if (y < 0) return Point{-x, -y, type, value};
-    if (x > 0) return Point{x, y, type, value};
-    return Point{-x, y, type, value};
+    if (y > 0) return {x, y, type, value};
+    if (y < 0) return {-x, -y, type, value};
+    if (x > 0) return {x, y, type, value};
+    return {-x, y, type, value};
   }
 
-  Point operator-(const Point& p) const { return Point{x - p.x, y - p.y, type, value}; }
+  Point operator-(const Point& p) const { return {x - p.x, y - p.y, type, value}; }
   ll operator^(const Point& p) const { return x * p.y - y * p.x; }
   bool operator==(const Point& p) const { return x == p.x && y == p.y; }
 
