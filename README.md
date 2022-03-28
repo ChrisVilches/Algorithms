@@ -281,11 +281,16 @@ Tree Problems
 
 ### Other Data Structures & Algorithms
 
-Union Find + Minimum Spanning Tree
+Union Find (+ Minimum Spanning Tree)
 
 * [kattis/cats.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cats.cpp)
+* [kattis/islandhopping.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/islandhopping.cpp)
+* [kattis/unionfind.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/unionfind.cpp)
+* [kattis/wheresmyinternet.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/wheresmyinternet.cpp)
 * [urionlinejudge/1152-dark_roads.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1152-dark_roads.cpp)
+* [urionlinejudge/1298-fix_the_maze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1298-fix_the_maze.cpp)
 * [urionlinejudge/1468-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1468-balloon.cpp)
+* [urionlinejudge/1844-the_deathly_hallows.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1844-the_deathly_hallows.cpp)
 * [urionlinejudge/3014-cut_inequality_down.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3014-cut_inequality_down.cpp)
 
 Sparse Table
@@ -329,3 +334,7 @@ Modular Division
 
 * [codeforces/cqxym_count_permutations.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cqxym_count_permutations.cpp)
 * [matcomgrader/H-round_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/H-round_table.cpp)
+
+Simpson's Integration
+
+* [urionlinejudge/1297-environment_protection.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1297-environment_protection.cpp)

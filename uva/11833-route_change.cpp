@@ -54,11 +54,7 @@ void solve(const int N, const int M, const int C, const int K) {
 
   vector<int> paths_from_repair_city = dijkstra(graph_without_service, K);
 
-  auto range_sum = [&](const int l, const int r) {
-    if (l == r) return 0;
-    if (l == 0) return psum[r];
-    return psum[r] - psum[l];
-  };
+  auto range_sum = [&](const int l, const int r) { return psum.at(r) - psum.at(l); };
 
   int ans = INT_MAX;
 

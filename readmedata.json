@@ -355,12 +355,17 @@
     "header": "Other data structures & algorithms",
     "items": [
       {
-        "title": "Union find + Minimum spanning tree",
+        "title": "Union find (+ Minimum spanning tree)",
         "files": [
           "cut inequality down",
           "cats",
           "1468 balloon",
-          "dark roads"
+          "dark roads",
+          "the deathly hallows",
+          "wheresmyinternet",
+          "unionfind",
+          "islandhopping",
+          "fix the maze"
         ]
       },
       {
@@ -419,6 +424,12 @@
         "files": [
           "cqxym count permutations",
           "round table"
+        ]
+      },
+      {
+        "title": "Simpson's Integration",
+        "files": [
+          "environment protection"
         ]
       }
     ]
