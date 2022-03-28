@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 typedef long long ll;
 
@@ -11,19 +10,15 @@ struct Point {
   ll x, y;
   PointType type;
   int value;
-  Point(ll x, ll y, PointType type, int v) : x(x), y(y), type(type), value(v) {}
-  Point() {}
 
   Point move_to_upper() const {
-    if (y > 0) return Point(x, y, type, value);
-    if (y < 0) return Point(-x, -y, type, value);
-    if (x > 0) return Point(x, y, type, value);
-    return Point(-x, y, type, value);
+    if (y > 0) return Point{x, y, type, value};
+    if (y < 0) return Point{-x, -y, type, value};
+    if (x > 0) return Point{x, y, type, value};
+    return Point{-x, y, type, value};
   }
 
-  Point operator-(const Point& p) const {
-    return Point(x - p.x, y - p.y, type, value);
-  }
+  Point operator-(const Point& p) const { return Point{x - p.x, y - p.y, type, value}; }
   ll operator^(const Point& p) const { return x * p.y - y * p.x; }
   bool operator==(const Point& p) const { return x == p.x && y == p.y; }
 
