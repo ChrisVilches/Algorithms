@@ -269,6 +269,7 @@ Ternary Search
 
 Tree Problems
 
+* [google/chain_reactions.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/chain_reactions.cpp)
 * [kattis/ceiling.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/ceiling.cpp)
 * [kattis/kitten.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/kitten.cpp)
 * [spoj/PT07Y-is_it_a_tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PT07Y-is_it_a_tree.cpp)
