@@ -30,8 +30,6 @@ void solve() {
   int iters = TARGET * 4;
 
   while (iters-- && result.total_ink() != TARGET) {
-    if (result.total_ink() == TARGET) break;
-
     switch (iters % 4) {
       case 0:
         if (result.C > 0) result.C--;
