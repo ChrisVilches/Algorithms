@@ -9,7 +9,7 @@ ll fun[MAX], max_value[MAX];
 bool connected[MAX];
 vector<vector<int>> parents;
 
-ll dfs(const int u) {
+ll traversal(const int u) {
   if (!connected[u]) return 0;
   connected[u] = false;
   if (parents[u].empty()) return fun[u];
@@ -20,7 +20,7 @@ ll dfs(const int u) {
     if (max_value[v] < max_value[min_v]) min_v = v;
   }
 
-  return max(fun[u], dfs(min_v));
+  return max(fun[u], traversal(min_v));
 }
 
 void populate_max_value(const int u) {
@@ -64,7 +64,7 @@ void solve() {
   ll ans = 0;
 
   for (int i = 0; i < N; i++) {
-    ans += dfs(i);
+    ans += traversal(i);
   }
 
   cout << ans << endl;
