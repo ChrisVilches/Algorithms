@@ -213,6 +213,7 @@ Maximization, Minimization
 
 * [atcoder/A-frog_1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/A-frog_1.cpp)
 * [codeforces/boredom.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/boredom.cpp)
+* [google/controlled_inflation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/controlled_inflation.cpp)
 * [google/plates.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/plates.cpp)
 * [kattis/3dprinter.go](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/3dprinter.go)
 * [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
