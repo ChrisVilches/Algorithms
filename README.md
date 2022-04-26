@@ -159,6 +159,7 @@ BFS, DFS
 * [spoj/MAKEMAZE-validate_the_maze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MAKEMAZE-validate_the_maze.cpp)
 * [urionlinejudge/1082-connected_components.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1082-connected_components.cpp)
 * [urionlinejudge/1100-knight_moves.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1100-knight_moves.cpp)
+* [urionlinejudge/3364-fields_division.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3364-fields_division.cpp)
 * [uva/1103-ancient_messages.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/1103-ancient_messages.cpp)
 * [uva/13011-height_map.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13011-height_map.cpp)
 
