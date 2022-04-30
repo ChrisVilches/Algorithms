@@ -2,21 +2,18 @@
 using namespace std;
 typedef long long ll;
 
-template <class T>
+template <class T, unsigned int N>
 struct BIT {
-  BIT(const int n) : n(n) { bit.assign(n, 0); }
-
-  void clear(const int n) { fill(bit.begin(), bit.begin() + n, 0); }
+  void clear(const int n) { fill(bit, bit + n, 0); }
 
   T sum(int l, int r) { return sum(r) - sum(l - 1); }
 
-  void add(int idx, const T delta) {
-    for (; idx < n; idx = idx | (idx + 1)) bit[idx] += delta;
+  void add(unsigned int idx, const T delta) {
+    for (; idx < N; idx = idx | (idx + 1)) bit[idx] += delta;
   }
 
  private:
-  vector<T> bit;
-  int n;
+  T bit[N];
 
   T sum(int r) {
     T ret = 0;
@@ -39,7 +36,7 @@ struct Point {
 
 int N, idx_map[401];
 ll S, total, concave_count;
-BIT<ll> active(401);
+BIT<ll, 401> active;
 
 void count_all(const vector<Point>& points, int center_idx) {
   const int n = points.size();
