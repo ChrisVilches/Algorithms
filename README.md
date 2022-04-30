@@ -60,6 +60,7 @@ BIT (Fenwick Tree)
 * [urionlinejudge/1856-aryas_death_list.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1856-aryas_death_list.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/2792-golnaldinho.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2792-golnaldinho.cpp)
+* [urionlinejudge/3359-ancient_towers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3359-ancient_towers.cpp)
 
 ### Geometry
 
@@ -76,6 +77,7 @@ Radial Sweep (and Polar Sort)
 * [urionlinejudge/1497-hide_and_seek_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1497-hide_and_seek_2.cpp)
 * [urionlinejudge/3013-build_the_perfect_house.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3013-build_the_perfect_house.cpp)
 * [urionlinejudge/3015-dazzling_stars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3015-dazzling_stars.cpp)
+* [urionlinejudge/3359-ancient_towers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3359-ancient_towers.cpp)
 
 Convex Hull
 
