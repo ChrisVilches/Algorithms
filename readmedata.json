@@ -72,7 +72,7 @@
           "haybale stacking",
           "excellent views",
           "aryas death list",
-          "ancient towers"
+          "ancient towers cpp"
         ]
       }
     ]
@@ -94,7 +94,7 @@
           "redblue",
           "maxcolinear",
           "kattis/leylines",
-          "ancient towers"
+          "ancient towers cpp"
         ]
       },
       {
@@ -413,7 +413,8 @@
       {
         "title": "Ordered set",
         "files": [
-          "gcpc"
+          "gcpc",
+          "ancient towers 2"
         ]
       },
       {

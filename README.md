@@ -328,6 +328,7 @@ Rope
 Ordered Set
 
 * [kattis/gcpc.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/gcpc.cpp)
+* [urionlinejudge/3359-ancient_towers_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3359-ancient_towers_2.cpp)
 
 Fast Exponentiation, Fast Fibonacci, Etc
 
