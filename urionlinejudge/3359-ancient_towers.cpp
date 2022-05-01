@@ -36,9 +36,9 @@ struct Point {
 
 int N, idx_map[401];
 ll S, total, concave_count;
-BIT<ll, 401> active;
+BIT<short, 401> active;
 
-void count_all(const vector<Point>& points, int center_idx) {
+void count_all(const vector<Point>& points) {
   const int n = points.size();
 
   for (int i = 0; i < n; i++) {
@@ -89,13 +89,10 @@ void count_all(const vector<Point>& points, int center_idx) {
 
       const ll complement = S * 2L - diagonal.cross(p1);
 
-      if (center_idx < diagonal.id) {
-        total += areas.end() -
-                 lower_bound(areas.begin(), areas.end(), make_pair(complement, -1));
-      }
-
       const int idx = lower_bound(areas.begin(), areas.end(), make_pair(complement, -1)) -
                       areas.begin();
+
+      total += areas.size() - idx;
 
       concave_count += active.sum(idx, areas.size() - 1);
     }
@@ -121,9 +118,10 @@ void solve() {
 
     sort(centered_points.begin(), centered_points.end());
 
-    count_all(centered_points, i);
+    count_all(centered_points);
   }
 
+  total /= 2L;
   const ll convex_polygons = (total - concave_count) / 2L;
 
   cout << total - convex_polygons << endl;
