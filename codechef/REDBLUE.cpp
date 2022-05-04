@@ -8,8 +8,6 @@ enum PointType { RED = 0, BLUE = 1 };
 struct Point {
   ll x, y;
   PointType type;
-  Point(ll x, ll y, PointType type) : x(x), y(y), type(type) {}
-  Point() {}
 
   Point move_to_upper() const {
     if (y > 0) return {x, y, type};
@@ -44,18 +42,13 @@ int calculate_loss(const vector<Point>& points, const PointType above_type) {
 
   int ans = destroyed[0] + destroyed[1];
 
-  for (int i = 0; i < (int)points.size(); i++) {
-    const Point& p = points[i];
-
+  for (const Point& p : points) {
     if (p.is_above())
       destroyed[p.type] += p.type == above_type ? 1 : -1;
     else
       destroyed[p.type] += p.type == below_type ? 1 : -1;
 
-    Point next_point = points[(i + 1) % points.size()];
-    bool next_collinear = (p ^ next_point) == 0;
-
-    if (!next_collinear) ans = min(ans, destroyed[0] + destroyed[1]);
+    ans = min(ans, destroyed[0] + destroyed[1]);
   }
 
   return ans;
@@ -82,12 +75,12 @@ void solve() {
 
     sort(centered_points.begin(), centered_points.end(), cmp);
 
-    int loss_red = calculate_loss(centered_points, RED);
-    int loss_blue = calculate_loss(centered_points, BLUE);
+    const int loss_red = calculate_loss(centered_points, RED);
+    const int loss_blue = calculate_loss(centered_points, BLUE);
     ans = min({ans, loss_red, loss_blue});
   }
 
-  printf("%d\n", ans);
+  cout << ans << endl;
 }
 
 int main() {
