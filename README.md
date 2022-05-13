@@ -196,6 +196,10 @@ Topological Sort
 
 * [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
 
+Minimum Dominating Set
+
+* [kattis/socialadvertising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/socialadvertising.cpp)
+
 ### Dynamic Programming
 
 Counting, Combinatorics, Math
