@@ -118,6 +118,7 @@ Geometry with Dynamic Programming
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
 * [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
+* [spoj/MPOLY-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MPOLY-polygon.cpp)
 * [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
 * [urionlinejudge/2665-hipercampo.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2665-hipercampo.cpp)
 * [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
@@ -232,6 +233,7 @@ Maximization, Minimization
 * [spoj/BORW-black_or_white.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BORW-black_or_white.cpp)
 * [spoj/COINS-bytelandian_gold_coins.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/COINS-bytelandian_gold_coins.cpp)
 * [spoj/KNAPSACK-the_knapsack_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/KNAPSACK-the_knapsack_problem.cpp)
+* [spoj/MPOLY-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MPOLY-polygon.cpp)
 * [spoj/ROCK-sweet_and_sour_rock.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ROCK-sweet_and_sour_rock.cpp)
 * [spoj/THREECOL-threecoloring_of_binary_trees.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/THREECOL-threecoloring_of_binary_trees.cpp)
 * [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
