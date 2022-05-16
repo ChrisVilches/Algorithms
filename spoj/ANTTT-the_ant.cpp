@@ -6,10 +6,6 @@ struct Point {
   ll x, y;
 
   bool operator==(const Point& p) const { return x == p.x && y == p.y; }
-  Point operator+(const Point& p) const { return {x + p.x, y + p.y}; }
-  Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
-  ll cross(const Point& p) const { return (x * p.y) - (y * p.x); }
-  Point to(const Point& p) const { return p - *this; }
 };
 
 struct Segment {
