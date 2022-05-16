@@ -111,6 +111,7 @@ Tangents & Arcs
 
 * [codeforces/cornering_at_poles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cornering_at_poles.cpp)
 * [kattis/fruitslicer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fruitslicer.cpp)
+* [spoj/BLMIRINA-archery_training.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BLMIRINA-archery_training.cpp)
 * [urionlinejudge/1646-forest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1646-forest.cpp)
 * [urionlinejudge/3013-build_the_perfect_house.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3013-build_the_perfect_house.cpp)
 
