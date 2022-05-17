@@ -66,6 +66,7 @@ BIT (Fenwick Tree)
 
 Radial Sweep (and Polar Sort)
 
+* [codechef/CNVX4HUL.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CNVX4HUL.cpp)
 * [codechef/REDBLUE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/REDBLUE.cpp)
 * [kattis/leylines.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/leylines.cpp)
 * [kattis/maxcolinear.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxcolinear.cpp)
@@ -349,6 +350,7 @@ Fast Exponentiation, Fast Fibonacci, Etc
 
 Modular Division
 
+* [codechef/CNVX4HUL.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CNVX4HUL.cpp)
 * [codeforces/cqxym_count_permutations.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cqxym_count_permutations.cpp)
 * [matcomgrader/H-round_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/H-round_table.cpp)
 

@@ -11,7 +11,6 @@ struct Point {
 
 struct Segment {
   Point p, q;
-  int original_idx;
   bool from_floor;
 
   bool operator<(const Segment& s) const { return p.x < s.p.x; }
@@ -53,7 +52,7 @@ void solve() {
 
   segments.assign(N, {});
 
-  map<ll, int> x_values;
+  unordered_map<ll, int> x_values;
 
   for (int i = 0; i < N; i++) {
     int t;
@@ -63,20 +62,19 @@ void solve() {
     x_values[x]++;
 
     if (t == 0) {
-      segments[i] = {{x, 0}, {x, a}, i, true};
+      segments[i] = {{x, 0}, {x, a}, true};
     } else {
-      segments[i] = {{x, H}, {x, a}, i, false};
+      segments[i] = {{x, H}, {x, a}, false};
     }
   }
 
   sort(segments.begin(), segments.end());
 
-  map<int, int> counts;
+  vector<int> ans(N, 0);
 
   for (int i = 0; i < N; i++) {
-    const int idx = segments[i].original_idx;
-    counts[idx] += count_right(i);
-    counts[idx] += x_values[segments[i].p.x] - 1;
+    ans[i] += count_right(i);
+    ans[i] += x_values[segments[i].p.x] - 1;
   }
 
   reverse(segments.begin(), segments.end());
@@ -87,12 +85,11 @@ void solve() {
   }
 
   for (int i = 0; i < N; i++) {
-    const int idx = segments[i].original_idx;
-    counts[idx] += count_right(i);
+    ans[N - 1 - i] += count_right(i);
   }
 
-  for (auto it = counts.begin(); it != counts.end(); it++) {
-    cout << it->second << " ";
+  for (int i = 0; i < N; i++) {
+    cout << ans[i] << " ";
   }
 
   cout << endl;
