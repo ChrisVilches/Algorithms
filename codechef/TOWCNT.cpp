@@ -11,6 +11,7 @@ struct Point {
 
 struct Segment {
   Point p, q;
+  int original_idx;
   bool from_floor;
 
   bool operator<(const Segment& s) const { return p.x < s.p.x; }
@@ -62,9 +63,9 @@ void solve() {
     x_values[x]++;
 
     if (t == 0) {
-      segments[i] = {{x, 0}, {x, a}, true};
+      segments[i] = {{x, 0}, {x, a}, i, true};
     } else {
-      segments[i] = {{x, H}, {x, a}, false};
+      segments[i] = {{x, H}, {x, a}, i, false};
     }
   }
 
@@ -73,8 +74,9 @@ void solve() {
   vector<int> ans(N, 0);
 
   for (int i = 0; i < N; i++) {
-    ans[i] += count_right(i);
-    ans[i] += x_values[segments[i].p.x] - 1;
+    const int idx = segments[i].original_idx;
+    ans[idx] += count_right(i);
+    ans[idx] += x_values[segments[i].p.x] - 1;
   }
 
   reverse(segments.begin(), segments.end());
@@ -85,7 +87,8 @@ void solve() {
   }
 
   for (int i = 0; i < N; i++) {
-    ans[N - 1 - i] += count_right(i);
+    const int idx = segments[i].original_idx;
+    ans[idx] += count_right(i);
   }
 
   for (int i = 0; i < N; i++) {
