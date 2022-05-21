@@ -70,22 +70,18 @@ class Delta {
   int L, R;
   map<int, int> asc, desc;
 
-  delta_it find_reverse(const map<int, int>& m, const int key) const {
-    auto it = m.lower_bound(key);
-
-    if (it != m.end() && it->first == key) return it;
-    if (it != m.begin()) return prev(it);
-    return m.end();
-  }
-
   delta_it find_right(const map<int, int>& m, const int lo, const int hi) const {
     auto it = m.lower_bound(lo);
     return it == m.end() || hi < it->first ? m.end() : it;
   }
 
   delta_it find_left(const map<int, int>& m, const int lo, const int hi) const {
-    auto it = find_reverse(m, hi);
-    return it == m.end() || it->first < lo ? m.end() : it;
+    auto it = m.lower_bound(hi);
+
+    if (it != m.end() && it->first == hi) return it;
+    if (it == m.begin()) return m.end();
+    it--;
+    return lo <= it->first ? it : m.end();
   }
 
   void add(map<int, int>& m, const int key, const int v) {
