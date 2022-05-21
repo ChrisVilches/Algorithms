@@ -24,24 +24,6 @@ struct Segment {
   bool flow_right() const { return p.y > q.y; }
 };
 
-vector<int> pre_order(const vector<vector<int>>& graph, const int root) {
-  stack<int> dfs;
-  vector<int> order;
-
-  dfs.push(root);
-
-  while (!dfs.empty()) {
-    const int u = dfs.top();
-    dfs.pop();
-
-    order.push_back(u);
-
-    for (const int v : graph[u]) dfs.push(v);
-  }
-
-  return order;
-}
-
 vector<Segment> sort_segments(vector<Segment>& segments) {
   const int N = segments.size();
 
@@ -67,52 +49,60 @@ vector<Segment> sort_segments(vector<Segment>& segments) {
     events.push({segments[i].q.x, i});
   }
 
-  const auto sorted_idx = pre_order(graph, N);
-
   vector<Segment> res;
-  for (int i = 1; i <= N; i++) res.push_back(segments[sorted_idx[i]]);
+
+  stack<int> dfs;
+  dfs.push(N);
+
+  while (!dfs.empty()) {
+    const int u = dfs.top();
+    dfs.pop();
+
+    if (u != N) res.push_back(segments[u]);
+    for (const int v : graph[u]) dfs.push(v);
+  }
 
   return res;
 }
 
-// TODO: Refactor????
 class Delta {
-  ll L, R;
-  map<ll, int> asc, desc;
+  typedef map<int, int>::const_iterator delta_it;
+  int L, R;
+  map<int, int> asc, desc;
 
-  map<ll, int>::iterator find_reverse(map<ll, int>& m, const ll val) {
-    auto it = m.lower_bound(val);
+  delta_it find_reverse(const map<int, int>& m, const int key) const {
+    auto it = m.lower_bound(key);
 
-    if (it != m.end() && it->first == val) return it;
+    if (it != m.end() && it->first == key) return it;
     if (it != m.begin()) return prev(it);
     return m.end();
   }
 
-  map<ll, int>::iterator find_first_right(map<ll, int>& m, const ll lo, const ll hi) {
+  delta_it find_right(const map<int, int>& m, const int lo, const int hi) const {
     auto it = m.lower_bound(lo);
     return it == m.end() || hi < it->first ? m.end() : it;
   }
 
-  map<ll, int>::iterator find_first_left(map<ll, int>& m, const ll lo, const ll hi) {
+  delta_it find_left(const map<int, int>& m, const int lo, const int hi) const {
     auto it = find_reverse(m, hi);
     return it == m.end() || it->first < lo ? m.end() : it;
   }
 
-  void add(map<ll, int>& m, const ll key, const int v) {
+  void add(map<int, int>& m, const int key, const int v) {
     m[key] += v;
     if (m[key] == 0) m.erase(key);
   }
 
-  void minimize(const map<ll, int>::iterator a, const map<ll, int>::iterator d) {
-    const int val = min(a->second, d->second);
-    add(asc, a->first, -val);
-    add(desc, d->first, -val);
+  void minimize(const delta_it asc_it, const delta_it desc_it) {
+    const int val = min(asc_it->second, desc_it->second);
+    add(asc, asc_it->first, -val);
+    add(desc, desc_it->first, -val);
   }
 
  public:
-  Delta(const ll L, const ll R) : L(L), R(R) {
+  Delta(const int L, const int R) : L(L), R(R) {
     const int inf = 1e7;
-    asc[0] = inf;
+    asc[-1] = inf;
     desc[L] = inf;
     asc[R + 1] = inf;
   }
@@ -121,7 +111,7 @@ class Delta {
     int curr = 0;
     int result = INT_MAX;
 
-    map<ll, int> total_delta{{L, 0}};
+    map<int, int> total_delta{{L, 0}};
 
     for (const auto [x, d] : asc) total_delta[x] += d;
     for (const auto [x, d] : desc) total_delta[x] -= d;
@@ -136,16 +126,16 @@ class Delta {
   }
 
   void add_segment(const Segment& segment) {
-    if (segment.flow_right()) {
-      ll x = segment.p.x;
+    int x = segment.flow_right() ? segment.p.x : segment.q.x;
 
+    if (segment.flow_right()) {
       while (true) {
-        const auto asc_it = find_first_right(asc, x, segment.q.x);
+        const auto asc_it = find_right(asc, x, segment.q.x);
         if (asc_it == asc.end()) break;
 
         x = asc_it->first;
 
-        const auto desc_it = find_first_right(desc, x, segment.q.x);
+        const auto desc_it = find_right(desc, x, segment.q.x);
 
         if (desc_it == desc.end()) {
           add(asc, segment.q.x + 1, asc_it->second);
@@ -158,15 +148,13 @@ class Delta {
       asc[segment.p.x]++;
       desc[segment.q.x]++;
     } else {
-      ll x = segment.q.x;
-
       while (true) {
-        const auto desc_it = find_first_left(desc, segment.p.x, x);
+        const auto desc_it = find_left(desc, segment.p.x, x);
         if (desc_it == desc.end()) break;
 
         x = desc_it->first;
 
-        const auto asc_it = find_first_left(asc, segment.p.x, x);
+        const auto asc_it = find_left(asc, segment.p.x, x);
 
         if (asc_it == asc.end()) {
           add(desc, segment.p.x - 1, desc_it->second);
@@ -186,13 +174,11 @@ int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  int L, R, N;
+  int N, L, R;
 
   while (cin >> L >> R >> N) {
     L *= 2;
     R *= 2;
-    L++;
-    R++;
 
     vector<Segment> segments(N);
 
@@ -202,8 +188,6 @@ int main() {
 
       p.x *= 2;
       q.x *= 2;
-      p.x++;
-      q.x++;
 
       if (p.x > q.x) swap(p, q);
       segments[i].p = p;
