@@ -43,7 +43,7 @@ ll area2(const int i, const int j, const int k) {
 
 ll compute_total_area() {
   ll result = 0;
-  for (int i = 1; i < N; i++) result += area2(0, i, i + 1);
+  for (int i = 0; i < N; i++) result += points[i].cross(points[(i + 1) % N]);
   return result;
 }
 

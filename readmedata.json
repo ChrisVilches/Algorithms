@@ -119,7 +119,8 @@
           "fence the vegetables fail",
           "1468-balloon",
           "november rain",
-          "towcnt"
+          "towcnt",
+          "directingrainfall"
         ]
       },
       {
@@ -248,7 +249,8 @@
       {
         "title": "Topological sort",
         "files": [
-          "november rain"
+          "november rain",
+          "pickupsticks"
         ]
       },
       {
@@ -366,6 +368,12 @@
           "binary search tree",
           "disjoint water supply",
           "chain reactions"
+        ]
+      },
+      {
+        "title": "Cycle detection",
+        "files": [
+          "pickupsticks"
         ]
       }
     ]

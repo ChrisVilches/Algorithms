@@ -95,6 +95,7 @@ Convex Hull
 Sweep Line
 
 * [codechef/TOWCNT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/TOWCNT.cpp)
+* [kattis/directingrainfall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/directingrainfall.cpp)
 * [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
 * [urionlinejudge/1468-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1468-balloon.cpp)
 * [urionlinejudge/1748-fence_the_vegetables.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1748-fence_the_vegetables.cpp)
@@ -200,6 +201,7 @@ Bellman-Ford
 
 Topological Sort
 
+* [kattis/pickupsticks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pickupsticks.cpp)
 * [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
 
 Minimum Dominating Set
@@ -295,6 +297,10 @@ Tree Problems
 * [urionlinejudge/1200-bst_operations_i.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1200-bst_operations_i.cpp)
 * [urionlinejudge/1493-disjoint_water_supply.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1493-disjoint_water_supply.cpp)
 * [urionlinejudge/3020-improve_spam.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3020-improve_spam.cpp)
+
+Cycle Detection
+
+* [kattis/pickupsticks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pickupsticks.cpp)
 
 ### Other Data Structures & Algorithms
 
