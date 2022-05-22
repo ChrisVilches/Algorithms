@@ -152,9 +152,9 @@ int main() {
     ld lowest_time = DBL_MAX;
 
     for (int s = 0; s < 2; s++) {
-      for (int i = 0; i < (int)polygon1.size(); i++) {
-        for (int j = 0; j < (int)polygon2.size(); j++) {
-          const Segment edge{polygon2[j], polygon2[(j + 1) % (int)polygon2.size()]};
+      for (const Point& p : polygon1) {
+        for (int i = 0; i < (int)polygon2.size(); i++) {
+          const Segment edge{polygon2[i], polygon2[(i + 1) % (int)polygon2.size()]};
 
           ld lo = 0;
           ld hi = 100000;
@@ -164,8 +164,8 @@ int main() {
             const ld t1 = lo + third;
             const ld t2 = hi - third;
 
-            const ld dist1 = (polygon1[i] + v1.scale(t1)).dist(edge + v2.scale(t1));
-            const ld dist2 = (polygon1[i] + v1.scale(t2)).dist(edge + v2.scale(t2));
+            const ld dist1 = (p + v1.scale(t1)).dist(edge + v2.scale(t1));
+            const ld dist2 = (p + v1.scale(t2)).dist(edge + v2.scale(t2));
 
             if (dist1 < EPS) lowest_time = min(lowest_time, t1);
             if (dist2 < EPS) lowest_time = min(lowest_time, t2);
