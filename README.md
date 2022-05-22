@@ -142,6 +142,7 @@ Convex Polygons + Two-Pointers
 
 Polygon Intersection
 
+* [kattis/asteroids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroids.cpp)
 * [uva/137-polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/137-polygons.cpp)
 
 Misc
@@ -279,6 +280,7 @@ Binary Search
 
 Ternary Search
 
+* [kattis/asteroids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroids.cpp)
 * [urionlinejudge/1294-the_largest_and_smallest_box.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1294-the_largest_and_smallest_box.cpp)
 * [urionlinejudge/2517-pogro_challenge.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2517-pogro_challenge.cpp)
 * [uva/13010-galactic_taxes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13010-galactic_taxes.cpp)

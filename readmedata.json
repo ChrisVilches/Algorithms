@@ -175,7 +175,8 @@
       {
         "title": "Polygon intersection",
         "files": [
-          "uva 137 polygons"
+          "uva 137 polygons",
+          "kattis/asteroids"
         ]
       },
       {
@@ -347,7 +348,8 @@
         "files": [
           "galactic taxes",
           "pogro challenge",
-          "the largest and smallest box"
+          "the largest and smallest box",
+          "kattis/asteroids"
         ]
       }
     ]
