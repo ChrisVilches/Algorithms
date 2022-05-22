@@ -18,7 +18,7 @@ struct Point {
 
   ll slope() const {
     if (is_slope_vertical()) return LONG_LONG_MAX;
-    return 100000 * y / x;
+    return (ll)round((y / x) * 100000);
   }
 
   bool is_origin() const { return magnitude() < EPS; }
