@@ -80,13 +80,15 @@ void solve() {
   Point sum{0, 0};
 
   for (int i = 0, j = 0; i < N; i++) {
+    sum = sum - points[i];
+
     for (;; j++) {
       const ll next_piece = curr_area + area2(i, j, j + 1);
 
       if (next_piece >= area_total_half) {
         add(ans, mult(area_total, j - i - 1));
         add(smaller, mult(j + 1, range_sum(i, j, psum1)) - range_sum(i, j, psum2));
-        add(smaller, (sum - points[i] + points[j % N]).mod_cross(points[i]));
+        add(smaller, (sum + points[j % N]).mod_cross(points[i]));
         break;
       }
 
@@ -94,7 +96,6 @@ void solve() {
       curr_area += area2(i, j, j + 1);
     }
 
-    sum = sum - points[i];
     curr_area -= area2(i, i + 1, j);
   }
 
