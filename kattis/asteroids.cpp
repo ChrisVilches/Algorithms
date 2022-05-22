@@ -88,7 +88,7 @@ Point point_set_centroid(const vector<Point>& points) {
 }
 
 vector<Point> sort_vertices(vector<Point> polygon_vertices) {
-  Point centroid = point_set_centroid(polygon_vertices);
+  const Point centroid = point_set_centroid(polygon_vertices);
   for (Point& p : polygon_vertices) p = p - centroid;
   sort(polygon_vertices.begin(), polygon_vertices.end());
   for (Point& p : polygon_vertices) p = p + centroid;

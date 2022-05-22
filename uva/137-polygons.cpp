@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long double ld;
+const ld EPS = 1e-9;
 
 struct Point {
   ld x, y;
-  inline Point operator+(const Point& p) const { return Point{x + p.x, y + p.y}; }
-  inline Point operator-(const Point& p) const { return Point{x - p.x, y - p.y}; }
+  inline Point operator+(const Point& p) const { return {x + p.x, y + p.y}; }
+  inline Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
   inline ld operator^(const Point& p) const { return (x * p.y) - (y * p.x); }
   inline Point to(const Point& p) const { return p - *this; }
   inline Point scale(ld f) { return Point{x * f, y * f}; }
@@ -25,20 +26,27 @@ struct Segment {
   Point p, q;
   Segment scale(ld f) const { return Segment{p, p + p.to(q).scale(f)}; }
 
-  bool intersect(const Segment& s) const {
-    Point p1 = p, p2 = s.p;
-    Point q1 = q, q2 = s.q;
-    int o1 = orientation(p1, q1, p2);
-    int o2 = orientation(p1, q1, q2);
-    int o3 = orientation(p2, q2, p1);
-    int o4 = orientation(p2, q2, q1);
-    return o1 != o2 && o3 != o4;
+  pair<bool, Point> intersect_non_collinear(const Segment& s) const {
+    const ld o1 = orientation(p, q, s.p) != orientation(p, q, s.q);
+    const ld o2 = orientation(s.p, s.q, p) != orientation(s.p, s.q, q);
+    return o1 && o2 ? make_pair(true, intersection_point(s)) : make_pair(false, Point{});
   }
 
  private:
-  int orientation(Point p, Point q, Point r) const {
-    double val = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
-    return val < 0 ? -1 : val > 0;
+  int orientation(const Point& p, const Point& q, const Point& r) const {
+    ld val = (q - p) ^ (r - p);
+    if (fabs(val) < EPS) return 0;
+    return val > 0 ? 1 : -1;
+  }
+
+  Point intersection_point(const Segment& s) const {
+    const ld s1_x = q.x - p.x;
+    const ld s1_y = q.y - p.y;
+    const ld s2_x = s.q.x - s.p.x;
+    const ld s2_y = s.q.y - s.p.y;
+    const ld t =
+        (s2_x * (p.y - s.p.y) - s2_y * (p.x - s.p.x)) / (-s2_x * s1_y + s1_x * s2_y);
+    return {p.x + (t * s1_x), p.y + (t * s1_y)};
   }
 };
 
@@ -51,7 +59,7 @@ bool point_inside_polygon(const Point& p, const vector<Point>& polygon) {
 }
 
 Point point_set_centroid(const vector<Point>& points) {
-  Point centroid{0, 0};
+  const Point centroid{0, 0};
 
   for (const Point& p : points) {
     centroid.x += p.x / (ld)points.size();
@@ -82,24 +90,8 @@ vector<Point> polygon_intersection(const vector<Point>& p1, const vector<Point>&
     for (int j = 0; j < (int)p2.size(); j++) {
       const Segment edge1{p1[i], p1[(i + 1) % (int)p1.size()]};
       const Segment edge2{p2[j], p2[(j + 1) % (int)p2.size()]};
-
-      // TODO: Find intersection without using binary search.
-      if (edge1.intersect(edge2)) {
-        ld lo = 0.0;
-        ld hi = 1.0;
-        int iter = 30;
-
-        while (iter--) {
-          ld mid = (lo + hi) / 2.0;
-
-          if (edge1.scale(mid).intersect(edge2))
-            hi = mid;
-          else
-            lo = mid;
-        }
-
-        result.push_back(edge1.scale(lo).q);
-      }
+      const auto [intersect, point] = edge1.intersect_non_collinear(edge2);
+      if (intersect) result.push_back(point);
     }
   }
 
