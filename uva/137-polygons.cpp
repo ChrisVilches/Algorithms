@@ -59,7 +59,7 @@ bool point_inside_polygon(const Point& p, const vector<Point>& polygon) {
 }
 
 Point point_set_centroid(const vector<Point>& points) {
-  const Point centroid{0, 0};
+  Point centroid{0, 0};
 
   for (const Point& p : points) {
     centroid.x += p.x / (ld)points.size();
