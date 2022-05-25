@@ -96,7 +96,8 @@
           "kattis/leylines",
           "ancient towers cpp",
           "2018-stone",
-          "CNVX4HUL"
+          "CNVX4HUL",
+          "kattis/single"
         ]
       },
       {
@@ -176,7 +177,8 @@
         "title": "Polygon intersection",
         "files": [
           "uva 137 polygons",
-          "kattis/asteroids"
+          "kattis/asteroids",
+          "kattis/puzzle2"
         ]
       },
       {
@@ -306,7 +308,8 @@
           "elastico",
           "boredom",
           "controlled inflation",
-          "mpoly-polygon"
+          "mpoly-polygon",
+          "moons and umbrellas"
         ]
       },
       {

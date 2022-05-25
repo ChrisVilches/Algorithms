@@ -71,6 +71,7 @@ Radial Sweep (and Polar Sort)
 * [kattis/leylines.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/leylines.cpp)
 * [kattis/maxcolinear.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxcolinear.cpp)
 * [kattis/oil2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oil2.cpp)
+* [kattis/single.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/single.cpp)
 * [spoj/IOIBOUND-boundary_2003.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/IOIBOUND-boundary_2003.cpp)
 * [spoj/TAP2013F-flowers_of_babylon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/TAP2013F-flowers_of_babylon.cpp)
 * [szkopul/2018-stone.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/szkopul/2018-stone.cpp)
@@ -143,6 +144,7 @@ Convex Polygons + Two-Pointers
 Polygon Intersection
 
 * [kattis/asteroids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroids.cpp)
+* [kattis/puzzle2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/puzzle2.cpp)
 * [uva/137-polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/137-polygons.cpp)
 
 Misc
@@ -232,6 +234,7 @@ Maximization, Minimization
 * [atcoder/A-frog_1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/A-frog_1.cpp)
 * [codeforces/boredom.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/boredom.cpp)
 * [google/controlled_inflation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/controlled_inflation.cpp)
+* [google/moons_and_umbrellas.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/moons_and_umbrellas.cpp)
 * [google/plates.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/plates.cpp)
 * [kattis/3dprinter.go](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/3dprinter.go)
 * [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)

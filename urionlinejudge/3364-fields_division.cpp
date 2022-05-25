@@ -26,29 +26,24 @@ void solve() {
   result[N - 1] = 0;
   result[N - 2] = 1;
 
-  queue<int> q1, q2;
+  queue<int> q;
 
-  q1.push(N - 1);
-  q2.push(N - 2);
+  q.push(N - 2);
 
-  queue<int>* q;
-
-  while (!q1.empty() || !q2.empty()) {
-    if (q1.empty())
-      q = &q2;
-    else if (q2.empty())
-      q = &q1;
-    else
-      q = q1.front() > q2.front() ? &q2 : &q1;
-
-    const int u = q->front();
-    q->pop();
+  while (!q.empty()) {
+    const int u = q.front();
+    q.pop();
 
     for (const int v : graph[u]) {
-      if (result[v] != -1) continue;
+      if (~result[v]) continue;
       result[v] = result[u];
-      q->push(v);
+      q.push(v);
     }
+  }
+
+  for (int i = 0; i < N; i++) {
+    if (~result[i]) continue;
+    result[i] = 0;
   }
 
   for (int i = 0; i < N; i++) {
