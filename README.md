@@ -62,6 +62,10 @@ BIT (Fenwick Tree)
 * [urionlinejudge/2792-golnaldinho.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2792-golnaldinho.cpp)
 * [urionlinejudge/3359-ancient_towers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3359-ancient_towers.cpp)
 
+2D Segment Tree
+
+* [urionlinejudge/1863-ramsays_counterattack.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1863-ramsays_counterattack.cpp)
+
 ### Geometry
 
 Radial Sweep (and Polar Sort)
@@ -248,6 +252,7 @@ Maximization, Minimization
 * [spoj/ROCK-sweet_and_sour_rock.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ROCK-sweet_and_sour_rock.cpp)
 * [spoj/THREECOL-threecoloring_of_binary_trees.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/THREECOL-threecoloring_of_binary_trees.cpp)
 * [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
+* [urionlinejudge/1863-ramsays_counterattack.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1863-ramsays_counterattack.cpp)
 * [urionlinejudge/2008-exposing_corruption.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2008-exposing_corruption.cpp)
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
 * [urionlinejudge/2665-hipercampo.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2665-hipercampo.cpp)

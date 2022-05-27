@@ -74,6 +74,12 @@
           "aryas death list",
           "ancient towers cpp"
         ]
+      },
+      {
+        "title": "2D Segment Tree",
+        "files": [
+          "ramsays counterattack"
+        ]
       }
     ]
   },
@@ -309,7 +315,8 @@
           "boredom",
           "controlled inflation",
           "mpoly-polygon",
-          "moons and umbrellas"
+          "moons and umbrellas",
+          "ramsays counterattack"
         ]
       },
       {
