@@ -27,6 +27,9 @@ double calculate(const vector<pair<double, int>>& events) {
 }
 
 int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
   while (cin >> N >> W >> speed_ships >> speed_ferry >> t1 >> t2) {
     time_per_lane = W / speed_ferry;
 
