@@ -11,11 +11,12 @@ double calculate(const vector<pair<double, int>>& events) {
   int curr = 0;
 
   for (const auto& [t, d] : events) {
-    if (curr == 0) {
+    if (curr == 0 && t1 <= t2) {
       // TODO: Rename several of these variables.
+
       const double finished_crossing = t - time_per_lane;
       const double interval = finished_crossing - t1;
-      if (t1 <= t2) ans = max(ans, interval);
+      ans = max(ans, interval);
     }
 
     curr += d;
