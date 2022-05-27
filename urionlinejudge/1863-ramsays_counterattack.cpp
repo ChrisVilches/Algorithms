@@ -7,7 +7,7 @@ template <typename T>
 class SegmentTree2D {
   int H, W;
   vector<T> seg;
-  T neutral_value = 0;
+  const T neutral_value = 0;
   T f(const T a, const T b) const { return max(a, b); }
 
   int id(int h, int w) { return h * 2 * W + w; }
@@ -22,17 +22,13 @@ class SegmentTree2D {
   void set(int h, int w, const T& x) { seg[id(h + H, w + W)] = x; }
 
   void build() {
-    for (int w = W; w < 2 * W; w++) {
-      for (int h = H - 1; h; h--) {
+    for (int w = W; w < 2 * W; w++)
+      for (int h = H - 1; h; h--)
         seg[id(h, w)] = f(seg[id(2 * h + 0, w)], seg[id(2 * h + 1, w)]);
-      }
-    }
 
-    for (int h = 0; h < 2 * H; h++) {
-      for (int w = W - 1; w; w--) {
+    for (int h = 0; h < 2 * H; h++)
+      for (int w = W - 1; w; w--)
         seg[id(h, w)] = f(seg[id(h, 2 * w + 0)], seg[id(h, 2 * w + 1)]);
-      }
-    }
   }
 
   T query(int h, int w1, int w2) {
@@ -50,14 +46,12 @@ class SegmentTree2D {
   void update(int h, int w, const T& x) {
     h += H, w += W;
     seg[id(h, w)] = x;
-    for (int i = h >> 1; i; i >>= 1) {
+    for (int i = h >> 1; i; i >>= 1)
       seg[id(i, w)] = f(seg[id(2 * i + 0, w)], seg[id(2 * i + 1, w)]);
-    }
-    for (; h; h >>= 1) {
-      for (int j = w >> 1; j; j >>= 1) {
+
+    for (; h; h >>= 1)
+      for (int j = w >> 1; j; j >>= 1)
         seg[id(h, j)] = f(seg[id(h, 2 * j + 0)], seg[id(h, 2 * j + 1)]);
-      }
-    }
   }
 
   T query(int h1, int w1, int h2, int w2) {
