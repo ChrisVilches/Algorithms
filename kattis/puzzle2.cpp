@@ -36,12 +36,15 @@ short orientation(const Point& o, const Point& a, const Point& b) {
 struct Segment {
   Point p, q;
   double length() const { return p.dist(q); }
-
+  inline bool face_right() const { return !is_horizontal() && p.y < q.y; }
+  inline bool face_left() const { return !is_horizontal() && p.y > q.y; }
   double common_length(Segment s) const {
     if (contains(s.p) && contains(s.q)) return s.length();
     if (s.contains(p) && s.contains(q)) return length();
     return common_length_aux(s);
   }
+
+  bool is_horizontal() const { return equal(p.y, q.y); }
 
   bool intersect(const Segment& s) const {
     const short o1 = orientation(p, q, s.p);
@@ -51,20 +54,21 @@ struct Segment {
     return o1 * o2 < 0 && o3 * o4 < 0;
   }
 
+  double horizontal_distance(const Point& v) const {
+    if (equal(p.x, q.x)) return v.x - p.x;
+    const double slope = (q.y - p.y) / (q.x - p.x);
+    const double B = p.y - p.x * slope;
+    return v.x - (v.y - B) / slope;
+  }
+
   bool contains_except_endpoints(const Point& r) const {
-    if (!zero((q - p).cross(r - p))) return false;
-    // WHy does it work without considering endpoints??? lol
-    if ((q - p) * (r - p) < EPS) return false;  // If 0 or negative
-    if ((p - q) * (r - q) < EPS) return false;  // If 0 or negative
-    // so that "if 0 or negative" basically means, point is the same or opposite side??
-    // maybe. Confirm.
-    return true;
+    if (orientation(p, q, r) != 0) return false;
+    return (q - p) * (r - p) > EPS && (p - q) * (r - q) > EPS;
   }
 
  private:
   bool contains(const Point& r) const {
-    if (p == r || q == r) return true;
-    return contains_except_endpoints(r);
+    return p == r || q == r || contains_except_endpoints(r);
   }
 
   double common_length_aux(const Segment& s) const {
@@ -76,58 +80,65 @@ struct Segment {
   }
 };
 
-Point vertex_at(const vector<Point>& polygon, int i) {
-  i = (i + polygon.size()) % polygon.size();
+inline Point vertex_at(const vector<Point>& polygon, int i) {
+  int n = (int)polygon.size();
+  i = (i + (n << 10)) % n;
   return polygon[i];
 }
 
-// TODO: How does this work?
 double angle(const Point& a, const Point& b) {
   const double x = atan2(a.cross(b), a * b);
   return x < 0 ? x + 2 * M_PI : x;
 }
 
-// TODO: Study this code.
-bool intersection_aux(const vector<Point>& p1, const vector<Point>& p2, int i, int j) {
-  const Point& a0 = vertex_at(p1, i - 1);
-  const Point& a1 = p1[i];
-  const Point& a2 = vertex_at(p1, i + 1);
-  const Point& b0 = vertex_at(p2, j - 1);
-  const Point& b1 = p2[j];
-  const Point& b2 = vertex_at(p2, j + 1);
+int prev_i = 0, prev_j = 0;
 
-  if (Segment{a1, a2}.intersect({b1, b2})) return true;
+bool intersection_aux(const vector<Point>& p1, const vector<Point>& p2, int i, int j) {
+  const Point &a0 = vertex_at(p1, i - 1), &a1 = vertex_at(p1, i),
+              &a2 = vertex_at(p1, i + 1);
+  const Point &b0 = vertex_at(p2, j - 1), &b1 = vertex_at(p2, j),
+              &b2 = vertex_at(p2, j + 1);
+
+  if (Segment{a1, a2}.intersect({b1, b2})) goto return_true;
 
   if (Segment{b1, b2}.contains_except_endpoints(a1)) {
-    if (orientation(b1, b2, a2) == 1) return true;
+    if (orientation(b1, b2, a2) == 1) goto return_true;
+    if (orientation(b1, b2, a0) == 1) goto return_true;
   }
   if (Segment{a1, a2}.contains_except_endpoints(b1)) {
-    if (orientation(a1, a2, b2) == 1) return true;
-    // if ((a2 - a1).cross(b2 - a1) > EPS) return true;
+    if (orientation(a1, a2, b2) == 1) goto return_true;
+    if (orientation(a1, a2, b0) == 1) goto return_true;
   }
 
   if (a1 == b1) {
     const double th = angle(b2 - b1, b0 - b1);
     double th2 = angle(b2 - b1, a0 - b1);
-    if (th2 > EPS && th2 < th - EPS) return true;
+    if (th2 > EPS && th2 < th - EPS) goto return_true;
     th2 = angle(b2 - b1, a2 - b1);
-    if (th2 > EPS && th2 < th - EPS) return true;
+    if (th2 > EPS && th2 < th - EPS) goto return_true;
   }
 
   return false;
+
+return_true:
+  prev_i = i;
+  prev_j = j;
+  return true;
 }
 
 bool intersection(const vector<Point>& p1, const vector<Point>& p2) {
-  static int prev_i = -1, prev_j = -1;
-  if (prev_i != -1 && intersection_aux(p1, p2, prev_i, prev_j)) return true;
+  const int iters_i = (p1.size() / 2) + 1;
+  const int iters_j = (p2.size() / 2) + 1;
 
-  for (int i = 0; i < (int)p1.size(); i++) {
-    for (int j = 0; j < (int)p2.size(); j++) {
-      if (intersection_aux(p1, p2, i, j)) {
-        prev_i = i;
-        prev_j = j;
-        return true;
-      }
+  for (int i = 0; i < iters_i; i++) {
+    for (int j = 0; j < iters_j; j++) {
+      if (intersection_aux(p1, p2, prev_i + i, prev_j + j)) return true;
+      if (j > 0 && intersection_aux(p1, p2, prev_i + i, prev_j - j)) return true;
+    }
+
+    for (int j = 0; i != 0 && j < iters_j; j++) {
+      if (intersection_aux(p1, p2, prev_i - i, prev_j + j)) return true;
+      if (j > 0 && intersection_aux(p1, p2, prev_i - i, prev_j - j)) return true;
     }
   }
   return false;
@@ -156,9 +167,9 @@ double common_boundary_length(const vector<Point>& polygon1,
   double total = 0;
 
   for (int i = 0; i < (int)polygon1.size(); i++) {
-    const Segment edge1{vertex_at(polygon1, i), vertex_at(polygon1, i + 1)};
+    const Segment edge1{polygon1[i], vertex_at(polygon1, i + 1)};
     for (int j = 0; j < (int)polygon2.size(); j++) {
-      const Segment edge2{vertex_at(polygon2, j), vertex_at(polygon2, j + 1)};
+      const Segment edge2{polygon2[j], vertex_at(polygon2, j + 1)};
       total += edge1.common_length(edge2);
     }
   }
@@ -166,72 +177,62 @@ double common_boundary_length(const vector<Point>& polygon1,
   return total;
 }
 
-bool range_contains(double a, double b, const double x) {
+inline bool range_contains(double a, double b, const double x) {
   if (a > b) swap(a, b);
   return a <= x + EPS && x - EPS <= b;
 }
 
-double optimal_shift(vector<Point> polygon1, const vector<Point>& polygon2,
-                     const double max_shift) {
-  vector<double> shifts;
+double heuristic_optimal_shift(vector<Point> polygon1, const vector<Point>& polygon2,
+                               const double base1, const double base2) {
+  const double max_shift = base1 + base2;
+  vector<double> shifts{base1, base2};
 
-  for (int i = 0; i < (int)polygon1.size(); i++) {
-    const Point p = polygon1[i];
-    const Point q = vertex_at(polygon1, i + 1);
-    const double slope = (q.y - p.y) / (q.x - p.x);
+  auto collect_shifts = [&](const vector<Point>& polygon_edges,
+                            const vector<Point>& polygon_vertices, const bool right) {
+    for (int i = 0; i < (int)polygon_edges.size(); i++) {
+      const Segment wall{polygon_edges[i], vertex_at(polygon_edges, i + 1)};
+      if (wall.is_horizontal()) continue;
 
-    for (int j = 0; j < (int)polygon2.size(); j++) {
-      const Point R = polygon2[j];
-      if ((R.x < p.x && R.x < q.x) || !range_contains(p.y, q.y, R.y)) continue;
+      for (int j = 0; j < (int)polygon_vertices.size(); j++) {
+        const auto v = polygon_vertices[j];
 
-      if (equal(p.x, q.x)) {
-        shifts.push_back(R.x - p.x);
-      } else if (zero(slope)) {
-        if (equal(p.y, R.y)) shifts.push_back(R.x - q.x);
-      } else {
-        const double B = p.y - p.x * slope;
-        const double x = (R.y - B) / slope;
-        shifts.push_back(R.x - x);
+        if (!range_contains(wall.p.y, wall.q.y, v.y)) continue;
+
+        const auto v0 = vertex_at(polygon_vertices, j - 1);
+        const auto v2 = vertex_at(polygon_vertices, j + 1);
+        if (orientation(v0, v, v2) == -1) continue;
+
+        const bool point_left = Segment{v0, v}.face_left() || Segment{v, v2}.face_left();
+        if (wall.face_right() && !point_left) continue;
+
+        const bool point_right =
+            Segment{v0, v}.face_right() || Segment{v, v2}.face_right();
+        if (wall.face_left() && !point_right) continue;
+
+        double x = wall.horizontal_distance(v);
+
+        x = right ? x : -x;
+        if (EPS < x && x < max_shift - EPS) shifts.push_back(x);
       }
     }
-  }
-  for (int j = 0; j < (int)polygon2.size(); j++) {
-    const Point p = polygon2[j];
-    const Point q = vertex_at(polygon2, j + 1);
-    const double slope = (q.y - p.y) / (q.x - p.x);
-    for (int i = 0; i < (int)polygon1.size(); i++) {
-      const Point L = polygon1[i];
-      if (!range_contains(p.y, q.y, L.y)) continue;
+  };
 
-      if (equal(p.x, q.x)) {
-        shifts.push_back(p.x - L.y);
-      } else if (zero(slope)) {
-        if (equal(L.y, p.y)) shifts.push_back(p.x - L.x);
-      } else {
-        const double B = p.y - p.x * slope;
-        const double x = (L.y - B) / slope;
-        shifts.push_back(x - L.x);
-      }
-    }
-  }
+  collect_shifts(polygon1, polygon2, true);
+  collect_shifts(polygon2, polygon1, false);
+
+  sort(shifts.begin(), shifts.end());
 
   double prev_shift_x = 0;
   double res = 0;
 
-  sort(shifts.begin(), shifts.end());
-
-  for (int i = 0; i < (int)shifts.size(); i++) {
-    if (shifts[i] - prev_shift_x < 1e-4) continue;
-    const double s = shifts[i];
-    if (s < EPS) continue;
-    if (s + EPS > max_shift) break;
-
-    for (Point& p : polygon1) p.x += (s - prev_shift_x);
+  for (const double x : shifts) {
+    if (x - prev_shift_x < 0.1) continue;
+    for (Point& p : polygon1) p.x += x - prev_shift_x;
 
     if (!intersection(polygon1, polygon2))
       res = max(res, common_boundary_length(polygon1, polygon2));
 
-    prev_shift_x = s;
+    prev_shift_x = x;
   }
 
   return res;
@@ -259,24 +260,15 @@ int main() {
 
     for (int i = 0; i < (int)polygon2.size(); i++) {
       const vector<Point>& polygon = rotations2[i];
-      // TODO: Verify correctness
       base2[i] = polygon[i].dist(vertex_at(polygon, i + 1));
-      assert(zero(vertex_at(polygon, i + 1).x) && zero(vertex_at(polygon, i + 1).y));
-      assert(equal(vertex_at(polygon, i).y, vertex_at(polygon, i + 1).y));
-      assert(vertex_at(polygon, i + 1).x < vertex_at(polygon, i).x);
     }
 
     for (int i = 0; i < (int)rotations1.size(); i++) {
-      // TODO: Verify correctness
       const double base1 = rotations1[i][i].dist(vertex_at(rotations1[i], i - 1));
 
-      assert(zero(vertex_at(rotations1[i], i + 1).x) &&
-             zero(vertex_at(rotations1[i], i + 1).y));
-      assert(equal(vertex_at(rotations1[i], i).y, vertex_at(rotations1[i], i + 1).y));
-      assert(vertex_at(rotations1[i], i).x < vertex_at(rotations1[i], i + 1).x);
-
       for (int j = 0; j < (int)rotations2.size(); j++) {
-        ans = max(ans, optimal_shift(rotations1[i], rotations2[j], base1 + base2[j]));
+        ans = max(ans,
+                  heuristic_optimal_shift(rotations1[i], rotations2[j], base1, base2[j]));
       }
     }
 
