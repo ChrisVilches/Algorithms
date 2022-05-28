@@ -5,8 +5,8 @@ int R, C;
 char keyboard[51][51];
 bool visited[51][51][10'001];
 
-int di[]{-1, 1, 0, 0};
-int dj[]{0, 0, -1, 1};
+pair<int, int> dir[4]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+int skip_memo[51][51][4];
 
 char text[10'005];
 int text_size;
@@ -30,18 +30,18 @@ int bfs() {
     }
 
     for (int d = 0; d < 4; d++) {
-      int r2 = r;
-      int c2 = c;
+      int& skip = skip_memo[r][c][d];
+      int r2 = r + dir[d].first * skip;
+      int c2 = c + dir[d].second * skip;
 
       while (keyboard[r][c] == keyboard[r2][c2]) {
-        r2 += di[d];
-        c2 += dj[d];
-        if (r2 < 0 || c2 < 0) break;
-        if (r2 >= R || c2 >= C) break;
+        skip++;
+        r2 += dir[d].first;
+        c2 += dir[d].second;
+        if (r2 < 0 || c2 < 0 || r2 >= R || c2 >= C) break;
       }
 
-      if (r2 < 0 || c2 < 0) continue;
-      if (r2 >= R || c2 >= C) continue;
+      if (r2 < 0 || c2 < 0 || r2 >= R || c2 >= C) continue;
       if (visited[r2][c2][key_idx]) continue;
 
       visited[r2][c2][key_idx] = true;
@@ -54,12 +54,15 @@ int bfs() {
 }
 
 int main() {
-  scanf("%d%d", &R, &C);
-  for (int i = 0; i < R; i++) scanf("%s", keyboard[i]);
+  while (scanf("%d%d", &R, &C) == 2) {
+    memset(visited, 0, sizeof visited);
+    memset(skip_memo, 0, sizeof skip_memo);
+    for (int i = 0; i < R; i++) scanf("%s", keyboard[i]);
 
-  scanf("%s", text);
-  text_size = strlen(text);
-  text[text_size++] = '*';
+    scanf("%s", text);
+    text_size = strlen(text);
+    text[text_size++] = '*';
 
-  cout << bfs() << endl;
+    cout << bfs() << endl;
+  }
 }
