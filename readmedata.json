@@ -189,6 +189,12 @@
         ]
       },
       {
+        "title": "Rectangle-Rectangle intersection",
+        "files": [
+          "kattis/visual"
+        ]
+      },
+      {
         "title": "Misc",
         "files": [
           "cheese 2",

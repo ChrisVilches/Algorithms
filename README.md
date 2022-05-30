@@ -152,6 +152,10 @@ Polygon Intersection
 * [kattis/puzzle2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/puzzle2.cpp)
 * [uva/137-polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/137-polygons.cpp)
 
+Rectangle-Rectangle Intersection
+
+* [kattis/visual.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/visual.cpp)
+
 Misc
 
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)

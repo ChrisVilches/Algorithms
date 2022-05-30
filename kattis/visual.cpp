@@ -2,6 +2,8 @@
 using namespace std;
 typedef long long ll;
 
+// TODO: Refactor. Add to index, sweep line and rectangle intersection.
+
 struct Point {
   ll x, y;
   Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
