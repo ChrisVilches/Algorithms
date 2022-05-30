@@ -22,16 +22,15 @@ ll divide(const int prod_l, const int prod_r, const int cons_l, const int cons_r
   int cons_m = -1;
 
   for (int i = cons_l; i < cons_r && i < (int)consumers.size(); i++) {
-    // TODO: Why is this necessary?
-    if (cons_m == -1 && producers[prod_m].x < consumers[i].x) cons_m = i;
-
     const ll rect = area(producers[prod_m], consumers[i]);
-    if (rect > max_area) {
+
+    if (rect > max_area || (cons_m == -1 && producers[prod_m].x <= consumers[i].x)) {
       max_area = rect;
       cons_m = i;
     }
   }
 
+  if (cons_m == -1) return 0;
   return max({max_area, divide(prod_l, prod_m, cons_l, cons_m + 1),
               divide(prod_m + 1, prod_r, cons_m, cons_r)});
 }
