@@ -6,33 +6,7 @@ typedef long long ll;
 
 struct Point {
   ll x, y;
-  Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
-  ll cross(const Point& p) const { return x * p.y - y * p.x; }
-  ll operator*(const Point& p) const { return x * p.x + y * p.y; }
   bool operator<(const Point& p) const { return x == p.x ? y > p.y : x < p.x; }
-  bool operator==(const Point& p) const { return x == p.x && y == p.y; }
-};
-
-short orientation(Point a, Point b, Point c) {
-  const ll cross_value = (b - a).cross(c - a);
-  return cross_value < 0 ? -1 : cross_value > 0;
-}
-
-struct Segment {
-  const Point p, q;
-
-  bool intersects(const Segment& s) const {
-    if (contains(s.p) || contains(s.q)) return true;
-    if (s.contains(p) || s.contains(q)) return true;
-    bool o1 = orientation(p, q, s.p) != orientation(p, q, s.q);
-    bool o2 = orientation(s.p, s.q, p) != orientation(s.p, s.q, q);
-    return o1 && o2;
-  }
-
- private:
-  bool contains(const Point& r) const {
-    return orientation(p, q, r) == 0 && (q - p) * (r - p) > 0 && (p - q) * (r - q) > 0;
-  }
 };
 
 struct Rectangle {
@@ -44,18 +18,30 @@ struct Rectangle {
         p3(bottom_right),
         p4({bottom_right.x, top_left.y}) {}
 
-  bool edges_intersect(const Rectangle& r) const {
-    for (const Segment& e1 : edges())
-      for (const Segment& e2 : r.edges())
-        if (e1.intersects(e2)) return true;
+  bool intersects(const Rectangle& r) const {
+    if (contains_nested(r) || r.contains_nested(*this)) return false;
 
-    return false;
+    const short c1 = contains(r.p1) + contains(r.p2) + contains(r.p3) + contains(r.p4);
+    const short c2 = r.contains(p1) + r.contains(p2) + r.contains(p3) + r.contains(p4);
+    return c1 || c2;
   }
 
  private:
   const Point top_left, bottom_right, p1, p2, p3, p4;
-  array<Segment, 4> edges() const {
-    return {Segment{p1, p2}, {p2, p3}, {p3, p4}, {p4, p1}};
+
+  bool contains_inside(const Point& p) const {
+    return top_left.x < p.x && p.x < bottom_right.x && top_left.y > p.y &&
+           p.y > bottom_right.y;
+  }
+
+  bool contains_nested(const Rectangle& r) const {
+    return contains_inside(r.p1) && contains_inside(r.p2) && contains_inside(r.p3) &&
+           contains_inside(r.p4);
+  }
+
+  bool contains(const Point& p) const {
+    return top_left.x <= p.x && p.x <= bottom_right.x && top_left.y >= p.y &&
+           p.y >= bottom_right.y;
   }
 };
 
@@ -96,7 +82,7 @@ bool sweep_line() {
     auto it = top_active.lower_bound({rect_bottom.y + 1, -1});
     if (it != top_active.end() && it->second != top_idx) {
       const Rectangle other_rectangle{top[it->second], bottom[top_bottom[it->second]]};
-      if (rect.edges_intersect(other_rectangle)) return false;
+      if (rect.intersects(other_rectangle)) return false;
     }
 
     // TODO: Why can this be in the middle as well, and it works properly???
