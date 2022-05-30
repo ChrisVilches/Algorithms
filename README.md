@@ -101,6 +101,7 @@ Sweep Line
 
 * [codechef/TOWCNT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/TOWCNT.cpp)
 * [kattis/directingrainfall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/directingrainfall.cpp)
+* [kattis/visual.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/visual.cpp)
 * [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
 * [urionlinejudge/1468-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1468-balloon.cpp)
 * [urionlinejudge/1748-fence_the_vegetables.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1748-fence_the_vegetables.cpp)
@@ -155,6 +156,7 @@ Misc
 
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [kattis/countingtriangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/countingtriangles.cpp)
+* [kattis/money.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/money.cpp)
 * [matcomgrader/O-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/O-polygon.cpp)
 * [spoj/AXIS-axis_of_symmetry.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AXIS-axis_of_symmetry.cpp)
 * [spoj/PIR-pyramids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PIR-pyramids.cpp)
@@ -170,6 +172,7 @@ BFS, DFS
 
 * [kattis/fontan.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fontan.cpp)
 * [kattis/keyboard.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/keyboard.cpp)
+* [kattis/secretchamber.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/secretchamber.cpp)
 * [spoj/BITMAP-bitmap.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BITMAP-bitmap.cpp)
 * [spoj/BUGLIFE-a_bugs_life.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BUGLIFE-a_bugs_life.cpp)
 * [spoj/CLEANRBT-cleaning_robot.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CLEANRBT-cleaning_robot.cpp)
@@ -272,6 +275,7 @@ Binary Search
 
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
+* [kattis/speed.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speed.cpp)
 * [kattis/stringmultimatching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stringmultimatching.cpp)
 * [spoj/AGGRCOW-aggressive_cows.kt](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AGGRCOW-aggressive_cows.kt)
 * [spoj/BBIN-busqueda_binaria.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN-busqueda_binaria.cpp)

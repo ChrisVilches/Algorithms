@@ -127,7 +127,8 @@
           "1468-balloon",
           "november rain",
           "towcnt",
-          "directingrainfall"
+          "directingrainfall",
+          "kattis/visual"
         ]
       },
       {
@@ -199,7 +200,8 @@
           "pir pyramids",
           "matcomgrader o polygon",
           "icpc finals",
-          "AXIS-axis_of_symmetry"
+          "AXIS-axis_of_symmetry",
+          "kattis/money"
         ]
       }
     ]
@@ -222,7 +224,8 @@
           "ancient messages",
           "fields division",
           "cyclists versus clouds",
-          "kattis/keyboard"
+          "kattis/keyboard",
+          "kattis/secretchamber"
         ]
       },
       {
@@ -352,7 +355,8 @@
           "busqueda binaria 2",
           "blood groups",
           "stringmultimatching",
-          "keylogger"
+          "keylogger",
+          "kattis/speed.cpp"
         ]
       },
       {
