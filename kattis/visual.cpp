@@ -52,7 +52,7 @@ bool sweep_line() {
 
   for (const auto& [p, idx, is_top] : events) {
     if (is_top) {
-      const auto it = top_active.lower_bound({top[idx].y, -1});
+      const auto it = top_active.lower_bound({p.y, -1});
       if (it != top_active.end() && it->first == p.y) return false;
       top_active.emplace(p.y, idx);
     } else {
