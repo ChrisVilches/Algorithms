@@ -64,8 +64,6 @@ bool sweep_line() {
     }
   }
 
-  top_active.clear();
-
   for (const auto& [_, idx, is_top] : events) {
     const int top_idx = is_top ? idx : bottom_top[idx];
     const Point& rect_top = top[top_idx];
