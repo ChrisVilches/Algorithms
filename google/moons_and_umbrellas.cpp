@@ -12,14 +12,18 @@ int dp(const char prev, const int i) {
 
   int res;
 
-  if (str[i] == 'J') {
-    res = X * (prev == 'C') + dp('J', i + 1);
-  } else if (str[i] == 'C') {
-    res = Y * (prev == 'J') + dp('C', i + 1);
-  } else {
-    const int use_c = Y * (prev == 'J') + dp('C', i + 1);
-    const int use_j = X * (prev == 'C') + dp('J', i + 1);
-    res = min(use_c, use_j);
+  const int j = X * (prev == 'C') + dp('J', i + 1);
+  const int c = Y * (prev == 'J') + dp('C', i + 1);
+
+  switch (str[i]) {
+    case 'J':
+      res = j;
+      break;
+    case 'C':
+      res = c;
+      break;
+    default:
+      res = min(c, j);
   }
 
   ok[prev == 'J'][i] = true;
