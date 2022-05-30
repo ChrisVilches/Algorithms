@@ -71,21 +71,15 @@ bool sweep_line() {
   for (const auto& [_, idx, is_top] : events) {
     const int top_idx = is_top ? idx : bottom_top[idx];
     const Point& rect_top = top[top_idx];
-    const Point& rect_bottom = bottom[top_bottom[top_idx]];
 
-    const Rectangle rect{top[top_idx], bottom[top_bottom[top_idx]]};
+    const Rectangle rect{rect_top, bottom[top_bottom[top_idx]]};
 
-    // why only from bottom? ;D no need to check above rect_top.y ?????
-    // UPDATE: Actually both work, "rect_top.y + 1" or "rect_bottom.y + 1"
-    // Note that I execute this for both the top and bottom events, but not sure
-    // how that makes any difference.
-    auto it = top_active.lower_bound({rect_bottom.y + 1, -1});
-    if (it != top_active.end() && it->second != top_idx) {
+    auto it = top_active.lower_bound({rect_top.y + 1, -1});
+    if (it != top_active.end()) {
       const Rectangle other_rectangle{top[it->second], bottom[top_bottom[it->second]]};
       if (rect.intersects(other_rectangle)) return false;
     }
 
-    // TODO: Why can this be in the middle as well, and it works properly???
     top_active.emplace(rect_top.y, top_idx).second ||
         top_active.erase({rect_top.y, top_idx});
   }
