@@ -2,8 +2,6 @@
 using namespace std;
 typedef long long ll;
 
-// TODO: Refactor.
-
 struct Point {
   ll x, y;
   bool operator<(const Point& p) const { return x == p.x ? y > p.y : x < p.x; }
