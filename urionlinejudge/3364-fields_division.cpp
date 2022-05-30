@@ -19,10 +19,6 @@ void solve() {
     graph[v].push_back(u);
   }
 
-  for (int i = 0; i < N; i++) {
-    sort(graph[i].rbegin(), graph[i].rend());
-  }
-
   result[N - 1] = 0;
   result[N - 2] = 1;
 
