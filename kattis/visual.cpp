@@ -19,8 +19,8 @@ struct Rectangle {
   bool intersects(const Rectangle& r) const {
     if (contains_nested(r) || r.contains_nested(*this)) return false;
 
-    const short c1 = contains(r.p1) + contains(r.p2) + contains(r.p3) + contains(r.p4);
-    const short c2 = r.contains(p1) + r.contains(p2) + r.contains(p3) + r.contains(p4);
+    const bool c1 = contains(r.p1) || contains(r.p2) || contains(r.p3) || contains(r.p4);
+    const bool c2 = r.contains(p1) || r.contains(p2) || r.contains(p3) || r.contains(p4);
     return c1 || c2;
   }
 
