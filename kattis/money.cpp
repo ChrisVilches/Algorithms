@@ -21,7 +21,7 @@ ll divide(const int prod_l, const int prod_r, const int cons_l, const int cons_r
   ll max_area = 0;
   int cons_m = -1;
 
-  for (int i = cons_l; i < cons_r && i < (int)consumers.size(); i++) {
+  for (int i = cons_l; i < cons_r; i++) {
     const ll rect = area(producers[prod_m], consumers[i]);
 
     if (rect > max_area || (cons_m == -1 && producers[prod_m].x <= consumers[i].x)) {
