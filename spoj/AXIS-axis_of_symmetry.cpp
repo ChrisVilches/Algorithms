@@ -40,8 +40,6 @@ void add_all_slopes(const vector<Point>& points, map<ld, int>& slope_freq) {
       const Point& p = points[i];
       const Point& q = points[j];
 
-      if (!p.same_magnitude(q)) continue;
-
       Point line_point = p.mid_point(q);
 
       if (line_point.is_origin()) line_point = p.rot90();
