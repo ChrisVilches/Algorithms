@@ -24,6 +24,7 @@ ll divide(const int prod_l, const int prod_r, const int cons_l, const int cons_r
   int best_idx = -1;
 
   for (int i = cons_l; i < cons_r && i < (int)cons.size(); i++) {
+    // TODO: Why is this necessary?
     if (best_idx == -1 && prod[mid_prod_idx].x < cons[i].x) best_idx = i;
 
     const ll rect = area(prod[mid_prod_idx], cons[i]);
@@ -49,6 +50,9 @@ void solve() {
   prod.clear();
   cons.clear();
 
+  // TODO: Why does this work?
+  // Is the lexicographic ordering correct?
+  // Does the X coordinate mess it up?
   for (auto p : producers) {
     if (prod.empty() || p.y < prod.back().y) prod.push_back(p);
   }
