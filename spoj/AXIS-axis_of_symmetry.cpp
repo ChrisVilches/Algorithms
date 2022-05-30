@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long double ld;
-typedef long long ll;
 
 const ld EPS = 1e-9;
 
@@ -16,9 +15,10 @@ struct Point {
 
   bool is_slope_vertical() const { return fabs(x) < EPS; }
 
-  ll slope() const {
-    if (is_slope_vertical()) return LONG_LONG_MAX;
-    return (ll)round((y / x) * 100000);
+  ld slope() const {
+    if (is_slope_vertical()) return DBL_MAX;
+    const ld f = 100000;
+    return round((y / x) * f) / f;
   }
 
   bool is_origin() const { return magnitude() < EPS; }
@@ -34,7 +34,7 @@ struct Point {
 
 bool cmp(const Point& p, const Point& q) { return p.magnitude() < q.magnitude(); }
 
-void add_all_slopes(const vector<Point>& points, map<ll, int>& slope_freq) {
+void add_all_slopes(const vector<Point>& points, map<ld, int>& slope_freq) {
   for (int i = 0; i < (int)points.size(); i++) {
     for (int j = i + 1; j < (int)points.size(); j++) {
       const Point& p = points[i];
@@ -52,7 +52,7 @@ void add_all_slopes(const vector<Point>& points, map<ll, int>& slope_freq) {
 }
 
 bool possible(vector<Point>& points) {
-  map<ll, int> slope_freq;
+  map<ld, int> slope_freq;
 
   sort(points.begin(), points.end(), cmp);
 
