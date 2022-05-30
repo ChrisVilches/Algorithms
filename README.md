@@ -384,4 +384,5 @@ Modular Division
 
 Simpson's Integration
 
+* [kattis/bottles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bottles.cpp)
 * [urionlinejudge/1297-environment_protection.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1297-environment_protection.cpp)

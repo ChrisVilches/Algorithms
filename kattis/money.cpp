@@ -6,9 +6,7 @@ typedef pair<ll, ll> pii;
 #define x first
 #define y second
 
-int N, M;
-
-vector<pii> prod, cons;
+vector<pii> producers, consumers;
 
 ll area(const pii& producer, const pii& consumer) {
   if (!(producer.x < consumer.x && producer.y < consumer.y)) return 0;
@@ -18,57 +16,54 @@ ll area(const pii& producer, const pii& consumer) {
 ll divide(const int prod_l, const int prod_r, const int cons_l, const int cons_r) {
   if (prod_l == prod_r) return 0;
 
-  const int mid_prod_idx = (prod_l + prod_r) / 2;
+  const int prod_m = (prod_l + prod_r) / 2;
 
-  ll best_area = 0;
-  int best_idx = -1;
+  ll max_area = 0;
+  int cons_m = -1;
 
-  for (int i = cons_l; i < cons_r && i < (int)cons.size(); i++) {
+  for (int i = cons_l; i < cons_r && i < (int)consumers.size(); i++) {
     // TODO: Why is this necessary?
-    if (best_idx == -1 && prod[mid_prod_idx].x < cons[i].x) best_idx = i;
+    if (cons_m == -1 && producers[prod_m].x < consumers[i].x) cons_m = i;
 
-    const ll rect = area(prod[mid_prod_idx], cons[i]);
-    if (rect > best_area) {
-      best_area = rect;
-      best_idx = i;
+    const ll rect = area(producers[prod_m], consumers[i]);
+    if (rect > max_area) {
+      max_area = rect;
+      cons_m = i;
     }
   }
 
-  return max({best_area, divide(prod_l, mid_prod_idx, cons_l, best_idx + 1),
-              divide(mid_prod_idx + 1, prod_r, best_idx, cons_r)});
-}
-
-void solve() {
-  vector<pii> producers(N), consumers(M);
-
-  for (pii& p : producers) cin >> p.x >> p.y;
-  for (pii& c : consumers) cin >> c.x >> c.y;
-
-  sort(producers.begin(), producers.end());
-  sort(consumers.rbegin(), consumers.rend());
-
-  prod.clear();
-  cons.clear();
-
-  // TODO: Why does this work?
-  // Is the lexicographic ordering correct?
-  // Does the X coordinate mess it up?
-  for (auto p : producers) {
-    if (prod.empty() || p.y < prod.back().y) prod.push_back(p);
-  }
-
-  for (auto c : consumers) {
-    if (cons.empty() || cons.back().y < c.y) cons.push_back(c);
-  }
-
-  reverse(cons.begin(), cons.end());
-
-  cout << divide(0, prod.size(), 0, cons.size()) << endl;
+  return max({max_area, divide(prod_l, prod_m, cons_l, cons_m + 1),
+              divide(prod_m + 1, prod_r, cons_m, cons_r)});
 }
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  while (cin >> N >> M) solve();
+  int N, M;
+
+  while (cin >> N >> M) {
+    producers.resize(N);
+    consumers.resize(M);
+
+    for (pii& p : producers) cin >> p.x >> p.y;
+    for (pii& c : consumers) cin >> c.x >> c.y;
+
+    sort(producers.begin(), producers.end());
+    sort(consumers.rbegin(), consumers.rend());
+
+    int i = 0;
+    for (auto p : producers)
+      if (i == 0 || p.y < producers[i - 1].y) producers[i++] = p;
+    producers.resize(i);
+
+    i = 0;
+    for (auto c : consumers)
+      if (i == 0 || consumers[i - 1].y < c.y) consumers[i++] = c;
+    consumers.resize(i);
+
+    reverse(consumers.begin(), consumers.end());
+
+    cout << divide(0, producers.size(), 0, consumers.size()) << endl;
+  }
 }
