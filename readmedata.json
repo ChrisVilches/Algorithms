@@ -326,7 +326,8 @@
           "controlled inflation",
           "mpoly-polygon",
           "moons and umbrellas",
-          "ramsays counterattack"
+          "ramsays counterattack",
+          "speedrun"
         ]
       },
       {
@@ -485,7 +486,7 @@
         "title": "Simpson's Integration",
         "files": [
           "environment protection",
-          "kattis/bottles"
+          "kattis/bottles.cpp"
         ]
       }
     ]

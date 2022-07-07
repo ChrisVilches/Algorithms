@@ -253,6 +253,7 @@ Maximization, Minimization
 * [kattis/centsavings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/centsavings.cpp)
 * [kattis/coke.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/coke.cpp)
 * [kattis/nikola.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/nikola.cpp)
+* [kattis/speedrun.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speedrun.cpp)
 * [spoj/BORW-black_or_white.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BORW-black_or_white.cpp)
 * [spoj/COINS-bytelandian_gold_coins.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/COINS-bytelandian_gold_coins.cpp)
 * [spoj/KNAPSACK-the_knapsack_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/KNAPSACK-the_knapsack_problem.cpp)
