@@ -31,9 +31,8 @@ struct Segment {
 
  private:
   Point intersection_point(const Segment& s) const {
-    const double x1 = q.x - p.x, y1 = q.y - p.y, x2 = s.q.x - s.p.x, y2 = s.q.y - s.p.y;
-    const double t = (x2 * (p.y - s.p.y) - y2 * (p.x - s.p.x)) / (-x2 * y1 + x1 * y2);
-    return {p.x + t * x1, p.y + t * y1};
+    const double factor = (s.q - s.p).cross(p - s.p) / (q - p).cross(s.q - s.p);
+    return scale(factor).q;
   }
 };
 
