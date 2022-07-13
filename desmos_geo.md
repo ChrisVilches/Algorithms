@@ -6,10 +6,11 @@ struct Segment {
   Segment(Point p, Point q) : p(p), q(q) {}
   Segment() {}
   // ...
-  string to_desmos() {
+  string to_desmos() const {
     stringstream ss;
-    ss << "\\left(\\left(1-t\\right)\\cdot" << p.x << "+t\\cdot" << q.x
-       << ",\\left(1-t\\right)\\cdot" << p.y << "+t\\cdot" << q.y << "\\right)";
+    ss << fixed << setprecision(6) << "\\left(\\left(1-t\\right)\\cdot" << p.x
+       << "+t\\cdot" << q.x << ",\\left(1-t\\right)\\cdot" << p.y << "+t\\cdot" << q.y
+       << "\\right)";
     return ss.str();
   }
 };
@@ -21,7 +22,7 @@ struct Circle {
   ld radius;
   Circle(Point c, ld r) : center(c), radius(r) {}
   // ...
-  string to_desmos() {
+  string to_desmos() const {
     stringstream ss;
     ss << "\\left(x-" << center.x << "\\right)^{2}+\\left(y-" << center.y
        << "\\right)^{2}=" << radius << "^{2}";
