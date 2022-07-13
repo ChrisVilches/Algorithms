@@ -15,8 +15,7 @@ struct Point {
 
 short orientation(const Point& o, const Point& a, const Point& b) {
   const double cross = (a - o).cross(b - o);
-  if (cross < 0) return -1;
-  return cross > 0;
+  return cross < 0 ? -1 : cross > 0;
 }
 
 struct Segment {
@@ -32,11 +31,9 @@ struct Segment {
 
  private:
   Point intersection_point(const Segment& s) const {
-    const double s1_x = q.x - p.x, s1_y = q.y - p.y;
-    const double s2_x = s.q.x - s.p.x, s2_y = s.q.y - s.p.y;
-    const double t =
-        (s2_x * (p.y - s.p.y) - s2_y * (p.x - s.p.x)) / (-s2_x * s1_y + s1_x * s2_y);
-    return {p.x + t * s1_x, p.y + t * s1_y};
+    const double x1 = q.x - p.x, y1 = q.y - p.y, x2 = s.q.x - s.p.x, y2 = s.q.y - s.p.y;
+    const double t = (x2 * (p.y - s.p.y) - y2 * (p.x - s.p.x)) / (-x2 * y1 + x1 * y2);
+    return {p.x + t * x1, p.y + t * y1};
   }
 };
 
@@ -49,46 +46,31 @@ double angle(const Point& o, const Point& a, const Point& b) {
   return angle(a - o, b - o);
 }
 
-// TODO: Refactor
 bool vertex_intersection(const vector<Point>& polygon, Segment s, const int i) {
-  const Point v0 = i == 0 ? polygon.back() : polygon[i - 1];
   const Point v1 = polygon[i];
+  if (orientation(s.p, s.q, v1) != 0 || (s.q - s.p) * (v1 - s.p) < 0) return false;
+
+  const Point v0 = i == 0 ? polygon.back() : polygon[i - 1];
   const Point v2 = polygon[(i + 1) % polygon.size()];
 
-  if (s.p == v1 && orientation(v0, v1, v2) == 1)
-    return orientation(v0, v1, s.q) == -1 || orientation(v1, v2, s.q) == -1;
+  const double edges_ang = angle(v1, v0, v2);
+  double p_ang = angle(v1, v0, s.p);
+  double q_ang = angle(v1, v0, s.q);
 
-  const double edges_angle = angle(v1, v0, v2);
-  double p_angle = angle(v1, v0, s.p);
-  double q_angle = angle(v1, v0, s.q);
+  if (p_ang > q_ang) swap(p_ang, q_ang), swap(s.p, s.q);
 
-  if (s.p == v1) return q_angle < edges_angle;
-
-  if (orientation(s.p, s.q, v1) != 0 || (s.q - s.p) * (v1 - s.p) <= 0) return false;
-
-  if (p_angle > q_angle) {
-    swap(p_angle, q_angle);
-    swap(s.p, s.q);
-  }
-
-  if (orientation(v0, v1, s.p) == 0) return q_angle < edges_angle;
-  if (orientation(v1, v2, s.q) == 0 && (v2 - v1) * (s.q - v1) > 0) return true;
-
-  return p_angle < edges_angle;
+  return orientation(v0, v1, s.p) == 0 ? q_ang < edges_ang : p_ang < edges_ang;
 }
 
-Point find_closest_collision(const vector<Point>& polygon, const Point& p,
-                             const Point& dir) {
-  const Segment ray = Segment{p, p + dir}.scale(1000000);
+Point first_collision(const vector<Point>& polygon, const Point& p, const Point& dir) {
+  const Segment ray = Segment{p, p + dir}.scale(1'000'000);
 
   Point res = ray.q;
 
   for (int i = 0; i < (int)polygon.size(); i++) {
-    if (!vertex_intersection(polygon, ray, i)) continue;
-    if (p.dist(polygon[i]) < p.dist(res)) res = polygon[i];
-  }
+    if (vertex_intersection(polygon, ray, i))
+      if (p.dist(polygon[i]) < p.dist(res)) res = polygon[i];
 
-  for (int i = 0; i < (int)polygon.size(); i++) {
     const Segment edge{polygon[i], polygon[(i + 1) % polygon.size()]};
     const auto [intersects, point] = edge.intersect_non_collinear(ray);
     if (intersects && p.dist(point) < p.dist(res)) res = point;
@@ -114,8 +96,8 @@ int main() {
         const Point p = polygon[i];
         const Point dir = polygon[j] - polygon[i];
 
-        const Point endpoint1 = find_closest_collision(polygon, p, dir);
-        const Point endpoint2 = find_closest_collision(polygon, p, dir.negate());
+        const Point endpoint1 = first_collision(polygon, p, dir);
+        const Point endpoint2 = first_collision(polygon, p, dir.negate());
 
         ans = max(ans, endpoint1.dist(endpoint2));
       }
