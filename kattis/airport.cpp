@@ -62,7 +62,7 @@ bool vertex_intersection(const vector<Point>& polygon, Segment s, const int i) {
 }
 
 Point first_collision(const vector<Point>& polygon, const Point& p, const Point& dir) {
-  const Segment ray = Segment{p, p + dir}.scale(1'000'000);
+  const Segment ray = Segment{p, p + dir}.scale(10'000'000);
 
   Point res = ray.q;
 
