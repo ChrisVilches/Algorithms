@@ -55,6 +55,7 @@ Segment Tree + Lazy Propagation
 BIT (Fenwick Tree)
 
 * [codeforces/excellent_views.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/excellent_views.cpp)
+* [spoj/ADARAINB-ada_and_rain_ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ADARAINB-ada_and_rain_ii.cpp)
 * [spoj/HAYBALE-haybale_stacking.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HAYBALE-haybale_stacking.cpp)
 * [spoj/HORRIBLE-horrible_queries_BIT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries_BIT.cpp)
 * [urionlinejudge/1856-aryas_death_list.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1856-aryas_death_list.cpp)
