@@ -152,10 +152,17 @@ Convex Polygons + Two-Pointers
 Concave Polygons
 
 * [kattis/airport.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/airport.cpp)
+* [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
 * [kattis/polygonarea.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygonarea.cpp)
 * [kattis/puzzle2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/puzzle2.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/3361-cyclists_versus_clouds.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3361-cyclists_versus_clouds.cpp)
+
+Point Inside Polygon
+
+* [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
+* [spoj/INOROUT-inside_or_outside.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/INOROUT-inside_or_outside.cpp)
+* [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 
 Polygon Intersection
 
@@ -234,6 +241,10 @@ Topological Sort
 Minimum Dominating Set
 
 * [kattis/socialadvertising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/socialadvertising.cpp)
+
+Hungarian Algorithm for Assignment Problem
+
+* [urionlinejudge/3366-hamilton_the_musical.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3366-hamilton_the_musical.cpp)
 
 ### Dynamic Programming
 

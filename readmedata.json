@@ -190,7 +190,16 @@
           "fence the vegetables fail",
           "kattis/airport",
           "kattis/polygonarea",
-          "cyclists versus clouds"
+          "cyclists versus clouds",
+          "kattis/maptiles"
+        ]
+      },
+      {
+        "title": "Point inside polygon",
+        "files": [
+          "fence the vegetables fail",
+          "inorout-inside or out",
+          "maptiles"
         ]
       },
       {
@@ -290,6 +299,12 @@
         "title": "minimum dominating set",
         "files": [
           "socialadvertising"
+        ]
+      },
+      {
+        "title": "Hungarian algorithm for assignment problem",
+        "files": [
+          "hamilton the musical"
         ]
       }
     ]
