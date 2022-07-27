@@ -3,7 +3,7 @@ using namespace std;
 
 int N, graph[507][507];
 
-long long hungarian_assignment(vector<vector<int>>& matrix) {
+long long hungarian_assignment(const vector<vector<int>>& matrix) {
   const int n = matrix.size(), m = matrix.back().size();
 
   vector<int> u(n + 1), p(m + 1), way(m + 1);
@@ -15,10 +15,9 @@ long long hungarian_assignment(vector<vector<int>>& matrix) {
     vector<int> minv(m + 1, INT_MAX);
     vector<bool> used(m + 1);
 
-    do {
+    for (int j1 = 0; p[j0] != 0; j0 = j1) {
       used[j0] = true;
       const int i0 = p[j0];
-      int j1 = 0;
       int delta = INT_MAX;
       for (int j = 1; j <= m; ++j)
         if (!used[j]) {
@@ -31,12 +30,8 @@ long long hungarian_assignment(vector<vector<int>>& matrix) {
           u[p[j]] += delta, v[j] -= delta;
         else
           minv[j] -= delta;
-      j0 = j1;
-    } while (p[j0] != 0);
-    do {
-      const int j1 = way[j0];
-      p[j0] = p[j1], j0 = j1;
-    } while (j0 != 0);
+    }
+    while (j0 != 0) p[j0] = p[way[j0]], j0 = way[j0];
   }
 
   return -v[0];
