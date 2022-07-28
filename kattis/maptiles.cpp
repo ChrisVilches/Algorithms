@@ -1,43 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
+//#define BEECROWD_ONLINE_JUDGE
 
-/*
-TODO:
-* Refactor
-* Modify the "point inside polygon" code so that it works for any polygon. Use the
-  "vertex/collinear intersection" found in kattis/airport that I made
-* Modify the boundary marking so that it's fast (obtain the tiles from the line, instead
-  of traversing all tiles)
-* Make it faster.
-* Remove the "intermediate points" thing.
-* Make it less than 300 lines.
-* Remove hardcoded strange numbers like 6* or /2, etc.
-* Point in polygon doesn't work for any ray. Using {10000, 10000} doesn't work
-  for one case where the ray intersects a very acute polygon vertex.
+#ifdef BEECROWD_ONLINE_JUDGE
+typedef long double d;
+const d EPS = 1e-12;
+#else
+typedef double d;
+const d EPS = 1e-6;
+#endif
 
-I think if I implement the "quick boundary marking" then I can delete most of the
-hardcoded hacks. That'd be more than enough, and it's not that hard to implement.
-*/
-
-const double EPS = 1e-6;
-
-bool equal(const double a, const double b) { return fabs(a - b) < EPS; }
+bool equal(const d a, const d b) { return fabs(a - b) < EPS; }
 
 struct Point {
-  double x, y;
+  d x, y;
   Point operator+(const Point& p) const { return {x + p.x, y + p.y}; }
   Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
-  double operator*(const Point& p) const { return x * p.x + y * p.y; }
-  double cross(const Point& p) const { return x * p.y - y * p.x; }
-  Point scale(const double f) const { return {x * f, y * f}; }
+  bool operator==(const Point& p) const { return equal(x, p.x) && equal(y, p.y); }
+  d operator*(const Point& p) const { return x * p.x + y * p.y; }
+  d cross(const Point& p) const { return x * p.y - y * p.x; }
+  Point scale(const d f) const { return {x * f, y * f}; }
   Point rot_ccw() const { return {-y, x}; }
-  double magnitude() const { return hypot(x, y); }
+  d magnitude() const { return hypot(x, y); }
   Point normalize() const { return {x / magnitude(), y / magnitude()}; }
+  d dist(const Point& p) const { return hypot(x - p.x, y - p.y); }
 };
 
 short orientation(const Point& o, const Point& a, const Point& b) {
-  const double cross = (a - o).cross(b - o);
-
+  const d cross = (a - o).cross(b - o);
   if (equal(cross, 0)) return 0;
   return cross > 0 ? 1 : -1;
 }
@@ -45,22 +35,15 @@ short orientation(const Point& o, const Point& a, const Point& b) {
 struct Segment {
   Point p, q;
 
-  void intermediate_points(array<Point, 1000>& out, const int iterations = 20) const {
-    int k = 0;
-    const Point unit_dir = (q - p).normalize().rot_ccw();
-    for (int i = 1; i < iterations; i++) {
-      const double factor = (double)i / (double)iterations;
-      const Point pt = scale(factor).q;
-      out[k++] = pt + unit_dir.scale(1e-7);
-    }
-  }
+  static Segment horizontal_line(const d y) { return {{-1e6, y}, {1e6, y}}; }
+  static Segment vertical_line(const d x) { return {{x, -1e6}, {x, 1e6}}; }
 
   pair<bool, Point> intersect_non_collinear(const Segment& s) const {
     return intersect(s) ? make_pair(true, intersection_point(s))
                         : make_pair(false, Point{});
   }
 
-  Segment scale(const double f) const { return {p, p + (q - p).scale(f)}; }
+  Segment scale(const d f) const { return {p, p + (q - p).scale(f)}; }
 
   bool intersect(const Segment& s) const {
     const short o1 = orientation(p, q, s.p) * orientation(p, q, s.q) < 0;
@@ -70,33 +53,13 @@ struct Segment {
 
  private:
   Point intersection_point(const Segment& s) const {
-    const double factor = (s.q - s.p).cross(p - s.p) / (q - p).cross(s.q - s.p);
+    const d factor = (s.q - s.p).cross(p - s.p) / (q - p).cross(s.q - s.p);
     return scale(factor).q;
   }
 };
 
-double tile_x, tile_y;
-
-struct Tile {
-  // TODO: Remove this struct
-  Point p;
-
-  array<Segment, 4> edges() const {
-    const Point p1 = p;
-    const Point p2 = p + Point{tile_x, 0};
-    const Point p3 = p + Point{tile_x, tile_y};
-    const Point p4 = p + Point{0, tile_y};
-    return {Segment{p1, p2}, {p2, p3}, {p3, p4}, {p4, p1}};
-  }
-
-  static Tile at(const int i, const int j) {
-    const Point p{i * tile_x, j * tile_y};
-    return Tile{p};
-  }
-};
-
-const int TILE_N = 11;
-
+#define TILE_N 11
+d tile_x, tile_y;
 bool tiles[TILE_N][TILE_N];
 
 int tiles_count() {
@@ -108,7 +71,7 @@ int tiles_count() {
 }
 
 bool is_ccw(const vector<Point>& polygon) {
-  double total = 0;
+  d total = 0;
 
   for (int i = 0; i < (int)polygon.size(); i++) {
     const Point& p = polygon[i];
@@ -123,11 +86,10 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
   vector<Point> offsets;
 
   set<pair<int, int>> exist;
-  const double factor = 20;
+  const d factor = 20;
 
   auto add = [&](Point p) {
-    if (p.x < 0 || p.y < 0) return;
-    if (p.x > 6 * tile_x || p.y > 6 * tile_y) return;
+    if (p.x < 0 || p.y < 0 || p.x > 6 * tile_x || p.y > 6 * tile_y) return;
     p.x = fmod(p.x, tile_x);
     p.y = fmod(p.y, tile_y);
 
@@ -161,12 +123,9 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
 
         for (int w = 0; w < (int)polygon.size(); w++) {
           Segment edge{polygon[w] - vertex, polygon[(w + 1) % polygon.size()] - vertex};
-
           const Segment ray{t, t + unit_dir.scale(1e7)};
-
           const auto [intersect, point] = ray.intersect_non_collinear(edge);
-          if (!intersect) continue;
-          add(vertex + point - t);
+          if (intersect) add(vertex + point - t);
         }
       }
     }
@@ -176,12 +135,12 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
       const Segment line{vert - unit_dir.scale(1e7), vert + unit_dir.scale(1e7)};
 
       for (int i = 0; i < TILE_N / 2; i++) {
-        const auto [intersect1, point1] = line.intersect_non_collinear(
-            {{i * tile_x, -1'000'000}, {i * tile_x, 1'000'000}});
+        const auto [intersect1, point1] =
+            line.intersect_non_collinear({{i * tile_x, -1e7}, {i * tile_x, 1e7}});
         if (intersect1) add(vertex + point1 - vert);
 
-        const auto [intersect2, point2] = line.intersect_non_collinear(
-            {{-1'000'000, i * tile_y}, {1'000'000, i * tile_y}});
+        const auto [intersect2, point2] =
+            line.intersect_non_collinear({{-1e7, i * tile_y}, {1e7, i * tile_y}});
         if (intersect2) add(vertex + point2 - vert);
       }
     }
@@ -190,14 +149,12 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
   return offsets;
 }
 
-double angle(const Point& a, const Point& b) {
-  const double x = atan2(a.cross(b), a * b);
+d angle(const Point& a, const Point& b) {
+  const d x = atan2(a.cross(b), a * b);
   return x < 0 ? x + 2 * M_PI : x;
 }
 
-double angle(const Point& o, const Point& a, const Point& b) {
-  return angle(a - o, b - o);
-}
+d angle(const Point& o, const Point& a, const Point& b) { return angle(a - o, b - o); }
 
 bool vertex_intersection(const vector<Point>& polygon, Segment s, const int i) {
   const Point v1 = polygon[i];
@@ -206,9 +163,9 @@ bool vertex_intersection(const vector<Point>& polygon, Segment s, const int i) {
   const Point v0 = i == 0 ? polygon.back() : polygon[i - 1];
   const Point v2 = polygon[(i + 1) % polygon.size()];
 
-  const double edges_ang = angle(v1, v0, v2);
-  double p_ang = angle(v1, v0, s.p);
-  double q_ang = angle(v1, v0, s.q);
+  const d edges_ang = angle(v1, v0, v2);
+  d p_ang = angle(v1, v0, s.p);
+  d q_ang = angle(v1, v0, s.q);
 
   if (p_ang > q_ang) swap(p_ang, q_ang), swap(s.p, s.q);
 
@@ -216,46 +173,61 @@ bool vertex_intersection(const vector<Point>& polygon, Segment s, const int i) {
 }
 
 bool point_inside_polygon(const Point& p, const vector<Point>& polygon) {
-  const Segment ray{p, {-10000, 10000}};
+  const Segment ray1{p, {1e4, 1e4}};
+  const Segment ray2{p, {1e4, 1e4 + 1e-5}};
 
-  int intersections = 0;
+  int intersections1 = 0;
+  int intersections2 = 0;
 
   for (int i = 0; i < (int)polygon.size(); i++) {
     const Segment edge{polygon[i], polygon[(i + 1) % polygon.size()]};
-    intersections += edge.intersect(ray) || vertex_intersection(polygon, ray, i);
+
+    intersections1 += edge.intersect(ray1) || vertex_intersection(polygon, ray1, i);
+    intersections2 += edge.intersect(ray2) || vertex_intersection(polygon, ray2, i);
   }
 
-  return intersections % 2 == 1;
+  return intersections1 % 2 == 1 && intersections2 % 2 == 1;
 }
 
-array<Point, 1000> intermediate_points_return;
+pair<int, int> get_tile(const Point& p) { return {p.x / tile_x, p.y / tile_y}; }
+
+void mark_edge(const Point& p, const Point& q) {
+  const Point unit_dir = (q - p).normalize();
+
+  const Point mid_point = Segment{p, q}.scale(0.5).q + unit_dir.rot_ccw().scale(1e-6);
+  const auto [i, j] = get_tile(mid_point);
+
+  tiles[i][j] = true;
+}
+
+int dir(const d a, const d b, const d tile_size) {
+  if (a > b) return equal(fmod(a, tile_size), 0) ? -1 : 0;
+  return 1;
+}
 
 void mark_polygon_boundary(const vector<Point>& polygon) {
   for (int v = 0; v < (int)polygon.size(); v++) {
-    const Segment edge{polygon[v], polygon[(v + 1) % polygon.size()]};
+    Point p = polygon[v];
+    const Point q = polygon[(v + 1) % polygon.size()];
 
-    for (int i = 0; i < TILE_N; i++) {
-      for (int j = 0; j < TILE_N; j++) {
-        if (tiles[i][j]) continue;
-        const Tile t = Tile::at(i, j);
+    for (int it = 0; it < 18; it++) {
+      mark_edge(p, q);
+      const auto [i, j] = get_tile(p);
 
-        for (const Segment& tile_edge : t.edges()) {
-          if (tile_edge.intersect(edge)) {
-            tiles[i][j] = true;
-            break;
-          }
-        }
-      }
-    }
+      const Segment ver = Segment::vertical_line((i + dir(p.x, q.x, tile_x)) * tile_x);
+      const Segment hor = Segment::horizontal_line((j + dir(p.y, q.y, tile_y)) * tile_y);
 
-    const int inter = 11;
-    edge.intermediate_points(intermediate_points_return, inter);
+      auto [inter_v, point_ver] = ver.intersect_non_collinear({p, q});
+      auto [inter_h, point_hor] = hor.intersect_non_collinear({p, q});
 
-    for (int idx = 0; idx < inter - 1; idx++) {
-      const Point p = intermediate_points_return[idx];
-      const int i = p.x / tile_x;
-      const int j = p.y / tile_y;
-      tiles[i][j] = true;
+      if (!inter_v && !inter_h) break;
+
+      if (!inter_v) point_ver = {-1e4, -1e4};
+      if (!inter_h) point_hor = {-1e4, -1e4};
+
+      const Point next_p = point_hor.dist(p) < point_ver.dist(p) ? point_hor : point_ver;
+      mark_edge(p, next_p);
+      p = next_p;
     }
   }
 }
@@ -283,9 +255,7 @@ int main() {
 
     int ans = INT_MAX;
 
-    auto offsets = generate_offsets(polygon);
-
-    for (const Point& offset : offsets) {
+    for (const Point offset : generate_offsets(polygon)) {
       vector<Point> shifted_polygon = polygon;
       for (Point& p : shifted_polygon) p = p + offset;
 
@@ -296,7 +266,7 @@ int main() {
       for (int i = 0; i < TILE_N; i++) {
         for (int j = 0; j < TILE_N; j++) {
           if (tiles[i][j]) continue;
-          const Point p = Tile::at(i, j).p + Point{0.5, 0.5};
+          const Point p{i * tile_x + 0.5, j * tile_y + 0.5};
           tiles[i][j] = point_inside_polygon(p, shifted_polygon);
         }
       }
