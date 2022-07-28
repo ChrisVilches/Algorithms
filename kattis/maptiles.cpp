@@ -98,8 +98,8 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
     const Point vertex2 = polygon[(v + 1) % polygon.size()];
     const Point unit_dir = (vertex2 - vertex).normalize();
 
-    for (int i = 0; i < TILE_N; i++) {
-      for (int j = 0; j < TILE_N; j++) {
+    for (int i = 0; i < TILE_N / 2; i++) {
+      for (int j = 0; j < TILE_N / 2; j++) {
         const Point t{i * tile_x, j * tile_y};
 
         for (int w = 0; w < (int)polygon.size(); w++) {
