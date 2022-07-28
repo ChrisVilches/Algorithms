@@ -96,16 +96,16 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
   for (int v = 0; v < (int)polygon.size(); v++) {
     const Point vertex = polygon[v];
     const Point vertex2 = polygon[(v + 1) % polygon.size()];
-    const Point unit_dir = (vertex2 - vertex).normalize();
+    const Point dir = vertex2 - vertex;
 
-    for (int i = 0; i < TILE_N / 2; i++) {
-      for (int j = 0; j < TILE_N / 2; j++) {
+    for (int i = 0; i < TILE_N; i++) {
+      for (int j = 0; j < TILE_N; j++) {
         const Point t{i * tile_x, j * tile_y};
 
         for (int w = 0; w < (int)polygon.size(); w++) {
           const Segment edge{polygon[w] - vertex,
                              polygon[(w + 1) % polygon.size()] - vertex};
-          const Segment ray{t - unit_dir.scale(1e5), t + unit_dir.scale(1e5)};
+          const Segment ray{t, t + dir};
           const auto [intersect, point] = ray.intersect_non_collinear(edge);
 
           if (intersect) add(vertex + point - t);
@@ -115,9 +115,9 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
 
     for (Point vert : polygon) {
       vert = vert - vertex;
-      const Segment line{vert - unit_dir.scale(1e5), vert + unit_dir.scale(1e5)};
+      const Segment line{vert, vert + dir};
 
-      for (int i = 0; i < TILE_N / 2; i++) {
+      for (int i = 0; i < TILE_N; i++) {
         const auto [intersect1, point1] =
             line.intersect_non_collinear({{i * tile_x, -1e5}, {i * tile_x, 1e5}});
         if (intersect1) add(vertex + point1 - vert);
