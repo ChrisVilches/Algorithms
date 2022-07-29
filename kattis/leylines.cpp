@@ -1,48 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long double ld;
 
 struct Point {
-  ld x, y;
-  Point operator-(const Point& p) const { return Point{x - p.x, y - p.y}; }
-  Point rot_ccw(ld t) const {
-    return Point{x * cos(t) - y * sin(t), x * sin(t) + y * cos(t)};
+  double x, y;
+  Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
+  Point rot_ccw(double t) const {
+    return {x * cos(t) - y * sin(t), x * sin(t) + y * cos(t)};
   }
-  ld cross(const Point& p) const { return x * p.y - y * p.x; }
+  double cross(const Point& p) const { return x * p.y - y * p.x; }
   bool operator<(const Point& p) const {
     return is_above() != p.is_above() ? is_above() : cross(p) > 0;
   }
   bool is_above() const { return y > 0 || (y == 0 && x > 0); }
-  inline ld magnitude() const { return hypot(x, y); }
-  inline Point reflection() const { return Point{-x, -y}; }
+  double magnitude() const { return hypot(x, y); }
+  Point reflection() const { return {-x, -y}; }
 };
 
 int N;
-ld T;
-bool inside[3007];
+double T;
 
-int count(vector<Point>& points) {
+int count(const vector<Point>& points) {
   int curr = 0;
 
-  memset(inside, 0, sizeof inside);
   vector<pair<Point, int>> events;
 
-  for (int i = 0; i < (int)points.size(); i++) {
-    const Point& p = points[i];
+  for (const Point& p : points) {
+    curr += p.is_above() && p.y <= T;
 
-    if (p.is_above() && p.y <= T) {
-      inside[i] = true;
-      curr++;
-    }
-
-    events.push_back({p, i});
-    events.push_back({p.reflection(), i});
+    events.push_back({p, -1});
+    events.push_back({p.reflection(), 1});
 
     if (p.magnitude() >= T) {
-      ld angle = asin(T / p.magnitude());
+      const double angle = asin(T / p.magnitude());
 
-      events.push_back({p.rot_ccw(-angle), i});
-      events.push_back({p.rot_ccw(angle).reflection(), i});
+      events.push_back({p.rot_ccw(-angle), 1});
+      events.push_back({p.rot_ccw(angle).reflection(), -1});
     }
   }
 
@@ -50,10 +42,8 @@ int count(vector<Point>& points) {
 
   int ans = curr;
 
-  for (const auto& [_, idx] : events) {
-    curr += inside[idx] ? -1 : 1;
-    inside[idx] = !inside[idx];
-
+  for (const auto& [_, d] : events) {
+    curr += d;
     ans = max(ans, curr);
   }
 
@@ -64,7 +54,7 @@ int main() {
   while (cin >> N >> T) {
     vector<Point> points(N);
 
-    for (int i = 0; i < N; i++) cin >> points[i].x >> points[i].y;
+    for (Point& p : points) cin >> p.x >> p.y;
 
     T += 1e-8;
 
