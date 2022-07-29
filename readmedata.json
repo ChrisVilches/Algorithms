@@ -199,7 +199,8 @@
         "files": [
           "fence the vegetables fail",
           "inorout-inside or out",
-          "maptiles"
+          "maptiles",
+          "kattis/domes"
         ]
       },
       {
@@ -207,7 +208,8 @@
         "files": [
           "uva 137 polygons",
           "kattis/asteroids",
-          "kattis/puzzle2"
+          "kattis/puzzle2",
+          "kattis/domes"
         ]
       },
       {
