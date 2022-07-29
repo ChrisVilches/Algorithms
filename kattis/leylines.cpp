@@ -4,7 +4,7 @@ using namespace std;
 struct Point {
   double x, y;
   Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
-  Point rot_ccw(double t) const {
+  Point rot_ccw(const double t) const {
     return {x * cos(t) - y * sin(t), x * sin(t) + y * cos(t)};
   }
   double cross(const Point& p) const { return x * p.y - y * p.x; }
@@ -16,7 +16,6 @@ struct Point {
   Point reflection() const { return {-x, -y}; }
 };
 
-int N;
 double T;
 
 int count(const vector<Point>& points) {
@@ -51,6 +50,8 @@ int count(const vector<Point>& points) {
 }
 
 int main() {
+  int N;
+
   while (cin >> N >> T) {
     vector<Point> points(N);
 
