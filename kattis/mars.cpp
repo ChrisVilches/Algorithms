@@ -25,14 +25,14 @@ struct Task {
   bool running(const int clock) const { return start_time <= clock && !finished(); }
 };
 
+int T, R;
 bitset<21> running_tasks;
-array<int, 21> ans, priority_ceilings;
+array<int, 21> ans, priority_ceilings, resource_own;
 vector<Task> tasks;
-map<int, int> resource_own;
 map<int, set<int>> blocks;
 
-vector<Task> read_tasks(const int T) {
-  vector<Task> tasks;
+void read_tasks() {
+  tasks.clear();
 
   for (int i = 0; i < T; i++) {
     int s, b, a;
@@ -46,8 +46,6 @@ vector<Task> read_tasks(const int T) {
       ins.type = c == 'C' ? C : (c == 'L' ? L : U);
     }
   }
-
-  return tasks;
 }
 
 bool all_tasks_finished() {
@@ -66,37 +64,34 @@ void update_priorities(const int i) {
 }
 
 void set_blocked_tasks(const int clock) {
-  bitset<21> res;
-
+  running_tasks = 0;
   blocks.clear();
 
-  for (int i = 0; i < (int)tasks.size(); i++) {
+  for (int i = 0; i < T; i++) {
     Task& t = tasks[i];
 
     if (!t.running(clock)) continue;
-    res.set(i);
+    running_tasks.set(i);
 
     const auto [type, k] = t.current_instruction();
+    if (type != L) continue;
 
-    if (type == L) {
-      for (const auto [r, idx] : resource_own) {
-        if (idx == i) continue;
+    for (int r = 0; r <= R; r++) {
+      const int idx = resource_own[r];
+      if (idx == -1 || idx == i) continue;
 
-        if (k == r || priority_ceilings[r] >= t.current_priority) {
-          res.set(i, false);
-          blocks[idx].insert(i);
-        }
+      if (k == r || priority_ceilings[r] >= t.current_priority) {
+        running_tasks.set(i, false);
+        blocks[idx].insert(i);
       }
     }
   }
-
-  running_tasks = res;
 }
 
 int highest_current_priority_task_idx() {
   int highest = -1;
   int idx = -1;
-  for (int i = 0; i < (int)tasks.size(); i++) {
+  for (int i = 0; i < T; i++) {
     if (!running_tasks[i]) continue;
 
     if (highest < tasks[i].current_priority) {
@@ -108,7 +103,8 @@ int highest_current_priority_task_idx() {
   return idx;
 }
 
-void calculate_priority_ceilings() {
+void initialize_resources() {
+  fill(resource_own.begin(), resource_own.end(), -1);
   fill(priority_ceilings.begin(), priority_ceilings.end(), 0);
 
   for (const Task& t : tasks) {
@@ -121,21 +117,16 @@ void calculate_priority_ceilings() {
 }
 
 int main() {
-  int T, R;
-
   while (scanf("%d%d", &T, &R) == 2) {
-    tasks = read_tasks(T);
-
-    calculate_priority_ceilings();
+    read_tasks();
+    initialize_resources();
 
     int clock = 0;
-
-    resource_own.clear();
 
     while (!all_tasks_finished()) {
       set_blocked_tasks(clock);
 
-      for (int i = 0; i < (int)tasks.size(); i++) {
+      for (int i = 0; i < T; i++) {
         update_priorities(i);
       }
 
@@ -158,7 +149,7 @@ int main() {
           resource_own[ins.arg] = idx;
           break;
         case U:
-          resource_own.erase(ins.arg);
+          resource_own[ins.arg] = -1;
           break;
       }
 
