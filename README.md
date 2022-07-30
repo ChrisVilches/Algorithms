@@ -304,6 +304,7 @@ Binary Search
 
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
+* [kattis/rangers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rangers.cpp)
 * [kattis/speed.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speed.cpp)
 * [kattis/stringmultimatching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stringmultimatching.cpp)
 * [spoj/AGGRCOW-aggressive_cows.kt](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AGGRCOW-aggressive_cows.kt)
@@ -353,6 +354,7 @@ Union Find (+ Minimum Spanning Tree)
 
 * [kattis/cats.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cats.cpp)
 * [kattis/islandhopping.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/islandhopping.cpp)
+* [kattis/rangers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rangers.cpp)
 * [kattis/unionfind.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/unionfind.cpp)
 * [kattis/wheresmyinternet.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/wheresmyinternet.cpp)
 * [spoj/ANTTT-the_ant.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ANTTT-the_ant.cpp)

@@ -393,7 +393,8 @@
           "blood groups",
           "stringmultimatching",
           "keylogger",
-          "kattis/speed.cpp"
+          "kattis/speed.cpp",
+          "kattis/rangers"
         ]
       },
       {
@@ -448,7 +449,8 @@
           "unionfind",
           "islandhopping",
           "fix the maze",
-          "ANTTT-the ant"
+          "ANTTT-the ant",
+          "kattis/rangers"
         ]
       },
       {
