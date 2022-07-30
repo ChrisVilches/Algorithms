@@ -67,8 +67,10 @@ void update_priorities(const int u) {
   int p = tasks[u].base_priority;
 
   for (const int v : blocks[u]) {
-    update_priorities(v);
     p = max(p, tasks[v].current_priority);
+    // update_priorities(v);
+    // TODO: Why does it work without the recursive call?
+    //       In that case, simplify the code so that it doesn't include that part.
   }
 
   tasks[u].current_priority = p;
