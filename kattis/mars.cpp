@@ -26,7 +26,7 @@ struct Task {
 };
 
 bitset<21> running_tasks;
-array<int, 21> priority_ceilings;
+array<int, 21> ans, priority_ceilings;
 vector<Task> tasks;
 map<int, int> resource_own;
 map<int, set<int>> blocks;
@@ -36,20 +36,14 @@ vector<Task> read_tasks(const int T) {
 
   for (int i = 0; i < T; i++) {
     int s, b, a;
-    cin >> s >> b >> a;
+    scanf("%d%d%d", &s, &b, &a);
+
     tasks.emplace_back(s, b, a);
 
-    for (pii& instruction : tasks[i].instructions) {
-      string ins;
-      cin >> ins;
-      const char type = ins.front();
-
-      instruction.type = type == 'C' ? C : (type == 'L' ? L : U);
-
-      ins[0] = ' ';
-
-      stringstream ss(ins);
-      ss >> instruction.arg;
+    for (pii& ins : tasks[i].instructions) {
+      char c;
+      scanf(" %c%d", &c, &ins.arg);
+      ins.type = c == 'C' ? C : (c == 'L' ? L : U);
     }
   }
 
@@ -129,9 +123,8 @@ void calculate_priority_ceilings() {
 int main() {
   int T, R;
 
-  while (cin >> T >> R) {
+  while (scanf("%d%d", &T, &R) == 2) {
     tasks = read_tasks(T);
-    vector<int> ans(T);
 
     calculate_priority_ceilings();
 
@@ -176,8 +169,8 @@ int main() {
       }
     }
 
-    for (const int a : ans) {
-      cout << a << '\n';
+    for (int i = 0; i < T; i++) {
+      printf("%d\n", ans[i]);
     }
   }
 }
