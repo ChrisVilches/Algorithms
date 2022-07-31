@@ -133,7 +133,8 @@
           "directingrainfall",
           "kattis/visual",
           "ada and rain ii",
-          "antimatterrain"
+          "antimatterrain",
+          "kattis/polygon.cpp"
         ]
       },
       {
@@ -218,6 +219,12 @@
         "title": "Rectangle-Rectangle intersection",
         "files": [
           "kattis/visual"
+        ]
+      },
+      {
+        "title": "Simple Polygon Detection",
+        "files": [
+          "kattis/polygon.cpp"
         ]
       },
       {

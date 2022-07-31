@@ -105,6 +105,7 @@ Sweep Line
 * [codechef/TOWCNT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/TOWCNT.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [kattis/directingrainfall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/directingrainfall.cpp)
+* [kattis/polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygon.cpp)
 * [kattis/visual.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/visual.cpp)
 * [spoj/ADARAINB-ada_and_rain_ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ADARAINB-ada_and_rain_ii.cpp)
 * [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
@@ -177,6 +178,10 @@ Polygon Intersection
 Rectangle-Rectangle Intersection
 
 * [kattis/visual.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/visual.cpp)
+
+Simple Polygon Detection
+
+* [kattis/polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygon.cpp)
 
 Misc
 

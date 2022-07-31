@@ -4,4 +4,6 @@ data*
 a.out
 *_in
 *_out
+*.in
+*.out
 .bin-tmp
