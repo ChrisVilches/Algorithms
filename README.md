@@ -33,6 +33,7 @@ KMP
 
 Segment Tree
 
+* [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [kattis/supercomputer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/supercomputer.cpp)
 * [spoj/FREQUENT-frequent_values.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/FREQUENT-frequent_values.cpp)
 * [spoj/HORRIBLE-horrible_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries.cpp)
@@ -102,6 +103,7 @@ Convex Hull
 Sweep Line
 
 * [codechef/TOWCNT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/TOWCNT.cpp)
+* [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [kattis/directingrainfall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/directingrainfall.cpp)
 * [kattis/visual.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/visual.cpp)
 * [spoj/ADARAINB-ada_and_rain_ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ADARAINB-ada_and_rain_ii.cpp)
@@ -385,6 +387,7 @@ Lowest Common Ancestor
 
 Coordinate (or Arrays in General) Compression
 
+* [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)
 
