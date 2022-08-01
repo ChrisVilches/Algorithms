@@ -9,32 +9,27 @@ ll mult(const ll a, const ll b) { return mod(mod(a) * mod(b)); }
 void add(ll& a, const ll b) { a = mod(mod(a) + mod(b)); }
 
 ll tree[4 * 100007];
-ll lazy[4][4 * 100007];
-
-// TODO: Which one is better? (cache performance)
-// [4][100007]
-// [100007][4]
-// (It depends on the way I iterate the values.)
-ll psum[4][100007];
+ll lazy[4 * 100007][4];
+ll psum[100007][4];
 
 ll psum_range_sum(const int c, const int l, const int r) {
-  return mod(psum[c][r + 1] - psum[c][l]);
+  return mod(psum[r + 1][c] - psum[l][c]);
 }
 
 void propagate_one_level(int node, int a, int b) {
-  if (!lazy[0][node] && !lazy[1][node] && !lazy[2][node] && !lazy[3][node]) return;
+  if (!lazy[node][0] && !lazy[node][1] && !lazy[node][2] && !lazy[node][3]) return;
 
   for (int c = 0; c < 4; c++)
-    add(tree[node], mult(psum_range_sum(c, a, b), lazy[c][node]));
+    add(tree[node], mult(psum_range_sum(c, a, b), lazy[node][c]));
 
   if (a != b) {
     for (int c = 0; c < 4; c++) {
-      add(lazy[c][node * 2], lazy[c][node]);
-      add(lazy[c][node * 2 + 1], lazy[c][node]);
+      add(lazy[node * 2][c], lazy[node][c]);
+      add(lazy[node * 2 + 1][c], lazy[node][c]);
     }
   }
 
-  for (int c = 0; c < 4; c++) lazy[c][node] = 0;
+  for (int c = 0; c < 4; c++) lazy[node][c] = 0;
 }
 
 void update_tree(int node, int a, int b, int i, int j, array<ll, 4> coefficients) {
@@ -48,8 +43,8 @@ void update_tree(int node, int a, int b, int i, int j, array<ll, 4> coefficients
 
     if (a != b) {
       for (int c = 0; c < 4; c++) {
-        add(lazy[c][node * 2], coefficients[c]);
-        add(lazy[c][node * 2 + 1], coefficients[c]);
+        add(lazy[node * 2][c], coefficients[c]);
+        add(lazy[node * 2 + 1][c], coefficients[c]);
       }
     }
     return;
@@ -97,15 +92,13 @@ int main() {
   int N, Q;
 
   cin >> N >> Q;
-  for (int c = 0; c < 4; c++) {
-    psum[c][0] = 0;
 
-    for (int i = 0; i < N; i++) {
-      psum[c][i + 1] = mod(psum[c][i] + pow(i, c));
+  for (int i = 0; i < N; i++) {
+    for (int c = 0; c < 4; c++) {
+      psum[0][c] = 0;
+      psum[i + 1][c] = mod(psum[i][c] + pow(i, c));
     }
   }
-
-  vector<ll> nums(N, 0);
 
   while (Q--) {
     int type, x, y;

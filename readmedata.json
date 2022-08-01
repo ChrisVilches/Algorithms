@@ -62,7 +62,8 @@
         "files": [
           "horrible queries cpp",
           "man elephant and mouse",
-          "queryonarray"
+          "queryonarray",
+          "cses/polynomial_queries.cpp"
         ]
       },
       {
@@ -480,7 +481,8 @@
           "route change",
           "new year and cake",
           "RANGESUM-range_sum.cpp",
-          "queryonarray"
+          "queryonarray",
+          "cses/polynomial_queries.cpp"
         ]
       },
       {
