@@ -61,7 +61,8 @@
         "title": "Segment tree + Lazy propagation",
         "files": [
           "horrible queries cpp",
-          "man elephant and mouse"
+          "man elephant and mouse",
+          "queryonarray"
         ]
       },
       {
@@ -478,7 +479,8 @@
           "keylogger",
           "route change",
           "new year and cake",
-          "RANGESUM-range_sum.cpp"
+          "RANGESUM-range_sum.cpp",
+          "queryonarray"
         ]
       },
       {

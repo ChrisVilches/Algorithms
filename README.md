@@ -50,6 +50,7 @@ Segment Tree
 
 Segment Tree + Lazy Propagation
 
+* [kattis/queryonarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/queryonarray.cpp)
 * [spoj/HORRIBLE-horrible_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries.cpp)
 * [urionlinejudge/1477-man_elephant_and_mouse.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1477-man_elephant_and_mouse.cpp)
 
@@ -380,6 +381,7 @@ Prefix Sum
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [codeforces/new_year_and_cake.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/new_year_and_cake.cpp)
 * [kattis/centsavings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/centsavings.cpp)
+* [kattis/queryonarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/queryonarray.cpp)
 * [spoj/CSUMQ-cumulative_sum_query.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CSUMQ-cumulative_sum_query.cpp)
 * [spoj/RANGESUM-range_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RANGESUM-range_sum.cpp)
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
