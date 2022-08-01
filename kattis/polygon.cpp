@@ -139,6 +139,8 @@ bool is_simple(const vector<Point>& polygon) {
 }
 
 int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
   // TODO: Test the segment intersection (fix the implementation).
   // For now it works OK but maybe there are some cases that fail, and that's why
   // the sweep line doesn't work 100% fine.
