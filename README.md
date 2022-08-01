@@ -381,6 +381,7 @@ Prefix Sum
 * [codeforces/new_year_and_cake.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/new_year_and_cake.cpp)
 * [kattis/centsavings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/centsavings.cpp)
 * [spoj/CSUMQ-cumulative_sum_query.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CSUMQ-cumulative_sum_query.cpp)
+* [spoj/RANGESUM-range_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RANGESUM-range_sum.cpp)
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
 * [uva/10324-zeros_and_ones.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/10324-zeros_and_ones.cpp)
 * [uva/11833-route_change.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11833-route_change.cpp)
