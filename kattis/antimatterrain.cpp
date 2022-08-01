@@ -5,75 +5,70 @@ typedef tuple<int, int, int> tiii;
 struct Segtree {
  private:
   vector<int> tree;
-  int n;
-  inline int left(int p) { return p << 1; }
-  inline int right(int p) { return (p << 1) + 1; }
+  const int n;
 
   int min_query(int p, int L, int R, int i, int j) {
-    if (i > R || j < L) return INT_MAX;
-    if (L >= i && R <= j) return tree[p];
-    return min(min_query(left(p), L, (L + R) / 2, i, j),
-               min_query(right(p), (L + R) / 2 + 1, R, i, j));
+    if (R < i || j < L) return INT_MAX;
+    if (i <= L && R <= j) return tree[p];
+    return min(min_query(2 * p, L, (L + R) / 2, i, j),
+               min_query(2 * p + 1, (L + R) / 2 + 1, R, i, j));
   }
 
   void update(int p, int L, int R, int pos, int new_val) {
     if (L == R) {
       tree[p] = new_val;
     } else {
-      int m = (L + R) / 2;
+      const int m = (L + R) / 2;
       if (pos <= m)
-        update(left(p), L, m, pos, new_val);
+        update(2 * p, L, m, pos, new_val);
       else
-        update(right(p), m + 1, R, pos, new_val);
-      tree[p] = min(tree[left(p)], tree[right(p)]);
+        update(2 * p + 1, m + 1, R, pos, new_val);
+      tree[p] = min(tree[2 * p], tree[2 * p + 1]);
     }
   }
 
  public:
-  Segtree(int n) : n(n) { tree.assign(4 * n, 0); }
+  Segtree(int n, int init = 0) : tree(vector<int>(4 * n, init)), n(n) {}
   int min_query(int i, int j) { return min_query(1, 0, n - 1, i, j); }
   void update(int pos, int val) { return update(1, 0, n - 1, pos, val); }
 };
 
 struct Point {
   int x, y;
-  bool operator<(const Point& p) const { return y < p.y; }
+  bool operator<(const Point& p) const { return y < p.y || (y == p.y && x < p.x); }
 };
 
 int compress(vector<tiii>& sensors, vector<Point>& droplets) {
-  vector<tuple<int, bool, bool, int>> all_x;
+  vector<tiii> all_x;
 
   for (int i = 0; i < (int)droplets.size(); i++) {
-    all_x.emplace_back(droplets[i].x, false, false, i);
+    all_x.emplace_back(droplets[i].x, 1, i);
   }
 
   for (int i = 0; i < (int)sensors.size(); i++) {
-    const auto [y, x1, x2] = sensors[i];
-    all_x.emplace_back(x1, true, true, i);
-    all_x.emplace_back(x2, true, false, i);
+    const auto [_, x1, x2] = sensors[i];
+    all_x.emplace_back(x1, 0, i);
+    all_x.emplace_back(x2, 2, i);
   }
 
   sort(all_x.begin(), all_x.end());
 
   int curr_x = 0;
-  int original_x = get<0>(all_x.front());
 
-  for (const auto& [x, sensor, first_endpoint, idx] : all_x) {
-    if (x != original_x) {
-      curr_x++;
-      original_x = x;
+  for (const auto& [x, type, idx] : all_x) {
+    switch (type) {
+      case 0:
+        get<1>(sensors[idx]) = curr_x;
+        break;
+      case 1:
+        droplets[idx].x = curr_x;
+        break;
+      case 2:
+        get<2>(sensors[idx]) = curr_x;
+        break;
     }
 
-    if (!sensor) {
-      droplets[idx].x = curr_x;
-      continue;
-    }
-
-    if (first_endpoint) {
-      get<1>(sensors[idx]) = curr_x;
-    } else {
-      get<2>(sensors[idx]) = curr_x;
-    }
+    curr_x++;
   }
 
   return curr_x;
@@ -86,41 +81,32 @@ int main() {
   int D, S;
 
   while (cin >> D >> S) {
-    map<pair<int, int>, int> ans;
-
     vector<tiii> sensors(S);
-    vector<Point> original_droplets(D);
+    vector<Point> droplets(D);
+    map<Point, int> point_idx;
+    vector<int> ans(D, 0);
+    unordered_map<int, set<int>> y_points;
 
-    for (Point& d : original_droplets) cin >> d.x >> d.y;
+    for (Point& d : droplets) cin >> d.x >> d.y;
+    for (tiii& s : sensors) cin >> get<1>(s) >> get<2>(s) >> get<0>(s);
 
-    for (tiii& s : sensors) {
-      int x1, x2, y;
-      cin >> x1 >> x2 >> y;
-      s = {y, x1, x2};
+    const int max_x = compress(sensors, droplets) + 1;
+    Segtree segtree(max_x, INT_MAX);
+
+    for (int i = 0; i < D; i++) {
+      point_idx[droplets[i]] = i;
+      y_points[droplets[i].y].insert(droplets[i].x);
     }
 
-    const int max_x = compress(sensors, original_droplets) + 1;
-
-    priority_queue<Point> droplets{original_droplets.begin(), original_droplets.end()};
-
+    sort(droplets.rbegin(), droplets.rend());
     sort(sensors.rbegin(), sensors.rend());
 
-    Segtree segtree(max_x);
-
-    for (int i = 0; i < max_x; i++) {
-      segtree.update(i, INT_MAX);
-    }
-
-    map<int, set<int>> y_points;
-    map<int, stack<int>> x_values;
+    auto droplet_it = droplets.begin();
 
     for (const auto& [y, x1, x2] : sensors) {
-      while (!droplets.empty() && droplets.top().y >= y) {
-        const Point d = droplets.top();
-        y_points[d.y].insert(d.x);
-        segtree.update(d.x, d.y);
-        x_values[d.x].push(d.y);
-        droplets.pop();
+      while (droplet_it != droplets.end() && droplet_it->y >= y) {
+        segtree.update(droplet_it->x, droplet_it->y);
+        ++droplet_it;
       }
 
       const int min_y = segtree.min_query(x1, x2);
@@ -135,19 +121,15 @@ int main() {
         const int x = *it;
         if (x2 < x) break;
 
-        x_values[x].pop();
+        ans[point_idx[{x, min_y}]] = y;
 
-        const int new_value = x_values[x].empty() ? INT_MAX : x_values[x].top();
-
-        segtree.update(x, new_value);
-
-        ans[{x, min_y}] = y;
+        segtree.update(x, INT_MAX);
         points.erase(it);
       }
     }
 
-    for (const Point& d : original_droplets) {
-      cout << ans[{d.x, d.y}] << '\n';
+    for (const int a : ans) {
+      cout << a << '\n';
     }
   }
 }
