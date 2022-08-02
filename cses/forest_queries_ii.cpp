@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX_N = 50'007;
-
 template <typename T>
 class SegmentTree2D {
   int H, W;
