@@ -1,10 +1,7 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-const int SIZE = 200007;
-int heights[SIZE];
-int N, M;
+#define MAX_N 200007
 
 struct Segtree {
  private:
@@ -51,8 +48,7 @@ struct Segtree {
       if (tree[v] <= x) return -1;
       while (lv != rv) {
         int mid = (lv + rv) / 2;
-        if ((to_right && tree[left(v)] > x) ||
-            (!to_right && tree[right(v)] <= x)) {
+        if ((to_right && tree[left(v)] > x) || (!to_right && tree[right(v)] <= x)) {
           v = left(v);
           rv = mid;
         } else {
@@ -83,17 +79,19 @@ struct Segtree {
   }
 
   int first_greater(int i, int j, int higher_than) {
-    return first_greater(1, 0, N - 1, i, j, higher_than, true);
+    return first_greater(1, 0, n - 1, i, j, higher_than, true);
   }
 
   int first_greater_reverse(int i, int j, int higher_than) {
-    return first_greater(1, 0, N - 1, i, j, higher_than, false);
+    return first_greater(1, 0, n - 1, i, j, higher_than, false);
   }
   int max_query(int i, int j) { return max_query(1, 0, n - 1, i, j); }
   void update(int pos, int val) { return update(1, 0, n - 1, pos, val); }
 };
 
 Segtree st;
+int heights[MAX_N];
+int N, M;
 
 int query_jump(int from, bool to_right) {
   int first_taller_than_max = -1;
