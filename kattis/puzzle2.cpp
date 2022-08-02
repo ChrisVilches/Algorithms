@@ -182,8 +182,8 @@ inline bool range_contains(double a, double b, const double x) {
   return a <= x + EPS && x - EPS <= b;
 }
 
-double heuristic_optimal_shift(vector<Point> polygon1, const vector<Point>& polygon2,
-                               const double base1, const double base2) {
+double optimal_shift(vector<Point> polygon1, const vector<Point>& polygon2,
+                     const double base1, const double base2) {
   const double max_shift = base1 + base2;
   vector<double> shifts{base1, base2};
 
@@ -267,8 +267,7 @@ int main() {
       const double base1 = rotations1[i][i].dist(vertex_at(rotations1[i], i - 1));
 
       for (int j = 0; j < (int)rotations2.size(); j++) {
-        ans = max(ans,
-                  heuristic_optimal_shift(rotations1[i], rotations2[j], base1, base2[j]));
+        ans = max(ans, optimal_shift(rotations1[i], rotations2[j], base1, base2[j]));
       }
     }
 
