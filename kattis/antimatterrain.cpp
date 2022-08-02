@@ -90,8 +90,8 @@ int main() {
     for (Point& d : droplets) cin >> d.x >> d.y;
     for (tiii& s : sensors) cin >> get<1>(s) >> get<2>(s) >> get<0>(s);
 
-    const int max_x = compress(sensors, droplets) + 1;
-    Segtree segtree(max_x, INT_MAX);
+    const int tree_size = compress(sensors, droplets) + 1;
+    Segtree segtree(tree_size, INT_MAX);
 
     for (int i = 0; i < D; i++) {
       point_idx[droplets[i]] = i;
