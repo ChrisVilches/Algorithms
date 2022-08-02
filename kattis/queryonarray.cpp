@@ -35,7 +35,7 @@ void propagate_one_level(int node, int a, int b) {
 void update_tree(int node, int a, int b, int i, int j, array<ll, 4> coefficients) {
   propagate_one_level(node, a, b);
 
-  if (a > b || a > j || b < i) return;
+  if (a > j || b < i) return;
 
   if (i <= a && b <= j) {
     for (int c = 0; c < 4; c++)
