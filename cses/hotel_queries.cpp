@@ -38,7 +38,7 @@ struct Segtree {
 
   void update(int pos, int val) { return update(1, 0, n - 1, pos, val); }
 
-  int first_greater(int val) {
+  int first_equal_or_greater(int val) {
     int p = 1;
     int l = 0, r = n - 1;
 
@@ -70,7 +70,7 @@ int main() {
   Segtree segtree(free_rooms, N);
 
   for (int i = 0; i < M; i++) {
-    const int idx = segtree.first_greater(required[i]);
+    const int idx = segtree.first_equal_or_greater(required[i]);
 
     cout << idx + 1 << ' ';
 
