@@ -54,7 +54,8 @@
           "dangerous trail",
           "fundraising",
           "interval product",
-          "antimatterrain"
+          "antimatterrain",
+          "hotel queries"
         ]
       },
       {
@@ -63,7 +64,8 @@
           "horrible queries cpp",
           "man elephant and mouse",
           "queryonarray",
-          "cses/polynomial_queries.cpp"
+          "cses/polynomial_queries.cpp",
+          "range updates and sums"
         ]
       },
       {
@@ -82,7 +84,8 @@
       {
         "title": "2D Segment Tree",
         "files": [
-          "ramsays counterattack"
+          "ramsays counterattack",
+          "forest queries ii"
         ]
       }
     ]
@@ -157,7 +160,7 @@
         "files": [
           "cornering at poles cpp",
           "build the perfect house",
-          "forest",
+          "urionlinejudge/1646-forest",
           "fruitslicer",
           "blmirina archery training"
         ]
@@ -304,7 +307,6 @@
       {
         "title": "Topological sort",
         "files": [
-          "november rain",
           "pickupsticks"
         ]
       },
@@ -396,7 +398,7 @@
           "towers for mobile telephony",
           "splitting the coke",
           "keep it energized",
-          "forest",
+          "urionlinejudge/1646-forest.cpp",
           "lasers",
           "gluing pictures cpp",
           "busqueda binaria cpp",
@@ -434,7 +436,8 @@
           "bst operations i",
           "binary search tree",
           "disjoint water supply",
-          "chain reactions"
+          "chain reactions",
+          "longest path in a tree"
         ]
       },
       {

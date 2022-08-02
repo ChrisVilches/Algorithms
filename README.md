@@ -33,6 +33,7 @@ KMP
 
 Segment Tree
 
+* [cses/hotel_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/hotel_queries.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [kattis/supercomputer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/supercomputer.cpp)
 * [spoj/FREQUENT-frequent_values.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/FREQUENT-frequent_values.cpp)
@@ -51,6 +52,7 @@ Segment Tree
 Segment Tree + Lazy Propagation
 
 * [cses/polynomial_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/polynomial_queries.cpp)
+* [cses/range_updates_and_sums.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/range_updates_and_sums.cpp)
 * [kattis/queryonarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/queryonarray.cpp)
 * [spoj/HORRIBLE-horrible_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries.cpp)
 * [urionlinejudge/1477-man_elephant_and_mouse.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1477-man_elephant_and_mouse.cpp)
@@ -68,6 +70,7 @@ BIT (Fenwick Tree)
 
 2D Segment Tree
 
+* [cses/forest_queries_ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/forest_queries_ii.cpp)
 * [urionlinejudge/1863-ramsays_counterattack.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1863-ramsays_counterattack.cpp)
 
 ### Geometry
@@ -247,7 +250,6 @@ Bellman-Ford
 Topological Sort
 
 * [kattis/pickupsticks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pickupsticks.cpp)
-* [spoj/RAIN1-november_rain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RAIN1-november_rain.cpp)
 
 Minimum Dominating Set
 
@@ -346,6 +348,7 @@ Tree Problems
 * [kattis/ceiling.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/ceiling.cpp)
 * [kattis/kitten.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/kitten.cpp)
 * [spoj/PT07Y-is_it_a_tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PT07Y-is_it_a_tree.cpp)
+* [spoj/PT07Z-longest_path_in_a_tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PT07Z-longest_path_in_a_tree.cpp)
 * [spoj/THREECOL-threecoloring_of_binary_trees.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/THREECOL-threecoloring_of_binary_trees.cpp)
 * [urionlinejudge/1135-ants_colony.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1135-ants_colony.cpp)
 * [urionlinejudge/1195-binary_search_tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1195-binary_search_tree.cpp)
