@@ -28,27 +28,26 @@ void propagate_one_level(int node, int a, int b) {
   lazy[node][1] = 0;
 }
 
-void update_tree(int node, int a, int b, int i, int j, ll X, ll Y) {
+void update_tree(int node, int a, int b, int i, int j) {
   propagate_one_level(node, a, b);
-
   if (a > j || b < i) return;
 
   if (i <= a && b <= j) {
-    tree[node] += psum_range_sum(a, b) * X;
-    tree[node] += (b - a + 1) * Y;
+    tree[node] += psum_range_sum(a, b);
+    tree[node] += (b - a + 1) * (1LL - i);
 
     if (a != b) {
-      lazy[node * 2][0] += X;
-      lazy[node * 2][1] += Y;
+      lazy[node * 2][0]++;
+      lazy[node * 2][1] += (1LL - i);
 
-      lazy[node * 2 + 1][0] += X;
-      lazy[node * 2 + 1][1] += Y;
+      lazy[node * 2 + 1][0]++;
+      lazy[node * 2 + 1][1] += (1LL - i);
     }
     return;
   }
 
-  update_tree(node * 2, a, (a + b) / 2, i, j, X, Y);
-  update_tree(1 + node * 2, 1 + (a + b) / 2, b, i, j, X, Y);
+  update_tree(node * 2, a, (a + b) / 2, i, j);
+  update_tree(1 + node * 2, 1 + (a + b) / 2, b, i, j);
 
   tree[node] = tree[node * 2] + tree[node * 2 + 1];
 }
@@ -98,7 +97,7 @@ int main() {
 
     switch (type) {
       case 1:
-        update_tree(1, 0, N - 1, x, y, 1, -x + 1);
+        update_tree(1, 0, N - 1, x, y);
         break;
       case 2:
         cout << range_sum(1, 0, N - 1, x, y) << '\n';
