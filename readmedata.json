@@ -55,7 +55,8 @@
           "fundraising",
           "interval product",
           "antimatterrain",
-          "hotel queries"
+          "hotel queries",
+          "cut inequality down online"
         ]
       },
       {
@@ -454,7 +455,7 @@
       {
         "title": "Union find (+ Minimum spanning tree)",
         "files": [
-          "cut inequality down",
+          "cut inequality down.cpp",
           "cats",
           "1468 balloon",
           "dark roads",
@@ -470,7 +471,8 @@
       {
         "title": "Sparse Table",
         "files": [
-          "go up the ultras sparse table"
+          "go up the ultras sparse table",
+          "cut inequality down online"
         ]
       },
       {

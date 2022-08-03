@@ -46,6 +46,7 @@ Segment Tree
 * [urionlinejudge/2531-shopping_in_fdi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2531-shopping_in_fdi.cpp)
 * [urionlinejudge/2655-dangerous_trail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2655-dangerous_trail.cpp)
 * [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)
+* [urionlinejudge/3014-cut_inequality_down_online.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3014-cut_inequality_down_online.cpp)
 * [urionlinejudge/3021-jumping_grasshopper.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3021-jumping_grasshopper.cpp)
 * [uva/12532-interval_product.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12532-interval_product.cpp)
 
@@ -379,6 +380,7 @@ Union Find (+ Minimum Spanning Tree)
 Sparse Table
 
 * [urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp)
+* [urionlinejudge/3014-cut_inequality_down_online.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3014-cut_inequality_down_online.cpp)
 
 Prefix Sum
 
