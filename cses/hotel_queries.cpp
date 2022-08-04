@@ -40,9 +40,10 @@ struct Segtree {
 
   int first_equal_or_greater(int val) {
     int p = 1;
+    if (tree[p] < val) return -1;
     int l = 0, r = n - 1;
 
-    while (l != r && tree[p] >= val) {
+    while (l != r) {
       const int m = (l + r) / 2;
       if (tree[2 * p] >= val)
         r = m, p = 2 * p;
@@ -50,7 +51,7 @@ struct Segtree {
         l = m + 1, p = 2 * p + 1;
     }
 
-    return tree[p] >= val ? l : -1;
+    return l;
   }
 };
 
