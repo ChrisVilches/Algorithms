@@ -11,18 +11,21 @@ ll sequence[MAX_N];
 
 ll psum_range_sum(const int l, const int r) { return psum[r + 1] - psum[l]; }
 
+void update_aux(int a, int b, int node, ll A, ll B) {
+  tree[node] += psum_range_sum(a, b) * A;
+  tree[node] += (b - a + 1) * B;
+
+  if (a == b) return;
+
+  for (int i = 0; i < 2; i++) {
+    lazy[node * 2 + i][0] += A;
+    lazy[node * 2 + i][1] += B;
+  }
+}
+
 void propagate_one_level(int node, int a, int b) {
   if (!lazy[node][0] && !lazy[node][1]) return;
-
-  tree[node] += psum_range_sum(a, b) * lazy[node][0];
-  tree[node] += (b - a + 1) * lazy[node][1];
-
-  if (a != b) {
-    for (int i = 0; i < 2; i++) {
-      lazy[node * 2][i] += lazy[node][i];
-      lazy[node * 2 + 1][i] += lazy[node][i];
-    }
-  }
+  update_aux(a, b, node, lazy[node][0], lazy[node][1]);
 
   lazy[node][0] = 0;
   lazy[node][1] = 0;
@@ -30,19 +33,11 @@ void propagate_one_level(int node, int a, int b) {
 
 void update_tree(int node, int a, int b, int i, int j) {
   propagate_one_level(node, a, b);
+
   if (a > j || b < i) return;
 
   if (i <= a && b <= j) {
-    tree[node] += psum_range_sum(a, b);
-    tree[node] += (b - a + 1) * (1LL - i);
-
-    if (a != b) {
-      lazy[node * 2][0]++;
-      lazy[node * 2][1] += (1LL - i);
-
-      lazy[node * 2 + 1][0]++;
-      lazy[node * 2 + 1][1] += (1LL - i);
-    }
+    update_aux(a, b, node, 1, 1LL - i);
     return;
   }
 

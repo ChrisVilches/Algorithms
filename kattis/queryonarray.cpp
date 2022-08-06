@@ -5,7 +5,6 @@ typedef long long ll;
 const ll MOD = 1e9 + 7;
 
 ll mod(ll n) { return (n < 0 ? n + MOD : n) % MOD; }
-ll mult(const ll a, const ll b) { return mod(mod(a) * mod(b)); }
 void add(ll& a, const ll b) { a = mod(mod(a) + mod(b)); }
 
 ll tree[4 * 100007];
@@ -16,20 +15,22 @@ ll psum_range_sum(const int c, const int l, const int r) {
   return mod(psum[r + 1][c] - psum[l][c]);
 }
 
+void update_aux(int a, int b, int node, ll coefficients[]) {
+  for (int c = 0; c < 4; c++) add(tree[node], psum_range_sum(c, a, b) * coefficients[c]);
+
+  if (a == b) return;
+
+  for (int c = 0; c < 4; c++) {
+    add(lazy[node * 2][c], coefficients[c]);
+    add(lazy[node * 2 + 1][c], coefficients[c]);
+  }
+}
+
 void propagate_one_level(int node, int a, int b) {
   if (!lazy[node][0] && !lazy[node][1] && !lazy[node][2] && !lazy[node][3]) return;
 
-  for (int c = 0; c < 4; c++)
-    add(tree[node], mult(psum_range_sum(c, a, b), lazy[node][c]));
-
-  if (a != b) {
-    for (int c = 0; c < 4; c++) {
-      add(lazy[node * 2][c], lazy[node][c]);
-      add(lazy[node * 2 + 1][c], lazy[node][c]);
-    }
-  }
-
-  for (int c = 0; c < 4; c++) lazy[node][c] = 0;
+  update_aux(a, b, node, lazy[node]);
+  memset(lazy[node], 0, sizeof lazy[node]);
 }
 
 void update_tree(int node, int a, int b, int i, int j, array<ll, 4> coefficients) {
@@ -38,15 +39,7 @@ void update_tree(int node, int a, int b, int i, int j, array<ll, 4> coefficients
   if (a > j || b < i) return;
 
   if (i <= a && b <= j) {
-    for (int c = 0; c < 4; c++)
-      add(tree[node], mult(psum_range_sum(c, a, b), coefficients[c]));
-
-    if (a != b) {
-      for (int c = 0; c < 4; c++) {
-        add(lazy[node * 2][c], coefficients[c]);
-        add(lazy[node * 2 + 1][c], coefficients[c]);
-      }
-    }
+    update_aux(a, b, node, coefficients.begin());
     return;
   }
 
