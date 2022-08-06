@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 typedef long long ll;
 
-int nums[(int)1e5], ans[(int)1e5];
+int deltas[100007];
+int ans[100007];
 
 struct DisjointSets {
-  DisjointSets(int n) {
-    for (int i = 0; i < n; i++) parent.push_back(i);
-  }
+  DisjointSets(int n) : parent(vector<int>(n)) { iota(parent.begin(), parent.end(), 0); }
 
   int find(int u) {
     if (u != parent[u]) parent[u] = find(parent[u]);
@@ -23,22 +21,21 @@ struct DisjointSets {
 };
 
 struct Query {
-  const int idx, x;
+  const int idx;
   ll offset;
-  Query(int idx, int x) : idx(idx), x(x) {}
-  int get_value(ll global_sum) const { return (int)(offset + global_sum); }
+  Query(int idx, ll offset) : idx(idx), offset(offset) {}
+  int get_value(ll global_sum) const { return offset + global_sum; }
   bool operator<(const Query& q) const {
-    if (offset != q.offset) return offset < q.offset;
-    return idx < q.idx;
+    return offset < q.offset || (offset == q.offset && idx < q.idx);
   }
 };
 
-int N;
+int N, Q;
 
 void solve() {
-  int L, U, Q;
+  ll L, U;
   cin >> L >> U;
-  for (int i = 0; i < N; i++) scanf("%d", &nums[i]);
+  for (int i = 0; i < N; i++) cin >> deltas[i];
 
   cin >> Q;
 
@@ -48,12 +45,12 @@ void solve() {
 
   for (int i = 0; i < Q; i++) {
     int start, end, x;
-    scanf("%d %d %d", &start, &end, &x);
+    cin >> start >> end >> x;
     start--;
     end--;
-    queries.push_back(Query(i, x));
-    start_times.emplace(make_pair(start, i));
-    end_times.emplace(make_pair(end, i));
+    queries.emplace_back(i, x);
+    start_times.emplace(start, i);
+    end_times.emplace(end, i);
   }
 
   vector<int> out_lower, out_upper;
@@ -63,15 +60,14 @@ void solve() {
 
   ll sum = 0;
 
-  for (int i = 0; i < N; i++) {
-    if (end_times.empty()) break;
-    sum += nums[i];
+  for (int i = 0; i < N && !end_times.empty(); i++) {
+    sum += deltas[i];
 
     // Handle start times.
     while (!start_times.empty() && start_times.begin()->first == i) {
       int query_idx = start_times.begin()->second;
       Query& q = queries[query_idx];
-      q.offset = q.x + nums[i] - sum;
+      q.offset += deltas[i] - sum;
       in_bounds.emplace(q);
       start_times.erase(start_times.begin());
     }
@@ -83,17 +79,17 @@ void solve() {
     // in bounds when the current number is positive.
     //
     // Since all those queries now have the same value, merge them into one.
-    Query new_query((int)queries.size(), 0);
+    Query new_query(queries.size(), deltas[i] - sum);
     bool merged = false;
 
-    if (nums[i] < 0 && !out_upper.empty()) {
-      new_query.offset = U + nums[i] - sum;
+    if (deltas[i] < 0 && !out_upper.empty()) {
+      new_query.offset += U;
       for (int q_idx : out_upper) ds.merge(q_idx, new_query.idx);
       merged = true;
       out_upper.clear();
 
-    } else if (nums[i] > 0 && !out_lower.empty()) {
-      new_query.offset = L + nums[i] - sum;
+    } else if (deltas[i] > 0 && !out_lower.empty()) {
+      new_query.offset += L;
       for (int q_idx : out_lower) ds.merge(q_idx, new_query.idx);
       merged = true;
       out_lower.clear();
@@ -130,17 +126,13 @@ void solve() {
   }
 
   for (int i = 0; i < Q; i++) {
-    int value = ans[i];
-
-    if (value >= U)
-      printf("%d\n", U);
-    else if (value <= L)
-      printf("%d\n", L);
-    else
-      printf("%d\n", value);
+    cout << clamp((long long)ans[i], L, U) << '\n';
   }
 }
 
 int main() {
-  while (scanf("%d", &N) == 1) solve();
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  while (cin >> N) solve();
 }
