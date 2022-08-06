@@ -200,7 +200,8 @@
           "kattis/airport",
           "kattis/polygonarea",
           "cyclists versus clouds",
-          "kattis/maptiles"
+          "kattis/maptiles",
+          "kattis/cuttingpolygon"
         ]
       },
       {
@@ -461,18 +462,20 @@
           "dark roads",
           "the deathly hallows",
           "wheresmyinternet",
-          "unionfind",
+          "kattis/unionfind.cpp",
           "islandhopping",
           "fix the maze",
           "ANTTT-the ant",
-          "kattis/rangers"
+          "kattis/rangers",
+          "kattis/almostunionfind.cpp"
         ]
       },
       {
         "title": "Sparse Table",
         "files": [
           "go up the ultras sparse table",
-          "cut inequality down online"
+          "cut inequality down online",
+          "range minimum query sparse table"
         ]
       },
       {

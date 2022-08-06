@@ -161,6 +161,7 @@ Convex Polygons + Two-Pointers
 Concave Polygons
 
 * [kattis/airport.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/airport.cpp)
+* [kattis/cuttingpolygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cuttingpolygon.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
 * [kattis/polygonarea.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygonarea.cpp)
 * [kattis/puzzle2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/puzzle2.cpp)
@@ -201,7 +202,7 @@ Misc
 * [urionlinejudge/1295-the_closest_pair_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1295-the_closest_pair_problem.cpp)
 * [urionlinejudge/1378-isosceles_triangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1378-isosceles_triangles.cpp)
 * [urionlinejudge/1455-icpc_finals.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1455-icpc_finals.cpp)
-* [urionlinejudge/2840-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2840-balloon.cpp)
+* [urionlinejudge/2840-balloon++.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2840-balloon++.cpp)
 
 ### Graphs
 
@@ -365,6 +366,7 @@ Cycle Detection
 
 Union Find (+ Minimum Spanning Tree)
 
+* [kattis/almostunionfind.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/almostunionfind.cpp)
 * [kattis/cats.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cats.cpp)
 * [kattis/islandhopping.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/islandhopping.cpp)
 * [kattis/rangers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rangers.cpp)
@@ -379,6 +381,7 @@ Union Find (+ Minimum Spanning Tree)
 
 Sparse Table
 
+* [spoj/RMQSQ-range_minimum_query_sparse_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RMQSQ-range_minimum_query_sparse_table.cpp)
 * [urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp)
 * [urionlinejudge/3014-cut_inequality_down_online.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3014-cut_inequality_down_online.cpp)
 
