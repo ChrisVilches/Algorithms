@@ -395,6 +395,7 @@ Prefix Sum
 * [spoj/CSUMQ-cumulative_sum_query.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CSUMQ-cumulative_sum_query.cpp)
 * [spoj/RANGESUM-range_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RANGESUM-range_sum.cpp)
 * [urionlinejudge/2010-keep_it_energized.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized.cpp)
+* [urionlinejudge/3014-cut_inequality_down_online.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3014-cut_inequality_down_online.cpp)
 * [uva/10324-zeros_and_ones.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/10324-zeros_and_ones.cpp)
 * [uva/11833-route_change.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11833-route_change.cpp)
 

@@ -490,7 +490,8 @@
           "new year and cake",
           "RANGESUM-range_sum.cpp",
           "queryonarray",
-          "cses/polynomial_queries.cpp"
+          "cses/polynomial_queries.cpp",
+          "cut inequality down online"
         ]
       },
       {
