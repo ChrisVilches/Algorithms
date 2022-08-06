@@ -24,7 +24,7 @@ struct Query {
   const int idx;
   ll offset;
   Query(int idx, ll offset) : idx(idx), offset(offset) {}
-  int get_value(ll global_sum) const { return offset + global_sum; }
+  ll get_value(ll global_sum) const { return offset + global_sum; }
   bool operator<(const Query& q) const {
     return offset < q.offset || (offset == q.offset && idx < q.idx);
   }
@@ -120,13 +120,13 @@ void solve() {
     while (!end_times.empty() && end_times.begin()->first == i) {
       auto [end_time, query_idx] = *end_times.begin();
       Query& q = queries[ds.find(query_idx)];
-      ans[query_idx] = q.get_value(sum);
+      ans[query_idx] = clamp(q.get_value(sum), L, U);
       end_times.erase(end_times.begin());
     }
   }
 
   for (int i = 0; i < Q; i++) {
-    cout << clamp((long long)ans[i], L, U) << '\n';
+    cout << ans[i] << '\n';
   }
 }
 
