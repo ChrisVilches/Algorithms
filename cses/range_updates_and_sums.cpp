@@ -9,6 +9,7 @@ ll lazy[4 * MAX_N];
 bool lazy_set[4 * MAX_N];
 ll sequence[MAX_N];
 
+// TODO: Recycle update code (similar to what I did in other programs)
 void propagate_one_level(int node, int a, int b) {
   if (lazy[node] == 0) return;
 
