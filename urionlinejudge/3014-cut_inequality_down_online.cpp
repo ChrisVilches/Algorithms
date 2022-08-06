@@ -5,10 +5,7 @@ typedef long long ll;
 #define MAX_N 100007
 #define SPARSE_TABLE_SIZE 18
 
-enum Type { NONE = -1, UNDERFLOW = 0, OVERFLOW = 1 };
-
-// TODO: It's in urionlinejudge folder but actually only works in Codeforces
-//       It doesn't compile in acmicpc or urionlinejudge
+enum Type { NONE = -1, LOWER = 0, UPPER = 1 };
 
 int N, Q;
 ll L, U, psum[MAX_N];
@@ -57,7 +54,7 @@ pair<int, Type> first_outside_range(int i, int j, ll X) {
   if (overflow == INT_MAX && underflow == INT_MAX) return {0, NONE};
 
   const int idx = min(overflow, underflow);
-  return {idx - 1, idx == overflow ? OVERFLOW : UNDERFLOW};
+  return {idx - 1, idx == overflow ? UPPER : LOWER};
 }
 
 pair<int, Type> find_last_state(pair<int, Type> state, const int E) {
@@ -80,7 +77,7 @@ ll query(const int B, const int E, const ll X) {
 
   state = find_last_state(state, E);
 
-  return (state.second == OVERFLOW ? U : L) + range_sum(state.first + 1, E);
+  return (state.second == UPPER ? U : L) + range_sum(state.first + 1, E);
 }
 
 int main() {
@@ -100,8 +97,8 @@ int main() {
   memset(sparse_table, NONE, sizeof sparse_table);
 
   for (int i = 0; i < N; i++) {
-    sparse_table[UNDERFLOW][0][i] = first_outside_range(i + 1, N - 1, L);
-    sparse_table[OVERFLOW][0][i] = first_outside_range(i + 1, N - 1, U);
+    sparse_table[LOWER][0][i] = first_outside_range(i + 1, N - 1, L);
+    sparse_table[UPPER][0][i] = first_outside_range(i + 1, N - 1, U);
   }
 
   for (int k = 1; k < SPARSE_TABLE_SIZE; k++) {
