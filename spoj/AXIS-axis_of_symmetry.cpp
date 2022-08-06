@@ -1,13 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long double ld;
 
-const ld EPS = 1e-9;
+const double EPS = 1e-9;
 
 struct Point {
-  ld x, y;
+  double x, y;
   Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
-  ld magnitude() const { return hypot(x, y); }
+  double magnitude() const { return hypot(x, y); }
   void operator+=(const Point& p) {
     x += p.x;
     y += p.y;
@@ -15,9 +14,9 @@ struct Point {
 
   bool is_slope_vertical() const { return fabs(x) < EPS; }
 
-  ld slope() const {
+  double slope() const {
     if (is_slope_vertical()) return DBL_MAX;
-    const ld f = 100000;
+    const double f = 100000;
     return round((y / x) * f) / f;
   }
 
@@ -34,7 +33,7 @@ struct Point {
 
 bool cmp(const Point& p, const Point& q) { return p.magnitude() < q.magnitude(); }
 
-void add_all_slopes(const vector<Point>& points, map<ld, int>& slope_freq) {
+void add_all_slopes(const vector<Point>& points, map<double, int>& slope_freq) {
   for (int i = 0; i < (int)points.size(); i++) {
     for (int j = i + 1; j < (int)points.size(); j++) {
       const Point& p = points[i];
@@ -50,7 +49,7 @@ void add_all_slopes(const vector<Point>& points, map<ld, int>& slope_freq) {
 }
 
 bool possible(vector<Point>& points) {
-  map<ld, int> slope_freq;
+  map<double, int> slope_freq;
 
   sort(points.begin(), points.end(), cmp);
 
