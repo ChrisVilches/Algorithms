@@ -56,6 +56,8 @@ bool vertex_intersection(const vector<Point>& polygon, Segment s, const int i) {
   double p_ang = angle(v1, v0, s.p);
   double q_ang = angle(v1, v0, s.q);
 
+  if (s.p == v1) return 0 < q_ang && q_ang < edges_ang;
+
   if (p_ang > q_ang) swap(p_ang, q_ang), swap(s.p, s.q);
 
   return orientation(v0, v1, s.p) == 0 ? q_ang < edges_ang : p_ang < edges_ang;
