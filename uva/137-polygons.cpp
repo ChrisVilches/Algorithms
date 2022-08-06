@@ -27,8 +27,8 @@ struct Segment {
   Segment scale(ld f) const { return Segment{p, p + p.to(q).scale(f)}; }
 
   pair<bool, Point> intersect_non_collinear(const Segment& s) const {
-    const ld o1 = orientation(p, q, s.p) != orientation(p, q, s.q);
-    const ld o2 = orientation(s.p, s.q, p) != orientation(s.p, s.q, q);
+    const bool o1 = orientation(p, q, s.p) != orientation(p, q, s.q);
+    const bool o2 = orientation(s.p, s.q, p) != orientation(s.p, s.q, q);
     return o1 && o2 ? make_pair(true, intersection_point(s)) : make_pair(false, Point{});
   }
 
