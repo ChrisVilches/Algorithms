@@ -1,6 +1,3 @@
-// Format using:
-// standard this_file.js --fix
-//
 // Execute and copy STDOUT to clipboard:
 // node this_file.js | xclip -selection clipboard
 

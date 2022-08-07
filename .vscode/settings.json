@@ -92,5 +92,7 @@
   "[rust]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "rust-lang.rust"
-  }
+  },
+  "standard.autoFixOnSave": true,
+  "standard.enableGlobally": true
 }
