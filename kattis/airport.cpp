@@ -8,7 +8,6 @@ struct Point {
   double cross(const Point& p) const { return x * p.y - y * p.x; }
   double operator*(const Point& p) const { return x * p.x + y * p.y; }
   Point negate() const { return {-x, -y}; };
-  bool operator==(const Point& p) const { return x == p.x && y == p.y; }
   Point scale(const double f) const { return {x * f, y * f}; }
   double dist(const Point& p) const { return hypot(x - p.x, y - p.y); }
 };
