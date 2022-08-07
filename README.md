@@ -239,6 +239,7 @@ Bipartite Matching & Max Flow
 Dijkstra
 
 * [codeforces/cornering_at_poles_dijkstra.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cornering_at_poles_dijkstra.cpp)
+* [kattis/millionairemadness.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/millionairemadness.cpp)
 * [kattis/shortestpath1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/shortestpath1.cpp)
 * [urionlinejudge/1370-regatta_of_scientists.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1370-regatta_of_scientists.cpp)
 * [uva/10986-sending_email.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/10986-sending_email.cpp)
