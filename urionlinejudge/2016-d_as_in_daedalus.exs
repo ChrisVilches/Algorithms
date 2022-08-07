@@ -34,7 +34,7 @@ end
 
 [_, m] = Solve.read_ints()
 
-rounds = for _ <- 0..(m - 1), do: Solve.read_ints()
+rounds = 0..(m - 1) |> Enum.map(fn _ -> Solve.read_ints() end)
 
 received = rounds |> Enum.map(&Solve.received_round/1) |> Enum.sum()
 optimal = rounds |> Enum.map(&Solve.round_possible_score/1) |> Enum.sum()
