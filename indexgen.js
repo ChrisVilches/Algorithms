@@ -1,7 +1,4 @@
-// Execute and copy STDOUT to clipboard:
-// node this_file.js | xclip -selection clipboard
-
-const data = require('./readmedata.json')
+const data = require('./indexdata.json')
 const path = require('path')
 const fs = require('fs')
 const { prettyCapitalize } = require('./pretty-capitalize')
@@ -66,19 +63,21 @@ function findUniqueFilePath (simplifiedFilename, allFiles) {
 
 const toLink = x => 'https://' + path.join(URL_PREFIX, x)
 
-function main () {
+function generateIndex () {
   const allFiles = getAllFiles('./')
 
   let printNewLine = false
 
+  const lines = []
+
   data.forEach(category => {
-    if (printNewLine) console.log()
+    if (printNewLine) lines.push('')
     printNewLine = true
 
-    console.log(`### ${prettyCapitalize(category.header)}`)
+    lines.push(`### ${prettyCapitalize(category.header)}`)
 
     category.items.forEach(item => {
-      console.log(`\n${prettyCapitalize(item.title)}\n`)
+      lines.push(`\n${prettyCapitalize(item.title)}\n`)
 
       const files = item.files
         .map(f => findUniqueFilePath(f, allFiles))
@@ -88,9 +87,13 @@ function main () {
       }
 
       files.sort((a, b) => a === b ? 0 : (a < b ? -1 : 1))
-        .forEach(file => console.log(`* [${file}](${toLink(file)})`))
+        .forEach(file => lines.push(`* [${file}](${toLink(file)})`))
     })
   })
+
+  return lines.join('\n')
 }
 
-main()
+module.exports = {
+  generateIndex
+}
