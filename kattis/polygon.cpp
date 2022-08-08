@@ -22,11 +22,7 @@ struct Segment {
   bool intersects(const Segment& s) const {
     const short o1 = orientation(p, q, s.p), o2 = orientation(p, q, s.q);
     const short o3 = orientation(s.p, s.q, p), o4 = orientation(s.p, s.q, q);
-
-    if (o1 * o2 == 0) return contains(s.p) || contains(s.q);
-    if (o3 * o4 == 0) return s.contains(p) || s.contains(q);
-
-    return o1 * o2 < 0 && o3 * o4 < 0;
+    return o1 * o2 <= 0 && o3 * o4 <= 0;
   }
 
   bool operator<(const Segment& s) const {
