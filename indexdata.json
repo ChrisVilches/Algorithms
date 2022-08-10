@@ -140,7 +140,9 @@
           "kattis/visual",
           "ada and rain ii",
           "antimatterrain",
-          "kattis/polygon.cpp"
+          "kattis/polygon.cpp",
+          "high mountains.cpp",
+          "high mountains faster.cpp"
         ]
       },
       {
@@ -286,7 +288,8 @@
           "maxflow",
           "monkeys in the emei mountain",
           "halting wolf",
-          "game of tiles"
+          "game of tiles",
+          "algorithm teaching"
         ]
       },
       {

@@ -119,6 +119,8 @@ Sweep Line
 * [urionlinejudge/1468-balloon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1468-balloon.cpp)
 * [urionlinejudge/1748-fence_the_vegetables.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1748-fence_the_vegetables.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
+* [urionlinejudge/2043-high_mountains.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2043-high_mountains.cpp)
+* [urionlinejudge/2043-high_mountains_faster.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2043-high_mountains_faster.cpp)
 
 Segment to Segment Distance
 
@@ -235,6 +237,7 @@ Bipartite Matching & Max Flow
 * [urionlinejudge/1490-attacking_rooks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1490-attacking_rooks.cpp)
 * [urionlinejudge/2014-blood_groups.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2014-blood_groups.cpp)
 * [urionlinejudge/2705-keep_it_covered.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2705-keep_it_covered.cpp)
+* [urionlinejudge/3012-algorithm_teaching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3012-algorithm_teaching.cpp)
 * [uva/11167-monkeys_in_the_emei_mountain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11167-monkeys_in_the_emei_mountain.cpp)
 
 Dijkstra
