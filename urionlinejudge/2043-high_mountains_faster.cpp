@@ -16,7 +16,6 @@ struct Point {
   bool operator==(const Point& p) const { return x == p.x && y == p.y; }
   bool operator!=(const Point& p) const { return x != p.x || y != p.y; }
   double operator*(const Point& p) const { return x * p.x + y * p.y; }
-  double dist(const Point& p) const { return hypot(x - p.x, y - p.y); }
 };
 
 short orientation(const Point& o, const Point& a, const Point& b) {
@@ -86,7 +85,7 @@ bool compare(const Point& o, const Point& a, const Point& b) {
 }
 
 tuple<bool, Point, Segment> next_intersection(const Segment& above) {
-  Point closest_point = above.q.scale(1e6);
+  Point closest_point{1e6, 1e6};
   Segment inter_seg = above;
 
   for (const int seg_idx : active) {
@@ -98,7 +97,7 @@ tuple<bool, Point, Segment> next_intersection(const Segment& above) {
 
     if (closest_point == point) {
       if (compare(point, inter_seg.q, s.q)) inter_seg = s;
-    } else if (above.p.dist(closest_point) > above.p.dist(point)) {
+    } else if (point.x < closest_point.x - EPS) {
       inter_seg = s;
       closest_point = point;
     }
@@ -138,7 +137,7 @@ int main() {
       segments.push_back({m, r});
     }
 
-    pqueue enter_events, exit_events, right_events;
+    pqueue enter_events, exit_events;
 
     for (int i = 0; i < (int)segments.size(); i++) {
       enter_events.emplace(segments[i].p.x, i);
@@ -147,22 +146,14 @@ int main() {
 
     vector<Point> profile;
 
-    // TODO: Refactor this and the first part in the "while (!enter_events.empty())" loop.
-    //       In that loop, there are two cases: the first iteration, and when there's a
-    //       jump from one mountain to another (that doesn't overlap). In both cases
-    //       you have to do different things. For now I just wrote something that works
-    //       but is not very analytical (gets AC).
-    Segment above{{0, 0}, {0, 0}};
+    Segment above;
 
     // TODO: Why does it become an infinite loop when I change the order of things?
     while (!enter_events.empty()) {
-      const Segment& s = segments[optimal_segment[enter_events.top().first]];
-      profile.push_back(above.q);
-      profile.push_back(s.p);
-      above = s;
+      above = segments[optimal_segment[enter_events.top().first]];
+      profile.push_back(above.p);
 
       while (true) {
-        // TODO: <= or < ?
         while (!enter_events.empty() && enter_events.top().first <= above.q.x) {
           active.insert(enter_events.top().second);
           enter_events.pop();
@@ -174,17 +165,15 @@ int main() {
         }
 
         const auto [intersection, point, segment] = next_intersection(above);
-        if (intersection) {
-          profile.push_back(point);
-          above = segment;
-        } else {
-          break;
-        }
+        if (!intersection) break;
+
+        profile.push_back(point);
+        above = segment;
       }
+
+      profile.push_back(above.q);
     }
 
-    profile.push_back(above.q);
-
-    cout << fixed << setprecision(2) << profile_area(profile) << endl;
+    cout << fixed << setprecision(2) << profile_area(profile) << '\n';
   }
 }
