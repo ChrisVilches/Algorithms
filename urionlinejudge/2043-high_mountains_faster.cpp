@@ -27,22 +27,15 @@ short orientation(const Point& o, const Point& a, const Point& b) {
 
 struct Segment {
   Point p, q;
-
+  bool operator!=(const Segment& s) const { return p != s.p || q != s.q; }
   Segment scale(const double f) const { return {p, p + (q - p).scale(f)}; }
 
   pair<bool, Point> intersect_adhoc(const Segment& s) const {
-    if (q == s.p) {
-      return {true, s.p};
-    }
+    if (q == s.p) return {true, q};
 
-    if (!(orientation(p, q, s.p) == 0 && orientation(p, q, s.q) == 0)) {
-      if (contains(s.p) && orientation(p, q, s.q) > 0) {
-        return {true, s.p};
-      }
-
-      if (s.contains(q) && orientation(s.p, s.q, p) > 0) {
-        return {true, q};
-      }
+    if (orientation(p, q, s.q) > 0) {
+      if (contains(s.p)) return {true, s.p};
+      if (s.contains(q)) return {true, q};
     }
 
     return {intersect(s), intersection_point(s)};
@@ -87,10 +80,14 @@ double profile_area(const vector<Point>& profile) {
 vector<Segment> segments;
 unordered_set<int> active;
 
+bool compare(const Point& o, const Point& a, const Point& b) {
+  const short slope = orientation(o, a, b);
+  return slope > 0 || (slope == 0 && a.x < b.x);
+}
+
 tuple<bool, Point, Segment> next_intersection(const Segment& above) {
-  bool at_least_one_intersection = false;
-  Point closest_point = above.q.scale(2);
-  Segment inter_segment = above;
+  Point closest_point = above.q.scale(1e6);
+  Segment inter_seg = above;
 
   for (const int seg_idx : active) {
     const Segment& s = segments[seg_idx];
@@ -99,26 +96,15 @@ tuple<bool, Point, Segment> next_intersection(const Segment& above) {
 
     if (!intersect) continue;
 
-    if (closest_point != point) {
-      if (above.p.dist(closest_point) > above.p.dist(point)) {
-        at_least_one_intersection = true;
-        inter_segment = s;
-        closest_point = point;
-      }
-    } else {
-      const short slope = orientation(point, inter_segment.q, s.q);
-
-      if (slope > 0 ||
-          (slope == 0 && above.p.dist(inter_segment.q) <= above.p.dist(s.q))) {
-        at_least_one_intersection = true;
-        inter_segment = s;
-      }
+    if (closest_point == point) {
+      if (compare(point, inter_seg.q, s.q)) inter_seg = s;
+    } else if (above.p.dist(closest_point) > above.p.dist(point)) {
+      inter_seg = s;
+      closest_point = point;
     }
   }
 
-  if (!at_least_one_intersection) return {false, closest_point, inter_segment};
-
-  return {true, closest_point, {closest_point, inter_segment.q}};
+  return {above != inter_seg, closest_point, {closest_point, inter_seg.q}};
 }
 
 int main() {
@@ -131,6 +117,8 @@ int main() {
     segments.clear();
     active.clear();
 
+    map<double, int> optimal_segment;
+
     for (int i = 0; i < N; i++) {
       double left, right, height;
       cin >> left >> right >> height;
@@ -139,79 +127,63 @@ int main() {
       const Point m{(left + right) / 2, height};
       const Point r{right, 0};
 
+      if (!optimal_segment.count(l.x)) {
+        optimal_segment[l.x] = segments.size();
+      } else {
+        const auto [p, q] = segments[optimal_segment[l.x]];
+        if (compare(p, q, m)) optimal_segment[l.x] = segments.size();
+      }
+
       segments.push_back({l, m});
       segments.push_back({m, r});
     }
 
     pqueue enter_events, exit_events, right_events;
 
-    double max_x = 0;
-
     for (int i = 0; i < (int)segments.size(); i++) {
-      max_x = max(max_x, segments[i].q.x);
-
       enter_events.emplace(segments[i].p.x, i);
       exit_events.emplace(segments[i].q.x, i);
-
-      right_events.emplace(segments[i].p.x, i);
     }
 
     vector<Point> profile;
 
-    Segment above = segments[enter_events.top().second];
+    // TODO: Refactor this and the first part in the "while (!enter_events.empty())" loop.
+    //       In that loop, there are two cases: the first iteration, and when there's a
+    //       jump from one mountain to another (that doesn't overlap). In both cases
+    //       you have to do different things. For now I just wrote something that works
+    //       but is not very analytical (gets AC).
+    Segment above{{0, 0}, {0, 0}};
 
-    profile.push_back(above.p);
+    // TODO: Why does it become an infinite loop when I change the order of things?
+    while (!enter_events.empty()) {
+      const Segment& s = segments[optimal_segment[enter_events.top().first]];
+      profile.push_back(above.q);
+      profile.push_back(s.p);
+      above = s;
 
-    while (true) {
-      while (!right_events.empty() && right_events.top().first <= above.q.x) {
-        const Segment& s = segments[right_events.top().second];
-
-        if (above.p == s.p) {
-          const short slope = orientation(above.p, above.q, s.q);
-
-          if (slope > 0 || (slope == 0 && above.q.x < s.q.x)) {
-            profile.push_back(s.p);
-            above = s;
-          }
+      while (true) {
+        // TODO: <= or < ?
+        while (!enter_events.empty() && enter_events.top().first <= above.q.x) {
+          active.insert(enter_events.top().second);
+          enter_events.pop();
         }
 
-        right_events.pop();
-      }
+        while (!exit_events.empty() && exit_events.top().first < above.p.x) {
+          active.erase(exit_events.top().second);
+          exit_events.pop();
+        }
 
-      while (!enter_events.empty() && enter_events.top().first <= above.q.x) {
-        const int seg_idx = enter_events.top().second;
-        active.insert(seg_idx).second || active.erase(seg_idx);
-        enter_events.pop();
-      }
-
-      while (!exit_events.empty() && exit_events.top().first < above.p.x) {
-        const int seg_idx = exit_events.top().second;
-        active.insert(seg_idx).second || active.erase(seg_idx);
-        exit_events.pop();
-      }
-
-      const auto [intersection, point, segment] = next_intersection(above);
-      if (intersection) {
-        profile.push_back(point);
-        above = segment;
-        continue;
-      }
-
-      while (!right_events.empty() && right_events.top().first <= above.q.x)
-        right_events.pop();
-
-      if (above.q.x < right_events.top().first) {
-        const Segment& s = segments[right_events.top().second];
-        profile.push_back(above.q);
-        profile.push_back(s.p);
-        above = s;
-      }
-
-      if (above.q.x == max_x) {
-        profile.push_back(above.q);
-        break;
+        const auto [intersection, point, segment] = next_intersection(above);
+        if (intersection) {
+          profile.push_back(point);
+          above = segment;
+        } else {
+          break;
+        }
       }
     }
+
+    profile.push_back(above.q);
 
     cout << fixed << setprecision(2) << profile_area(profile) << endl;
   }
