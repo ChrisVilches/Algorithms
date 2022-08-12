@@ -34,7 +34,7 @@ KMP
 
 Segment Tree
 
-* [D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/D-flat_subsequence.cpp)
+* [atcoder/D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/D-flat_subsequence.cpp)
 * [codeforces/domino_principle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/domino_principle.cpp)
 * [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
 * [cses/hotel_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/hotel_queries.cpp)
@@ -289,8 +289,8 @@ Counting, Combinatorics, Math
 
 Maximization, Minimization
 
-* [D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/D-flat_subsequence.cpp)
 * [atcoder/A-frog_1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/A-frog_1.cpp)
+* [atcoder/D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/D-flat_subsequence.cpp)
 * [codeforces/boredom.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/boredom.cpp)
 * [codeforces/domino_principle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/domino_principle.cpp)
 * [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
@@ -328,7 +328,7 @@ Probability
 
 Binary Search
 
-* [D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/D-flat_subsequence.cpp)
+* [atcoder/D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/D-flat_subsequence.cpp)
 * [codeforces/domino_principle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/domino_principle.cpp)
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
