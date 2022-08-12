@@ -34,6 +34,9 @@ KMP
 
 Segment Tree
 
+* [D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/D-flat_subsequence.cpp)
+* [codeforces/domino_principle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/domino_principle.cpp)
+* [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
 * [cses/hotel_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/hotel_queries.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [kattis/supercomputer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/supercomputer.cpp)
@@ -286,8 +289,11 @@ Counting, Combinatorics, Math
 
 Maximization, Minimization
 
+* [D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/D-flat_subsequence.cpp)
 * [atcoder/A-frog_1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/A-frog_1.cpp)
 * [codeforces/boredom.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/boredom.cpp)
+* [codeforces/domino_principle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/domino_principle.cpp)
+* [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
 * [google/controlled_inflation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/controlled_inflation.cpp)
 * [google/moons_and_umbrellas.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/moons_and_umbrellas.cpp)
 * [google/plates.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/plates.cpp)
@@ -322,7 +328,10 @@ Probability
 
 Binary Search
 
+* [D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/D-flat_subsequence.cpp)
+* [codeforces/domino_principle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/domino_principle.cpp)
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
+* [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [kattis/rangers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rangers.cpp)
 * [kattis/speed.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speed.cpp)
