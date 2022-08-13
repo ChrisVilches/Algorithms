@@ -4,9 +4,13 @@ typedef long long ll;
 
 /*
 Weak test cases.
-AC with inefficient solution.
-Solution is most likely incorrect.
 
+AC with inefficient solution.
+However, I did some local tests, and even in the worst case with N=200 (twice the
+maximum amount) and Y coordinates going from 0 to 1 million, it still
+works fast, and the total amount of iterations is not too big.
+
+Solution is most likely incorrect.
 Gets AC even without checking for this condition:
 "If you can't find regions such that all the points
 are the only corners and regions are closed, print 'Impossible'"
