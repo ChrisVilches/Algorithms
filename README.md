@@ -65,6 +65,8 @@ Segment Tree + Lazy Propagation
 
 BIT (Fenwick Tree)
 
+* [codechef/FLYMODE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/FLYMODE.cpp)
+* [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [codeforces/excellent_views.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/excellent_views.cpp)
 * [spoj/ADARAINB-ada_and_rain_ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ADARAINB-ada_and_rain_ii.cpp)
 * [spoj/HAYBALE-haybale_stacking.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HAYBALE-haybale_stacking.cpp)
@@ -426,6 +428,7 @@ Lowest Common Ancestor
 
 Coordinate (or Arrays in General) Compression
 
+* [codechef/FLYMODE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/FLYMODE.cpp)
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
