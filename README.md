@@ -203,9 +203,11 @@ Simple Polygon Detection
 
 Misc
 
+* [codechef/count_the_squares.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/count_the_squares.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [kattis/countingtriangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/countingtriangles.cpp)
 * [kattis/money.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/money.cpp)
+* [kattis/undetected.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/undetected.cpp)
 * [matcomgrader/O-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/O-polygon.cpp)
 * [spoj/AXIS-axis_of_symmetry.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AXIS-axis_of_symmetry.cpp)
 * [spoj/PIR-pyramids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PIR-pyramids.cpp)
@@ -391,6 +393,7 @@ Union Find (+ Minimum Spanning Tree)
 * [kattis/cats.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cats.cpp)
 * [kattis/islandhopping.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/islandhopping.cpp)
 * [kattis/rangers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rangers.cpp)
+* [kattis/undetected.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/undetected.cpp)
 * [kattis/unionfind.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/unionfind.cpp)
 * [kattis/wheresmyinternet.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/wheresmyinternet.cpp)
 * [spoj/ANTTT-the_ant.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ANTTT-the_ant.cpp)

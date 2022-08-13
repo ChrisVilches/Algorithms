@@ -257,7 +257,9 @@
           "matcomgrader o polygon",
           "icpc finals",
           "AXIS-axis_of_symmetry",
-          "kattis/money"
+          "kattis/money",
+          "count the squares",
+          "kattis/undetected"
         ]
       }
     ]
@@ -487,7 +489,8 @@
           "fix the maze",
           "ANTTT-the ant",
           "kattis/rangers",
-          "kattis/almostunionfind.cpp"
+          "kattis/almostunionfind.cpp",
+          "kattis/undetected"
         ]
       },
       {
