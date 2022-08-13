@@ -113,6 +113,7 @@ Convex Hull
 
 Sweep Line
 
+* [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [codechef/TOWCNT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/TOWCNT.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [kattis/directingrainfall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/directingrainfall.cpp)
@@ -425,6 +426,7 @@ Lowest Common Ancestor
 
 Coordinate (or Arrays in General) Compression
 
+* [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)

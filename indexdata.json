@@ -147,7 +147,8 @@
           "kattis/polygon.cpp",
           "high mountains.cpp",
           "high mountains faster.cpp",
-          "kattis/pinball"
+          "kattis/pinball",
+          "LAZER"
         ]
       },
       {
@@ -524,7 +525,8 @@
         "files": [
           "fence the vegetables fail",
           "fundraising",
-          "antimatterrain"
+          "antimatterrain",
+          "LAZER"
         ]
       },
       {
