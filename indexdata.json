@@ -146,7 +146,8 @@
           "antimatterrain",
           "kattis/polygon.cpp",
           "high mountains.cpp",
-          "high mountains faster.cpp"
+          "high mountains faster.cpp",
+          "kattis/pinball"
         ]
       },
       {
