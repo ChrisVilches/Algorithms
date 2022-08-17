@@ -64,11 +64,11 @@ vector<Segment> sort_segments(vector<Segment>& segments) {
   return res;
 }
 
-vector<Point> queries;
-vector<Segment> segments;
 int N, Q, parent[100'001];
 
-set<pair<int, int>> queries_set;
+vector<Point> queries;
+vector<Segment> segments;
+set<pii> queries_set;
 
 int find(int u) {
   if (u != parent[u]) parent[u] = find(parent[u]);
@@ -80,6 +80,7 @@ void merge(int x, int y) { parent[find(x)] = find(y); }
 void read_data() {
   segments.resize(N);
   queries.resize(Q);
+  queries_set.clear();
 
   for (Segment& s : segments) {
     cin >> s.p.x >> s.p.y >> s.q.x >> s.q.y;
@@ -141,7 +142,6 @@ int main() {
   cin.tie(NULL);
 
   while (cin >> N >> Q) {
-    queries_set.clear();
     iota(parent, parent + Q, 0);
 
     read_data();
