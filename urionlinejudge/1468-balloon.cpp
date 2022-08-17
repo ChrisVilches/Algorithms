@@ -95,32 +95,31 @@ void read_data() {
 }
 
 void sweep_line() {
-  vector<pii> removed;
+  vector<int> removed;
 
   for (const Segment& segment : sort_segments(segments)) {
     while (!queries_set.empty()) {
       const auto it = queries_set.lower_bound({segment.p.x, -1});
       if (it == queries_set.end() || segment.q.x < it->first) break;
 
-      auto [q_x, q_idx] = *it;
+      const int q_idx = it->second;
 
       if (segment.horizontal()) {
         queries[q_idx].y = segment.p.y;
       } else {
-        q_x = segment.exit().x;
         queries[q_idx].x = segment.exit().x;
-        removed.emplace_back(q_x, q_idx);
+        removed.push_back(q_idx);
       }
       queries_set.erase(it);
     }
 
     if (removed.empty()) continue;
 
-    for (const auto& [_, q_idx] : removed) {
-      merge(q_idx, removed.front().second);
+    for (const int q_idx : removed) {
+      merge(q_idx, removed.front());
     }
 
-    queries_set.emplace(removed.front());
+    queries_set.emplace(queries[removed.front()].x, removed.front());
     removed.clear();
   }
 }
