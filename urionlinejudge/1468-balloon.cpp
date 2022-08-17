@@ -17,9 +17,9 @@ struct Segment {
   bool horizontal() const { return p.y == q.y; }
   bool operator<(const Segment& s) const {
     if (p.x < s.p.x)
-      return to_vec().cross(p.to(s.p)) < 0;
+      return to_vec().cross(p.to(s.p)) > 0;
     else
-      return s.to_vec().cross(s.p.to(p)) > 0;
+      return s.to_vec().cross(s.p.to(p)) < 0;
   }
 };
 
@@ -31,7 +31,7 @@ vector<Segment> sort_segments(vector<Segment>& segments) {
 
   vector<vector<int>> graph(N + 1);
 
-  set<pair<Segment, int>, greater<pair<Segment, int>>> s;
+  set<pair<Segment, int>> s;
 
   priority_queue<pii, vector<pii>, greater<pii>> events;
 
