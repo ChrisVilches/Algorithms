@@ -25,6 +25,7 @@ struct Segment {
 
   static Segment horizontal_line(const double y) { return {{-1e5, y}, {1e5, y}}; }
   static Segment vertical_line(const double x) { return {{x, -1e5}, {x, 1e5}}; }
+  Segment operator-(const Point& r) const { return {p - r, q - r}; }
 
   pair<bool, Point> intersect_non_collinear(const Segment& s) const {
     return intersect(s) ? make_pair(true, intersection_point(s))
@@ -76,55 +77,49 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
   const double factor = 100;
 
   auto add = [&](Point p) {
-    if (p.x < 0 || p.y < 0) return;
-    if (p.x > 6 * tile_x || p.y > 6 * tile_y) return;
-    p.x = fmod(p.x, tile_x);
-    p.y = fmod(p.y, tile_y);
+    p.x = fmod(p.x + TILE_N * tile_x, tile_x);
+    p.y = fmod(p.y + TILE_N * tile_y, tile_y);
 
-    const int x = floor(p.x * factor);
-    const int y = floor(p.y * factor);
+    const pair<int, int> added{floor(p.x * factor), floor(p.y * factor)};
+    if (exist.count(added)) return;
 
-    if (exist.count({x, y})) return;
-
-    offsets.push_back({tile_x - p.x, tile_y - p.y});
-    exist.emplace(x, y);
+    offsets.push_back({p.x, p.y});
+    exist.insert(added);
   };
 
+  vector<Point> tile_points;
+  vector<Segment> grid_lines, edges;
+
+  for (int i = -5; i < 5; i++) {
+    grid_lines.push_back(Segment::horizontal_line(i * tile_y));
+    grid_lines.push_back(Segment::vertical_line(i * tile_x));
+    for (int j = -5; j < 5; j++) tile_points.push_back({i * tile_x, j * tile_y});
+  }
+
+  for (int v = 0; v < (int)polygon.size(); v++)
+    edges.push_back({polygon[v], polygon[(v + 1) % polygon.size()]});
+
   for (auto [x, _] : polygon)
-    for (auto [__, y] : polygon) add({x, y});
+    for (auto [__, y] : polygon) add({tile_x - x, tile_y - y});
 
-  for (int v = 0; v < (int)polygon.size(); v++) {
-    const Point vertex = polygon[v];
-    const Point vertex2 = polygon[(v + 1) % polygon.size()];
-    const Point dir = vertex2 - vertex;
+  for (const Segment& sliding_edge : edges) {
+    const Point pivot_vertex = sliding_edge.p;
+    const Point slide_dir = sliding_edge.q - sliding_edge.p;
 
-    for (int i = 0; i < TILE_N; i++) {
-      for (int j = 0; j < TILE_N; j++) {
-        const Point t{i * tile_x, j * tile_y};
+    for (Segment edge : edges) {
+      edge = edge - pivot_vertex;
+      const Point& p = edge.p;
 
-        for (int w = 0; w < (int)polygon.size(); w++) {
-          const Segment edge{polygon[w] - vertex,
-                             polygon[(w + 1) % polygon.size()] - vertex};
-          const Segment ray{t, t + dir};
-          const auto [intersect, point] = ray.intersect_non_collinear(edge);
-
-          if (intersect) add(vertex + point - t);
-        }
+      for (const Point& t : tile_points) {
+        const Segment ray{t, t + slide_dir};
+        const auto [intersect, point] = ray.intersect_non_collinear(edge);
+        if (intersect) add((t - point) - pivot_vertex);
       }
-    }
 
-    for (Point vert : polygon) {
-      vert = vert - vertex;
-      const Segment line{vert, vert + dir};
-
-      for (int i = 0; i < TILE_N; i++) {
-        const auto [intersect1, point1] =
-            line.intersect_non_collinear({{i * tile_x, -1e5}, {i * tile_x, 1e5}});
-        if (intersect1) add(vertex + point1 - vert);
-
-        const auto [intersect2, point2] =
-            line.intersect_non_collinear({{-1e5, i * tile_y}, {1e5, i * tile_y}});
-        if (intersect2) add(vertex + point2 - vert);
+      for (const Segment& l : grid_lines) {
+        const Segment ray{p, p - slide_dir};
+        auto [intersect, point] = ray.intersect_non_collinear(l);
+        if (intersect) add((point - p) - pivot_vertex);
       }
     }
   }
@@ -166,7 +161,7 @@ void mark_polygon_boundary(const vector<Point>& polygon) {
     Point p = polygon[v];
     const Point q = polygon[(v + 1) % polygon.size()];
 
-    for (int it = 0; it < 20; it++) {
+    for (int it = 0; it < 2 * TILE_N; it++) {
       mark_edge(p, q);
       const auto [i, j] = get_tile(p);
 
