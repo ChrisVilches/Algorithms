@@ -1,68 +1,74 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-
-/*
-Micro-optimized.
-*/
-
-void print(uint32_t n) {
-  if (n / 10) print(n / 10);
-  putchar_unlocked(n % 10 + '0');
-}
-
-char r;
-bool start = false;
-uint32_t ret = 0;
-
-uint32_t read_int() {
-  start = false;
-  ret = 0;
-  while (true) {
-    r = getchar_unlocked();
-    if ((r - '0' < 0 || r - '0' > 9) && !start) {
-      continue;
-    }
-    if ((r - '0' < 0 || r - '0' > 9) && start) {
-      break;
-    }
-    if (start) ret *= 10;
-    start = true;
-    ret += r - '0';
-  }
-  return ret;
-}
+typedef pair<int, int> pii;
+typedef long long ll;
 
 struct Point {
-  int x, y;
-  Point() {}
-
-  inline bool operator<(const Point& p) const {
-    return (y == p.y && x < p.x) || y < p.y;
-  }
+  ll x, y;
+  Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
+  ll cross(const Point& p) const { return x * p.y - y * p.x; }
+  Point to(const Point& p) const { return p - *this; }
 };
 
 struct Segment {
   Point p, q;
-  inline int from() const { return p.x < q.x ? p.x : q.x; }
-  inline int to() const { return p.x < q.x ? q.x : p.x; }
-  inline Point exit() const { return p.y > q.y ? p : q; }
+  Point to_vec() const { return p.to(q); }
+  Point exit() const { return p.y > q.y ? p : q; }
+  bool horizontal() const { return p.y == q.y; }
+  bool operator<(const Segment& s) const {
+    if (p.x < s.p.x)
+      return to_vec().cross(p.to(s.p)) < 0;
+    else
+      return s.to_vec().cross(s.p.to(p)) > 0;
+  }
 };
 
-const int MAX = 100001;
-int N, Q;
+vector<Segment> sort_segments(vector<Segment>& segments) {
+  const int N = segments.size();
 
-Point queries[MAX];
-Segment segments[MAX];
-pair<int, int> removed[MAX];
-pair<Point, int> events[MAX];
-int parent[MAX];
+  sort(segments.begin(), segments.end(),
+       [](const Segment& a, const Segment& b) { return a.p.x < b.p.x; });
+
+  vector<vector<int>> graph(N + 1);
+
+  set<pair<Segment, int>, greater<pair<Segment, int>>> s;
+
+  priority_queue<pii, vector<pii>, greater<pii>> events;
+
+  for (int i = 0; i < N; i++) {
+    while (!events.empty() && events.top().first < segments[i].p.x) {
+      const int idx = events.top().second;
+      s.erase({segments[idx], idx});
+      events.pop();
+    }
+
+    const auto it = s.emplace(segments[i], i).first;
+    graph[it == s.begin() ? N : prev(it)->second].push_back(i);
+
+    events.emplace(segments[i].q.x, i);
+  }
+
+  vector<Segment> res;
+
+  stack<int> dfs;
+  dfs.push(N);
+
+  while (!dfs.empty()) {
+    const int u = dfs.top();
+    dfs.pop();
+
+    if (u != N) res.push_back(segments[u]);
+    for (const int v : graph[u]) dfs.push(v);
+  }
+
+  return res;
+}
+
+vector<Point> queries;
+vector<Segment> segments;
+int N, Q, parent[100'001];
 
 set<pair<int, int>> queries_set;
-
-void disjoint_sets_initialize(int n) {
-  for (int i = 0; i < n; i++) parent[i] = i;
-}
 
 int find(int u) {
   if (u != parent[u]) parent[u] = find(parent[u]);
@@ -72,85 +78,71 @@ int find(int u) {
 void merge(int x, int y) { parent[find(x)] = find(y); }
 
 void read_data() {
-  for (int i = 0; i < N; i++) {
-    segments[i].p.x = read_int();
-    segments[i].p.y = read_int();
-    segments[i].q.x = read_int();
-    segments[i].q.y = read_int();
+  segments.resize(N);
+  queries.resize(Q);
+
+  for (Segment& s : segments) {
+    cin >> s.p.x >> s.p.y >> s.q.x >> s.q.y;
+    if (s.p.x > s.q.x) swap(s.p, s.q);
   }
 
   for (int i = 0; i < Q; i++) {
-    queries[i].x = read_int();
+    cin >> queries[i].x;
     queries[i].y = -1;
-    queries_set.emplace(make_pair(queries[i].x, i));
+    queries_set.emplace(queries[i].x, i);
   }
 }
 
 void sweep_line() {
-  int ev_n = 0, rem_n, segment_idx;
-  pair<int, int> q, lower_bnd = make_pair(0, -1);
+  vector<pii> removed;
 
-  for (int i = 0; i < N; i++) {
-    events[ev_n++] = make_pair(segments[i].exit(), i);
-  }
-
-  sort(events, events + ev_n);
-
-  for (int i = 0; i < ev_n; i++) {
-    segment_idx = events[i].second;
-
-    Segment& segment = segments[segment_idx];
-
-    rem_n = 0;
-    lower_bnd.first = segment.from();
-
+  for (const Segment& segment : sort_segments(segments)) {
     while (!queries_set.empty()) {
-      auto it = queries_set.lower_bound(lower_bnd);
+      const auto it = queries_set.lower_bound({segment.p.x, -1});
+      if (it == queries_set.end() || segment.q.x < it->first) break;
 
-      if (it == queries_set.end()) break;
-      if (segment.to() < it->first) break;
+      auto [q_x, q_idx] = *it;
 
-      q = *it;
-
-      if (segment.p.y != segment.q.y) {
-        q.first = segment.exit().x;
-        queries[q.second].x = segment.exit().x;
-        removed[rem_n++] = q;
+      if (segment.horizontal()) {
+        queries[q_idx].y = segment.p.y;
       } else {
-        queries[q.second].y = segment.p.y;
+        q_x = segment.exit().x;
+        queries[q_idx].x = segment.exit().x;
+        removed.emplace_back(q_x, q_idx);
       }
       queries_set.erase(it);
     }
 
-    if (rem_n == 0) continue;
+    if (removed.empty()) continue;
 
-    for (int i = 1; i < rem_n; i++) merge(removed[i].second, removed[0].second);
+    for (const auto& [_, q_idx] : removed) {
+      merge(q_idx, removed.front().second);
+    }
 
-    queries_set.emplace(removed[0]);
+    queries_set.emplace(removed.front());
+    removed.clear();
   }
 }
 
 void print_result() {
-  Point q;
-
   for (int i = 0; i < Q; i++) {
-    q = queries[find(i)];
-
-    print(q.x);
+    const Point q = queries[find(i)];
 
     if (~q.y) {
-      putchar_unlocked(' ');
-      print(q.y);
+      cout << q.x << ' ' << q.y << '\n';
+    } else {
+      cout << q.x << '\n';
     }
-
-    putchar_unlocked('\n');
   }
 }
 
 int main() {
-  while (scanf("%d %d", &N, &Q) == 2) {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  while (cin >> N >> Q) {
     queries_set.clear();
-    disjoint_sets_initialize(Q);
+    iota(parent, parent + Q, 0);
 
     read_data();
     sweep_line();
