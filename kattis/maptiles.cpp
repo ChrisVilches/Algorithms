@@ -16,8 +16,7 @@ struct Point {
 
 short orientation(const Point& o, const Point& a, const Point& b) {
   const double cross = (a - o).cross(b - o);
-  if (cross < 0) return -1;
-  return cross > 0;
+  return cross < 0 ? -1 : cross > 0;
 }
 
 struct Segment {
@@ -74,7 +73,7 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
   vector<Point> offsets;
 
   set<pair<int, int>> exist;
-  const double factor = 100;
+  const double factor = 10;
 
   auto add = [&](Point p) {
     p.x = fmod(p.x + TILE_N * tile_x, tile_x);
@@ -90,17 +89,18 @@ vector<Point> generate_offsets(const vector<Point>& polygon) {
   vector<Point> tile_points;
   vector<Segment> grid_lines, polygon_edges;
 
-  for (int i = -5; i < 5; i++) {
+  for (int i = -TILE_N; i < TILE_N; i++) {
     grid_lines.push_back(Segment::horizontal_line(i * tile_y));
     grid_lines.push_back(Segment::vertical_line(i * tile_x));
-    for (int j = -5; j < 5; j++) tile_points.push_back({i * tile_x, j * tile_y});
+    for (int j = -TILE_N; j < TILE_N; j++)
+      tile_points.push_back({i * tile_x, j * tile_y});
   }
 
   for (int i = 0; i < (int)polygon.size(); i++)
     polygon_edges.push_back({polygon[i], polygon[(i + 1) % polygon.size()]});
 
-  for (auto [x, _] : polygon)
-    for (auto [__, y] : polygon) add({tile_x - x, tile_y - y});
+  for (const auto [x, _] : polygon)
+    for (const auto [_, y] : polygon) add({tile_x - x, tile_y - y});
 
   for (const Segment& sliding_edge : polygon_edges) {
     const Point pivot_vertex = sliding_edge.p;
