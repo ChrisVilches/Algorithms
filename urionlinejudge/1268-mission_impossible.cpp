@@ -77,7 +77,6 @@ Circle radars[31];
 vector<vector<Circle>> radar_groups;
 
 void read_edges() {
-  if (B == 0) return;
   vector<Point> v(B);
   for (auto& p : v) cin >> p.x >> p.y;
   v.push_back(v.front());
@@ -137,14 +136,12 @@ bool can_access(const Point& p) {
 }
 
 int main() {
-  while (cin >> B) {
+  while (cin >> B && B) {
     read_edges();
     cin >> N;
     for (int i = 0; i < N; i++) cin >> informers[i].x >> informers[i].y;
     cin >> M;
     for (int i = 0; i < M; i++) cin >> radars[i].x >> radars[i].y >> radars[i].radius;
-
-    if (B == 0 && N == 0 && M == 0) break;
 
     create_radar_groups();
 
