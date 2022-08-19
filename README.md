@@ -226,6 +226,7 @@ BFS, DFS
 * [kattis/fontan.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fontan.cpp)
 * [kattis/keyboard.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/keyboard.cpp)
 * [kattis/secretchamber.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/secretchamber.cpp)
+* [leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp)
 * [spoj/BITMAP-bitmap.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BITMAP-bitmap.cpp)
 * [spoj/BUGLIFE-a_bugs_life.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BUGLIFE-a_bugs_life.cpp)
 * [spoj/CLEANRBT-cleaning_robot.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CLEANRBT-cleaning_robot.cpp)
