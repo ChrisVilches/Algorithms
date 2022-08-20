@@ -286,7 +286,8 @@
           "cyclists versus clouds",
           "kattis/keyboard",
           "kattis/secretchamber",
-          "leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp"
+          "leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp",
+          "leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp"
         ]
       },
       {

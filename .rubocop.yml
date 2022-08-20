@@ -1,0 +1,257 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.0
+  DisplayCopNames: true
+  NewCops: enable # but feel free to disable them below
+  Exclude:
+    - "db/**/*"
+    - "**/bin/*"
+    - "**/config.ru"
+    - "**/vendor/**/*"
+
+Layout/HashAlignment:
+  Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  AllowAliasSyntax: true
+  Enabled: true
+
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/LineLength:
+  Max: 125
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+  IndentationWidth: 2
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: false
+
+# Otherwise this gives some weird warnings about specs using `expect { subject }.to change { model.reload.value }`
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*.rb
+
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - spec/swagger_helper.rb
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: false
+
+Metrics:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Exclude:
+    - spec/**/*
+
+Naming/VariableNumber:
+  Enabled: false
+  EnforcedStyle: snake_case
+
+Naming/FileName:
+  Enabled: false
+
+Performance/Casecmp:
+  Enabled: false
+
+Performance/MethodObjectAsBlock:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+RSpec/AlignLeftLetBrace:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Exclude:
+    - spec/requests/**/*.rb
+    - spec/system/**/*.rb
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/integration/**/*_spec.rb
+    - spec/system/**/*_spec.rb
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 25
+
+RSpec/ExpectChange:
+  EnforcedStyle: block
+
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: false
+
+RSpec/FilePath:
+  Exclude:
+    - spec/requests/**/*.rb
+
+RSpec/ImplicitSubject:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 6
+  Exclude:
+    - spec/system/**/*.rb
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/VerifiedDoubles:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
+  Exclude:
+    - spec/swagger_helper.rb
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/CaseLikeIf:
+  Enabled: false
+
+Style/ClassCheck:
+  Enabled: false
+
+Style/CommentedKeyword:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Exclude:
+    - config/puma.rb
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/ExponentialNotation:
+  Enabled: false
+
+Style/FloatDivision:
+  Enabled: false
+
+Style/FormatString:
+  EnforcedStyle: sprintf
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/MultilineIfModifier:
+  Exclude:
+    - config/application.rb
+
+Style/NestedParenthesizedCalls:
+  Enabled: false
+
+Style/NumericLiterals:
+  MinDigits: 15
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    "%": ()
+    "%i": ()
+    "%q": ()
+    "%Q": ()
+    "%r": "{}"
+    "%s": ()
+    "%w": ()
+    "%W": ()
+    "%x": ()
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
+
+Style/SlicingWithRange:
+  Enabled: false
+
+Style/SoleNestedConditional:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/SymbolProc:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/WordArray:
+  EnforcedStyle: percent
+
+Style/SignalException:
+  Enabled: false
+  EnforcedStyle: semantic
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

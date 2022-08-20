@@ -93,6 +93,10 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "rust-lang.rust"
   },
+  "[ruby]": {
+    "editor.defaultFormatter": "misogi.ruby-rubocop",
+    "editor.formatOnSave": false
+  },
   "standard.autoFixOnSave": true,
   "standard.enableGlobally": true
 }
