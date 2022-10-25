@@ -8,7 +8,7 @@
           "cellphone typing",
           "shortest name",
           "phonelist",
-          "bing"
+          "kattis/bing.cpp"
         ]
       },
       {
@@ -60,7 +60,8 @@
           "keep it energized 2",
           "domino principle",
           "codeforces/pillars",
-          "flat subsequence"
+          "flat subsequence",
+          "leetcode/jump-game.cpp"
         ]
       },
       {
@@ -287,7 +288,9 @@
           "kattis/keyboard",
           "kattis/secretchamber",
           "leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp",
-          "leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp"
+          "leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp",
+          "leetcode/symmetric-tree.rs",
+          "leetcode/balanced-binary-tree.js"
         ]
       },
       {
@@ -394,7 +397,9 @@
           "keep it energized 2",
           "domino principle",
           "codeforces/pillars",
-          "flat subsequence"
+          "flat subsequence",
+          "leetcode/jump-game-vi.cpp",
+          "leetcode/jump-game-v.cpp"
         ]
       },
       {
@@ -503,7 +508,8 @@
         "files": [
           "go up the ultras sparse table",
           "cut inequality down online",
-          "range minimum query sparse table"
+          "range minimum query sparse table",
+          "leetcode/jump-game-v.cpp"
         ]
       },
       {
