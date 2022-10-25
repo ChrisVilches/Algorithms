@@ -290,7 +290,8 @@
           "leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp",
           "leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp",
           "leetcode/symmetric-tree.rs",
-          "leetcode/balanced-binary-tree.js"
+          "leetcode/balanced-binary-tree.js",
+          "leetcode/jump-game-iv.cpp"
         ]
       },
       {
