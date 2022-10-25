@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-fn digits(n: i32) -> Vec<i32> {
+fn digits(mut n: i32) -> Vec<i32> {
   let mut result = vec![];
 
   loop {
