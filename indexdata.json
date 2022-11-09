@@ -262,7 +262,8 @@
           "AXIS-axis_of_symmetry",
           "kattis/money",
           "count the squares",
-          "kattis/undetected"
+          "kattis/undetected",
+          "kattis/artur"
         ]
       }
     ]
@@ -331,7 +332,8 @@
       {
         "title": "Topological sort",
         "files": [
-          "pickupsticks"
+          "pickupsticks",
+          "kattis/artur"
         ]
       },
       {

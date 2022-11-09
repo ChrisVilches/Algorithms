@@ -207,6 +207,7 @@ Simple Polygon Detection
 Misc
 
 * [codechef/count_the_squares.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/count_the_squares.cpp)
+* [kattis/artur.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/artur.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [kattis/countingtriangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/countingtriangles.cpp)
 * [kattis/money.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/money.cpp)
@@ -274,6 +275,7 @@ Bellman-Ford
 
 Topological Sort
 
+* [kattis/artur.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/artur.cpp)
 * [kattis/pickupsticks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pickupsticks.cpp)
 
 Minimum Dominating Set
