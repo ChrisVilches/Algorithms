@@ -4,6 +4,14 @@ using namespace std;
 typedef long double ld;
 const ld EPS = 1e-12;
 
+/*
+ * Gets AC, but there's one case where it doesn't work.
+ * If a pole has to be visited twice in order to get to the goal, then it fails.
+ * The Dijkstra version works OK.
+ * The failing case is here:
+ * https://github.com/ChrisVilches/Algorithms/issues/30
+ * */
+
 inline int sgn(int n) { return n < 0 ? -1 : n > 0; }
 
 struct Point {
