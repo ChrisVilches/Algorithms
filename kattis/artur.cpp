@@ -2,8 +2,6 @@
 using namespace std;
 typedef long long ll;
 
-// TODO: Add to index (geometry/misc and trees. Maybe toposort)
-
 struct Point {
   ll x, y;
   Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
@@ -70,6 +68,7 @@ int main() {
     const function<void(int)> dfs = [&](const int u) -> void {
       if (visited[u]) return;
       visited[u] = true;
+
       for (const int v : tree[u]) {
         dfs(v);
       }
