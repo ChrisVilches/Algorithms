@@ -55,7 +55,6 @@ bool all_tasks_finished() {
   return true;
 }
 
-// TODO: Why does this work without recursion?
 void update_priorities(const int i) {
   tasks[i].current_priority = tasks[i].base_priority;
 
