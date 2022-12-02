@@ -353,6 +353,7 @@ Binary Search
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
+* [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
 * [kattis/rangers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rangers.cpp)
 * [kattis/speed.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speed.cpp)
 * [kattis/stringmultimatching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stringmultimatching.cpp)
