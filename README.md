@@ -39,6 +39,7 @@ Segment Tree
 * [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
 * [cses/hotel_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/hotel_queries.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
+* [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
 * [kattis/supercomputer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/supercomputer.cpp)
 * [leetcode/jump-game.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game.cpp)
 * [spoj/FREQUENT-frequent_values.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/FREQUENT-frequent_values.cpp)
@@ -108,6 +109,7 @@ Convex Hull
 
 * [kattis/convexhull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexhull.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
+* [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
 * [spoj/BSHEEP-build_the_fence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BSHEEP-build_the_fence.cpp)
 * [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
 * [urionlinejudge/1464-onion_layers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1464-onion_layers.cpp)

@@ -61,7 +61,8 @@
           "domino principle",
           "codeforces/pillars",
           "flat subsequence",
-          "leetcode/jump-game.cpp"
+          "leetcode/jump-game.cpp",
+          "kattis/mountainouslandscape.cpp"
         ]
       },
       {
@@ -133,7 +134,8 @@
           "dazzling stars 2",
           "ingrest",
           "largesttriangle",
-          "smallest enclosing rectangle"
+          "smallest enclosing rectangle",
+          "kattis/mountainouslandscape.cpp"
         ]
       },
       {
