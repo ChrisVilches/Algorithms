@@ -72,7 +72,8 @@
           "man elephant and mouse",
           "queryonarray",
           "cses/polynomial_queries.cpp",
-          "range updates and sums"
+          "range updates and sums",
+          "dmoj/IOI14-wall.cpp"
         ]
       },
       {
@@ -135,7 +136,8 @@
           "ingrest",
           "largesttriangle",
           "smallest enclosing rectangle",
-          "kattis/mountainouslandscape.cpp"
+          "kattis/mountainouslandscape.cpp",
+          "kattis/forestofcelery.cpp"
         ]
       },
       {
@@ -190,7 +192,8 @@
           "arranging tiles",
           "hipercampo",
           "beautifulbridges cpp",
-          "mpoly-polygon"
+          "mpoly-polygon",
+          "kattis/trimmingpolygons.cpp"
         ]
       },
       {
@@ -204,7 +207,8 @@
           "arranging tiles",
           "longest segment",
           "very simple problem",
-          "new year and cake"
+          "new year and cake",
+          "kattis/forestofcelery.cpp"
         ]
       },
       {
@@ -216,7 +220,8 @@
           "kattis/polygonarea",
           "cyclists versus clouds",
           "kattis/maptiles",
-          "kattis/cuttingpolygon"
+          "kattis/cuttingpolygon",
+          "kattis/biometrics"
         ]
       },
       {
@@ -225,7 +230,8 @@
           "fence the vegetables fail",
           "inorout-inside or out",
           "maptiles",
-          "kattis/domes"
+          "kattis/domes",
+          "kattis/pointinpolygon.cpp"
         ]
       },
       {
@@ -234,7 +240,8 @@
           "uva 137 polygons",
           "kattis/asteroids",
           "kattis/puzzle2",
-          "kattis/domes"
+          "kattis/domes",
+          "kattis/hiddencamera"
         ]
       },
       {
@@ -404,7 +411,9 @@
           "codeforces/pillars",
           "flat subsequence",
           "leetcode/jump-game-vi.cpp",
-          "leetcode/jump-game-v.cpp"
+          "leetcode/jump-game-v.cpp",
+          "kattis/intervalcover.cpp",
+          "kattis/stol.cpp"
         ]
       },
       {
@@ -515,7 +524,8 @@
           "go up the ultras sparse table",
           "cut inequality down online",
           "range minimum query sparse table",
-          "leetcode/jump-game-v.cpp"
+          "leetcode/jump-game-v.cpp",
+          "kattis/forestofcelery.cpp"
         ]
       },
       {

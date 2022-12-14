@@ -61,6 +61,7 @@ Segment Tree + Lazy Propagation
 
 * [cses/polynomial_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/polynomial_queries.cpp)
 * [cses/range_updates_and_sums.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/range_updates_and_sums.cpp)
+* [dmoj/IOI14-wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/dmoj/IOI14-wall.cpp)
 * [kattis/queryonarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/queryonarray.cpp)
 * [spoj/HORRIBLE-horrible_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries.cpp)
 * [urionlinejudge/1477-man_elephant_and_mouse.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1477-man_elephant_and_mouse.cpp)
@@ -108,6 +109,7 @@ Radial Sweep (and Polar Sort)
 Convex Hull
 
 * [kattis/convexhull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexhull.cpp)
+* [kattis/forestofcelery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forestofcelery.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
 * [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
 * [spoj/BSHEEP-build_the_fence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BSHEEP-build_the_fence.cpp)
@@ -156,6 +158,7 @@ Geometry with Dynamic Programming
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
 * [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
+* [kattis/trimmingpolygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/trimmingpolygons.cpp)
 * [spoj/MPOLY-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MPOLY-polygon.cpp)
 * [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
 * [urionlinejudge/2665-hipercampo.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2665-hipercampo.cpp)
@@ -167,6 +170,7 @@ Convex Polygons + Two-Pointers
 * [atcoder/B-longest_segment.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/B-longest_segment.cpp)
 * [codeforces/new_year_and_cake.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/new_year_and_cake.cpp)
 * [codeforces/very_simple_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/very_simple_problem.cpp)
+* [kattis/forestofcelery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forestofcelery.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
 * [urionlinejudge/2015-cake_cut.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2015-cake_cut.cpp)
 * [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
@@ -177,6 +181,7 @@ Convex Polygons + Two-Pointers
 Concave Polygons
 
 * [kattis/airport.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/airport.cpp)
+* [kattis/biometrics.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/biometrics.cpp)
 * [kattis/cuttingpolygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cuttingpolygon.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
 * [kattis/polygonarea.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygonarea.cpp)
@@ -188,6 +193,7 @@ Point Inside Polygon
 
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
+* [kattis/pointinpolygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pointinpolygon.cpp)
 * [spoj/INOROUT-inside_or_outside.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/INOROUT-inside_or_outside.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 
@@ -195,6 +201,7 @@ Polygon Intersection
 
 * [kattis/asteroids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroids.cpp)
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
+* [kattis/hiddencamera.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/hiddencamera.cpp)
 * [kattis/puzzle2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/puzzle2.cpp)
 * [uva/137-polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/137-polygons.cpp)
 
@@ -319,8 +326,10 @@ Maximization, Minimization
 * [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
 * [kattis/centsavings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/centsavings.cpp)
 * [kattis/coke.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/coke.cpp)
+* [kattis/intervalcover.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/intervalcover.cpp)
 * [kattis/nikola.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/nikola.cpp)
 * [kattis/speedrun.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speedrun.cpp)
+* [kattis/stol.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stol.cpp)
 * [leetcode/jump-game-v.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-v.cpp)
 * [leetcode/jump-game-vi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-vi.cpp)
 * [spoj/BORW-black_or_white.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BORW-black_or_white.cpp)
@@ -421,6 +430,7 @@ Union Find (+ Minimum Spanning Tree)
 
 Sparse Table
 
+* [kattis/forestofcelery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forestofcelery.cpp)
 * [leetcode/jump-game-v.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-v.cpp)
 * [spoj/RMQSQ-range_minimum_query_sparse_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RMQSQ-range_minimum_query_sparse_table.cpp)
 * [urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1496-go_up_the_ultras_sparse_table.cpp)
