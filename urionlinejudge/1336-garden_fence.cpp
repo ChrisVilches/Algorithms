@@ -2,8 +2,6 @@
 using namespace std;
 typedef long long ll;
 
-int P, L;
-
 enum PointType { PINE = 0, LARCH = 1 };
 
 struct Point {
@@ -12,20 +10,14 @@ struct Point {
   int value;
 
   Point move_to_upper() const {
-    if (y > 0) return {x, y, type, value};
-    if (y < 0) return {-x, -y, type, value};
-    if (x > 0) return {x, y, type, value};
-    return {-x, y, type, value};
+    if (is_above()) return *this;
+    return {-x, -y, type, value};
   }
 
   Point operator-(const Point& p) const { return {x - p.x, y - p.y, type, value}; }
   ll operator^(const Point& p) const { return x * p.y - y * p.x; }
   bool operator==(const Point& p) const { return x == p.x && y == p.y; }
-
-  bool is_above() const {
-    if (y != 0) return y > 0;
-    return x > 0;
-  }
+  bool is_above() const { return y > 0 || (y == 0 && x > 0); }
 };
 
 bool cmp(const Point& p, const Point& q) {
@@ -33,7 +25,7 @@ bool cmp(const Point& p, const Point& q) {
 }
 
 int calculate_loss(vector<Point>& points, PointType above_type) {
-  PointType below_type = above_type == LARCH ? PINE : LARCH;
+  const PointType below_type = above_type == LARCH ? PINE : LARCH;
 
   array<int, 2> destroyed = {0, 0};
 
@@ -45,51 +37,50 @@ int calculate_loss(vector<Point>& points, PointType above_type) {
   int ans = destroyed[0] + destroyed[1];
 
   for (int i = 0; i < (int)points.size(); i++) {
-    const Point& p = points[i];
+    const Point p = points[i];
+    const Point q = points[(i + 1) % points.size()];
 
     if (p.is_above())
       destroyed[p.type] += p.type == above_type ? p.value : -p.value;
     else
       destroyed[p.type] += p.type == below_type ? p.value : -p.value;
 
-    Point next_point = points[(i + 1) % points.size()];
-    bool next_collinear = (p ^ next_point) == 0;
-
-    if (!next_collinear) ans = min(ans, destroyed[0] + destroyed[1]);
+    if ((p ^ q) != 0) ans = min(ans, destroyed[0] + destroyed[1]);
   }
 
   return ans;
 }
 
-void solve() {
-  vector<Point> points;
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
-  for (int i = 0; i < P + L; i++) {
-    Point p;
-    scanf("%lld %lld %d", &p.x, &p.y, &p.value);
-    p.type = i < P ? PINE : LARCH;
-    points.push_back(p);
-  }
+  int P, L;
 
-  int ans = INT_MAX;
+  while (cin >> P >> L && P && L) {
+    vector<Point> points(P + L);
 
-  for (const Point& center : points) {
-    vector<Point> centered_points;
-    for (const Point& p : points) {
-      if (p == center) continue;
-      centered_points.push_back(p - center);
+    for (int i = 0; i < P + L; i++) {
+      cin >> points[i].x >> points[i].y >> points[i].value;
+      points[i].type = i < P ? PINE : LARCH;
     }
 
-    sort(centered_points.begin(), centered_points.end(), cmp);
+    int ans = INT_MAX;
 
-    int loss_pine = calculate_loss(centered_points, PINE);
-    int loss_larch = calculate_loss(centered_points, LARCH);
-    ans = min({ans, loss_pine, loss_larch});
+    for (const Point& center : points) {
+      vector<Point> centered_points;
+      for (const Point& p : points) {
+        if (p == center) continue;
+        centered_points.push_back(p - center);
+      }
+
+      sort(centered_points.begin(), centered_points.end(), cmp);
+
+      const int loss_pine = calculate_loss(centered_points, PINE);
+      const int loss_larch = calculate_loss(centered_points, LARCH);
+      ans = min({ans, loss_pine, loss_larch});
+    }
+
+    cout << ans << '\n';
   }
-
-  printf("%d\n", ans);
-}
-
-int main() {
-  while (scanf("%d %d", &P, &L) && P && L) solve();
 }
