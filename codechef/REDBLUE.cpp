@@ -10,20 +10,14 @@ struct Point {
   PointType type;
 
   Point move_to_upper() const {
-    if (y > 0) return {x, y, type};
-    if (y < 0) return {-x, -y, type};
-    if (x > 0) return {x, y, type};
-    return {-x, y, type};
+    if (is_above()) return *this;
+    return {-x, -y, type};
   }
 
   Point operator-(const Point& p) const { return {x - p.x, y - p.y, type}; }
   ll operator^(const Point& p) const { return x * p.y - y * p.x; }
   bool operator==(const Point& p) const { return x == p.x && y == p.y; }
-
-  bool is_above() const {
-    if (y != 0) return y > 0;
-    return x > 0;
-  }
+  bool is_above() const { return y > 0 || (y == 0 && x > 0); }
 };
 
 bool cmp(const Point& p, const Point& q) {
