@@ -2,8 +2,6 @@
 
 using namespace std;
 
-// https://dmoj.ca/problem/ioi09p3
-
 struct Contestant {
   int id, solved, score;
 
