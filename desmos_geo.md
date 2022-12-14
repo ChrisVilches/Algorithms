@@ -30,4 +30,18 @@ struct Circle {
   }
 ```
 
+```c++
+string polygon_to_str(const vector<Point>& polygon) {
+  stringstream ss;
+  ss << fixed << setprecision(6);
+  ss << "polygon(";
+  for (int i = 0; i < (int)polygon.size(); i++) {
+    if (i > 0) ss << ", ";
+    ss << "(" << polygon[i].x << ", " << polygon[i].y << ")";
+  }
+  ss << ")";
+  return ss.str();
+}
+```
+
 Print several objects using `cerr << my_segment.to_desmos() << endl;`, then paste (multiple lines at once is allowed) on https://www.desmos.com/calculator?lang=ja
