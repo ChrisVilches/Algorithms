@@ -3,16 +3,10 @@ using namespace std;
 typedef long long ll;
 
 struct Point {
-  ll x, y;
-  int value;
-
-  Point move_to_upper() const {
-    if (is_above()) return *this;
-    return {-x, -y, value};
-  }
-
+  int x, y, value;
+  Point move_to_upper() const { return is_above() ? *this : Point{-x, -y, value}; }
   Point operator-(const Point& p) const { return {x - p.x, y - p.y, value}; }
-  ll cross(const Point& p) const { return x * p.y - y * p.x; }
+  ll cross(const Point& p) const { return (ll)x * p.y - (ll)y * p.x; }
   bool operator==(const Point& p) const { return x == p.x && y == p.y; }
   bool is_above() const { return y > 0 || (y == 0 && x > 0); }
 };
