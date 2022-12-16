@@ -122,7 +122,6 @@ int count(const int i, const vector<vector<int>>& st) {
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-  srand(time(NULL));
 
   while (cin >> N) {
     polygon.resize(N);
