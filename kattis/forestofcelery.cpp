@@ -134,24 +134,6 @@ int main() {
     hull = convex_hull(hull);
     K = hull.size();
 
-    // Test data is very weak, so "randomize" it a bit in order to make sure my
-    // program still works with slightly modified (but equivalent) data.
-    const int rotations = rand() % 4;
-    for (int r = 0; r < rotations; r++) {
-      for (auto& p : polygon) p = p.rot_ccw();
-      for (auto& p : hull) p = p.rot_ccw();
-    }
-
-    const auto shift = [](vector<Point>& P, const int n) {
-      P.insert(P.end(), P.begin(), P.begin() + n);
-      P.erase(P.begin(), P.begin() + n);
-    };
-
-    shift(polygon, rand() % polygon.size());
-    shift(hull, rand() % hull.size());
-    assert((int)polygon.size() == N);
-    assert((int)hull.size() == K);
-
     vector<vector<int>> sparse_table(ceil(log2(N)) + 1);
     sparse_table[0] = calculate_next_vertex();
 
