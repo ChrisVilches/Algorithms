@@ -123,7 +123,9 @@
           "kattis/single",
           "spoj/ADAPICK-ada and cucumber",
           "mission impossible",
-          "spoj/adakohl-ada_and_kohlrabi.cpp"
+          "spoj/adakohl-ada_and_kohlrabi.cpp",
+          "spoj/BLMIRANA-mayonnaise_arrow.cpp",
+          "kattis/fancy.cpp"
         ]
       },
       {
@@ -209,7 +211,8 @@
           "longest segment",
           "very simple problem",
           "new year and cake",
-          "kattis/forestofcelery.cpp"
+          "kattis/forestofcelery.cpp",
+          "kattis/fancy.cpp"
         ]
       },
       {
@@ -414,7 +417,8 @@
           "leetcode/jump-game-vi.cpp",
           "leetcode/jump-game-v.cpp",
           "kattis/intervalcover.cpp",
-          "kattis/stol.cpp"
+          "kattis/stol.cpp",
+          "kattis/fancy.cpp"
         ]
       },
       {
