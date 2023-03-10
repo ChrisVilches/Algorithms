@@ -276,7 +276,8 @@
           "kattis/money",
           "count the squares",
           "kattis/undetected",
-          "kattis/artur"
+          "kattis/artur",
+          "kattis/dormroomdivide.cpp"
         ]
       }
     ]
@@ -460,7 +461,8 @@
           "domino principle",
           "codeforces/pillars",
           "flat subsequence",
-          "kattis/mountainouslandscape.cpp"
+          "kattis/mountainouslandscape.cpp",
+          "kattis/dormroomdivide.cpp"
         ]
       },
       {
