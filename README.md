@@ -226,6 +226,7 @@ Misc
 * [kattis/countingtriangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/countingtriangles.cpp)
 * [kattis/dormroomdivide.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/dormroomdivide.cpp)
 * [kattis/money.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/money.cpp)
+* [kattis/segmentintersection.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/segmentintersection.cpp)
 * [kattis/undetected.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/undetected.cpp)
 * [matcomgrader/O-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/O-polygon.cpp)
 * [spoj/AXIS-axis_of_symmetry.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AXIS-axis_of_symmetry.cpp)

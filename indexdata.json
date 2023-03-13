@@ -278,7 +278,8 @@
           "count the squares",
           "kattis/undetected",
           "kattis/artur",
-          "kattis/dormroomdivide.cpp"
+          "kattis/dormroomdivide.cpp",
+          "kattis/segmentintersection.cpp"
         ]
       }
     ]
