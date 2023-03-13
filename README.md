@@ -189,6 +189,7 @@ Concave Polygons
 * [kattis/cuttingpolygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cuttingpolygon.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
 * [kattis/polygonarea.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygonarea.cpp)
+* [kattis/problematicpolygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/problematicpolygons.cpp)
 * [kattis/puzzle2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/puzzle2.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/3361-cyclists_versus_clouds.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3361-cyclists_versus_clouds.cpp)

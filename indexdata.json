@@ -225,7 +225,8 @@
           "cyclists versus clouds",
           "kattis/maptiles",
           "kattis/cuttingpolygon",
-          "kattis/biometrics"
+          "kattis/biometrics",
+          "kattis/problematicpolygons"
         ]
       },
       {
