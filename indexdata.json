@@ -226,7 +226,8 @@
           "kattis/maptiles",
           "kattis/cuttingpolygon",
           "kattis/biometrics",
-          "kattis/problematicpolygons"
+          "kattis/problematicpolygons",
+          "kattis/floatingpoints.cpp"
         ]
       },
       {
@@ -494,7 +495,8 @@
           "binary search tree",
           "disjoint water supply",
           "chain reactions",
-          "longest path in a tree"
+          "longest path in a tree",
+          "kattis/floatingpoints.cpp"
         ]
       },
       {

@@ -187,6 +187,7 @@ Concave Polygons
 * [kattis/airport.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/airport.cpp)
 * [kattis/biometrics.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/biometrics.cpp)
 * [kattis/cuttingpolygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cuttingpolygon.cpp)
+* [kattis/floatingpoints.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/floatingpoints.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
 * [kattis/polygonarea.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygonarea.cpp)
 * [kattis/problematicpolygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/problematicpolygons.cpp)
@@ -404,6 +405,7 @@ Tree Problems
 
 * [google/chain_reactions.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/google/chain_reactions.cpp)
 * [kattis/ceiling.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/ceiling.cpp)
+* [kattis/floatingpoints.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/floatingpoints.cpp)
 * [kattis/kitten.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/kitten.cpp)
 * [spoj/PT07Y-is_it_a_tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PT07Y-is_it_a_tree.cpp)
 * [spoj/PT07Z-longest_path_in_a_tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PT07Z-longest_path_in_a_tree.cpp)
