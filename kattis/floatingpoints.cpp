@@ -27,7 +27,7 @@ struct Segment {
 enum { SKY = -1, STUCK = -2 };
 int N, B;
 vector<Point> polygon, balls;
-vector<int> next_edge;
+int next_edge[1003];
 
 int find_lowest(const Point below) {
   int idx = SKY;
@@ -58,9 +58,7 @@ Segment edge_at(const int i) {
   return Segment{polygon[(i + N) % N], polygon[(i + 1 + N) % N]};
 }
 
-void build_next() {
-  next_edge.resize(N);
-
+void build_next_edge() {
   for (int i = 0; i < N; i++) {
     const Segment edge = edge_at(i);
 
@@ -118,7 +116,7 @@ int main() {
       b.y = -1e6;
     }
 
-    build_next();
+    build_next_edge();
 
     int ans = 0;
 
