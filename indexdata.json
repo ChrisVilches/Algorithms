@@ -140,7 +140,8 @@
           "largesttriangle",
           "smallest enclosing rectangle",
           "kattis/mountainouslandscape.cpp",
-          "kattis/forestofcelery.cpp"
+          "kattis/forestofcelery.cpp",
+          "kattis/fasterthanlight.cpp"
         ]
       },
       {
@@ -212,7 +213,8 @@
           "very simple problem",
           "new year and cake",
           "kattis/forestofcelery.cpp",
-          "kattis/fancy.cpp"
+          "kattis/fancy.cpp",
+          "kattis/fasterthanlight.cpp"
         ]
       },
       {

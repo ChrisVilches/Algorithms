@@ -112,6 +112,7 @@ Radial Sweep (and Polar Sort)
 Convex Hull
 
 * [kattis/convexhull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexhull.cpp)
+* [kattis/fasterthanlight.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fasterthanlight.cpp)
 * [kattis/forestofcelery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forestofcelery.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
 * [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
@@ -174,6 +175,7 @@ Convex Polygons + Two-Pointers
 * [codeforces/new_year_and_cake.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/new_year_and_cake.cpp)
 * [codeforces/very_simple_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/very_simple_problem.cpp)
 * [kattis/fancy.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fancy.cpp)
+* [kattis/fasterthanlight.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fasterthanlight.cpp)
 * [kattis/forestofcelery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forestofcelery.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
 * [urionlinejudge/2015-cake_cut.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2015-cake_cut.cpp)
