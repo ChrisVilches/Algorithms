@@ -29,8 +29,6 @@ short orientation(const Point& o, const Point& a, const Point& b) {
 }
 
 vector<Point> create_lower_hull(vector<Point> points) {
-  if (points.size() < 2) return points;
-
   sort(points.begin(), points.end());
 
   int k = 0;
