@@ -251,7 +251,8 @@
           "inorout-inside or out",
           "maptiles",
           "kattis/domes",
-          "kattis/pointinpolygon.cpp"
+          "kattis/pointinpolygon.cpp",
+          "kattis/problematicpolygons.cpp"
         ]
       },
       {

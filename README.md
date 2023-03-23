@@ -212,6 +212,7 @@ Point Inside Polygon
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
 * [kattis/pointinpolygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pointinpolygon.cpp)
+* [kattis/problematicpolygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/problematicpolygons.cpp)
 * [spoj/INOROUT-inside_or_outside.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/INOROUT-inside_or_outside.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 
