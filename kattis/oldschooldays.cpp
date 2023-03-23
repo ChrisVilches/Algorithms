@@ -50,9 +50,6 @@ void count_all(const vector<Point>& points) {
     convex4_concave2 = add(convex4_concave2, mult(area1, count2));
     convex4_concave2 = add(convex4_concave2, mult(area2, count1));
 
-    // TODO: Why does this still work even if there are not enough points? (for example if
-    //       i + 1 and j - 1 order becomes swapped). This is the only thing I don't
-    //       understand.
     const ll area = diagonal.mod_cross(range_sum(psum1, i + 1, j - 1)) * (j + 1) -
                     diagonal.mod_cross(range_sum(psum2, i + 1, j - 1));
 
