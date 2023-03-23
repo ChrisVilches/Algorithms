@@ -85,10 +85,10 @@ bool draw_path(const pii source, const pii target) {
 void precompute_border_cell_indices() {
   border_cells.clear();
 
-  for (int i = 0; i < N; i++) border_cells.emplace_back(i, 0);
-  for (int i = 0; i < M; i++) border_cells.emplace_back(N - 1, i);
-  for (int i = N - 1; i >= 0; i--) border_cells.emplace_back(i, M - 1);
-  for (int i = M - 1; i >= 0; i--) border_cells.emplace_back(0, i);
+  for (int i = N - 1; i >= 0; i--) border_cells.emplace_back(i, 0);
+  for (int i = 0; i < M; i++) border_cells.emplace_back(0, i);
+  for (int i = 0; i < N; i++) border_cells.emplace_back(i, M - 1);
+  for (int i = M - 1; i >= 0; i--) border_cells.emplace_back(N - 1, i);
 }
 
 pii find_cell(int n) {
@@ -99,10 +99,8 @@ pii find_cell(int n) {
 bool possible(const vector<pair<pii, pii>>& pairs) {
   grid.assign(N, vector<bool>(M, false));
 
-  for (const auto& [s, t] : pairs) {
-    // TODO: Why does this have to be t, s (swapped order) for it to work?
-    if (!draw_path(t, s)) return false;
-  }
+  for (const auto& [s, t] : pairs)
+    if (!draw_path(s, t)) return false;
 
   return true;
 }
@@ -126,30 +124,18 @@ bool solve() {
   int L;
   cin >> N >> M >> L;
 
-  vector<pii> st;
+  precompute_border_cell_indices();
 
-  map<int, pii> index_st_pair_map;
+  vector<tuple<int, pii, pii>> dist_pairs;
 
   for (int i = 0; i < L; i++) {
     int s, t;
     cin >> s >> t;
     s--;
     t--;
-    st.emplace_back(s, i);
-    st.emplace_back(t, i);
 
-    index_st_pair_map[i] = {s, t};
-  }
-
-  precompute_border_cell_indices();
-
-  vector<tuple<int, pii, pii>> dist_pairs;
-
-  for (const auto& [idx, st_pair] : index_st_pair_map) {
-    const auto [s, t] = st_pair;
-
-    const auto s_cell = find_cell(s);
-    const auto t_cell = find_cell(t);
+    const pii s_cell = find_cell(s);
+    const pii t_cell = find_cell(t);
     const int dist_s_t = calculate_dist(s, t);
     const int dist_t_s = calculate_dist(t, s);
 
