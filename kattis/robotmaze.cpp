@@ -39,7 +39,6 @@ int solve() {
     q.pop();
     if (pos == target) return dist;
 
-    // TODO: I had to add the visited checks here (otherwise MLE). Why?
     if (visited[pos.first][pos.second][remaining][curr_dir][prev_dir]) continue;
     visited[pos.first][pos.second][remaining][curr_dir][prev_dir] = true;
 
