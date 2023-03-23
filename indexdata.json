@@ -125,7 +125,8 @@
           "mission impossible",
           "spoj/adakohl-ada_and_kohlrabi.cpp",
           "spoj/BLMIRANA-mayonnaise_arrow.cpp",
-          "kattis/fancy.cpp"
+          "kattis/fancy.cpp",
+          "kattis/oldschooldays.cpp"
         ]
       },
       {
@@ -160,7 +161,16 @@
           "high mountains.cpp",
           "high mountains faster.cpp",
           "kattis/pinball",
-          "LAZER"
+          "LAZER",
+          "kattis/arable.cpp"
+        ]
+      },
+      {
+        "title": "Quadrilaterals",
+        "files": [
+          "ancient towers cpp",
+          "CNVX4HUL",
+          "kattis/oldschooldays.cpp"
         ]
       },
       {
@@ -197,7 +207,8 @@
           "hipercampo",
           "beautifulbridges cpp",
           "mpoly-polygon",
-          "kattis/trimmingpolygons.cpp"
+          "kattis/trimmingpolygons.cpp",
+          "kattis/fancy.cpp"
         ]
       },
       {
@@ -229,7 +240,8 @@
           "kattis/cuttingpolygon",
           "kattis/biometrics",
           "kattis/problematicpolygons",
-          "kattis/floatingpoints.cpp"
+          "kattis/floatingpoints.cpp",
+          "kattis/arable.cpp"
         ]
       },
       {
@@ -311,7 +323,8 @@
           "leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp",
           "leetcode/symmetric-tree.rs",
           "leetcode/balanced-binary-tree.js",
-          "leetcode/jump-game-iv.cpp"
+          "leetcode/jump-game-iv.cpp",
+          "kattis/robotmaze.cpp"
         ]
       },
       {
@@ -555,7 +568,8 @@
           "queryonarray",
           "cses/polynomial_queries.cpp",
           "cut inequality down online",
-          "keep it energized 2"
+          "keep it energized 2",
+          "kattis/oldschooldays.cpp"
         ]
       },
       {

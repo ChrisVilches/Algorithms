@@ -94,6 +94,7 @@ Radial Sweep (and Polar Sort)
 * [kattis/leylines.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/leylines.cpp)
 * [kattis/maxcolinear.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxcolinear.cpp)
 * [kattis/oil2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oil2.cpp)
+* [kattis/oldschooldays.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oldschooldays.cpp)
 * [kattis/single.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/single.cpp)
 * [spoj/ADAKOHL-ada_and_kohlrabi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ADAKOHL-ada_and_kohlrabi.cpp)
 * [spoj/ADAPICK-ada_and_cucumber.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ADAPICK-ada_and_cucumber.cpp)
@@ -128,6 +129,7 @@ Sweep Line
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [codechef/TOWCNT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/TOWCNT.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
+* [kattis/arable.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/arable.cpp)
 * [kattis/directingrainfall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/directingrainfall.cpp)
 * [kattis/pinball.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pinball.cpp)
 * [kattis/polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygon.cpp)
@@ -139,6 +141,12 @@ Sweep Line
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/2043-high_mountains.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2043-high_mountains.cpp)
 * [urionlinejudge/2043-high_mountains_faster.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2043-high_mountains_faster.cpp)
+
+Quadrilaterals
+
+* [codechef/CNVX4HUL.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CNVX4HUL.cpp)
+* [kattis/oldschooldays.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oldschooldays.cpp)
+* [urionlinejudge/3359-ancient_towers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3359-ancient_towers.cpp)
 
 Segment to Segment Distance
 
@@ -162,6 +170,7 @@ Geometry with Dynamic Programming
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
 * [kattis/beautifulbridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/beautifulbridges.cpp)
+* [kattis/fancy.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fancy.cpp)
 * [kattis/trimmingpolygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/trimmingpolygons.cpp)
 * [spoj/MPOLY-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MPOLY-polygon.cpp)
 * [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
@@ -187,6 +196,7 @@ Convex Polygons + Two-Pointers
 Concave Polygons
 
 * [kattis/airport.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/airport.cpp)
+* [kattis/arable.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/arable.cpp)
 * [kattis/biometrics.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/biometrics.cpp)
 * [kattis/cuttingpolygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cuttingpolygon.cpp)
 * [kattis/floatingpoints.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/floatingpoints.cpp)
@@ -246,6 +256,7 @@ BFS, DFS
 
 * [kattis/fontan.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fontan.cpp)
 * [kattis/keyboard.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/keyboard.cpp)
+* [kattis/robotmaze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/robotmaze.cpp)
 * [kattis/secretchamber.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/secretchamber.cpp)
 * [leetcode/balanced-binary-tree.js](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/balanced-binary-tree.js)
 * [leetcode/jump-game-iv.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-iv.cpp)
@@ -455,6 +466,7 @@ Prefix Sum
 * [codeforces/new_year_and_cake.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/new_year_and_cake.cpp)
 * [cses/polynomial_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/polynomial_queries.cpp)
 * [kattis/centsavings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/centsavings.cpp)
+* [kattis/oldschooldays.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oldschooldays.cpp)
 * [kattis/queryonarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/queryonarray.cpp)
 * [spoj/CSUMQ-cumulative_sum_query.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CSUMQ-cumulative_sum_query.cpp)
 * [spoj/RANGESUM-range_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RANGESUM-range_sum.cpp)

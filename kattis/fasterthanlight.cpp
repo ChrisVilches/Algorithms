@@ -11,14 +11,9 @@ struct Point {
 
 struct Rectangle {
   ll x1, y1, x2, y2;
-
   Rectangle rot_ccw() const { return {-y1, x1, -y2, x2}; }
-
-  array<Point, 4> points() const {
-    const auto [min_x, max_x] = minmax(x1, x2);
-    const auto [min_y, max_y] = minmax(y1, y2);
-    return {Point{min_x, min_y}, {max_x, min_y}, {max_x, max_y}, {min_x, max_y}};
-  }
+  Point bottom_left() const { return {min(x1, x2), min(y1, y2)}; }
+  Point top_right() const { return {max(x1, x2), max(y1, y2)}; }
 };
 
 vector<Rectangle> rectangles;
@@ -53,11 +48,8 @@ bool all_points_direction(const vector<Point>& edges, const vector<Point>& point
 
     while (j < (int)points.size() && points[j].x < p.x) j++;
 
-    while (j < (int)points.size() && points[j].x <= q.x) {
+    for (; j < (int)points.size() && points[j].x <= q.x; j++)
       if (orientation(p, q, points[j]) == dir) return false;
-
-      j++;
-    }
   }
 
   return true;
@@ -75,17 +67,14 @@ bool intersection(vector<Point> upper, vector<Point> lower) {
 
 bool possible() {
   for (int rot = 0; rot < 2; rot++) {
-    vector<Point> top_left, top_right, bottom_left, bottom_right;
+    vector<Point> top_right, bottom_left;
 
     for (const Rectangle r : rectangles) {
-      const array<Point, 4> points = r.points();
-      bottom_left.push_back(points[0]);
-      bottom_right.push_back(points[1]);
-      top_right.push_back(points[2]);
-      top_left.push_back(points[3]);
+      bottom_left.push_back(r.bottom_left());
+      top_right.push_back(r.top_right());
     }
 
-    if (!intersection(top_left, bottom_right) || !intersection(top_right, bottom_left)) {
+    if (!intersection(top_right, bottom_left)) {
       return true;
     }
 
