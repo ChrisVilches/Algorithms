@@ -438,7 +438,8 @@
           "leetcode/jump-game-v.cpp",
           "kattis/intervalcover.cpp",
           "kattis/stol.cpp",
-          "kattis/fancy.cpp"
+          "kattis/fancy.cpp",
+          "aizu/1164-tighten_up.cpp"
         ]
       },
       {

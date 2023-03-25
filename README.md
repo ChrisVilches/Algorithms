@@ -336,6 +336,7 @@ Counting, Combinatorics, Math
 
 Maximization, Minimization
 
+* [aizu/1164-tighten_up.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/aizu/1164-tighten_up.cpp)
 * [atcoder/A-frog_1.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/A-frog_1.cpp)
 * [atcoder/D-flat_subsequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/D-flat_subsequence.cpp)
 * [codeforces/boredom.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/boredom.cpp)
