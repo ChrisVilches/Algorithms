@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// TODO: Add to index (DP and perhaps geo/misc).
-//       Refactor a bit more, some names are bad.
-// TODO: Create folder for Aizu.
-
 struct Point {
   double x, y;
   Point operator+(const Point p) const { return {x + p.x, y + p.y}; }
