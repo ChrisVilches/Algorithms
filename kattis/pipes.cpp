@@ -4,7 +4,6 @@ typedef pair<int, int> pii;
 
 int N, M;
 vector<vector<bool>> grid;
-vector<vector<bool>> visited;
 vector<pii> border_cells;
 
 const pii LEFT{0, -1};
@@ -15,35 +14,17 @@ const pii DOWN{-1, 0};
 pii turn_left(const pii dir) { return {dir.second, -dir.first}; }
 pii turn_right(const pii dir) { return {-dir.second, dir.first}; }
 
-bool inside(const pii cell) {
-  const auto [i, j] = cell;
-  return i >= 0 && j >= 0 && i < N && j < M;
-}
-
-pii move(const pii cell, const pii dir) {
-  return {cell.first + dir.first, cell.second + dir.second};
+pii operator+(const pii a, const pii b) {
+  return {a.first + b.first, a.second + b.second};
 }
 
 bool cell_ok(const pii cell) {
-  if (!inside(cell)) return false;
   const auto [i, j] = cell;
-  return !grid[i][j];
-}
-
-bool dfs(const pii cell, const pii target) {
-  if (!cell_ok(cell)) return false;
-  if (cell == target) return true;
-  const auto [i, j] = cell;
-  if (visited[i][j]) return false;
-  visited[i][j] = true;
-
-  return dfs(move(cell, LEFT), target) || dfs(move(cell, RIGHT), target) ||
-         dfs(move(cell, UP), target) || dfs(move(cell, DOWN), target);
+  return i >= 0 && j >= 0 && i < N && j < M && !grid[i][j];
 }
 
 bool draw_path(const pii source, const pii target) {
-  visited.assign(N, vector<bool>(M, false));
-  if (!dfs(source, target)) return false;
+  if (!cell_ok(source)) return false;
 
   pii dir;
 
@@ -58,20 +39,18 @@ bool draw_path(const pii source, const pii target) {
 
   pii curr_cell = source;
 
-  while (curr_cell != target) {
-    curr_cell = path.back();
+  for (int it = 0; curr_cell != target; it++) {
+    if (it > N * M) return false;
 
-    if (cell_ok(move(curr_cell, turn_right(dir)))) {
+    if (cell_ok(curr_cell + turn_right(dir))) {
       dir = turn_right(dir);
-    } else if (!cell_ok(move(curr_cell, dir))) {
+    } else if (!cell_ok(curr_cell + dir)) {
       dir = turn_left(dir);
     }
 
-    if (!cell_ok(move(curr_cell, dir))) {
-      continue;
-    }
+    if (!cell_ok(curr_cell + dir)) continue;
 
-    curr_cell = move(curr_cell, dir);
+    curr_cell = curr_cell + dir;
     path.push_back(curr_cell);
   }
 
@@ -96,15 +75,6 @@ pii find_cell(int n) {
   return border_cells[n];
 }
 
-bool possible(const vector<pair<pii, pii>>& pairs) {
-  grid.assign(N, vector<bool>(M, false));
-
-  for (const auto& [s, t] : pairs)
-    if (!draw_path(s, t)) return false;
-
-  return true;
-}
-
 int calculate_dist(const int s, const int t) {
   const auto target_cell = find_cell(t);
 
@@ -123,6 +93,7 @@ int calculate_dist(const int s, const int t) {
 bool solve() {
   int L;
   cin >> N >> M >> L;
+  grid.assign(N, vector<bool>(M, false));
 
   precompute_border_cell_indices();
 
@@ -148,10 +119,10 @@ bool solve() {
 
   sort(dist_pairs.begin(), dist_pairs.end());
 
-  vector<pair<pii, pii>> pairs;
-  for (const auto& [_, s, t] : dist_pairs) pairs.emplace_back(s, t);
+  for (const auto& [_, s, t] : dist_pairs)
+    if (!draw_path(s, t)) return false;
 
-  return possible(pairs);
+  return true;
 }
 
 int main() {
