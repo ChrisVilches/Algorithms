@@ -2,17 +2,6 @@
 using namespace std;
 typedef long long ll;
 
-const ll MOD = 1e6 + 3;
-
-ll mod(ll n) { return (n + MOD) % MOD; }
-ll mult(const ll a, const ll b) { return mod(mod(a) * mod(b)); }
-ll subtract(const ll a, const ll b) { return mod(mod(a) - mod(b)); }
-ll add(const ll a, const ll b) { return mod(mod(a) + mod(b)); }
-ll divide(ll a, const ll b) {
-  while (a < 0 || a % b != 0) a += MOD;
-  return a / b;
-}
-
 struct Point {
   ll x, y;
 
@@ -24,14 +13,19 @@ struct Point {
   bool operator<(const Point p) const {
     return is_above() != p.is_above() ? is_above() : cross(p) > 0;
   }
-  ll mod_cross(const Point p) const { return subtract(mult(x, p.y), mult(y, p.x)); }
 };
 
-Point range_sum(const vector<Point>& v, int l, int r) { return v[r + 1] - v[l]; }
-
+const ll MOD = 1e6 + 3;
 ll convex4_concave2;
 ll convex4_concave1;
 vector<Point> psum1, psum2;
+
+ll divide(ll a, const ll b) {
+  while (a < 0 || a % b != 0) a += MOD;
+  return a / b;
+}
+
+Point range_sum(const vector<Point>& v, int l, int r) { return v[r + 1] - v[l]; }
 
 void count_all(const vector<Point>& points) {
   const int n = points.size();
@@ -44,16 +38,16 @@ void count_all(const vector<Point>& points) {
 
     const ll count1 = j - i;
     const ll count2 = n - count1 - 1;
-    const ll area1 = diagonal.mod_cross(range_sum(psum1, i + 1, j));
-    const ll area2 = range_sum(psum1, j + 1, i - 1 + n).mod_cross(diagonal);
+    const ll area1 = diagonal.cross(range_sum(psum1, i + 1, j));
+    const ll area2 = range_sum(psum1, j + 1, i - 1 + n).cross(diagonal);
 
-    convex4_concave2 = add(convex4_concave2, mult(area1, count2));
-    convex4_concave2 = add(convex4_concave2, mult(area2, count1));
+    convex4_concave2 += (area1 * count2) + (area2 * count1);
 
-    const ll area = diagonal.mod_cross(range_sum(psum1, i + 1, j - 1)) * (j + 1) -
-                    diagonal.mod_cross(range_sum(psum2, i + 1, j - 1));
+    convex4_concave1 += 2LL * (diagonal.cross(range_sum(psum1, i + 1, j - 1)) * (j + 1) -
+                               diagonal.cross(range_sum(psum2, i + 1, j - 1)));
 
-    convex4_concave1 = add(convex4_concave1, mult(area, 2));
+    convex4_concave2 %= MOD;
+    convex4_concave1 %= MOD;
   }
 }
 
@@ -92,9 +86,9 @@ int main() {
       count_all(centered_points);
     }
 
-    const ll concave = subtract(convex4_concave2, convex4_concave1);
+    const ll concave = convex4_concave2 - convex4_concave1;
     const ll convex = divide(convex4_concave1 - concave, 4);
 
-    cout << add(concave, convex) << endl;
+    cout << (concave + convex + MOD) % MOD << endl;
   }
 }
