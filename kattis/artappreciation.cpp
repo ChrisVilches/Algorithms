@@ -68,10 +68,6 @@ vector<Segment> create_half_planes(const vector<Point>& polygon) {
 }
 
 bool can_add(const deque<Segment>& edges, const Segment half_plane) {
-  if (edges.empty()) return true;
-  if (edges.back().parallel(half_plane))
-    return orientation(half_plane, edges.back().p) == -1;
-
   if (edges.size() <= 2) return true;
   if (orientation(edges[0], edges.back()) >= 0) return true;
   return orientation(half_plane, edges.back().intersection_point(edges[0])) == -1;
@@ -82,16 +78,6 @@ bool empty_intersection(const deque<Segment>& edges) {
 }
 
 void remove_back(deque<Segment>& edges, const Segment half_plane) {
-  if (edges.empty()) return;
-
-  if (edges.back().parallel(half_plane)) {
-    if (orientation(edges.back(), half_plane.p) >= 0) {
-      edges.pop_back();
-    } else {
-      return;
-    }
-  }
-
   while (edges.size() >= 2) {
     const Point prev_vertex = edges[edges.size() - 2].intersection_point(edges.back());
     if (orientation(half_plane, prev_vertex) <= 0) {
@@ -112,6 +98,14 @@ vector<Segment> create_polygon_edges(const vector<Segment>& half_planes) {
   deque<Segment> edges;
 
   for (const Segment half_plane : half_planes) {
+    if (!edges.empty() && edges.back().parallel(half_plane)) {
+      if (orientation(edges.back(), half_plane.p) >= 0) {
+        edges.pop_back();
+      } else {
+        continue;
+      }
+    }
+
     remove_back(edges, half_plane);
     if (can_add(edges, half_plane)) edges.push_back(half_plane);
     if (empty_intersection(edges)) return {};
