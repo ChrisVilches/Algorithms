@@ -224,6 +224,11 @@ Polygon Intersection
 * [kattis/puzzle2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/puzzle2.cpp)
 * [uva/137-polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/137-polygons.cpp)
 
+Half-Planes Intersection (Finite Area)
+
+* [kattis/artappreciation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/artappreciation.cpp)
+* [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
+
 Rectangle-Rectangle Intersection
 
 * [kattis/visual.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/visual.cpp)

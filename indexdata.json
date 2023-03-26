@@ -266,6 +266,13 @@
         ]
       },
       {
+        "title": "Half-planes intersection (finite area)",
+        "files": [
+          "kattis/domes.cpp",
+          "kattis/artappreciation.cpp"
+        ]
+      },
+      {
         "title": "Rectangle-Rectangle intersection",
         "files": [
           "kattis/visual"
