@@ -106,6 +106,7 @@ Radial Sweep (and Polar Sort)
 * [urionlinejudge/1268-mission_impossible.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1268-mission_impossible.cpp)
 * [urionlinejudge/1336-garden_fence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1336-garden_fence.cpp)
 * [urionlinejudge/1497-hide_and_seek_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1497-hide_and_seek_2.cpp)
+* [urionlinejudge/1613-goemon_is_in_trouble.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1613-goemon_is_in_trouble.cpp)
 * [urionlinejudge/3013-build_the_perfect_house.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3013-build_the_perfect_house.cpp)
 * [urionlinejudge/3015-dazzling_stars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3015-dazzling_stars.cpp)
 * [urionlinejudge/3359-ancient_towers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3359-ancient_towers.cpp)
@@ -226,6 +227,8 @@ Polygon Intersection
 
 Half-Planes Intersection (Finite Area)
 
+* [aizu/1267-how_i_mathematician_wonder_what_you_are.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/aizu/1267-how_i_mathematician_wonder_what_you_are.cpp)
+* [codechef/CHN02.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CHN02.cpp)
 * [kattis/artappreciation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/artappreciation.cpp)
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
 

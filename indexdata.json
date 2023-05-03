@@ -126,7 +126,8 @@
           "spoj/adakohl-ada_and_kohlrabi.cpp",
           "spoj/BLMIRANA-mayonnaise_arrow.cpp",
           "kattis/fancy.cpp",
-          "kattis/oldschooldays.cpp"
+          "kattis/oldschooldays.cpp",
+          "goemon is in trouble"
         ]
       },
       {
@@ -269,7 +270,9 @@
         "title": "Half-planes intersection (finite area)",
         "files": [
           "kattis/domes.cpp",
-          "kattis/artappreciation.cpp"
+          "kattis/artappreciation.cpp",
+          "codechef/CHN02.cpp",
+          "aizu/1267-how_i_mathematician_wonder_what_you_are.cpp"
         ]
       },
       {
