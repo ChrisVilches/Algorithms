@@ -215,7 +215,7 @@
       {
         "title": "Convex polygons + two-pointers",
         "files": [
-          "urionlinejudge 2015 cake cut",
+          "urionlinejudge 2015 cake cut cpp",
           "smallest enclosing rectangle",
           "escape polygon 2",
           "building a field go",
@@ -501,7 +501,8 @@
           "galactic taxes",
           "pogro challenge",
           "the largest and smallest box",
-          "kattis/asteroids"
+          "kattis/asteroids",
+          "urionlinejudge/2015_cake_cut_2.cpp"
         ]
       }
     ]
@@ -581,7 +582,8 @@
           "cses/polynomial_queries.cpp",
           "cut inequality down online",
           "keep it energized 2",
-          "kattis/oldschooldays.cpp"
+          "kattis/oldschooldays.cpp",
+          "urionlinejudge/2015_cake_cut_2.cpp"
         ]
       },
       {
