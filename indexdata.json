@@ -305,7 +305,9 @@
           "kattis/undetected",
           "kattis/artur",
           "kattis/dormroomdivide.cpp",
-          "kattis/segmentintersection.cpp"
+          "kattis/segmentintersection.cpp",
+          "urionlinejudge 1991 factory of bridges cpp",
+          "urionlinejudge 2083 - On The Side Of The Road"
         ]
       }
     ]
@@ -502,7 +504,8 @@
           "pogro challenge",
           "the largest and smallest box",
           "kattis/asteroids",
-          "urionlinejudge/2015_cake_cut_2.cpp"
+          "urionlinejudge/2015_cake_cut_2.cpp",
+          "urionlinejudge 1991 factory of bridges cpp"
         ]
       }
     ]

@@ -257,6 +257,8 @@ Misc
 * [urionlinejudge/1295-the_closest_pair_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1295-the_closest_pair_problem.cpp)
 * [urionlinejudge/1378-isosceles_triangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1378-isosceles_triangles.cpp)
 * [urionlinejudge/1455-icpc_finals.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1455-icpc_finals.cpp)
+* [urionlinejudge/1991-factory_of_bridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1991-factory_of_bridges.cpp)
+* [urionlinejudge/2083-on_the_side_of_the_road.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2083-on_the_side_of_the_road.cpp)
 * [urionlinejudge/2840-balloon++.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2840-balloon++.cpp)
 
 ### Graphs
@@ -419,6 +421,7 @@ Ternary Search
 
 * [kattis/asteroids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroids.cpp)
 * [urionlinejudge/1294-the_largest_and_smallest_box.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1294-the_largest_and_smallest_box.cpp)
+* [urionlinejudge/1991-factory_of_bridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1991-factory_of_bridges.cpp)
 * [urionlinejudge/2015-cake_cut_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2015-cake_cut_2.cpp)
 * [urionlinejudge/2517-pogro_challenge.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2517-pogro_challenge.cpp)
 * [uva/13010-galactic_taxes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13010-galactic_taxes.cpp)
