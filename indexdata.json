@@ -127,7 +127,8 @@
           "spoj/BLMIRANA-mayonnaise_arrow.cpp",
           "kattis/fancy.cpp",
           "kattis/oldschooldays.cpp",
-          "goemon is in trouble"
+          "goemon is in trouble",
+          "leetcode maximum number of visible points cpp"
         ]
       },
       {
