@@ -530,6 +530,7 @@ Modular Division
 
 * [codechef/CNVX4HUL.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CNVX4HUL.cpp)
 * [codeforces/cqxym_count_permutations.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cqxym_count_permutations.cpp)
+* [kattis/chineseremainder.rb](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/chineseremainder.rb)
 * [matcomgrader/H-round_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/H-round_table.cpp)
 
 Simpson's Integration

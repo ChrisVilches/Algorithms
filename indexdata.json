@@ -639,7 +639,8 @@
         "files": [
           "cqxym count permutations",
           "round table",
-          "CNVX4HUL"
+          "CNVX4HUL",
+          "kattis/chineseremainder.rb"
         ]
       },
       {
