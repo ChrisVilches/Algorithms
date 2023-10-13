@@ -420,6 +420,7 @@ Binary Search
 Ternary Search
 
 * [kattis/asteroids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroids.cpp)
+* [kattis/euclideantsp.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/euclideantsp.cpp)
 * [urionlinejudge/1294-the_largest_and_smallest_box.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1294-the_largest_and_smallest_box.cpp)
 * [urionlinejudge/1991-factory_of_bridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1991-factory_of_bridges.cpp)
 * [urionlinejudge/2015-cake_cut_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2015-cake_cut_2.cpp)

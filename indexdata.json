@@ -505,7 +505,8 @@
           "the largest and smallest box",
           "kattis/asteroids",
           "urionlinejudge/2015_cake_cut_2.cpp",
-          "urionlinejudge 1991 factory of bridges cpp"
+          "urionlinejudge 1991 factory of bridges cpp",
+          "kattis/euclideantsp.cpp"
         ]
       }
     ]
