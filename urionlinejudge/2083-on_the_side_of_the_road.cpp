@@ -1,27 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-
-struct Point {
-  ll x, y;
-  bool operator<(const Point p) const {
-    if (x == p.x) return y < p.y;
-    return x < p.x;
-  }
-};
+typedef pair<ll, ll> pii;
+#define x first
+#define y second
 
 int main() {
   int N;
   while (cin >> N) {
-    vector<Point> points(N);
+    vector<pii> points(N);
     for (auto& p : points) cin >> p.x >> p.y;
 
-    vector<tuple<double, ll, Point, Point>> intersections;
+    vector<tuple<double, ll, pii, pii>> intersections;
 
     for (int i = 0; i < N; i++) {
       for (int j = i + 1; j < N; j++) {
-        const Point p = points[i];
-        const Point q = points[j];
+        const pii p = points[i];
+        const pii q = points[j];
 
         if (p.y == q.y) continue;
 
@@ -38,13 +33,13 @@ int main() {
     }
 
     vector<int> counts{N};
-    set<Point> blocked;
+    set<pii> blocked;
     set<ll> slopes;
 
     double prev = -numeric_limits<double>::infinity();
     sort(intersections.begin(), intersections.end());
 
-    for (const auto [x, slope, p, q] : intersections) {
+    for (const auto& [x, slope, p, q] : intersections) {
       if (fabs(x - prev) > 1e-8) {
         counts.push_back(0);
         blocked.clear();

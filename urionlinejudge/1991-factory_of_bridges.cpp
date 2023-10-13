@@ -57,32 +57,25 @@ vector<SemiCircle> read(const int y) {
   return result;
 }
 
-double solve(const vector<SemiCircle> shore1, const vector<SemiCircle> shore2) {
-  double result = DBL_MAX;
-
-  for (int i = 0, j = 0; i < (int)shore1.size(); i++) {
-    for (; j < (int)shore2.size(); j++) {
-      const double length = shore1[i].vertical_dist(shore2[j]);
-      result = min(result, length);
-
-      if (shore1[i].x + shore1[i].radius < shore2[j].x + shore2[j].radius) {
-        break;
-      }
-    }
-  }
-
-  return result;
-}
-
 int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-
   int A;
+
   while (cin >> A && A != -1) {
     const auto shore1 = read(A);
     const auto shore2 = read(0);
 
-    cout << fixed << setprecision(2) << solve(shore1, shore2) << endl;
+    double result = DBL_MAX;
+
+    for (int i = 0, j = 0; i < (int)shore1.size(); i++) {
+      for (; j < (int)shore2.size(); j++) {
+        result = min(result, shore1[i].vertical_dist(shore2[j]));
+
+        if (shore1[i].x + shore1[i].radius < shore2[j].x + shore2[j].radius) {
+          break;
+        }
+      }
+    }
+
+    cout << fixed << setprecision(2) << result << endl;
   }
 }
