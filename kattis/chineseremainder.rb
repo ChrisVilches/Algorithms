@@ -11,8 +11,8 @@ def mod_inverse(a, m)
     m = a % m
     a = t
     t = y
-    x = t
     y = x - (q * y)
+    x = t
   end
 
   x += m0 while x < 0
