@@ -3,8 +3,6 @@ using namespace std;
 typedef long double ld;
 const ld EPS = 1e-9;
 
-struct Segment;
-
 struct Point {
   ld x, y;
   Point operator+(const Point& p) const { return {x + p.x, y + p.y}; }
@@ -22,12 +20,16 @@ struct Point {
     y += p.y;
   }
   bool is_above() const { return y > 0 || (y == 0 && x > 0); }
-  ld dist(const Segment& s) const;
 };
 
 struct Segment {
   Point p, q;
   Segment scale(const ld f) const { return {p, p + p.to(q).scale(f)}; }
+  ld dist(const Point r) const {
+    if ((q - p) * (r - p) <= 0) return p.dist(r);
+    if ((p - q) * (r - q) <= 0) return q.dist(r);
+    return fabs((q - p).cross(r - p)) / p.dist(q);
+  }
 
   Segment operator+(const Point& a) const { return {p + a, q + a}; }
 
@@ -39,38 +41,20 @@ struct Segment {
 
  private:
   int orientation(const Point& p, const Point& q, const Point& r) const {
-    ld val = (q - p).cross(r - p);
+    const ld val = (q - p).cross(r - p);
     if (fabs(val) < EPS) return 0;
     return val > 0 ? 1 : -1;
   }
 
   Point intersection_point(const Segment& s) const {
-    const ld s1_x = q.x - p.x;
-    const ld s1_y = q.y - p.y;
-    const ld s2_x = s.q.x - s.p.x;
-    const ld s2_y = s.q.y - s.p.y;
-    const ld t =
-        (s2_x * (p.y - s.p.y) - s2_y * (p.x - s.p.x)) / (-s2_x * s1_y + s1_x * s2_y);
-    return {p.x + (t * s1_x), p.y + (t * s1_y)};
+    const ld factor = (s.q - s.p).cross(p - s.p) / (q - p).cross(s.q - s.p);
+    return scale(factor).q;
   }
 };
 
-Point project_point_segment(const Segment& s, const Point c) {
-  const Point p = s.p;
-  const Point q = s.q;
-  ld r = p.to(q) * p.to(q);
-  if (fabs(r) < EPS) return p;
-  r = (p.to(c) * p.to(q)) / r;
-  if (r < 0) return p;
-  if (r > 1) return q;
-  return p + p.to(q).scale(r);
-}
-
-ld Point::dist(const Segment& s) const { return dist(project_point_segment(s, *this)); }
-
 bool point_inside_polygon(const Point& p, const vector<Point>& polygon) {
   const int n = polygon.size();
-  for (int i = 0; i < (int)polygon.size(); i++)
+  for (int i = 0; i < n; i++)
     if ((polygon[i].to(polygon[(i + 1) % n]).cross(polygon[i].to(p))) <= 0) return false;
 
   return true;
@@ -137,13 +121,13 @@ int main() {
   while (cin >> N) {
     Point v1, v2;
     vector<Point> polygon1(N);
-    for (int i = 0; i < N; i++) cin >> polygon1[i].x >> polygon1[i].y;
+    for (auto& p : polygon1) cin >> p.x >> p.y;
     cin >> v1.x >> v1.y;
 
     cin >> N;
 
     vector<Point> polygon2(N);
-    for (int i = 0; i < N; i++) cin >> polygon2[i].x >> polygon2[i].y;
+    for (auto& p : polygon2) cin >> p.x >> p.y;
     cin >> v2.x >> v2.y;
 
     reverse(polygon1.begin(), polygon1.end());
@@ -164,8 +148,8 @@ int main() {
             const ld t1 = lo + third;
             const ld t2 = hi - third;
 
-            const ld dist1 = (p + v1.scale(t1)).dist(edge + v2.scale(t1));
-            const ld dist2 = (p + v1.scale(t2)).dist(edge + v2.scale(t2));
+            const ld dist1 = (edge + v2.scale(t1)).dist(p + v1.scale(t1));
+            const ld dist2 = (edge + v2.scale(t2)).dist(p + v1.scale(t2));
 
             if (dist1 < EPS) lowest_time = min(lowest_time, t1);
             if (dist2 < EPS) lowest_time = min(lowest_time, t2);
@@ -202,7 +186,7 @@ int main() {
       const ld a1 = intersection_area(t1);
       const ld a2 = intersection_area(t2);
 
-      if (fabs(a1 - a2) < EPS || a1 > a2)
+      if (a1 + EPS > a2)
         hi = t2;
       else
         lo = t1;
