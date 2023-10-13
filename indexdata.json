@@ -242,7 +242,9 @@
           "kattis/biometrics",
           "kattis/problematicpolygons",
           "kattis/floatingpoints.cpp",
-          "kattis/arable.cpp"
+          "kattis/arable.cpp",
+          "kattis/forest.cpp",
+          "kattis/crane.cpp"
         ]
       },
       {
