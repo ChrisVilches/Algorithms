@@ -92,6 +92,12 @@
         ]
       },
       {
+        "title": "Merge sort tree",
+        "files": [
+          "spoj KQUERY kquery cpp"
+        ]
+      },
+      {
         "title": "2D Segment Tree",
         "files": [
           "ramsays counterattack",

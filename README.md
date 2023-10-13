@@ -79,6 +79,10 @@ BIT (Fenwick Tree)
 * [urionlinejudge/2792-golnaldinho.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2792-golnaldinho.cpp)
 * [urionlinejudge/3359-ancient_towers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3359-ancient_towers.cpp)
 
+Merge Sort Tree
+
+* [spoj/KQUERY-kquery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/KQUERY-kquery.cpp)
+
 2D Segment Tree
 
 * [cses/forest_queries_ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/forest_queries_ii.cpp)
