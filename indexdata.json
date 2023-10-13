@@ -265,7 +265,8 @@
           "kattis/asteroids",
           "kattis/puzzle2",
           "kattis/domes",
-          "kattis/hiddencamera"
+          "kattis/hiddencamera",
+          "kattis/forest.cpp"
         ]
       },
       {

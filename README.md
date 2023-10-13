@@ -223,6 +223,7 @@ Polygon Intersection
 
 * [kattis/asteroids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroids.cpp)
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
+* [kattis/forest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forest.cpp)
 * [kattis/hiddencamera.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/hiddencamera.cpp)
 * [kattis/puzzle2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/puzzle2.cpp)
 * [uva/137-polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/137-polygons.cpp)
