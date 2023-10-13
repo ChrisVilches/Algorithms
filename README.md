@@ -405,6 +405,7 @@ Binary Search
 * [spoj/AGGRCOW-aggressive_cows.kt](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AGGRCOW-aggressive_cows.kt)
 * [spoj/BBIN-busqueda_binaria.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN-busqueda_binaria.cpp)
 * [spoj/BBIN2-busqueda_binaria_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN2-busqueda_binaria_2.cpp)
+* [spoj/MATHLOVE-math_is_love.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MATHLOVE-math_is_love.cpp)
 * [spoj/TAP2013F-flowers_of_babylon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/TAP2013F-flowers_of_babylon.cpp)
 * [urionlinejudge/1108-towers_for_mobile_telephony.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1108-towers_for_mobile_telephony.cpp)
 * [urionlinejudge/1549-splitting_the_coke.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1549-splitting_the_coke.cpp)
