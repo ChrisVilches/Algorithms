@@ -506,7 +506,9 @@
           "flat subsequence",
           "kattis/mountainouslandscape.cpp",
           "kattis/dormroomdivide.cpp",
-          "spoj mathlove math is love cpp"
+          "spoj mathlove math is love cpp",
+          "kattis/messenger.cpp",
+          "kattis/monk.cpp"
         ]
       },
       {
@@ -518,7 +520,8 @@
           "kattis/asteroids",
           "urionlinejudge/2015_cake_cut_2.cpp",
           "urionlinejudge 1991 factory of bridges cpp",
-          "kattis/euclideantsp.cpp"
+          "kattis/euclideantsp.cpp",
+          "kattis/messenger.cpp"
         ]
       }
     ]

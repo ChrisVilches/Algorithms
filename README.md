@@ -406,6 +406,8 @@ Binary Search
 * [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
 * [kattis/dormroomdivide.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/dormroomdivide.cpp)
+* [kattis/messenger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/messenger.cpp)
+* [kattis/monk.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/monk.cpp)
 * [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
 * [kattis/rangers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rangers.cpp)
 * [kattis/speed.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speed.cpp)
@@ -431,6 +433,7 @@ Ternary Search
 
 * [kattis/asteroids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroids.cpp)
 * [kattis/euclideantsp.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/euclideantsp.cpp)
+* [kattis/messenger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/messenger.cpp)
 * [urionlinejudge/1294-the_largest_and_smallest_box.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1294-the_largest_and_smallest_box.cpp)
 * [urionlinejudge/1991-factory_of_bridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1991-factory_of_bridges.cpp)
 * [urionlinejudge/2015-cake_cut_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2015-cake_cut_2.cpp)
