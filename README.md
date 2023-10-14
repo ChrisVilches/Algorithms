@@ -120,6 +120,7 @@ Convex Hull
 
 * [kattis/convexhull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexhull.cpp)
 * [kattis/fasterthanlight.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fasterthanlight.cpp)
+* [kattis/fence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fence.cpp)
 * [kattis/forestofcelery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forestofcelery.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
 * [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)

@@ -150,7 +150,8 @@
           "smallest enclosing rectangle",
           "kattis/mountainouslandscape.cpp",
           "kattis/forestofcelery.cpp",
-          "kattis/fasterthanlight.cpp"
+          "kattis/fasterthanlight.cpp",
+          "kattis/fence.cpp"
         ]
       },
       {
