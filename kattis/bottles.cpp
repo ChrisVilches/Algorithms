@@ -6,21 +6,11 @@ struct Function {
     const int n = simpson_n;
     const double dx = (b - a) / n;
 
-    double total = 0;
+    double total = f(a) + f(b);
 
-    for (int i = 0; i <= n; i++) {
-      const double x = a + i * dx;
-      double mult;
-
-      if (i == 0 || i == n) {
-        mult = 1.0;
-      } else if (i % 2 == 0) {
-        mult = 2.0;
-      } else {
-        mult = 4.0;
-      }
-
-      total += mult * f(x);
+    for (int i = 1; i < n; i++) {
+      const double mult = i % 2 == 0 ? 2 : 4;
+      total += mult * f(a + i * dx);
     }
 
     return (dx / 3.0) * total;
