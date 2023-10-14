@@ -1,6 +1,6 @@
 const ALPHABET = /[a-zA-Z']+/g
 
-const MINOR_WORDS = [
+const MINOR_WORDS = new Set([
   'of',
   'a',
   'an',
@@ -14,10 +14,10 @@ const MINOR_WORDS = [
   'by',
   'for',
   'to'
-]
+])
 
 function isMinorWord (word) {
-  return Boolean(MINOR_WORDS.indexOf(word) > -1)
+  return MINOR_WORDS.has(word.toLowerCase())
 }
 
 function maybeIsAcronym (word) {
@@ -60,6 +60,7 @@ console.assert(prettyCapitalize('  ford and Fulkerson ') === '  Ford and Fulkers
 console.assert(prettyCapitalize('  ford & Fulkerson ') === '  Ford & Fulkerson ')
 console.assert(prettyCapitalize('  ford &   Fulkerson ') === '  Ford &   Fulkerson ')
 console.assert(prettyCapitalize('  just use DFS or BFS ') === '  Just Use DFS or BFS ')
+console.assert(prettyCapitalize('BIT And segtree') === 'BIT and Segtree')
 console.assert(prettyCapitalize('  and you??? ') === '  And You??? ')
 console.assert(isMinorWord('of'))
 console.assert(!isMinorWord('hello'))
