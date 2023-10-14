@@ -657,7 +657,8 @@
         "title": "Simpson's Integration",
         "files": [
           "environment protection",
-          "kattis/bottles.cpp"
+          "kattis/bottles.cpp",
+          "kattis/flowers.cpp"
         ]
       }
     ]
