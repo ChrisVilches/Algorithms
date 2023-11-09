@@ -21,7 +21,7 @@ bool possible_aux(const vector<Point>& points) {
   int total_set = 0;
 
   for (const Point p : points) {
-    total_set += p.color;
+    if (p.color == 0) total_set++;
     counts[p.half()][p.color]++;
   }
 
