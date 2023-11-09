@@ -134,7 +134,8 @@
           "kattis/fancy.cpp",
           "kattis/oldschooldays.cpp",
           "goemon is in trouble",
-          "leetcode maximum number of visible points cpp"
+          "leetcode maximum number of visible points cpp",
+          "spoj/SPOINTS-separate_points.cpp"
         ]
       },
       {
