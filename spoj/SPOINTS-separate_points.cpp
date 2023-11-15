@@ -18,16 +18,14 @@ bool cmp(const Point p, const Point q) {
 
 bool possible_aux(const vector<Point>& points) {
   int counts[2][2] = {{0, 0}, {0, 0}};
-  int total_set = 0;
 
   for (const Point p : points) {
-    if (p.color == 0) total_set++;
     counts[p.half()][p.color]++;
   }
 
   const auto ok = [&]() -> bool {
-    return (counts[0][0] == total_set && counts[0][1] == 0) ||
-           (counts[1][0] == total_set && counts[1][1] == 0);
+    return (counts[1][0] == 0 && counts[0][1] == 0) ||
+           (counts[0][0] == 0 && counts[1][1] == 0);
   };
 
   if (ok()) return true;
