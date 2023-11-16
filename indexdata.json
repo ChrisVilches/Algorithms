@@ -172,7 +172,8 @@
           "high mountains faster.cpp",
           "kattis/pinball",
           "LAZER",
-          "kattis/arable.cpp"
+          "kattis/arable.cpp",
+          "kattis/rectilinear.cpp"
         ]
       },
       {
@@ -575,7 +576,8 @@
           "kattis/rangers",
           "kattis/almostunionfind.cpp",
           "kattis/undetected",
-          "mission impossible"
+          "mission impossible",
+          "kattis/rectilinear.cpp"
         ]
       },
       {
