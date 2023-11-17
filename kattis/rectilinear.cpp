@@ -37,15 +37,11 @@ struct DisjointSets {
 bool edges_connected(vector<Point> points) {
   const int n = points.size();
   DisjointSets ds(n);
+
   sort(points.begin(), points.end(), cmp1);
-
-  for (int sw = 0; sw < 2; sw++) {
-    for (int i = 0; i < (int)points.size() - 1; i += 2) {
-      ds.merge(points[i].idx, points[i + 1].idx);
-    }
-
-    sort(points.begin(), points.end(), cmp2);
-  }
+  for (int i = 0; i < n - 1; i += 2) ds.merge(points[i].idx, points[i + 1].idx);
+  sort(points.begin(), points.end(), cmp2);
+  for (int i = 0; i < n - 1; i += 2) ds.merge(points[i].idx, points[i + 1].idx);
 
   for (int i = 1; i < n; i++) {
     if (ds.find(0) != ds.find(i)) return false;
