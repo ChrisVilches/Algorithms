@@ -212,6 +212,7 @@ Concave Polygons
 * [kattis/floatingpoints.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/floatingpoints.cpp)
 * [kattis/forest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forest.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
+* [kattis/pollution.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pollution.cpp)
 * [kattis/polygonarea.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygonarea.cpp)
 * [kattis/problematicpolygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/problematicpolygons.cpp)
 * [kattis/puzzle2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/puzzle2.cpp)

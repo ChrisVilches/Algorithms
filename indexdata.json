@@ -254,7 +254,8 @@
           "kattis/floatingpoints.cpp",
           "kattis/arable.cpp",
           "kattis/forest.cpp",
-          "kattis/crane.cpp"
+          "kattis/crane.cpp",
+          "kattis/pollution.cpp"
         ]
       },
       {
