@@ -364,11 +364,12 @@
           "blood groups",
           "keep it covered",
           "my tshirt suits me",
-          "maxflow",
+          "kattis/maxflow.cpp",
           "monkeys in the emei mountain",
           "halting wolf",
           "game of tiles",
-          "algorithm teaching"
+          "algorithm teaching",
+          "kattis/maxflow_dinic.cpp"
         ]
       },
       {
