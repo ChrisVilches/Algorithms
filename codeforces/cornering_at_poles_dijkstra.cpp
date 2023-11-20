@@ -1,47 +1,36 @@
 #define _USE_MATH_DEFINES
 #include <bits/stdc++.h>
 using namespace std;
-typedef long double ld;
-typedef pair<ld, int> pdi;
-const ld EPS = 1e-12;
+typedef pair<double, int> pdi;
+const double EPS = 1e-12;
 
 inline int sgn(int n) { return n < 0 ? -1 : n > 0; }
 
 struct Point {
-  ld x, y;
-  Point(ld x, ld y) : x(x), y(y) {}
-  Point() {}
-
-  Point operator+(const Point& p) const { return Point(x + p.x, y + p.y); }
-  Point operator-(const Point& p) const { return Point(x - p.x, y - p.y); }
-  inline ld operator^(const Point& p) const { return (x * p.y) - (y * p.x); }
-  inline ld operator*(const Point& p) const { return (x * p.x) + (y * p.y); }
-  inline bool operator==(const Point& p) const { return x == p.x && y == p.y; }
+  double x, y;
+  Point operator+(const Point& p) const { return {x + p.x, y + p.y}; }
+  Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
+  inline double operator^(const Point& p) const { return (x * p.y) - (y * p.x); }
+  inline double operator*(const Point& p) const { return (x * p.x) + (y * p.y); }
   Point to(const Point& p) const { return p - *this; }
-  inline ld magnitude() { return sqrt((x * x) + (y * y)); }
-  inline ld dist(const Point& p) { return to(p).magnitude(); }
-  Point rot_ccw() { return Point(-y, x); }
-  Point rot_cw() { return Point(y, -x); }
-  Point normalize() { return Point(x / magnitude(), y / magnitude()); }
-  Point scale(ld f) { return Point(x * f, y * f); }
+  inline double magnitude() const { return hypot(x, y); }
+  inline double dist(const Point& p) const { return to(p).magnitude(); }
+  Point rot_ccw() const { return {-y, x}; }
+  Point rot_cw() const { return {y, -x}; }
+  Point normalize() const { return {x / magnitude(), y / magnitude()}; }
+  Point scale(double f) const { return {x * f, y * f}; }
 };
 
 struct Segment {
   Point p, q;
-  Segment(Point p, Point q) : p(p), q(q) {}
-  Segment() {}
-  Segment invert() { return Segment(q, p); }
-  Segment scale(ld f) { return Segment(p, p + p.to(q).scale(f)); }
-  inline ld length() { return p.dist(q); }
+  Segment invert() { return {q, p}; }
+  Segment scale(double f) { return {p, p + p.to(q).scale(f)}; }
+  inline double length() { return p.dist(q); }
   Point to_vec() { return p.to(q); }
-  ld dist(Point P) {
-    Segment L = *this;
-    if ((P - L.p) * L.to_vec() < 0)
-      return P.dist(L.p);
-    else if ((P - L.q) * L.to_vec() > 0)
-      return P.dist(L.q);
-    else
-      return fabs(L.to_vec() ^ (P - L.p)) / L.to_vec().magnitude();
+  double dist(Point r) {
+    if ((q - p) * (r - p) <= 0) return p.dist(r);
+    if ((p - q) * (r - q) <= 0) return q.dist(r);
+    return fabs((q - p) ^ (r - p)) / p.dist(q);
   }
 };
 
@@ -49,15 +38,14 @@ struct Segment {
 //       But in this program it's not necessary to manually handle these cases.
 struct Circle {
   Point center;
-  ld radius;
-  Circle(Point c, ld r) : center(c), radius(r) {}
+  const double radius = 100;
 
   inline bool intersect(Segment s) { return s.dist(center) + EPS < radius; }
 
-  ld arc(Segment incoming_tan, Segment outgoing_tan) {
+  double arc(Segment incoming_tan, Segment outgoing_tan) {
     Point a = center.to(incoming_tan.q);
     Point b = center.to(outgoing_tan.p);
-    ld angle = acos(a * b / (a.magnitude() * b.magnitude()));
+    double angle = acos(a * b / (a.magnitude() * b.magnitude()));
     if (tangents_reflex_angle(incoming_tan, outgoing_tan)) angle -= 2 * M_PI;
     return fabs(angle * radius);
   }
@@ -89,13 +77,12 @@ struct Circle {
   }
 
   array<Segment, 2> tangents_from_point(Point p) {
-    ld a = radius, b = p.dist(center);
-    ld th = acos(a / b);
-    ld d = atan2(p.y - center.y, p.x - center.x);
-    ld d1 = d + th, d2 = d - th;
-    return array<Segment, 2>{
-        Segment(p, Point(center.x + a * cos(d1), center.y + a * sin(d1))),
-        Segment(p, Point(center.x + a * cos(d2), center.y + a * sin(d2)))};
+    double a = radius, b = p.dist(center);
+    double th = acos(a / b);
+    double d = atan2(p.y - center.y, p.x - center.x);
+    double d1 = d + th, d2 = d - th;
+    return array<Segment, 2>{Segment{p, {center.x + a * cos(d1), center.y + a * sin(d1)}},
+                             {p, {center.x + a * cos(d2), center.y + a * sin(d2)}}};
   }
 
  private:
@@ -106,16 +93,16 @@ struct Circle {
   array<Segment, 2> external_tangents(Circle c) {
     Point shift1 = center.to(c.center).normalize().rot_cw().scale(radius);
     Point shift2 = center.to(c.center).normalize().rot_ccw().scale(radius);
-    return array<Segment, 2>{Segment(center + shift1, c.center + shift1),
-                             Segment(center + shift2, c.center + shift2)};
+    return array<Segment, 2>{Segment{center + shift1, c.center + shift1},
+                             {center + shift2, c.center + shift2}};
   }
 
   array<Segment, 2> internal_tangents(Circle c) {
-    Point mid = Segment(center, c.center).scale(0.5L).q;
+    Point mid = Segment{center, c.center}.scale(0.5).q;
     auto point_tans1 = c.tangents_from_point(mid);
     auto point_tans2 = tangents_from_point(mid);
-    return array<Segment, 2>{Segment(point_tans2[0].q, point_tans1[0].q),
-                             Segment(point_tans2[1].q, point_tans1[1].q)};
+    return array<Segment, 2>{Segment{point_tans2[0].q, point_tans1[0].q},
+                             {point_tans2[1].q, point_tans1[1].q}};
   }
 
   bool same_direction(Point a, Point b, Point c, Point d) {
@@ -129,17 +116,15 @@ struct Node {
   Point point;
   int id;
   vector<pdi> edges;
-  Node(Point p, int id) : point(p), id(id) {}
-  Node() {}
 };
 
 vector<Circle> poles;
-Point robot(0, 0), goal;
-ld min_dist;
+Point robot{0, 0}, goal;
+double min_dist;
 
 bool movement_valid(Segment& s) {
-  for (int i = 0; i < (int)poles.size(); i++)
-    if (poles[i].intersect(s)) return false;
+  for (Circle p : poles)
+    if (p.intersect(s)) return false;
   return true;
 }
 
@@ -155,22 +140,20 @@ vector<Node> graph;
 unordered_map<int, vector<int>> points_in_pole;
 int node_id;
 
-int add_node(Point p, int pole_idx) {
-  int new_node_id = node_id;
-  graph.push_back(Node(p, node_id++));
-  if (pole_idx > -1) points_in_pole[pole_idx].push_back(new_node_id);
-  return new_node_id;
+int add_node(Point p, int pole_idx = -1) {
+  int node_idx = graph.size();
+  graph.push_back(Node{p, node_idx, {}});
+  if (pole_idx > -1) points_in_pole[pole_idx].push_back(node_idx);
+  return node_idx;
 }
-
-inline int add_node(Point p) { return add_node(p, -1); }
 
 void solve() {
   node_id = 0;
   graph.clear();
-  Segment direct_robot_goal(robot, goal);
+  Segment direct_robot_goal{robot, goal};
 
   if (movement_valid(direct_robot_goal)) {
-    printf("%.5Lf\n", direct_robot_goal.length());
+    min_dist = direct_robot_goal.length();
     return;
   }
 
@@ -183,13 +166,13 @@ void solve() {
     for (Segment& tangent : poles[i].tangents_from_point(robot))
       if (movement_valid(tangent)) {
         int n = add_node(tangent.q, i);
-        graph[ROBOT_NODE_ID].edges.push_back({tangent.length(), n});
+        graph[ROBOT_NODE_ID].edges.emplace_back(tangent.length(), n);
       }
 
     for (Segment& tangent : poles[i].tangents_from_point(goal))
       if (movement_valid(tangent)) {
         int n = add_node(tangent.q, i);
-        graph[n].edges.push_back({tangent.length(), GOAL_NODE_ID});
+        graph[n].edges.emplace_back(tangent.length(), GOAL_NODE_ID);
       }
 
     for (int j = i + 1; j < (int)poles.size(); j++)
@@ -197,8 +180,8 @@ void solve() {
         if (movement_valid(tangent)) {
           int n1 = add_node(tangent.p, i);
           int n2 = add_node(tangent.q, j);
-          graph[n1].edges.push_back({tangent.length(), n2});
-          graph[n2].edges.push_back({tangent.length(), n1});
+          graph[n1].edges.emplace_back(tangent.length(), n2);
+          graph[n2].edges.emplace_back(tangent.length(), n1);
         }
   }
 
@@ -212,58 +195,53 @@ void solve() {
         Point in_pt = graph[p1].point;
         Point out_pt = graph[p2].point;
 
-        array<pair<Segment, Segment>, 4> tangent_combinations{
-            make_pair(Segment(in_pt + center.to(in_pt).rot_ccw(), in_pt),
-                      Segment(out_pt, out_pt + center.to(out_pt).rot_cw())),
-            make_pair(Segment(in_pt + center.to(in_pt).rot_cw(), in_pt),
-                      Segment(out_pt, out_pt + center.to(out_pt).rot_ccw()))};
+        array<pair<Segment, Segment>, 2> tangent_combinations{
+            make_pair(Segment{in_pt + center.to(in_pt).rot_ccw(), in_pt},
+                      Segment{out_pt, out_pt + center.to(out_pt).rot_cw()}),
+            make_pair(Segment{in_pt + center.to(in_pt).rot_cw(), in_pt},
+                      Segment{out_pt, out_pt + center.to(out_pt).rot_ccw()})};
 
         for (pair<Segment, Segment> combination : tangent_combinations) {
           auto [in_tan, out_tan] = combination;
           if (!arc_intersect_any_circle(i, in_tan, out_tan)) {
-            ld arc = poles[i].arc(in_tan, out_tan);
-            graph[p1].edges.push_back({arc, p2});
-            graph[p2].edges.push_back({arc, p1});
+            double arc = poles[i].arc(in_tan, out_tan);
+            graph[p1].edges.emplace_back(arc, p2);
+            graph[p2].edges.emplace_back(arc, p1);
           }
         }
       }
   }
 
-  vector<ld> dist(graph.size(), DBL_MAX);
+  vector<double> dist(graph.size(), DBL_MAX);
 
   priority_queue<pdi, vector<pdi>, greater<pdi>> q;
 
-  q.push({0, ROBOT_NODE_ID});
+  q.emplace(0, ROBOT_NODE_ID);
   dist[ROBOT_NODE_ID] = 0;
 
   while (!q.empty()) {
     auto [_, u] = q.top();
     q.pop();
-    for (auto& [weight, v] : graph[u].edges) {
-      ld alt = dist[u] + weight;
+    for (auto [weight, v] : graph[u].edges) {
+      double alt = dist[u] + weight;
       if (alt < dist[v]) {
         dist[v] = alt;
-        q.push({alt, v});
+        q.emplace(alt, v);
       }
     }
   }
 
-  printf("%.8Lf\n", dist[GOAL_NODE_ID] == DBL_MAX ? 0.0 : dist[GOAL_NODE_ID]);
+  min_dist = dist[GOAL_NODE_ID];
 }
 
 int main() {
   int N;
 
-  while (scanf("%d", &N) == 1) {
+  while (cin >> N >> goal.x >> goal.y) {
     min_dist = DBL_MAX;
-    poles.clear();
-    scanf("%Le %Le", &goal.x, &goal.y);
-
-    while (N--) {
-      Point p;
-      scanf("%Le %Le", &p.x, &p.y);
-      poles.push_back(Circle(p, 100L));
-    }
+    poles.resize(N);
+    for (auto& p : poles) cin >> p.center.x >> p.center.y;
     solve();
+    cout << fixed << setprecision(9) << (min_dist == DBL_MAX ? 0.0 : min_dist) << endl;
   }
 }
