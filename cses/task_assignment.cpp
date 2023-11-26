@@ -1,0 +1,120 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+template <typename T>
+class MinCostFlow {
+  struct Edge {
+    const int v;
+    const T cap, cost;
+    T flow;
+  };
+  vector<Edge> e;
+  vector<vector<int>> g;
+
+ public:
+  MinCostFlow(const int n) : g(n) {}
+
+  void add_edge(const int u, const int v, const T cap, const T cost) {
+    g[u].emplace_back(e.size());
+    g[v].emplace_back(e.size() + 1);
+    e.push_back({v, cap, cost, 0});
+    e.push_back({u, cap, -cost, cap});
+  }
+
+  vector<pair<int, int>> flow_edges() const {
+    vector<pair<int, int>> res;
+    for (int u = 0; u < (int)g.size(); u++) {
+      for (const int idx : g[u]) {
+        const Edge edge = e[idx];
+        if (edge.flow > 0 && edge.cost >= 0) res.emplace_back(u, edge.v);
+      }
+    }
+    return res;
+  }
+
+  pair<T, T> min_cost_flow(const T k, const int s, const int t) {
+    T flow = 0;
+    T cost = 0;
+    const int n = g.size();
+
+    vector<T> dist(n), pot(n);
+    vector<T> f(n);
+    vector<bool> vis(n);
+    vector<int> parent(n);
+
+    while (flow < k) {
+      fill(dist.begin(), dist.end(), numeric_limits<T>::max());
+      fill(vis.begin(), vis.end(), false);
+      dist[s] = 0;
+      f[s] = k - flow;
+
+      priority_queue<pair<T, int>, vector<pair<T, int>>, greater<>> q;
+      q.emplace(0, s);
+      while (!q.empty()) {
+        const auto [d, u] = q.top();
+        q.pop();
+        if (vis[u]) continue;
+        vis[u] = true;
+        for (const int i : g[u]) {
+          const auto [v, cap, cost, flow] = e[i];
+          const T d2 = d + cost + pot[u] - pot[v];
+          if (!vis[v] && flow < cap && d2 < dist[v]) {
+            dist[v] = d2;
+            f[v] = min(f[u], cap - flow);
+            parent[v] = i;
+            q.emplace(d2, v);
+          }
+        }
+      }
+
+      if (!vis[t]) break;
+
+      for (int i = 0; i < n; i++) {
+        if (dist[i] != numeric_limits<T>::max()) {
+          dist[i] += pot[i];
+        }
+      }
+
+      cost += dist[t] * f[t];
+      flow += f[t];
+
+      for (int u = t; u != s; u = e[parent[u] ^ 1].v) {
+        e[parent[u]].flow += f[t];
+        e[parent[u] ^ 1].flow -= f[t];
+      }
+
+      dist.swap(pot);
+    }
+    return {flow, cost};
+  }
+};
+
+int main() {
+  int n;
+  while (cin >> n) {
+    MinCostFlow<int> g(1 + n + n + 1);
+
+    for (int i = 0; i < n; i++) {
+      g.add_edge(0, 1 + i, 1, 0);
+      for (int j = 0; j < n; j++) {
+        int cost;
+        cin >> cost;
+
+        g.add_edge(1 + i, 1 + n + j, 1, cost);
+      }
+
+      g.add_edge(1 + n + i, 1 + n + n, 1, 0);
+    }
+
+    const auto [_, cost] = g.min_cost_flow(n, 0, 1 + n + n);
+    cout << cost << endl;
+
+    for (auto [u, v] : g.flow_edges()) {
+      v -= n;
+
+      if (u >= 1 && v >= 1 && u <= n && v <= n) {
+        cout << u << " " << v << endl;
+      }
+    }
+  }
+}
