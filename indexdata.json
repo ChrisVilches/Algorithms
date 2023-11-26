@@ -356,7 +356,7 @@
         ]
       },
       {
-        "title": "Bipartite matching & max flow",
+        "title": "Bipartite matching, max flow, min-cut",
         "files": [
           "attacking rooks",
           "bookclub",
@@ -374,7 +374,8 @@
           "algorithm teaching hopcroft karp cpp",
           "kattis/maxflow_dinic.cpp",
           "kattis/jupiter.cpp",
-          "kattis/piano.cpp"
+          "kattis/piano.cpp",
+          "kattis/mincut.cpp"
         ]
       },
       {

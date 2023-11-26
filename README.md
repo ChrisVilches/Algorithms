@@ -299,7 +299,7 @@ BFS, DFS
 * [uva/1103-ancient_messages.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/1103-ancient_messages.cpp)
 * [uva/13011-height_map.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13011-height_map.cpp)
 
-Bipartite Matching & Max Flow
+Bipartite Matching, Max Flow, Min-Cut
 
 * [codeforces/halting_wolf.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/halting_wolf.cpp)
 * [codeforces/halting_wolf_dinic.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/halting_wolf_dinic.cpp)
@@ -308,6 +308,7 @@ Bipartite Matching & Max Flow
 * [kattis/jupiter.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/jupiter.cpp)
 * [kattis/maxflow.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxflow.cpp)
 * [kattis/maxflow_dinic.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxflow_dinic.cpp)
+* [kattis/mincut.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mincut.cpp)
 * [kattis/piano.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/piano.cpp)
 * [urionlinejudge/1299-game_of_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1299-game_of_tiles.cpp)
 * [urionlinejudge/1362-my_tshirt_suits_me.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1362-my_tshirt_suits_me.cpp)
