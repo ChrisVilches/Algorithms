@@ -69,21 +69,24 @@ int main() {
       graph[v].emplace_back(u, 0);
     }
 
-    const auto [flow, rgraph] = max_flow(graph, S, T);
+    const auto [_, rgraph] = max_flow(graph, S, T);
 
-    vector<tuple<int, int, ll>> edges;
-
-    for (int u = 0; u < (int)graph.size(); u++) {
-      for (const auto& [v, c] : graph[u]) {
-        const ll flow = c - rgraph[u][v];
-        if (flow > 0) edges.emplace_back(u, v, flow);
+    set<int> visited{S};
+    queue<int> q({S});
+    while (!q.empty()) {
+      const int u = q.front();
+      q.pop();
+      for (const auto& [v, _] : graph[u]) {
+        if (!visited.count(v) && rgraph[u][v] > 0) {
+          visited.emplace(v);
+          q.emplace(v);
+        }
       }
     }
 
-    cout << N << " " << flow << " " << edges.size() << endl;
-
-    for (const auto& [u, v, f] : edges) {
-      cout << u << " " << v << " " << f << endl;
+    cout << visited.size() << endl;
+    for (const int u : visited) {
+      cout << u << '\n';
     }
   }
 }
