@@ -1,28 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef vector<vector<int>> graph;
+typedef vector<vector<int>> Graph;
 
-int match[10000];
-bool visited[10000];
+bool bpm(const Graph& g, const int u, vector<bool>& visited, vector<int>& match) {
+  for (const int v : g[u]) {
+    if (visited[v]) continue;
+    visited[v] = true;
 
-bool bpm(graph& g, int u) {
-  for (int v : g[u])
-    if (!visited[v]) {
-      visited[v] = true;
-      if (match[v] < 0 || bpm(g, match[v])) {
-        match[v] = u;
-        return true;
-      }
+    if (match[v] == -1 || bpm(g, match[v], visited, match)) {
+      match[v] = u;
+      return true;
     }
+  }
+
   return false;
 }
 
-int max_bipartite_matching(graph& g) {
-  memset(match, -1, sizeof match);
+int max_bipartite_matching(const Graph& g, const int match_set_size) {
+  vector<int> match(match_set_size, -1);
+  vector<bool> visited(match_set_size);
   int result = 0;
   for (int u = 0; u < (int)g.size(); u++) {
-    memset(visited, 0, sizeof visited);
-    result += bpm(g, u);
+    fill(visited.begin(), visited.end(), false);
+    result += bpm(g, u, visited, match);
   }
   return result;
 }
@@ -32,7 +32,7 @@ int main() {
 
   cin >> N >> M;
 
-  graph g(N);
+  Graph g(N);
 
   for (int i = 0; i < M; i++) {
     int a, b;
@@ -40,5 +40,5 @@ int main() {
     g[a].push_back(b);
   }
 
-  cout << (max_bipartite_matching(g) == N ? "YES" : "NO") << endl;
+  cout << (max_bipartite_matching(g, N) == N ? "YES" : "NO") << endl;
 }

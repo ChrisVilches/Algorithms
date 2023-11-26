@@ -1,68 +1,68 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef vector<vector<int>> graph;
+typedef vector<vector<int>> Graph;
 
 struct Point {
   double x, y;
-  double dist(const Point& p) const {
-    return sqrt(pow(x - p.x, 2) + pow(y - p.y, 2));
-  }
+  double dist(const Point p) const { return hypot(x - p.x, y - p.y); }
 };
 
 int R, H;
 const double SPEED = 10;
-int match[10000];
-bool visited[10000];
 
 Point robots[201], holes[201];
 
-bool bpm(graph& g, int u) {
-  for (int v : g[u])
-    if (!visited[v]) {
-      visited[v] = true;
-      if (match[v] < 0 || bpm(g, match[v])) {
-        match[v] = u;
-        return true;
-      }
+bool bpm(const Graph& g, const int u, vector<bool>& visited, vector<int>& match) {
+  for (const int v : g[u]) {
+    if (visited[v]) continue;
+    visited[v] = true;
+
+    if (match[v] == -1 || bpm(g, match[v], visited, match)) {
+      match[v] = u;
+      return true;
     }
+  }
+
   return false;
 }
 
-int max_bipartite_matching(graph& g) {
-  memset(match, -1, sizeof match);
+int max_bipartite_matching(const Graph& g, const int match_set_size) {
+  vector<int> match(match_set_size, -1);
+  vector<bool> visited(match_set_size);
   int result = 0;
   for (int u = 0; u < (int)g.size(); u++) {
-    memset(visited, 0, sizeof visited);
-    result += bpm(g, u);
+    fill(visited.begin(), visited.end(), false);
+    result += bpm(g, u, visited, match);
   }
   return result;
 }
 
-int can_escape(int seconds) {
-  graph g(R);
+int can_escape(const int seconds) {
+  Graph g(R);
 
   for (int i = 0; i < R; i++)
     for (int j = 0; j < H; j++)
       if (robots[i].dist(holes[j]) / SPEED <= seconds) g[i].push_back(j);
 
-  return max_bipartite_matching(g);
+  return max_bipartite_matching(g, H);
 }
 
 int main() {
   int t = 1;
 
-  while (scanf("%d", &R) == 1) {
-    if (R == 0) break;
-
+  while (cin >> R && R) {
     for (int i = 0; i < R; i++) cin >> robots[i].x >> robots[i].y;
 
     cin >> H;
     for (int i = 0; i < H; i++) cin >> holes[i].x >> holes[i].y;
 
-    printf("Scenario %d\n", t++);
-    printf("In 5 seconds %d robot(s) can escape\n", can_escape(5));
-    printf("In 10 seconds %d robot(s) can escape\n", can_escape(10));
-    printf("In 20 seconds %d robot(s) can escape\n", can_escape(20));
-    printf("\n");
+    cout << "Scenario " << t++ << endl;
+
+    for (const int s : {5, 10, 20}) {
+      const int result = can_escape(s);
+      cout << "In " << s << " seconds " << result << " robot(s) can escape" << endl;
+    }
+
+    cout << endl;
   }
 }
