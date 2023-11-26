@@ -302,17 +302,29 @@ BFS, DFS
 Bipartite Matching & Max Flow
 
 * [codeforces/halting_wolf.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/halting_wolf.cpp)
+* [codeforces/halting_wolf_dinic.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/halting_wolf_dinic.cpp)
 * [kattis/bookclub.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bookclub.cpp)
 * [kattis/escapeplan.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/escapeplan.cpp)
+* [kattis/jupiter.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/jupiter.cpp)
 * [kattis/maxflow.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxflow.cpp)
 * [kattis/maxflow_dinic.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxflow_dinic.cpp)
+* [kattis/piano.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/piano.cpp)
 * [urionlinejudge/1299-game_of_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1299-game_of_tiles.cpp)
 * [urionlinejudge/1362-my_tshirt_suits_me.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1362-my_tshirt_suits_me.cpp)
+* [urionlinejudge/1362-my_tshirt_suits_me_dinic.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1362-my_tshirt_suits_me_dinic.cpp)
 * [urionlinejudge/1490-attacking_rooks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1490-attacking_rooks.cpp)
 * [urionlinejudge/2014-blood_groups.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2014-blood_groups.cpp)
 * [urionlinejudge/2705-keep_it_covered.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2705-keep_it_covered.cpp)
 * [urionlinejudge/3012-algorithm_teaching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3012-algorithm_teaching.cpp)
+* [urionlinejudge/3012-algorithm_teaching_hopcroft_karp.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3012-algorithm_teaching_hopcroft_karp.cpp)
 * [uva/11167-monkeys_in_the_emei_mountain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11167-monkeys_in_the_emei_mountain.cpp)
+
+Minimum Cost Flow
+
+* [cses/parcel_delivery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/parcel_delivery.cpp)
+* [cses/task_assignment.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/task_assignment.cpp)
+* [kattis/catering.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/catering.cpp)
+* [kattis/mincostmaxflow.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mincostmaxflow.cpp)
 
 Dijkstra
 

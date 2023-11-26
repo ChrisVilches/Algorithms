@@ -360,16 +360,30 @@
         "files": [
           "attacking rooks",
           "bookclub",
-          "escapeplan",
+          "kattis/escapeplan.cpp",
           "blood groups",
           "keep it covered",
-          "my tshirt suits me",
+          "my tshirt suits me cpp",
+          "urionlinejudge/1362-my_tshirt_suits_me_dinic.cpp",
           "kattis/maxflow.cpp",
           "monkeys in the emei mountain",
-          "halting wolf",
+          "halting wolf.cpp",
+          "halting wolf dinic cpp",
           "game of tiles",
-          "algorithm teaching",
-          "kattis/maxflow_dinic.cpp"
+          "algorithm teaching cpp",
+          "algorithm teaching hopcroft karp cpp",
+          "kattis/maxflow_dinic.cpp",
+          "kattis/jupiter.cpp",
+          "kattis/piano.cpp"
+        ]
+      },
+      {
+        "title": "Minimum cost flow",
+        "files": [
+          "kattis/catering.cpp",
+          "mincostmaxflow.cpp",
+          "cses/parcel_delivery.cpp",
+          "cses/task_assignment.cpp"
         ]
       },
       {
