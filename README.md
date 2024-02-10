@@ -317,6 +317,7 @@ Bipartite Matching, Max Flow, Min-Cut
 * [urionlinejudge/2014-blood_groups.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2014-blood_groups.cpp)
 * [urionlinejudge/2705-keep_it_covered.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2705-keep_it_covered.cpp)
 * [urionlinejudge/2705-keep_it_covered_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2705-keep_it_covered_2.cpp)
+* [urionlinejudge/2705-keep_it_covered_dinic.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2705-keep_it_covered_dinic.cpp)
 * [urionlinejudge/3012-algorithm_teaching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3012-algorithm_teaching.cpp)
 * [urionlinejudge/3012-algorithm_teaching_hopcroft_karp.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3012-algorithm_teaching_hopcroft_karp.cpp)
 * [uva/11167-monkeys_in_the_emei_mountain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11167-monkeys_in_the_emei_mountain.cpp)
@@ -389,6 +390,7 @@ Maximization, Minimization
 * [kattis/coke.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/coke.cpp)
 * [kattis/fancy.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fancy.cpp)
 * [kattis/intervalcover.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/intervalcover.cpp)
+* [kattis/narrowartgallery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/narrowartgallery.cpp)
 * [kattis/nikola.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/nikola.cpp)
 * [kattis/speedrun.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speedrun.cpp)
 * [kattis/stol.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stol.cpp)
@@ -481,6 +483,10 @@ Cycle Detection
 * [kattis/pickupsticks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pickupsticks.cpp)
 
 ### Other Data Structures & Algorithms
+
+Fast Fourier Transform
+
+* [spoj/POLYMUL-polynomial_multiplication.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/POLYMUL-polynomial_multiplication.cpp)
 
 Union Find (+ Minimum Spanning Tree)
 

@@ -364,6 +364,7 @@
           "blood groups",
           "keep it covered.cpp",
           "keep it covered_2.cpp",
+          "keep it covered_dinic.cpp",
           "my tshirt suits me cpp",
           "urionlinejudge/1362-my_tshirt_suits_me_dinic.cpp",
           "kattis/maxflow.cpp",
@@ -483,7 +484,8 @@
           "kattis/intervalcover.cpp",
           "kattis/stol.cpp",
           "kattis/fancy.cpp",
-          "aizu/1164-tighten_up.cpp"
+          "aizu/1164-tighten_up.cpp",
+          "kattis/narrowartgallery.cpp"
         ]
       },
       {
@@ -578,6 +580,12 @@
   {
     "header": "Other data structures & algorithms",
     "items": [
+      {
+        "title": "Fast Fourier Transform",
+        "files": [
+          "spoj/POLYMUL-polynomial_multiplication.cpp"
+        ]
+      },
       {
         "title": "Union find (+ Minimum spanning tree)",
         "files": [
