@@ -1,96 +1,85 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Point {
- public:
+struct Point {
   double x, y;
+  double dist(const Point p) const { return hypot(x - p.x, y - p.y); }
 };
 
-Point P[10001];
+bool cmp_x(const Point p, const Point q) { return p.x < q.x; }
+bool cmp_y(const Point p, const Point q) { return p.y < q.y; }
 
-int N;
+double brute_force(const span<Point>& points) {
+  double res = DBL_MAX;
 
-int compareX(const void *a, const void *b) {
-  Point *p1 = (Point *)a, *p2 = (Point *)b;
-  return (p1->x - p2->x);
-}
-
-int compareY(const void *a, const void *b) {
-  Point *p1 = (Point *)a, *p2 = (Point *)b;
-  return (p1->y - p2->y);
-}
-
-double dist(Point p1, Point p2) {
-  return sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
-}
-
-double bruteForce(Point P[], int n) {
-  double min = FLT_MAX;
-  for (int i = 0; i < n; ++i)
-    for (int j = i + 1; j < n; ++j)
-      if (dist(P[i], P[j]) < min) min = dist(P[i], P[j]);
-  return min;
-}
-
-double min(double x, double y) { return (x < y) ? x : y; }
-
-double stripClosest(Point strip[], int size, double d) {
-  double min = d;
-
-  qsort(strip, size, sizeof(Point), compareY);
-
-  for (int i = 0; i < size; ++i)
-    for (int j = i + 1; j < size && (strip[j].y - strip[i].y) < min; ++j)
-      if (dist(strip[i], strip[j]) < min) min = dist(strip[i], strip[j]);
-
-  return min;
-}
-
-double closestUtil(Point P[], int n) {
-  if (n <= 3) return bruteForce(P, n);
-
-  int mid = n / 2;
-  Point midPoint = P[mid];
-
-  double dl = closestUtil(P, mid);
-  double dr = closestUtil(P + mid, n - mid);
-
-  double d = min(dl, dr);
-
-  Point strip[n];
-  int j = 0;
-  for (int i = 0; i < n; i++)
-    if (abs(P[i].x - midPoint.x) < d) strip[j] = P[i], j++;
-
-  return min(d, stripClosest(strip, j, d));
-}
-
-double closest(Point P[], int n) {
-  qsort(P, n, sizeof(Point), compareX);
-  return closestUtil(P, n);
-}
-
-void solve() {
-  double x, y;
-  for (int i = 0; i < N; i++) {
-    cin >> x >> y;
-    Point p;
-    p.x = x;
-    p.y = y;
-    P[i] = p;
+  for (int i = 0; i < (int)points.size(); i++) {
+    for (int j = i + 1; j < (int)points.size(); j++) {
+      res = min(res, points[i].dist(points[j]));
+    }
   }
 
-  double dist = closest(P, N);
+  return res;
+}
 
-  if (dist >= 10000) {
-    cout << "INFINITY" << endl;
-  } else {
-    printf("%.4f\n", dist);
+double strip_closest(const span<Point>& strip, const double d) {
+  double res = d;
+  const int n = strip.size();
+
+  sort(strip.begin(), strip.end(), cmp_y);
+
+  for (int i = 0; i < n; i++) {
+    for (int j = i + 1; j < n && (strip[j].y - strip[i].y) < d; j++) {
+      res = min(res, strip[i].dist(strip[j]));
+    }
   }
+
+  return res;
+}
+
+double closest_aux(const span<Point>& points) {
+  if (points.size() <= 3) return brute_force(points);
+
+  const int n = points.size();
+
+  const int mid = n / 2;
+  const Point mid_point = points[mid];
+
+  double dl = closest_aux(points.subspan(0, mid));
+  double dr = closest_aux(points.subspan(mid));
+
+  const double d = min(dl, dr);
+
+  vector<Point> strip;
+
+  for (const Point p : points | views::filter([&](const Point p) {
+                         return fabs(p.x - mid_point.x) < d;
+                       })) {
+    strip.push_back(p);
+  }
+
+  return min(d, strip_closest(strip, d));
+}
+
+double closest(vector<Point> points) {
+  sort(points.begin(), points.end(), cmp_x);
+  return closest_aux(points);
 }
 
 int main() {
-  while (scanf("%d", &N) && N) {
-    solve();
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  int N;
+  while (cin >> N && N) {
+    vector<Point> points(N);
+    for (auto& p : points) cin >> p.x >> p.y;
+
+    const double dist = closest(points);
+
+    if (dist >= 10000) {
+      cout << "INFINITY" << endl;
+    } else {
+      cout << fixed << setprecision(4) << dist << endl;
+    }
   }
 }

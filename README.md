@@ -222,6 +222,7 @@ Concave Polygons
 Point Inside Polygon
 
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
+* [kattis/icefloes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/icefloes.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
 * [kattis/pointinpolygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pointinpolygon.cpp)
 * [kattis/problematicpolygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/problematicpolygons.cpp)
@@ -320,6 +321,7 @@ Bipartite Matching, Max Flow, Min-Cut
 * [urionlinejudge/2705-keep_it_covered_dinic.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2705-keep_it_covered_dinic.cpp)
 * [urionlinejudge/3012-algorithm_teaching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3012-algorithm_teaching.cpp)
 * [urionlinejudge/3012-algorithm_teaching_hopcroft_karp.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3012-algorithm_teaching_hopcroft_karp.cpp)
+* [uva/10330-power_transmission.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/10330-power_transmission.cpp)
 * [uva/11167-monkeys_in_the_emei_mountain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/11167-monkeys_in_the_emei_mountain.cpp)
 
 Minimum Cost Flow
@@ -492,6 +494,7 @@ Union Find (+ Minimum Spanning Tree)
 
 * [kattis/almostunionfind.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/almostunionfind.cpp)
 * [kattis/cats.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cats.cpp)
+* [kattis/icefloes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/icefloes.cpp)
 * [kattis/islandhopping.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/islandhopping.cpp)
 * [kattis/rangers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rangers.cpp)
 * [kattis/rectilinear.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rectilinear.cpp)

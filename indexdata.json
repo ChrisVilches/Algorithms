@@ -266,7 +266,8 @@
           "maptiles",
           "kattis/domes",
           "kattis/pointinpolygon.cpp",
-          "kattis/problematicpolygons.cpp"
+          "kattis/problematicpolygons.cpp",
+          "kattis/icefloes.cpp"
         ]
       },
       {
@@ -377,7 +378,8 @@
           "kattis/maxflow_dinic.cpp",
           "kattis/jupiter.cpp",
           "kattis/piano.cpp",
-          "kattis/mincut.cpp"
+          "kattis/mincut.cpp",
+          "uva 10330 power transmission cpp"
         ]
       },
       {
@@ -603,7 +605,8 @@
           "kattis/almostunionfind.cpp",
           "kattis/undetected",
           "mission impossible",
-          "kattis/rectilinear.cpp"
+          "kattis/rectilinear.cpp",
+          "kattis/icefloes.cpp"
         ]
       },
       {
