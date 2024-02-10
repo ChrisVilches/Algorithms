@@ -353,7 +353,8 @@
           "leetcode/symmetric-tree.rs",
           "leetcode/balanced-binary-tree.js",
           "leetcode/jump-game-iv.cpp",
-          "kattis/robotmaze.cpp"
+          "kattis/robotmaze.cpp",
+          "maze in bolt.cpp"
         ]
       },
       {

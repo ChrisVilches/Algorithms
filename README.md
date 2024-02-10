@@ -279,6 +279,7 @@ Misc
 
 BFS, DFS
 
+* [codeforces/maze_in_bolt.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/maze_in_bolt.cpp)
 * [kattis/fontan.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fontan.cpp)
 * [kattis/keyboard.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/keyboard.cpp)
 * [kattis/robotmaze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/robotmaze.cpp)
