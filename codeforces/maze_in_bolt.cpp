@@ -22,7 +22,7 @@ bool bfs(const string& nut) {
   memset(visited, 0, sizeof visited);
 
   queue<pair<int, int>> q;
-  for (int j = 0; j < C; j++) q.emplace(-1, j);
+  for (int i = 0; i < C; i++) q.emplace(-1, i);
 
   while (!q.empty()) {
     const auto [i, j] = q.front();
