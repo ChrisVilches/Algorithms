@@ -78,8 +78,6 @@ int main() {
 
     long long necessary_flow = 0;
 
-    // TODO: Study this graph a bit.
-
     for (int i = 0; i < R; i++) {
       for (int j = 0; j < C; j++) {
         const int u = (C * i) + j;
