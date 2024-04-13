@@ -92,6 +92,7 @@ Merge Sort Tree
 
 Radial Sweep (and Polar Sort)
 
+* [acmicpc.net/17703-dragon_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/acmicpc.net/17703-dragon_2.cpp)
 * [codechef/CNVX4HUL.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CNVX4HUL.cpp)
 * [codechef/REDBLUE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/REDBLUE.cpp)
 * [kattis/fancy.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fancy.cpp)
