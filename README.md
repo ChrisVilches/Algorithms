@@ -285,6 +285,7 @@ BFS, DFS
 * [kattis/robotmaze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/robotmaze.cpp)
 * [kattis/secretchamber.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/secretchamber.cpp)
 * [leetcode/balanced-binary-tree.js](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/balanced-binary-tree.js)
+* [leetcode/escape-the-spreading-fire.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/escape-the-spreading-fire.cpp)
 * [leetcode/jump-game-iv.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-iv.cpp)
 * [leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp)
 * [leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp)

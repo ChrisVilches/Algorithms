@@ -354,7 +354,8 @@
           "leetcode/balanced-binary-tree.js",
           "leetcode/jump-game-iv.cpp",
           "kattis/robotmaze.cpp",
-          "maze in bolt.cpp"
+          "maze in bolt.cpp",
+          "leetcode/escape-the-spreading-fire"
         ]
       },
       {
