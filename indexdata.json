@@ -173,7 +173,9 @@
           "kattis/pinball",
           "LAZER",
           "kattis/arable.cpp",
-          "kattis/rectilinear.cpp"
+          "kattis/rectilinear.cpp",
+          "leetcode/perfect-rectangle.cpp",
+          "leetcode/the-skyline-problem.cpp"
         ]
       },
       {
@@ -355,7 +357,9 @@
           "leetcode/jump-game-iv.cpp",
           "kattis/robotmaze.cpp",
           "maze in bolt.cpp",
-          "leetcode/escape-the-spreading-fire"
+          "leetcode/escape-the-spreading-fire",
+          "leetcode/jump-game-iii.cpp",
+          "leetcode/trapping-rain-water-ii.cpp"
         ]
       },
       {
@@ -489,7 +493,8 @@
           "kattis/stol.cpp",
           "kattis/fancy.cpp",
           "aizu/1164-tighten_up.cpp",
-          "kattis/narrowartgallery.cpp"
+          "kattis/narrowartgallery.cpp",
+          "leetcode/jump-game-ii.cpp"
         ]
       },
       {
