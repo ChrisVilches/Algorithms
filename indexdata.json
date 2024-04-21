@@ -136,7 +136,8 @@
           "goemon is in trouble",
           "leetcode maximum number of visible points cpp",
           "spoj/SPOINTS-separate_points.cpp",
-          "dragon 2.cpp"
+          "dragon 2.cpp",
+          "leetcode/max-points-on-a-line.cpp"
         ]
       },
       {
