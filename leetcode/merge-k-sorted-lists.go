@@ -1,5 +1,3 @@
-// TODO: Fix this shit
-
 func mergeKLists(lists []*ListNode) *ListNode {
 	all := []int{}
 
