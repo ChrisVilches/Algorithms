@@ -546,7 +546,8 @@
           "spoj mathlove math is love cpp",
           "kattis/messenger.cpp",
           "kattis/monk.cpp",
-          "leetcode/search-in-rotated-sorted-array.cpp"
+          "leetcode/search-in-rotated-sorted-array.cpp",
+          "leetcode/median-of-two-sorted-arrays.cpp"
         ]
       },
       {
