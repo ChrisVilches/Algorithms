@@ -1,27 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 
 struct Point {
-  ll x, y;
-  Point operator-(const Point& p) const { return {x - p.x, y - p.y}; }
-  ll cross(const Point& p) const { return x * p.y - y * p.x; }
-  Point to(const Point& p) const { return p - *this; }
-  Point rot_ccw() { return {-y, x}; }
-  bool operator<(const Point& p) const { return y < p.y || (y == p.y && x < p.x); }
+  int x, y;
+  Point operator-(const Point p) const { return {x - p.x, y - p.y}; }
+  long long cross(const Point p) const { return (long long)x * p.y - (long long)y * p.x; }
+  bool operator<(const Point p) const { return y < p.y || (y == p.y && x < p.x); }
 };
 
-int N, K;
-vector<Point> polygon, hull;
-
-short sgn(const ll x) { return (x > 0) - (x < 0); }
-
-short orientation(const Point& p, const Point& q, const Point& u, const Point& v) {
-  return sgn(p.to(q).cross(u.to(v)));
-}
-
-short orientation(const Point& o, const Point& a, const Point& b) {
-  return sgn(o.to(a).cross(o.to(b)));
+short orientation(const Point o, const Point a, const Point b) {
+  const long long x = (a - o).cross(b - o);
+  return (x > 0) - (x < 0);
 }
 
 vector<Point> convex_hull(vector<Point> A) {
@@ -37,62 +26,30 @@ vector<Point> convex_hull(vector<Point> A) {
     while (k >= t && orientation(res[k - 2], res[k - 1], A[i - 1]) <= 0) k--;
     res[k++] = A[i - 1];
   }
-  res.resize(k - 1);
-  return res;
+  return {res.begin(), res.begin() + k - 1};
 }
 
-void to_ccw(vector<Point>& polygon) {
-  if (polygon.size() < 3) return;
-  if (orientation(polygon[0], polygon[1], polygon[2]) == -1) {
-    reverse(polygon.begin(), polygon.end());
-  }
-}
+vector<int> find_next_vertex(const vector<Point>& polygon, const vector<Point>& hull) {
+  const int N = polygon.size();
+  const int M = hull.size();
+  vector<int> res(N);
 
-vector<int> calculate_next_vertex() {
-  vector<int> res;
+  for (int i = 0, j = 0, k = 1; i < N; i++) {
+    const Point p = polygon[i];
+    while (orientation(p, hull[j % M], hull[(j - 1 + M) % M]) == -1 ||
+           orientation(p, hull[j % M], hull[(j + 1) % M]) == -1)
+      j++;
 
-  int i = 0;
-  int j = 0;
+    while (orientation(p, polygon[(k + 1) % N], hull[j % M]) > 0) k++;
 
-  bool negative_found = false;
-
-  for (int it = 0; it < 2 * K; it++, j++) {
-    const Point p = polygon[0];
-    const Point q = polygon[1];
-    const Point u = hull[j % K];
-    const Point v = hull[(j + 1) % K];
-
-    if (negative_found && orientation(p, q, u, v) >= 0) {
-      break;
-    } else if (orientation(p, q, u, v) < 0) {
-      negative_found = true;
-    }
-  }
-
-  while ((int)res.size() < N) {
-    const Point u = hull[j % K];
-    const Point v = hull[(j + 1) % K];
-
-    for (;; i++) {
-      const Point p = polygon[res.size()];
-      const Point q = polygon[(i + 2) % N];
-
-      if (orientation(p, q, u, v) < 0) {
-        j++;
-        break;
-      }
-
-      if (orientation(p, q, u) <= 0) {
-        res.push_back((i + 1) % N);
-        break;
-      }
-    }
+    res[i] = k % N;
   }
 
   return res;
 }
 
 int count(const int i, const vector<vector<int>>& st) {
+  const int N = st.front().size();
   int prev_idx = i;
   int res = 0;
   int col = i;
@@ -122,19 +79,22 @@ int count(const int i, const vector<vector<int>>& st) {
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
+  int N, K;
 
   while (cin >> N) {
-    polygon.resize(N);
+    vector<Point> polygon(N);
     for (auto& p : polygon) cin >> p.x >> p.y;
-    to_ccw(polygon);
+
+    if (orientation(polygon[0], polygon[1], polygon[2]) == -1) {
+      reverse(polygon.begin(), polygon.end());
+    }
+
     cin >> K;
-    hull.resize(K);
-    for (auto& p : hull) cin >> p.x >> p.y;
-    hull = convex_hull(hull);
-    K = hull.size();
+    vector<Point> points(K);
+    for (auto& p : points) cin >> p.x >> p.y;
 
     vector<vector<int>> sparse_table(ceil(log2(N)) + 1);
-    sparse_table[0] = calculate_next_vertex();
+    sparse_table[0] = find_next_vertex(polygon, convex_hull(points));
 
     for (int k = 1; k < (int)sparse_table.size(); k++) {
       for (int i = 0; i < N; i++) {
