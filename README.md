@@ -63,6 +63,7 @@ Segment Tree + Lazy Propagation
 * [cses/range_updates_and_sums.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/range_updates_and_sums.cpp)
 * [dmoj/IOI14-wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/dmoj/IOI14-wall.cpp)
 * [kattis/queryonarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/queryonarray.cpp)
+* [leetcode/falling-squares.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/falling-squares.cpp)
 * [spoj/HORRIBLE-horrible_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries.cpp)
 * [urionlinejudge/1477-man_elephant_and_mouse.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1477-man_elephant_and_mouse.cpp)
 
@@ -292,6 +293,7 @@ BFS, DFS
 * [leetcode/escape-the-spreading-fire.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/escape-the-spreading-fire.cpp)
 * [leetcode/jump-game-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-iii.cpp)
 * [leetcode/jump-game-iv.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-iv.cpp)
+* [leetcode/max-area-of-island.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/max-area-of-island.cpp)
 * [leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp)
 * [leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp)
 * [leetcode/symmetric-tree.rs](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/symmetric-tree.rs)

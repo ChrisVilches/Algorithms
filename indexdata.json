@@ -73,7 +73,8 @@
           "queryonarray",
           "cses/polynomial_queries.cpp",
           "range updates and sums",
-          "dmoj/IOI14-wall.cpp"
+          "dmoj/IOI14-wall.cpp",
+          "leetcode/falling-squares.cpp"
         ]
       },
       {
@@ -361,7 +362,8 @@
           "maze in bolt.cpp",
           "leetcode/escape-the-spreading-fire",
           "leetcode/jump-game-iii.cpp",
-          "leetcode/trapping-rain-water-ii.cpp"
+          "leetcode/trapping-rain-water-ii.cpp",
+          "leetcode/max-area-of-island.cpp"
         ]
       },
       {
