@@ -104,6 +104,7 @@ Radial Sweep (and Polar Sort)
 * [kattis/oil2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oil2.cpp)
 * [kattis/oldschooldays.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oldschooldays.cpp)
 * [kattis/single.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/single.cpp)
+* [kattis/spin.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/spin.cpp)
 * [leetcode/max-points-on-a-line.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/max-points-on-a-line.cpp)
 * [leetcode/maximum-number-of-visible-points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-number-of-visible-points.cpp)
 * [spoj/ADAKOHL-ada_and_kohlrabi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ADAKOHL-ada_and_kohlrabi.cpp)
@@ -182,6 +183,10 @@ Tangents & Arcs
 * [urionlinejudge/1646-forest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1646-forest.cpp)
 * [urionlinejudge/3013-build_the_perfect_house.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3013-build_the_perfect_house.cpp)
 
+Polygon Tangents
+
+* [kattis/spin.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/spin.cpp)
+
 Geometry with Dynamic Programming
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
@@ -233,6 +238,7 @@ Point Inside Polygon
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
 * [kattis/pointinpolygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pointinpolygon.cpp)
 * [kattis/problematicpolygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/problematicpolygons.cpp)
+* [kattis/spin.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/spin.cpp)
 * [spoj/INOROUT-inside_or_outside.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/INOROUT-inside_or_outside.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 

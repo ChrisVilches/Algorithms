@@ -140,7 +140,8 @@
           "leetcode maximum number of visible points cpp",
           "spoj/SPOINTS-separate_points.cpp",
           "dragon 2.cpp",
-          "leetcode/max-points-on-a-line.cpp"
+          "leetcode/max-points-on-a-line.cpp",
+          "kattis/spin.cpp"
         ]
       },
       {
@@ -216,6 +217,12 @@
         ]
       },
       {
+        "title": "Polygon tangents",
+        "files": [
+          "kattis/spin.cpp"
+        ]
+      },
+      {
         "title": "Geometry with dynamic programming",
         "files": [
           "elastico",
@@ -274,7 +281,8 @@
           "kattis/domes",
           "kattis/pointinpolygon.cpp",
           "kattis/problematicpolygons.cpp",
-          "kattis/icefloes.cpp"
+          "kattis/icefloes.cpp",
+          "kattis/spin.cpp"
         ]
       },
       {
