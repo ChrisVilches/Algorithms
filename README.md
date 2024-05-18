@@ -289,6 +289,7 @@ BFS, DFS
 * [kattis/keyboard.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/keyboard.cpp)
 * [kattis/robotmaze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/robotmaze.cpp)
 * [kattis/secretchamber.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/secretchamber.cpp)
+* [kattis/wheresmywaterfall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/wheresmywaterfall.cpp)
 * [leetcode/balanced-binary-tree.js](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/balanced-binary-tree.js)
 * [leetcode/escape-the-spreading-fire.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/escape-the-spreading-fire.cpp)
 * [leetcode/jump-game-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-iii.cpp)

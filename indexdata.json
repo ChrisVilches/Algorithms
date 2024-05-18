@@ -363,7 +363,8 @@
           "leetcode/escape-the-spreading-fire",
           "leetcode/jump-game-iii.cpp",
           "leetcode/trapping-rain-water-ii.cpp",
-          "leetcode/max-area-of-island.cpp"
+          "leetcode/max-area-of-island.cpp",
+          "kattis/wheresmywaterfall.cpp"
         ]
       },
       {
