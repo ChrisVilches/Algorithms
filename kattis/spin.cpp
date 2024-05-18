@@ -11,7 +11,6 @@ struct Point {
   Point to_upper() const { return y > 0 || (y == 0 && x > 0) ? *this : negate(); }
   ll operator*(const Point p) const { return (ll)x * p.x + (ll)y * p.y; }
   bool deg0(const Point p) const { return cross(p) == 0 && *this * p >= 0; }
-  bool deg180(const Point p) const { return cross(p) == 0 && *this * p < 0; }
   Point negate() const { return {-x, -y}; }
 };
 
