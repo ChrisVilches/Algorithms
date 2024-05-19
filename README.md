@@ -71,6 +71,7 @@ Segment Tree + Lazy Propagation
 
 BIT (Fenwick Tree)
 
+* [acmicpc.net/17703-dragon_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/acmicpc.net/17703-dragon_2.cpp)
 * [codechef/FLYMODE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/FLYMODE.cpp)
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [codeforces/excellent_views.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/excellent_views.cpp)
