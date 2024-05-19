@@ -16,10 +16,7 @@ class Solution {
       int tallest = 0;
       auto it = intervals.lower_bound(x0);
 
-      // TODO: Is it unsafe to decrement an end() iterator
-      //       when the container is empty? (i.e. should I
-      //       add the it != intervals.end() check as well?)
-      if (it != intervals.begin()) it--;
+      if (!intervals.empty() && it != intervals.begin()) it--;
 
       int last = 0;
 
@@ -27,8 +24,6 @@ class Solution {
         const auto next_it = next(it);
         const auto [it_x, it_h] = *it;
 
-        // TODO: This doesn't make sense, since it_h is always increasing.
-        // It's not a square height.
         if (x0 < it_x + it_h) {
           tallest = max(tallest, it_h);
           last = it_h;
@@ -43,8 +38,7 @@ class Solution {
 
       const int new_height = tallest + h;
 
-      // TODO: Shouldn't this be intervals[x0] = new_height ?????
-      intervals.emplace(x0, new_height);
+      intervals[x0] = new_height;
       ans.emplace_back(new_height);
     }
 
