@@ -287,6 +287,7 @@ Misc
 * [urionlinejudge/1991-factory_of_bridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1991-factory_of_bridges.cpp)
 * [urionlinejudge/2083-on_the_side_of_the_road.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2083-on_the_side_of_the_road.cpp)
 * [urionlinejudge/2840-balloon++.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2840-balloon++.cpp)
+* [uva/858-berry_picking.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/858-berry_picking.cpp)
 
 ### Graphs
 
