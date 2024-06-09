@@ -93,7 +93,8 @@
           "LAZER",
           "FLYMODE",
           "dragon 2.cpp",
-          "kattis/bridgebuilding.cpp"
+          "kattis/bridgebuilding.cpp",
+          "cses/intersection_points.cpp"
         ]
       },
       {
@@ -183,7 +184,8 @@
           "kattis/arable.cpp",
           "kattis/rectilinear.cpp",
           "leetcode/perfect-rectangle.cpp",
-          "leetcode/the-skyline-problem.cpp"
+          "leetcode/the-skyline-problem.cpp",
+          "cses/intersection_points.cpp"
         ]
       },
       {
@@ -687,7 +689,8 @@
           "fundraising",
           "antimatterrain",
           "LAZER",
-          "FLYMODE"
+          "FLYMODE",
+          "cses/intersection_points.cpp"
         ]
       },
       {
