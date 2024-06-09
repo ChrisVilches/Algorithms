@@ -643,7 +643,8 @@
           "kattis/undetected",
           "mission impossible",
           "kattis/rectilinear.cpp",
-          "kattis/icefloes.cpp"
+          "kattis/icefloes.cpp",
+          "kattis/treehouses.cpp"
         ]
       },
       {
