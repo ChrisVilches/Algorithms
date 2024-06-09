@@ -288,6 +288,7 @@ Misc
 * [urionlinejudge/1295-the_closest_pair_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1295-the_closest_pair_problem.cpp)
 * [urionlinejudge/1378-isosceles_triangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1378-isosceles_triangles.cpp)
 * [urionlinejudge/1455-icpc_finals.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1455-icpc_finals.cpp)
+* [urionlinejudge/1665-decorate_the_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1665-decorate_the_wall.cpp)
 * [urionlinejudge/1991-factory_of_bridges.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1991-factory_of_bridges.cpp)
 * [urionlinejudge/2083-on_the_side_of_the_road.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2083-on_the_side_of_the_road.cpp)
 * [urionlinejudge/2840-balloon++.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2840-balloon++.cpp)
