@@ -3,8 +3,6 @@ using namespace std;
 using ll = long long;
 using pii = pair<int, int>;
 
-// TODO: Refactor, re-submit. Add to index!
-
 struct BIT {
   BIT(const int n) : bit_n(n + 1) { A.assign(bit_n, 0); }
 
