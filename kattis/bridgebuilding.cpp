@@ -186,12 +186,12 @@ int main() {
 
     map<pii, ll> benefit;
 
-    unordered_map<int, vector<pii>> start_bridge_events, close_bridge_events;
+    unordered_map<int, pii> start_bridge_events, close_bridge_events;
     unordered_map<int, vector<int>> pair_events;
 
     for (const auto& bridge : generate_bridges()) {
-      start_bridge_events[bridge.first].push_back(bridge);
-      close_bridge_events[bridge.second].push_back(bridge);
+      start_bridge_events[bridge.first] = bridge;
+      close_bridge_events[bridge.second] = bridge;
     }
 
     for (int i = 0; i < m; i++) {
@@ -223,7 +223,8 @@ int main() {
         }
       }
 
-      for (const auto& bridge : close_bridge_events[ev_pos]) {
+      if (close_bridge_events.count(ev_pos)) {
+        const pii bridge = close_bridge_events[ev_pos];
         curr_bridges_by_right.erase(bridge.second);
         const ll bridge_size = bridge.second - bridge.first;
         benefit[bridge] += fully_contained_pairs_benefit(bridge);
@@ -231,7 +232,8 @@ int main() {
         benefit[bridge] += partially_contained_pairs_benefit(bridge, true);
       }
 
-      for (const auto& bridge : start_bridge_events[ev_pos]) {
+      if (start_bridge_events.count(ev_pos)) {
+        const pii bridge = start_bridge_events[ev_pos];
         curr_bridges_by_right[bridge.second] = bridge;
         bit_vertical.clear(heights[bridge.first]);
         bit_vertical_count.clear(heights[bridge.first]);
