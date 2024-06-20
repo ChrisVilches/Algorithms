@@ -612,4 +612,8 @@ Simpson's Integration
 * [kattis/bottles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bottles.cpp)
 * [kattis/flowers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/flowers.cpp)
 * [urionlinejudge/1297-environment_protection.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1297-environment_protection.cpp)
+
+Kadane's Algorithm (Maximum Subarray Problem)
+
+* [kattis/purplerain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/purplerain.cpp)
 <!-- auto-generated-index-end -->

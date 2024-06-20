@@ -732,6 +732,12 @@
           "kattis/bottles.cpp",
           "kattis/flowers.cpp"
         ]
+      },
+      {
+        "title": "Kadane's Algorithm (maximum subarray problem)",
+        "files": [
+          "kattis/purplerain.cpp"
+        ]
       }
     ]
   }
