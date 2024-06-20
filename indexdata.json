@@ -737,7 +737,8 @@
         "title": "Kadane's Algorithm (maximum subarray problem)",
         "files": [
           "kattis/purplerain.cpp",
-          "leetcode/maximum-subarray.cpp"
+          "leetcode/maximum-subarray.cpp",
+          "spoj/MAXSUMSU-maximum_subset_sum.cpp"
         ]
       }
     ]

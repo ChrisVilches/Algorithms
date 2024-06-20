@@ -617,4 +617,5 @@ Kadane's Algorithm (Maximum Subarray Problem)
 
 * [kattis/purplerain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/purplerain.cpp)
 * [leetcode/maximum-subarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-subarray.cpp)
+* [spoj/MAXSUMSU-maximum_subset_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MAXSUMSU-maximum_subset_sum.cpp)
 <!-- auto-generated-index-end -->
