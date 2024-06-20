@@ -616,4 +616,5 @@ Simpson's Integration
 Kadane's Algorithm (Maximum Subarray Problem)
 
 * [kattis/purplerain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/purplerain.cpp)
+* [leetcode/maximum-subarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-subarray.cpp)
 <!-- auto-generated-index-end -->

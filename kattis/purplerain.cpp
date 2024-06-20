@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// TODO: Add to index (Kadane's algorithm). Also add the program from leetcode to that
-// category.
-
 int main() {
   string s;
   while (cin >> s) {
