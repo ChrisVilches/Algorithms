@@ -237,6 +237,7 @@ Concave Polygons
 
 Point Inside Polygon
 
+* [atcoder/G-polygon_and_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/G-polygon_and_points.cpp)
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
 * [kattis/icefloes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/icefloes.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)

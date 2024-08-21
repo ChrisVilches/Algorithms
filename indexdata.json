@@ -286,7 +286,8 @@
           "kattis/pointinpolygon.cpp",
           "kattis/problematicpolygons.cpp",
           "kattis/icefloes.cpp",
-          "kattis/spin.cpp"
+          "kattis/spin.cpp",
+          "atcoder/G-polygon_and_points.cpp"
         ]
       },
       {
