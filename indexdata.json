@@ -297,7 +297,8 @@
           "kattis/puzzle2",
           "kattis/domes",
           "kattis/hiddencamera",
-          "kattis/forest.cpp"
+          "kattis/forest.cpp",
+          "CGL_7_H-intersection_of_a_circle_and_a_polygon.cpp"
         ]
       },
       {
@@ -344,7 +345,8 @@
           "urionlinejudge 2083 - On The Side Of The Road",
           "urionlinejudge/1102-deadly_atack",
           "uva/858-berry_picking.cpp",
-          "decorate the wall cpp"
+          "decorate the wall cpp",
+          "CGL_1_B-reflection.go"
         ]
       }
     ]

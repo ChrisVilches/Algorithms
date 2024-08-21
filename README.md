@@ -248,6 +248,7 @@ Point Inside Polygon
 
 Polygon Intersection
 
+* [aizu/CGL_7_H-intersection_of_a_circle_and_a_polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/aizu/CGL_7_H-intersection_of_a_circle_and_a_polygon.cpp)
 * [kattis/asteroids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroids.cpp)
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
 * [kattis/forest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forest.cpp)
@@ -272,6 +273,7 @@ Simple Polygon Detection
 
 Misc
 
+* [aizu/CGL_1_B-reflection.go](https://github.com/ChrisVilches/Algorithms/blob/main/aizu/CGL_1_B-reflection.go)
 * [codechef/count_the_squares.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/count_the_squares.cpp)
 * [kattis/artur.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/artur.cpp)
 * [kattis/cheese_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cheese_2.cpp)
