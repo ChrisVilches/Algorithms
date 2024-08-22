@@ -14,15 +14,9 @@ func main() {
 			break
 		}
 
-		digits := []int{}
-
 		for n > 0 {
-			digits = append(digits, digitMap[n%7])
+			fmt.Print(digitMap[n%7])
 			n /= 7
-		}
-
-		for _, d := range digits {
-			fmt.Print(d)
 		}
 
 		fmt.Println()
