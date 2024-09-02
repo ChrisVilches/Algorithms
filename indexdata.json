@@ -337,7 +337,7 @@
           "matcomgrader o polygon",
           "icpc finals",
           "AXIS-axis_of_symmetry",
-          "kattis/money",
+          "kattis/money.cpp",
           "count the squares",
           "kattis/undetected",
           "kattis/artur",
@@ -387,7 +387,8 @@
           "kattis/wheresmywaterfall.cpp",
           "leetcode/detonate-the-maximum-bombs.cpp",
           "leetcode/dungeon-game.cpp",
-          "leetcode/number-of-provinces.cpp"
+          "leetcode/number-of-provinces.cpp",
+          "kattis/moneymatters.cpp"
         ]
       },
       {

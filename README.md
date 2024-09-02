@@ -305,6 +305,7 @@ BFS, DFS
 * [codeforces/maze_in_bolt.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/maze_in_bolt.cpp)
 * [kattis/fontan.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fontan.cpp)
 * [kattis/keyboard.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/keyboard.cpp)
+* [kattis/moneymatters.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/moneymatters.cpp)
 * [kattis/robotmaze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/robotmaze.cpp)
 * [kattis/secretchamber.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/secretchamber.cpp)
 * [kattis/wheresmywaterfall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/wheresmywaterfall.cpp)
