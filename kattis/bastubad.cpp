@@ -26,14 +26,12 @@ int main() {
 
     ld ans = C;
 
-    ld prev_x = 0;
-
     for (const auto& [x, abc] : events) {
       const auto [a, b, c] = abc;
 
       if (A != 0) {
         const ld vertex = -B / (2 * A);
-        if (prev_x <= vertex && vertex <= x) {
+        if (vertex >= 0 && vertex <= x) {
           ans = max(ans, eval(vertex));
         }
       }
@@ -43,8 +41,6 @@ int main() {
       A -= a;
       B -= b;
       C -= c;
-
-      prev_x = x;
     }
 
     cout << fixed << setprecision(10) << ans << endl;
