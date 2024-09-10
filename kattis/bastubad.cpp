@@ -6,8 +6,7 @@ int main() {
   int n;
 
   while (cin >> n) {
-    set<ld> xs;
-    map<ld, tuple<ld, ld, ld>> m;
+    map<ld, tuple<ld, ld, ld>> events;
 
     ld A = 0, B = 0, C = 0;
 
@@ -20,24 +19,17 @@ int main() {
       B += b;
       C += c;
 
-      xs.emplace(t);
-      get<0>(m[t]) += a;
-      get<1>(m[t]) += b;
-      get<2>(m[t]) += c;
+      get<0>(events[t]) += a;
+      get<1>(events[t]) += b;
+      get<2>(events[t]) += c;
     }
 
     ld ans = C;
 
     ld prev_x = 0;
 
-    for (const ld x : xs) {
-      while (!m.empty() && m.begin()->first < x) {
-        const auto [a, b, c] = m.begin()->second;
-        m.erase(m.begin());
-        A -= a;
-        B -= b;
-        C -= c;
-      }
+    for (const auto& [x, abc] : events) {
+      const auto [a, b, c] = abc;
 
       if (A != 0) {
         const ld vertex = -B / (2 * A);
@@ -47,6 +39,11 @@ int main() {
       }
 
       ans = max(ans, eval(x));
+
+      A -= a;
+      B -= b;
+      C -= c;
+
       prev_x = x;
     }
 
