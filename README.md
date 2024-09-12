@@ -402,6 +402,7 @@ Counting, Combinatorics, Math
 * [kattis/tritiling.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/tritiling.cpp)
 * [matcomgrader/H-round_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/H-round_table.cpp)
 * [spoj/BADXOR-bad_xor.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BADXOR-bad_xor.cpp)
+* [spoj/HANOI07-building_the_tower.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HANOI07-building_the_tower.cpp)
 * [urionlinejudge/1319-hyperactive_girl.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1319-hyperactive_girl.cpp)
 * [urionlinejudge/1493-disjoint_water_supply.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1493-disjoint_water_supply.cpp)
 * [urionlinejudge/2009-just_a_bit_sorted.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2009-just_a_bit_sorted.cpp)
