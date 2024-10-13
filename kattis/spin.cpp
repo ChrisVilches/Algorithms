@@ -53,7 +53,7 @@ int find_tangent(const vector<Point>& polygon, const Point p, const bool left) {
     const short side = left ? -1 : 1;
     const short or1 = orientation(p, curr, prev);
     const short or2 = orientation(p, curr, next);
-    if ((or1 == 0 || or1 == side) && (or2 == 0 || or2 == side)) return mid;
+    if ((or1 == 0 || or1 == side) && (or2 == 0 || or2 == side)) return mid % n;
 
     const bool invalid = orientation(p, polygon[0], curr) == side;
 
