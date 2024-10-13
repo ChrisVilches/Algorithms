@@ -3,7 +3,7 @@
 // (multiple lines at once is allowed) on https://www.desmos.com/calculator?lang=ja
 
 #include <bits/stdc++.h>
-// TODO: Change name to geolib or something like that.
+
 using namespace std;
 using ll = long long;
 
