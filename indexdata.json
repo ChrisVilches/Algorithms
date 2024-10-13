@@ -94,7 +94,8 @@
           "FLYMODE",
           "dragon 2.cpp",
           "kattis/bridgebuilding.cpp",
-          "cses/intersection_points.cpp"
+          "cses/intersection_points.cpp",
+          "codeforces/geometers_anonymous_club"
         ]
       },
       {
@@ -144,7 +145,8 @@
           "spoj/SPOINTS-separate_points.cpp",
           "dragon 2.cpp",
           "leetcode/max-points-on-a-line.cpp",
-          "kattis/spin.cpp"
+          "kattis/spin.cpp",
+          "codeforces/geometers_anonymous_club"
         ]
       },
       {
@@ -187,6 +189,15 @@
           "leetcode/the-skyline-problem.cpp",
           "cses/intersection_points.cpp",
           "kattis/unrealestate.cpp"
+        ]
+      },
+      {
+        "title": "Minkowski sum",
+        "files": [
+          "gravitational_wave_detector.cpp",
+          "MogohuRea Idol",
+          "geometers_anonymous_club.cpp",
+          "nonflying_weather.cpp"
         ]
       },
       {
@@ -289,7 +300,9 @@
           "kattis/problematicpolygons.cpp",
           "kattis/icefloes.cpp",
           "kattis/spin.cpp",
-          "atcoder/G-polygon_and_points.cpp"
+          "atcoder/G-polygon_and_points.cpp",
+          "codeforces/mogohurea idol.cpp",
+          "gravitational_wave_detector"
         ]
       },
       {

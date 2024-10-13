@@ -75,6 +75,7 @@ BIT (Fenwick Tree)
 * [codechef/FLYMODE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/FLYMODE.cpp)
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [codeforces/excellent_views.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/excellent_views.cpp)
+* [codeforces/geometers_anonymous_club.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/geometers_anonymous_club.cpp)
 * [cses/intersection_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/intersection_points.cpp)
 * [kattis/bridgebuilding.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bridgebuilding.cpp)
 * [spoj/ADARAINB-ada_and_rain_ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ADARAINB-ada_and_rain_ii.cpp)
@@ -101,6 +102,7 @@ Radial Sweep (and Polar Sort)
 * [acmicpc.net/17703-dragon_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/acmicpc.net/17703-dragon_2.cpp)
 * [codechef/CNVX4HUL.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CNVX4HUL.cpp)
 * [codechef/REDBLUE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/REDBLUE.cpp)
+* [codeforces/geometers_anonymous_club.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/geometers_anonymous_club.cpp)
 * [kattis/fancy.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fancy.cpp)
 * [kattis/leylines.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/leylines.cpp)
 * [kattis/maxcolinear.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maxcolinear.cpp)
@@ -163,6 +165,13 @@ Sweep Line
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/2043-high_mountains.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2043-high_mountains.cpp)
 * [urionlinejudge/2043-high_mountains_faster.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2043-high_mountains_faster.cpp)
+
+Minkowski Sum
+
+* [codeforces/geometers_anonymous_club.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/geometers_anonymous_club.cpp)
+* [codeforces/mogohurea_idol.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/mogohurea_idol.cpp)
+* [timus/1894-nonflying_weather.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/timus/1894-nonflying_weather.cpp)
+* [urionlinejudge/3448-gravitational_wave_detector.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3448-gravitational_wave_detector.cpp)
 
 Quadrilaterals
 
@@ -240,6 +249,7 @@ Concave Polygons
 Point Inside Polygon
 
 * [atcoder/G-polygon_and_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/G-polygon_and_points.cpp)
+* [codeforces/mogohurea_idol.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/mogohurea_idol.cpp)
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
 * [kattis/icefloes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/icefloes.cpp)
 * [kattis/maptiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/maptiles.cpp)
@@ -248,6 +258,7 @@ Point Inside Polygon
 * [kattis/spin.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/spin.cpp)
 * [spoj/INOROUT-inside_or_outside.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/INOROUT-inside_or_outside.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
+* [urionlinejudge/3448-gravitational_wave_detector.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3448-gravitational_wave_detector.cpp)
 
 Polygon Intersection
 
