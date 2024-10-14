@@ -168,6 +168,7 @@ Sweep Line
 
 Minkowski Sum
 
+* [codeforces/gears.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/gears.cpp)
 * [codeforces/geometers_anonymous_club.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/geometers_anonymous_club.cpp)
 * [codeforces/mogohurea_idol.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/mogohurea_idol.cpp)
 * [timus/1894-nonflying_weather.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/timus/1894-nonflying_weather.cpp)
