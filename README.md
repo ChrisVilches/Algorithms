@@ -1,10 +1,7 @@
 # Algorithms
-
 ## Index
-
 *Note: This index is not exhaustive.*
 
-<!-- auto-generated-index-start -->
 ### Strings
 
 Trie
@@ -29,6 +26,7 @@ Suffix Automaton
 KMP
 
 * [spoj/NAJPF-pattern_find.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/NAJPF-pattern_find.cpp)
+
 
 ### Segment Tree, Fenwick Tree
 
@@ -94,6 +92,7 @@ Merge Sort Tree
 
 * [cses/forest_queries_ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/forest_queries_ii.cpp)
 * [urionlinejudge/1863-ramsays_counterattack.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1863-ramsays_counterattack.cpp)
+
 
 ### Geometry
 
@@ -311,6 +310,7 @@ Misc
 * [urionlinejudge/2840-balloon++.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2840-balloon++.cpp)
 * [uva/858-berry_picking.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/858-berry_picking.cpp)
 
+
 ### Graphs
 
 BFS, DFS
@@ -404,6 +404,7 @@ Hungarian Algorithm for Assignment Problem
 
 * [urionlinejudge/3366-hamilton_the_musical.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3366-hamilton_the_musical.cpp)
 
+
 ### Dynamic Programming
 
 Counting, Combinatorics, Math
@@ -468,6 +469,7 @@ Probability
 * [spoj/AE2A-dice.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AE2A-dice.cpp)
 * [urionlinejudge/3019-hold_or_continue.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3019-hold_or_continue.cpp)
 
+
 ### Binary Search, Ternary Search
 
 Binary Search
@@ -518,6 +520,7 @@ Ternary Search
 * [urionlinejudge/2517-pogro_challenge.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2517-pogro_challenge.cpp)
 * [uva/13010-galactic_taxes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/13010-galactic_taxes.cpp)
 
+
 ### Trees
 
 Tree Problems
@@ -538,6 +541,7 @@ Tree Problems
 Cycle Detection
 
 * [kattis/pickupsticks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pickupsticks.cpp)
+
 
 ### Other Data Structures & Algorithms
 
@@ -638,4 +642,4 @@ Kadane's Algorithm (Maximum Subarray Problem)
 * [kattis/purplerain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/purplerain.cpp)
 * [leetcode/maximum-subarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-subarray.cpp)
 * [spoj/MAXSUMSU-maximum_subset_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MAXSUMSU-maximum_subset_sum.cpp)
-<!-- auto-generated-index-end -->
+
