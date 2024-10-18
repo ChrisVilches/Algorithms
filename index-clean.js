@@ -1,13 +1,11 @@
-const data = require('./indexdata.json')
 const path = require('path')
 const fs = require('fs')
 const { prettyCapitalize } = require('./pretty-capitalize')
 
-const URL_PREFIX = 'github.com/ChrisVilches/Algorithms/blob/main/'
-
 const IGNORE_DIR_PATTERNS = [
   '.git/',
   '.vscode/',
+  'node_modules',
   /\.md/
 ]
 
@@ -61,39 +59,27 @@ function findUniqueFilePath (simplifiedFilename, allFiles) {
   return found
 }
 
-const toLink = x => 'https://' + path.join(URL_PREFIX, x)
-
-function generateIndex () {
+function cleanIndexData (data) {
   const allFiles = getAllFiles('./')
 
-  let printNewLine = false
+  return data.map(({ header, items }) => ({
+    header: prettyCapitalize(header),
+    items: items.map(({ title, files }) => {
+      const paths = files.map(f => findUniqueFilePath(f, allFiles))
 
-  const lines = []
-
-  data.forEach(category => {
-    if (printNewLine) lines.push('')
-    printNewLine = true
-
-    lines.push(`### ${prettyCapitalize(category.header)}`)
-
-    category.items.forEach(item => {
-      lines.push(`\n${prettyCapitalize(item.title)}\n`)
-
-      const files = item.files
-        .map(f => findUniqueFilePath(f, allFiles))
-
-      if (files.length !== (new Set(files).size)) {
-        throw new Error(`Files in "${category.header}" -> "${item.title}" are not unique`)
+      if (paths.length !== (new Set(files).size)) {
+        throw new Error(`Files in "${header}" -> "${title}" are not unique`)
       }
 
-      files.sort((a, b) => a === b ? 0 : (a < b ? -1 : 1))
-        .forEach(file => lines.push(`* [${file}](${toLink(file)})`))
+      return {
+        title: prettyCapitalize(title),
+        files: paths.toSorted((a, b) => a.localeCompare(b))
+      }
     })
-  })
-
-  return lines.join('\n')
+  }
+  ))
 }
 
 module.exports = {
-  generateIndex
+  cleanIndexData
 }

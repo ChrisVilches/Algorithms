@@ -1,0 +1,14 @@
+# Algorithms
+
+## Index
+
+*Note: This index is not exhaustive.*
+
+<% for (const category of data) { %>
+  ### <%- category.header %>
+  <% for (const item of category.items) { %>
+    <%- item.title %>
+    <% for (const file of item.files) { %>
+      * [<%= file %>](<%= helpers.toLink(file) %>)<% } %>
+  <% } %>
+<% } %>
