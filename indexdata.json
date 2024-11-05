@@ -540,7 +540,8 @@
           "aizu/1164-tighten_up.cpp",
           "kattis/narrowartgallery.cpp",
           "leetcode/jump-game-ii.cpp",
-          "leetcode/maximum-earnings-from-taxi.cpp"
+          "leetcode/maximum-earnings-from-taxi.cpp",
+          "leetcode/min-cost-climbing-stairs.cpp"
         ]
       },
       {

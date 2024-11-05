@@ -448,6 +448,7 @@ Maximization, Minimization
 * [leetcode/jump-game-v.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-v.cpp)
 * [leetcode/jump-game-vi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-vi.cpp)
 * [leetcode/maximum-earnings-from-taxi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-earnings-from-taxi.cpp)
+* [leetcode/min-cost-climbing-stairs.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/min-cost-climbing-stairs.cpp)
 * [spoj/BORW-black_or_white.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BORW-black_or_white.cpp)
 * [spoj/COINS-bytelandian_gold_coins.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/COINS-bytelandian_gold_coins.cpp)
 * [spoj/KNAPSACK-the_knapsack_problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/KNAPSACK-the_knapsack_problem.cpp)
