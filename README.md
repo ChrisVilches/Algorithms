@@ -296,6 +296,7 @@ Misc
 * [kattis/money.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/money.cpp)
 * [kattis/segmentintersection.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/segmentintersection.cpp)
 * [kattis/undetected.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/undetected.cpp)
+* [leetcode/count-lattice-points-inside-a-circle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/count-lattice-points-inside-a-circle.cpp)
 * [matcomgrader/O-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/O-polygon.cpp)
 * [spoj/AXIS-axis_of_symmetry.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AXIS-axis_of_symmetry.cpp)
 * [spoj/PIR-pyramids.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PIR-pyramids.cpp)
