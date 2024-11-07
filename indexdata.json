@@ -546,11 +546,12 @@
         ]
       },
       {
-        "title": "Probability",
+        "title": "Probability, games, optimal strategy",
         "files": [
           "hold or continue cpp",
           "dice",
-          "bachetsgame"
+          "bachetsgame",
+          "leetcode/wildcard-matching.cpp"
         ]
       }
     ]

@@ -465,9 +465,10 @@ Maximization, Minimization
 * [urionlinejudge/3023-leverage_mdt.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3023-leverage_mdt.cpp)
 * [urionlinejudge/3064-elastico.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3064-elastico.cpp)
 
-Probability
+Probability, Games, Optimal Strategy
 
 * [kattis/bachetsgame.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bachetsgame.cpp)
+* [leetcode/wildcard-matching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/wildcard-matching.cpp)
 * [spoj/AE2A-dice.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AE2A-dice.cpp)
 * [urionlinejudge/3019-hold_or_continue.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3019-hold_or_continue.cpp)
 
