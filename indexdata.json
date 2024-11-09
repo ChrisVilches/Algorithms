@@ -551,7 +551,8 @@
           "hold or continue cpp",
           "dice",
           "bachetsgame",
-          "leetcode/wildcard-matching.cpp"
+          "leetcode/wildcard-matching.cpp",
+          "leetcode/divisor-game.cpp"
         ]
       }
     ]
