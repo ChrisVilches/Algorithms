@@ -12,7 +12,6 @@ int main() {
 
     priority_queue<int> pq;
     for (const auto& [_, c] : freq) pq.push(c);
-    pq.push(0);
 
     while (k--) {
       const int c = pq.top();
