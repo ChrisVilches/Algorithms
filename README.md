@@ -445,6 +445,7 @@ Maximization, Minimization
 * [kattis/nikola.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/nikola.cpp)
 * [kattis/speedrun.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speedrun.cpp)
 * [kattis/stol.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stol.cpp)
+* [leetcode/cherry-pickup.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/cherry-pickup.cpp)
 * [leetcode/jump-game-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-ii.cpp)
 * [leetcode/jump-game-v.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-v.cpp)
 * [leetcode/jump-game-vi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-vi.cpp)
