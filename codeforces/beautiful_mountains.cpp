@@ -2,22 +2,22 @@
 using namespace std;
 
 const int max_n = 100'007;
-int n, nums[max_n], ranges[2][max_n];
+int n, nums[max_n], range[2][max_n];
 
 void compute_ranges(const bool asc) {
   int prev = -1;
-  int missing_idx = -1;
+  deque<int> q;
 
   for (int i = n - 1, j = n - 1; i >= 0; i--) {
     if (prev != -1 && nums[i] > nums[prev]) {
-      if (prev < missing_idx) missing_idx = -1;
+      while (!q.empty() && prev < q.back()) q.pop_back();
       j = i;
     }
 
-    ranges[asc][i] = max(missing_idx, j);
+    range[asc][i] = q.empty() ? j : max(j, q.back());
 
     if (nums[i] == -1) {
-      missing_idx = i;
+      q.emplace_front(i);
     } else {
       prev = i;
     }
@@ -26,9 +26,9 @@ void compute_ranges(const bool asc) {
 
 bool is_mountain(const int from, const int to) {
   if (to - from + 1 < 3) return false;
-  if (ranges[1][from] == from) return false;
-  if (ranges[0][to] == to) return false;
-  return ranges[1][from] >= ranges[0][to];
+  if (range[1][from] == from) return false;
+  if (range[0][to] == to) return false;
+  return range[1][from] >= range[0][to];
 }
 
 bool solve() {
@@ -54,10 +54,10 @@ int main() {
     compute_ranges(true);
     reverse(nums, nums + n);
     compute_ranges(false);
-    reverse(ranges[0], ranges[0] + n);
+    reverse(range[0], range[0] + n);
 
     for (int i = 0; i < n; i++) {
-      ranges[0][i] = n - ranges[0][i] - 1;
+      range[0][i] = n - range[0][i] - 1;
     }
 
     cout << "NY"[solve()] << endl;
