@@ -542,7 +542,8 @@
           "kattis/narrowartgallery.cpp",
           "leetcode/jump-game-ii.cpp",
           "leetcode/maximum-earnings-from-taxi.cpp",
-          "leetcode/min-cost-climbing-stairs.cpp"
+          "leetcode/min-cost-climbing-stairs.cpp",
+          "leetcode/cherry-pickup.cpp"
         ]
       },
       {

@@ -58,22 +58,21 @@ BIT bit_count(0), bit_dist(0);
 RangeBIT bit_vertical(0), bit_vertical_count(0);
 
 vector<pii> generate_bridges() {
-  map<int, int> height_map;
-
+  stack<int> s;
   vector<pii> res;
 
   for (int j = 0; j < (int)heights.size(); j++) {
     const int h = heights[j];
 
-    while (!height_map.empty() && height_map.begin()->first < h)
-      height_map.erase(height_map.begin());
+    while (!s.empty() && heights[s.top()] < h) s.pop();
 
-    if (height_map.count(h)) {
-      const int i = height_map[h];
+    if (!s.empty() && heights[s.top()] == h) {
+      const int i = s.top();
       if (j - i > 1) res.emplace_back(i, j);
+      s.pop();
     }
 
-    height_map[h] = j;
+    s.push(j);
   }
 
   return res;
