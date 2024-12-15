@@ -499,7 +499,9 @@
           "keylogger",
           "round table",
           "hyperactive girl",
-          "spoj/HANOI07-building the tower cpp"
+          "spoj/HANOI07-building the tower cpp",
+          "leetcode/dice-roll-simulation.cpp",
+          "leetcode/profitable-schemes.cpp"
         ]
       },
       {

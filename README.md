@@ -415,6 +415,8 @@ Counting, Combinatorics, Math
 * [kattis/gigcombinatorics.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/gigcombinatorics.cpp)
 * [kattis/permutationdescent.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/permutationdescent.cpp)
 * [kattis/tritiling.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/tritiling.cpp)
+* [leetcode/dice-roll-simulation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/dice-roll-simulation.cpp)
+* [leetcode/profitable-schemes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/profitable-schemes.cpp)
 * [matcomgrader/H-round_table.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/H-round_table.cpp)
 * [spoj/BADXOR-bad_xor.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BADXOR-bad_xor.cpp)
 * [spoj/HANOI07-building_the_tower.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HANOI07-building_the_tower.cpp)
