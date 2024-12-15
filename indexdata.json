@@ -380,7 +380,7 @@
           "knight moves",
           "cleaning robot",
           "fontan",
-          "connected components",
+          "urionlinejudge/1082-connected_components.cpp",
           "height map",
           "validate the maze",
           "a bugs life",
@@ -550,7 +550,7 @@
         "title": "Probability, games, optimal strategy",
         "files": [
           "hold or continue cpp",
-          "dice",
+          "spoj/AE2A-dice.cpp",
           "bachetsgame",
           "leetcode/wildcard-matching.cpp",
           "leetcode/divisor-game.cpp"
@@ -632,7 +632,9 @@
           "disjoint water supply",
           "chain reactions",
           "longest path in a tree",
-          "kattis/floatingpoints.cpp"
+          "kattis/floatingpoints.cpp",
+          "leetcode/binary-tree-postorder-traversal.cpp",
+          "leetcode/binary-tree-preorder-traversal.cpp"
         ]
       },
       {
