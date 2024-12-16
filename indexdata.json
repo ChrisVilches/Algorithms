@@ -366,7 +366,9 @@
           "uva/858-berry_picking.cpp",
           "decorate the wall cpp",
           "CGL_1_B-reflection.go",
-          "leetcode/count-lattice-points-inside-a-circle.cpp"
+          "leetcode/count-lattice-points-inside-a-circle.cpp",
+          "kattis/convexpolygonarea.cpp",
+          "kattis/carpet.cpp"
         ]
       }
     ]
@@ -503,7 +505,8 @@
           "hyperactive girl",
           "spoj/HANOI07-building the tower cpp",
           "leetcode/dice-roll-simulation.cpp",
-          "leetcode/profitable-schemes.cpp"
+          "leetcode/profitable-schemes.cpp",
+          "kattis/honey.cpp"
         ]
       },
       {
