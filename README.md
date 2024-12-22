@@ -504,6 +504,7 @@ Binary Search
 * [leetcode/dungeon-game.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/dungeon-game.cpp)
 * [leetcode/find-first-and-last-position-of-element-in-sorted-array.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-first-and-last-position-of-element-in-sorted-array.cpp)
 * [leetcode/median-of-two-sorted-arrays.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/median-of-two-sorted-arrays.cpp)
+* [leetcode/peak-index-in-a-mountain-array.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/peak-index-in-a-mountain-array.cpp)
 * [leetcode/search-in-rotated-sorted-array.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/search-in-rotated-sorted-array.cpp)
 * [spoj/AGGRCOW-aggressive_cows.kt](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AGGRCOW-aggressive_cows.kt)
 * [spoj/BBIN-busqueda_binaria.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BBIN-busqueda_binaria.cpp)
