@@ -551,7 +551,9 @@
           "leetcode/maximum-earnings-from-taxi.cpp",
           "leetcode/min-cost-climbing-stairs.cpp",
           "leetcode/cherry-pickup.cpp",
-          "leetcode/triangle.cpp"
+          "leetcode/triangle.cpp",
+          "leetcode/maximal-square.cpp",
+          "leetcode/freedom-trail.cpp"
         ]
       },
       {
