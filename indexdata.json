@@ -408,7 +408,8 @@
           "leetcode/detonate-the-maximum-bombs.cpp",
           "leetcode/dungeon-game.cpp",
           "leetcode/number-of-provinces.cpp",
-          "kattis/moneymatters.cpp"
+          "kattis/moneymatters.cpp",
+          "leetcode/remove-invalid-parentheses.cpp"
         ]
       },
       {

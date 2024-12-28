@@ -336,6 +336,7 @@ BFS, DFS
 * [leetcode/max-area-of-island.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/max-area-of-island.cpp)
 * [leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp)
 * [leetcode/number-of-provinces.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-provinces.cpp)
+* [leetcode/remove-invalid-parentheses.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/remove-invalid-parentheses.cpp)
 * [leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/shortest-path-in-a-grid-with-obstacles-elimination.cpp)
 * [leetcode/symmetric-tree.rs](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/symmetric-tree.rs)
 * [leetcode/trapping-rain-water-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/trapping-rain-water-ii.cpp)
