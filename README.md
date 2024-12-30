@@ -506,6 +506,7 @@ Binary Search
 * [kattis/stringmultimatching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stringmultimatching.cpp)
 * [leetcode/dungeon-game.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/dungeon-game.cpp)
 * [leetcode/find-first-and-last-position-of-element-in-sorted-array.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-first-and-last-position-of-element-in-sorted-array.cpp)
+* [leetcode/find-peak-element.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-peak-element.cpp)
 * [leetcode/median-of-two-sorted-arrays.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/median-of-two-sorted-arrays.cpp)
 * [leetcode/peak-index-in-a-mountain-array.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/peak-index-in-a-mountain-array.cpp)
 * [leetcode/search-in-rotated-sorted-array.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/search-in-rotated-sorted-array.cpp)
