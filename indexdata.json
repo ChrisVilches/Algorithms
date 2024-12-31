@@ -554,7 +554,8 @@
           "leetcode/cherry-pickup.cpp",
           "leetcode/triangle.cpp",
           "leetcode/maximal-square.cpp",
-          "leetcode/freedom-trail.cpp"
+          "leetcode/freedom-trail.cpp",
+          "leetcode/burst-balloons.cpp"
         ]
       },
       {
