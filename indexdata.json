@@ -409,7 +409,8 @@
           "leetcode/dungeon-game.cpp",
           "leetcode/number-of-provinces.cpp",
           "kattis/moneymatters.cpp",
-          "leetcode/remove-invalid-parentheses.cpp"
+          "leetcode/remove-invalid-parentheses.cpp",
+          "leetcode/unique-paths-iii.cpp"
         ]
       },
       {
@@ -507,7 +508,9 @@
           "spoj/HANOI07-building the tower cpp",
           "leetcode/dice-roll-simulation.cpp",
           "leetcode/profitable-schemes.cpp",
-          "kattis/honey.cpp"
+          "kattis/honey.cpp",
+          "leetcode/unique-paths.cpp",
+          "leetcode/unique-paths-ii.cpp"
         ]
       },
       {
