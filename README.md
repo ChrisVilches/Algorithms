@@ -189,6 +189,7 @@ Segment to Segment Distance
 Circle & Segment Intersection
 
 * [codeforces/cornering_at_poles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cornering_at_poles.cpp)
+* [leetcode/check-if-the-rectangle-corner-is-reachable.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/check-if-the-rectangle-corner-is-reachable.cpp)
 
 Tangents & Arcs
 
@@ -585,6 +586,7 @@ Union Find (+ Minimum Spanning Tree)
 * [kattis/undetected.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/undetected.cpp)
 * [kattis/unionfind.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/unionfind.cpp)
 * [kattis/wheresmyinternet.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/wheresmyinternet.cpp)
+* [leetcode/check-if-the-rectangle-corner-is-reachable.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/check-if-the-rectangle-corner-is-reachable.cpp)
 * [spoj/ANTTT-the_ant.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/ANTTT-the_ant.cpp)
 * [urionlinejudge/1152-dark_roads.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1152-dark_roads.cpp)
 * [urionlinejudge/1268-mission_impossible.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1268-mission_impossible.cpp)
