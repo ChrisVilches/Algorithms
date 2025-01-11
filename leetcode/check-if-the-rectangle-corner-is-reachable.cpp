@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ld = long double;
 
 struct DisjointSets {
   DisjointSets(int n) : parent(vector<int>(n)) { iota(parent.begin(), parent.end(), 0); }
@@ -16,16 +17,16 @@ struct DisjointSets {
 };
 
 struct Point {
-  double x, y;
-  double dist(const Point p) const { return hypot(x - p.x, y - p.y); }
-  double operator*(const Point p) const { return x * p.x + y * p.y; }
+  ld x, y;
+  ld dist(const Point p) const { return hypot(x - p.x, y - p.y); }
+  ld operator*(const Point p) const { return x * p.x + y * p.y; }
   Point operator-(const Point p) const { return {x - p.x, y - p.y}; }
-  double cross(const Point p) const { return x * p.y - y * p.x; }
+  ld cross(const Point p) const { return x * p.y - y * p.x; }
 };
 
 struct Segment {
   Point p, q;
-  double dist(const Point r) const {
+  ld dist(const Point r) const {
     if ((q - p) * (r - p) <= 0) return p.dist(r);
     if ((p - q) * (r - q) <= 0) return q.dist(r);
     return fabs((q - p).cross(r - p)) / p.dist(q);
@@ -34,22 +35,22 @@ struct Segment {
 
 struct Circle {
   Point center;
-  double r;
+  ld r;
   bool intersects(const Circle& c) const { return center.dist(c.center) <= c.r + r; }
   bool intersects(const Segment& s) const { return s.dist(center) <= r; }
 };
 
 class Solution {
-  bool should_merge(const Circle& c1, const Circle& c2, const double x_corner,
-                    const double y_corner) const {
+  bool should_merge(const Circle& c1, const Circle& c2, const ld x_corner,
+                    const ld y_corner) const {
     if (!c1.intersects(c2)) return false;
 
-    const double d = c1.center.dist(c2.center);
+    const ld d = c1.center.dist(c2.center);
 
     if (d <= abs(c1.r - c2.r)) return true;
 
-    const double a = (c1.r * c1.r - c2.r * c2.r + d * d) / (2 * d);
-    const double h = sqrt(c1.r * c1.r - a * a);
+    const ld a = (c1.r * c1.r - c2.r * c2.r + d * d) / (2 * d);
+    const ld h = sqrt(c1.r * c1.r - a * a);
 
     const Point q{c1.center.x + a * (c2.center.x - c1.center.x) / d,
                   c1.center.y + a * (c2.center.y - c1.center.y) / d};
@@ -71,7 +72,7 @@ class Solution {
     vector<Circle> cs;
 
     for (const vector<int>& c : circles) {
-      cs.emplace_back(Circle{Point{(double)c[0], (double)c[1]}, (double)c[2]});
+      cs.emplace_back(Circle{Point{(ld)c[0], (ld)c[1]}, (ld)c[2]});
     }
 
     DisjointSets ds(n);
@@ -84,10 +85,12 @@ class Solution {
       }
     }
 
-    const array<Point, 4> vertices{Point{0, 0},
-                                   {xCorner - 0.0, 0},
-                                   {xCorner - 0.0, yCorner - 0.0},
-                                   {0, yCorner - 0.0}};
+    const array<Point, 4> vertices{
+        Point{0, 0},
+        {(ld)xCorner, 0},
+        {(ld)xCorner, (ld)yCorner},
+        {0, (ld)yCorner},
+    };
 
     vector<bitset<4>> intersections(n);
 
