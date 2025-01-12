@@ -221,7 +221,8 @@
       {
         "title": "Circle & segment intersection",
         "files": [
-          "cornering at poles cpp"
+          "cornering at poles cpp",
+          "leetcode/check-if-the-rectangle-corner-is-reachable.cpp"
         ]
       },
       {
@@ -645,7 +646,7 @@
           "ceiling cpp",
           "ants colony",
           "bst operations i",
-          "binary search tree",
+          "urionlinejudge/1195-binary_search_tree.cpp",
           "disjoint water supply",
           "chain reactions",
           "longest path in a tree",
@@ -690,7 +691,8 @@
           "mission impossible",
           "kattis/rectilinear.cpp",
           "kattis/icefloes.cpp",
-          "kattis/treehouses.cpp"
+          "kattis/treehouses.cpp",
+          "leetcode/check-if-the-rectangle-corner-is-reachable.cpp"
         ]
       },
       {
@@ -750,7 +752,7 @@
       {
         "title": "Ordered set",
         "files": [
-          "gcpc",
+          "kattis/gcpc.cpp",
           "ancient towers 2"
         ]
       },
