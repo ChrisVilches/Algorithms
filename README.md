@@ -466,6 +466,7 @@ Maximization, Minimization
 * [leetcode/maximal-square.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximal-square.cpp)
 * [leetcode/maximum-earnings-from-taxi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-earnings-from-taxi.cpp)
 * [leetcode/min-cost-climbing-stairs.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/min-cost-climbing-stairs.cpp)
+* [leetcode/predict-the-winner.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/predict-the-winner.cpp)
 * [leetcode/triangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/triangle.cpp)
 * [spoj/BORW-black_or_white.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BORW-black_or_white.cpp)
 * [spoj/COINS-bytelandian_gold_coins.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/COINS-bytelandian_gold_coins.cpp)

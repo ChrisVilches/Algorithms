@@ -559,7 +559,8 @@
           "leetcode/triangle.cpp",
           "leetcode/maximal-square.cpp",
           "leetcode/freedom-trail.cpp",
-          "leetcode/burst-balloons.cpp"
+          "leetcode/burst-balloons.cpp",
+          "leetcode/predict-the-winner.cpp"
         ]
       },
       {
