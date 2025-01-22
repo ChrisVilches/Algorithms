@@ -460,6 +460,8 @@ Maximization, Minimization
 * [leetcode/burst-balloons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/burst-balloons.cpp)
 * [leetcode/cherry-pickup.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/cherry-pickup.cpp)
 * [leetcode/freedom-trail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/freedom-trail.cpp)
+* [leetcode/house-robber-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/house-robber-iii.cpp)
+* [leetcode/house-robber.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/house-robber.cpp)
 * [leetcode/jump-game-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-ii.cpp)
 * [leetcode/jump-game-v.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-v.cpp)
 * [leetcode/jump-game-vi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-vi.cpp)

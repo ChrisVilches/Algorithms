@@ -560,7 +560,9 @@
           "leetcode/maximal-square.cpp",
           "leetcode/freedom-trail.cpp",
           "leetcode/burst-balloons.cpp",
-          "leetcode/predict-the-winner.cpp"
+          "leetcode/predict-the-winner.cpp",
+          "leetcode/house-robber.cpp",
+          "leetcode/house-robber-iii.cpp"
         ]
       },
       {
