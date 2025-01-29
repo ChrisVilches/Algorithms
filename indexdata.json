@@ -369,7 +369,8 @@
           "CGL_1_B-reflection.go",
           "leetcode/count-lattice-points-inside-a-circle.cpp",
           "kattis/convexpolygonarea.cpp",
-          "kattis/carpet.cpp"
+          "kattis/carpet.cpp",
+          "leetcode/valid-square.cpp"
         ]
       }
     ]
