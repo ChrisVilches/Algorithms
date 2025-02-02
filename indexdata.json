@@ -65,7 +65,8 @@
           "kattis/mountainouslandscape.cpp",
           "leetcode/container-with-most-water.cpp",
           "leetcode/maximum-earnings-from-taxi.cpp",
-          "leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp"
+          "leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp",
+          "leetcode/russian-doll-envelopes.cpp"
         ]
       },
       {

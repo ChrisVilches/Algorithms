@@ -43,6 +43,7 @@ Segment Tree
 * [leetcode/jump-game.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game.cpp)
 * [leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp)
 * [leetcode/maximum-earnings-from-taxi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-earnings-from-taxi.cpp)
+* [leetcode/russian-doll-envelopes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/russian-doll-envelopes.cpp)
 * [spoj/FREQUENT-frequent_values.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/FREQUENT-frequent_values.cpp)
 * [spoj/HORRIBLE-horrible_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries.cpp)
 * [spoj/RMQSQ-range_minimum_query.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RMQSQ-range_minimum_query.cpp)
