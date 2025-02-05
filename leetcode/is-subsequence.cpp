@@ -4,9 +4,15 @@ using namespace std;
 class Solution {
  public:
   bool isSubsequence(const string s, const string t) {
-    int i = 0;
-    for (const char c : t) i += s[i] == c;
+    if (s.empty()) return true;
 
-    return i == (int)s.size();
+    int i = 0;
+
+    for (const char c : t) {
+      if (s[i] == c) i++;
+      if (i == (int)s.size()) return true;
+    }
+
+    return false;
   }
 };
