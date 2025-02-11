@@ -344,6 +344,7 @@ BFS, DFS
 * [leetcode/symmetric-tree.rs](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/symmetric-tree.rs)
 * [leetcode/trapping-rain-water-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/trapping-rain-water-ii.cpp)
 * [leetcode/unique-paths-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/unique-paths-iii.cpp)
+* [leetcode/water-and-jug-problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/water-and-jug-problem.cpp)
 * [spoj/BITMAP-bitmap.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BITMAP-bitmap.cpp)
 * [spoj/BUGLIFE-a_bugs_life.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BUGLIFE-a_bugs_life.cpp)
 * [spoj/CLEANRBT-cleaning_robot.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CLEANRBT-cleaning_robot.cpp)

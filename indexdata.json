@@ -413,7 +413,8 @@
           "leetcode/number-of-provinces.cpp",
           "kattis/moneymatters.cpp",
           "leetcode/remove-invalid-parentheses.cpp",
-          "leetcode/unique-paths-iii.cpp"
+          "leetcode/unique-paths-iii.cpp",
+          "leetcode/water-and-jug-problem.cpp"
         ]
       },
       {
