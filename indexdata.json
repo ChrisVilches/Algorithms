@@ -575,7 +575,8 @@
           "spoj/AE2A-dice.cpp",
           "bachetsgame",
           "leetcode/wildcard-matching.cpp",
-          "leetcode/divisor-game.cpp"
+          "leetcode/divisor-game.cpp",
+          "leetcode/regular-expression-matching.cpp"
         ]
       }
     ]
