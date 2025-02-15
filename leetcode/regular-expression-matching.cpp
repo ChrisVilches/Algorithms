@@ -6,7 +6,7 @@ class Solution {
   int memo[21][21];
 
   int dp(const int i, const int j) {
-    if (i == (int)s.size() && j == (int)p.size()) return true;
+    if (j == (int)p.size()) return i == (int)s.size();
     if (~memo[i][j]) return memo[i][j];
 
     bool res;
