@@ -414,7 +414,8 @@
           "kattis/moneymatters.cpp",
           "leetcode/remove-invalid-parentheses.cpp",
           "leetcode/unique-paths-iii.cpp",
-          "leetcode/water-and-jug-problem.cpp"
+          "leetcode/water-and-jug-problem.cpp",
+          "leetcode/swim-in-rising-water.cpp"
         ]
       },
       {
@@ -623,7 +624,8 @@
           "kattis/bridgebuilding.cpp",
           "kattis/cookiecutter.cpp",
           "leetcode/peak-index-in-a-mountain-array.cpp",
-          "leetcode/find-peak-element.cpp"
+          "leetcode/find-peak-element.cpp",
+          "leetcode/swim-in-rising-water.cpp"
         ]
       },
       {
