@@ -3,8 +3,6 @@ using namespace std;
 
 class Solution {
   bool visited[51][51];
-  const int di[4]{-1, 1, 0, 0};
-  const int dj[4]{0, 0, -1, 1};
 
  public:
   int swimInWater(const vector<vector<int>>& grid) {
@@ -14,18 +12,15 @@ class Solution {
     int hi = 50 * 50 + 7;
 
     const function<void(int, int, int)> dfs = [&](const int i, const int j, const int t) {
+      if (i < 0 || j < 0 || i >= n || j >= n) return;
       if (visited[i][j]) return;
       if (grid[i][j] > t) return;
 
       visited[i][j] = true;
-
-      for (int d = 0; d < 4; d++) {
-        const int i2 = i + di[d];
-        const int j2 = j + dj[d];
-        if (i2 < 0 || j2 < 0 || i2 >= n || j2 >= n) continue;
-
-        dfs(i2, j2, t);
-      }
+      dfs(i + 1, j, t);
+      dfs(i - 1, j, t);
+      dfs(i, j + 1, t);
+      dfs(i, j - 1, t);
     };
 
     while (lo < hi) {
