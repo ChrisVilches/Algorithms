@@ -29,7 +29,7 @@ class Solution {
     ld lo = 0;
     ld hi = 1e9;
 
-    for (int iter = 0; iter < 60; iter++) {
+    for (int iter = 0; iter < 100; iter++) {
       const ld mid = (lo + hi) / 2;
       if (get_area_below(mid) < total / 2) {
         lo = mid;
