@@ -191,7 +191,8 @@
           "leetcode/the-skyline-problem.cpp",
           "cses/intersection_points.cpp",
           "kattis/unrealestate.cpp",
-          "leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp"
+          "leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp",
+          "leetcode/separate-squares-ii.cpp"
         ]
       },
       {
@@ -625,7 +626,8 @@
           "kattis/cookiecutter.cpp",
           "leetcode/peak-index-in-a-mountain-array.cpp",
           "leetcode/find-peak-element.cpp",
-          "leetcode/swim-in-rising-water.cpp"
+          "leetcode/swim-in-rising-water.cpp",
+          "leetcode/separate-squares-i.cpp"
         ]
       },
       {
