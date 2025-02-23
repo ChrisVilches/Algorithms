@@ -579,7 +579,8 @@
           "leetcode/wildcard-matching.cpp",
           "leetcode/divisor-game.cpp",
           "leetcode/regular-expression-matching.cpp",
-          "leetcode/frog-jump.cpp"
+          "leetcode/frog-jump.cpp",
+          "leetcode/odd-even-jump.cpp"
         ]
       }
     ]
