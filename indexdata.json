@@ -192,7 +192,8 @@
           "cses/intersection_points.cpp",
           "kattis/unrealestate.cpp",
           "leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp",
-          "leetcode/separate-squares-ii.cpp"
+          "leetcode/separate-squares-ii.cpp",
+          "codechef/LIGHT.cpp"
         ]
       },
       {

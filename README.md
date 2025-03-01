@@ -147,6 +147,7 @@ Convex Hull
 Sweep Line
 
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
+* [codechef/LIGHT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LIGHT.cpp)
 * [codechef/TOWCNT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/TOWCNT.cpp)
 * [cses/intersection_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/intersection_points.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
