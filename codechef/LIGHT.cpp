@@ -32,12 +32,12 @@ bool sweep(const double L, const double R, const double y) {
   bool inside = false;
 
   for (const auto& [x, delta] : events) {
-    if (x == L) {
+    if (x == L && delta == 0) {
       inside = true;
       continue;
     }
 
-    if (x == R) break;
+    if (x == R && delta == 0) break;
 
     if (inside && curr == 0) {
       return false;
