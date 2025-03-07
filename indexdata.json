@@ -97,7 +97,8 @@
           "dragon 2.cpp",
           "kattis/bridgebuilding.cpp",
           "cses/intersection_points.cpp",
-          "codeforces/geometers_anonymous_club"
+          "codeforces/geometers_anonymous_club",
+          "leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp"
         ]
       },
       {
@@ -629,7 +630,8 @@
           "leetcode/peak-index-in-a-mountain-array.cpp",
           "leetcode/find-peak-element.cpp",
           "leetcode/swim-in-rising-water.cpp",
-          "leetcode/separate-squares-i.cpp"
+          "leetcode/separate-squares-i.cpp",
+          "leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp"
         ]
       },
       {
