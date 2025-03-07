@@ -204,7 +204,8 @@
           "MogohuRea Idol",
           "geometers_anonymous_club.cpp",
           "nonflying_weather.cpp",
-          "codeforces/gears.cpp"
+          "codeforces/gears.cpp",
+          "leetcode/circle-and-rectangle-overlapping.cpp"
         ]
       },
       {
