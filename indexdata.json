@@ -149,7 +149,8 @@
           "dragon 2.cpp",
           "leetcode/max-points-on-a-line.cpp",
           "kattis/spin.cpp",
-          "codeforces/geometers_anonymous_club"
+          "codeforces/geometers_anonymous_club",
+          "codeforces/disjoint_triangles.cpp"
         ]
       },
       {
@@ -548,7 +549,7 @@
           "mpoly-polygon",
           "moons and umbrellas",
           "ramsays counterattack",
-          "speedrun",
+          "kattis/speedrun.cpp",
           "keep it energized 2",
           "domino principle",
           "codeforces/pillars",
