@@ -520,7 +520,11 @@
           "leetcode/profitable-schemes.cpp",
           "kattis/honey.cpp",
           "leetcode/unique-paths.cpp",
-          "leetcode/unique-paths-ii.cpp"
+          "leetcode/unique-paths-ii.cpp",
+          "cses/array_description.cpp",
+          "cses/rectangle_cutting.cpp",
+          "cses/dice_combinations.cpp",
+          "cses/counting_towers.cpp"
         ]
       },
       {

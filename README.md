@@ -428,6 +428,10 @@ Counting, Combinatorics, Math
 
 * [codeforces/impenetrable_wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/impenetrable_wall.cpp)
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
+* [cses/array_description.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/array_description.cpp)
+* [cses/counting_towers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/counting_towers.cpp)
+* [cses/dice_combinations.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/dice_combinations.cpp)
+* [cses/rectangle_cutting.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/rectangle_cutting.cpp)
 * [kattis/gigcombinatorics.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/gigcombinatorics.cpp)
 * [kattis/honey.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/honey.cpp)
 * [kattis/permutationdescent.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/permutationdescent.cpp)
