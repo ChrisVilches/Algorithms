@@ -576,6 +576,7 @@ Tree Problems
 * [kattis/kitten.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/kitten.cpp)
 * [leetcode/binary-tree-postorder-traversal.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/binary-tree-postorder-traversal.cpp)
 * [leetcode/binary-tree-preorder-traversal.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/binary-tree-preorder-traversal.cpp)
+* [leetcode/minimum-time-to-collect-all-apples-in-a-tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-time-to-collect-all-apples-in-a-tree.cpp)
 * [spoj/PT07Y-is_it_a_tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PT07Y-is_it_a_tree.cpp)
 * [spoj/PT07Z-longest_path_in_a_tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/PT07Z-longest_path_in_a_tree.cpp)
 * [spoj/THREECOL-threecoloring_of_binary_trees.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/THREECOL-threecoloring_of_binary_trees.cpp)

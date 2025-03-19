@@ -674,7 +674,8 @@
           "longest path in a tree",
           "kattis/floatingpoints.cpp",
           "leetcode/binary-tree-postorder-traversal.cpp",
-          "leetcode/binary-tree-preorder-traversal.cpp"
+          "leetcode/binary-tree-preorder-traversal.cpp",
+          "leetcode/minimum-time-to-collect-all-apples-in-a-tree.cpp"
         ]
       },
       {
