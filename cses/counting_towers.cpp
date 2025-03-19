@@ -19,7 +19,7 @@ int main() {
     dp[i] = (sum1 + sum2 + pow3 + 1) % mod;
 
     sum1 = (3 * sum1 + dp[i]) % mod;
-    sum2 = (sum2 + dp[i] % mod);
+    sum2 = (sum2 + dp[i]) % mod;
     pow3 = (pow3 * 3) % mod;
   }
 
