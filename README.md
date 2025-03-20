@@ -635,6 +635,7 @@ Prefix Sum
 * [kattis/centsavings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/centsavings.cpp)
 * [kattis/oldschooldays.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oldschooldays.cpp)
 * [kattis/queryonarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/queryonarray.cpp)
+* [leetcode/number-of-ways-to-select-buildings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-ways-to-select-buildings.cpp)
 * [spoj/CSUMQ-cumulative_sum_query.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/CSUMQ-cumulative_sum_query.cpp)
 * [spoj/RANGESUM-range_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/RANGESUM-range_sum.cpp)
 * [urionlinejudge/2010-keep_it_energized_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2010-keep_it_energized_2.cpp)

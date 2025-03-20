@@ -540,7 +540,7 @@
           "black or white",
           "bytelandian gold coins",
           "the knapsack problem",
-          "exposing corruption",
+          "urionlinejudge/2008-exposing_corruption.cpp",
           "keep it energized.cpp",
           "sweet and sour rock",
           "threecoloring of binary trees",
@@ -745,7 +745,8 @@
           "keep it energized 2",
           "kattis/oldschooldays.cpp",
           "urionlinejudge/2015_cake_cut_2.cpp",
-          "kattis/bridgebuilding.cpp"
+          "kattis/bridgebuilding.cpp",
+          "leetcode/number-of-ways-to-select-buildings.cpp"
         ]
       },
       {
