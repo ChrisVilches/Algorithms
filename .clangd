@@ -1,0 +1,21 @@
+CompileFlags:
+  Add:
+    - -std=c++20
+    - -Wall
+    - -Wextra
+    - -Werror
+    - -pedantic
+    # The -Wconversion flag is not used because it requires using size_t instead of int in for loops,
+    # and requires frequent use of static_cast<int>(), which is cumbersome.
+    # - -Wconversion
+    - -Wshadow
+    - -Wnon-virtual-dtor
+    - -Wold-style-cast
+    - -Wcast-align
+    - -Wunused
+    - -Woverloaded-virtual
+    - -Wpedantic
+    - -Wnull-dereference
+    - -Wdouble-promotion
+    - -Wformat=2
+
