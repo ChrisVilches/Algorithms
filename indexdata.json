@@ -764,7 +764,8 @@
           "antimatterrain",
           "LAZER",
           "FLYMODE",
-          "cses/intersection_points.cpp"
+          "cses/intersection_points.cpp",
+          "leetcode/escape-a-large-maze.cpp"
         ]
       },
       {
