@@ -1,17 +1,11 @@
 package main
 
 func singleNumber(nums []int) int {
-	freq := make(map[int]int)
+	ans := 0
 
 	for _, n := range nums {
-		freq[n]++
+		ans = ans ^ n
 	}
 
-	for num, freq := range freq {
-		if freq == 1 {
-			return num
-		}
-	}
-
-	return 0
+	return ans
 }
