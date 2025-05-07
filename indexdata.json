@@ -420,7 +420,8 @@
           "leetcode/remove-invalid-parentheses.cpp",
           "leetcode/unique-paths-iii.cpp",
           "leetcode/water-and-jug-problem.cpp",
-          "leetcode/swim-in-rising-water.cpp"
+          "leetcode/swim-in-rising-water.cpp",
+          "leetcode/map-of-highest-peak.cpp"
         ]
       },
       {

@@ -341,6 +341,7 @@ BFS, DFS
 * [leetcode/escape-the-spreading-fire.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/escape-the-spreading-fire.cpp)
 * [leetcode/jump-game-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-iii.cpp)
 * [leetcode/jump-game-iv.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-iv.cpp)
+* [leetcode/map-of-highest-peak.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/map-of-highest-peak.cpp)
 * [leetcode/max-area-of-island.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/max-area-of-island.cpp)
 * [leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-moves-to-move-a-box-to-their-target-location.cpp)
 * [leetcode/number-of-provinces.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-provinces.cpp)
