@@ -3,14 +3,12 @@ using namespace std;
 
 class Solution {
  public:
-  int longestValidParentheses(string s) {
+  int longestValidParentheses(const string s) {
     stack<int> st;
     vector<bool> valid(s.size(), false);
 
     for (size_t i = 0; i < s.size(); i++) {
-      const char c = s[i];
-
-      if (c == '(') {
+      if (s[i] == '(') {
         st.push(i);
       } else if (!st.empty()) {
         const int j = st.top();
