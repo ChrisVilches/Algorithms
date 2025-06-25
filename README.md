@@ -507,6 +507,7 @@ Probability, Games, Optimal Strategy
 * [leetcode/odd-even-jump.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/odd-even-jump.cpp)
 * [leetcode/regular-expression-matching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/regular-expression-matching.cpp)
 * [leetcode/wildcard-matching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/wildcard-matching.cpp)
+* [leetcode/word-break.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/word-break.cpp)
 * [spoj/AE2A-dice.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AE2A-dice.cpp)
 * [urionlinejudge/3019-hold_or_continue.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3019-hold_or_continue.cpp)
 
