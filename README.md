@@ -507,6 +507,7 @@ Maximization, Minimization
 Probability, Games, Optimal Strategy
 
 * [kattis/bachetsgame.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bachetsgame.cpp)
+* [leetcode/can-i-win.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/can-i-win.cpp)
 * [leetcode/divisor-game.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/divisor-game.cpp)
 * [leetcode/frog-jump.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/frog-jump.cpp)
 * [leetcode/odd-even-jump.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/odd-even-jump.cpp)

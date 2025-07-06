@@ -595,7 +595,8 @@
           "leetcode/regular-expression-matching.cpp",
           "leetcode/frog-jump.cpp",
           "leetcode/odd-even-jump.cpp",
-          "leetcode/word-break.cpp"
+          "leetcode/word-break.cpp",
+          "leetcode/can-i-win.cpp"
         ]
       }
     ]
