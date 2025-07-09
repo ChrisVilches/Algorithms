@@ -581,7 +581,8 @@
           "leetcode/predict-the-winner.cpp",
           "leetcode/house-robber.cpp",
           "leetcode/house-robber-iii.cpp",
-          "leetcode/minimum-path-sum.cpp"
+          "leetcode/minimum-path-sum.cpp",
+          "leetcode/split-array-largest-sum.cpp"
         ]
       },
       {
