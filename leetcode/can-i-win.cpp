@@ -31,12 +31,8 @@ class Solution {
 
     if (max_integer >= desiredTotal) return true;
 
-    int sum = 0;
+    const int all_sum = (max_integer * (max_integer + 1)) / 2;
 
-    for (int i = 1; i <= max_integer; i++) {
-      sum += i;
-    }
-
-    return sum >= desiredTotal && dp(0, desiredTotal);
+    return all_sum >= desiredTotal && dp(0, desiredTotal);
   }
 };
