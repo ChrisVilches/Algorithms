@@ -485,7 +485,8 @@
         "title": "Topological sort",
         "files": [
           "pickupsticks",
-          "kattis/artur"
+          "kattis/artur",
+          "leetcode/build-a-matrix-with-conditions.cpp"
         ]
       },
       {
@@ -691,7 +692,8 @@
       {
         "title": "Cycle detection",
         "files": [
-          "pickupsticks"
+          "pickupsticks",
+          "leetcode/build-a-matrix-with-conditions.cpp"
         ]
       }
     ]

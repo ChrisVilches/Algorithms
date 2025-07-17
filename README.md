@@ -417,6 +417,7 @@ Topological Sort
 
 * [kattis/artur.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/artur.cpp)
 * [kattis/pickupsticks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pickupsticks.cpp)
+* [leetcode/build-a-matrix-with-conditions.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/build-a-matrix-with-conditions.cpp)
 
 Minimum Dominating Set
 
@@ -599,6 +600,7 @@ Tree Problems
 Cycle Detection
 
 * [kattis/pickupsticks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pickupsticks.cpp)
+* [leetcode/build-a-matrix-with-conditions.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/build-a-matrix-with-conditions.cpp)
 
 
 ### Other Data Structures & Algorithms
