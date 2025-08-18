@@ -8,6 +8,7 @@ Trie
 
 * [kattis/bing.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bing.cpp)
 * [kattis/phonelist.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/phonelist.cpp)
+* [leetcode/implement-trie-prefix-tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/implement-trie-prefix-tree.cpp)
 * [uva/12506-shortest_names.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12506-shortest_names.cpp)
 * [uva/12526-cellphone_typing.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12526-cellphone_typing.cpp)
 
@@ -40,6 +41,7 @@ Segment Tree
 * [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
 * [kattis/supercomputer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/supercomputer.cpp)
 * [leetcode/container-with-most-water.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/container-with-most-water.cpp)
+* [leetcode/fruits-into-baskets-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/fruits-into-baskets-iii.cpp)
 * [leetcode/jump-game.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game.cpp)
 * [leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp)
 * [leetcode/maximum-earnings-from-taxi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-earnings-from-taxi.cpp)
@@ -310,6 +312,7 @@ Misc
 * [kattis/segmentintersection.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/segmentintersection.cpp)
 * [kattis/undetected.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/undetected.cpp)
 * [leetcode/count-lattice-points-inside-a-circle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/count-lattice-points-inside-a-circle.cpp)
+* [leetcode/minimize-manhattan-distances.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimize-manhattan-distances.cpp)
 * [leetcode/valid-square.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/valid-square.cpp)
 * [matcomgrader/O-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/O-polygon.cpp)
 * [spoj/AXIS-axis_of_symmetry.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/AXIS-axis_of_symmetry.cpp)

@@ -8,7 +8,8 @@
           "cellphone typing",
           "shortest name",
           "phonelist",
-          "kattis/bing.cpp"
+          "kattis/bing.cpp",
+          "leetcode/implement-trie-prefix-tree.cpp"
         ]
       },
       {
@@ -67,7 +68,8 @@
           "leetcode/maximum-earnings-from-taxi.cpp",
           "leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp",
           "leetcode/russian-doll-envelopes.cpp",
-          "leetcode/next-greater-element-iv.cpp"
+          "leetcode/next-greater-element-iv.cpp",
+          "leetcode/fruits-into-baskets-iii.cpp"
         ]
       },
       {
@@ -378,7 +380,8 @@
           "leetcode/count-lattice-points-inside-a-circle.cpp",
           "kattis/convexpolygonarea.cpp",
           "kattis/carpet.cpp",
-          "leetcode/valid-square.cpp"
+          "leetcode/valid-square.cpp",
+          "leetcode/minimize-manhattan-distances.cpp"
         ]
       }
     ]
