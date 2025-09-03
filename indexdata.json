@@ -650,7 +650,9 @@
           "leetcode/find-peak-element.cpp",
           "leetcode/swim-in-rising-water.cpp",
           "leetcode/separate-squares-i.cpp",
-          "leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp"
+          "leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp",
+          "leetcode/maximize-the-minimum-powered-city.cpp",
+          "leetcode/search-a-2d-matrix.cpp"
         ]
       },
       {
