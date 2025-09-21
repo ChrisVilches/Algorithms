@@ -428,7 +428,8 @@
           "leetcode/swim-in-rising-water.cpp",
           "leetcode/map-of-highest-peak.cpp",
           "leetcode/flood-fill.cpp",
-          "leetcode/number-of-islands.cpp"
+          "leetcode/number-of-islands.cpp",
+          "leetcode/shortest-bridge.cpp"
         ]
       },
       {
@@ -586,7 +587,9 @@
           "leetcode/house-robber.cpp",
           "leetcode/house-robber-iii.cpp",
           "leetcode/minimum-path-sum.cpp",
-          "leetcode/split-array-largest-sum.cpp"
+          "leetcode/split-array-largest-sum.cpp",
+          "leetcode/string-compression-ii.cpp",
+          "leetcode/stickers-to-spell-word.cpp"
         ]
       },
       {
