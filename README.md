@@ -312,6 +312,7 @@ Misc
 * [kattis/segmentintersection.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/segmentintersection.cpp)
 * [kattis/undetected.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/undetected.cpp)
 * [leetcode/count-lattice-points-inside-a-circle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/count-lattice-points-inside-a-circle.cpp)
+* [leetcode/count-number-of-trapezoids-i.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/count-number-of-trapezoids-i.cpp)
 * [leetcode/minimize-manhattan-distances.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimize-manhattan-distances.cpp)
 * [leetcode/valid-square.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/valid-square.cpp)
 * [matcomgrader/O-polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/matcomgrader/O-polygon.cpp)

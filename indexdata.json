@@ -381,7 +381,8 @@
           "kattis/convexpolygonarea.cpp",
           "kattis/carpet.cpp",
           "leetcode/valid-square.cpp",
-          "leetcode/minimize-manhattan-distances.cpp"
+          "leetcode/minimize-manhattan-distances.cpp",
+          "leetcode/count-number-of-trapezoids-i.cpp"
         ]
       }
     ]
