@@ -69,7 +69,8 @@
           "leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp",
           "leetcode/russian-doll-envelopes.cpp",
           "leetcode/next-greater-element-iv.cpp",
-          "leetcode/fruits-into-baskets-iii.cpp"
+          "leetcode/fruits-into-baskets-iii.cpp",
+          "leetcode/find-the-longest-valid-obstacle-course-at-each-position.cpp"
         ]
       },
       {
@@ -199,7 +200,8 @@
           "kattis/unrealestate.cpp",
           "leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp",
           "leetcode/separate-squares-ii.cpp",
-          "codechef/LIGHT.cpp"
+          "codechef/LIGHT.cpp",
+          "leetcode/find-the-number-of-ways-to-place-people-i.cpp"
         ]
       },
       {
@@ -430,7 +432,9 @@
           "leetcode/map-of-highest-peak.cpp",
           "leetcode/flood-fill.cpp",
           "leetcode/number-of-islands.cpp",
-          "leetcode/shortest-bridge.cpp"
+          "leetcode/shortest-bridge.cpp",
+          "leetcode/find-subtree-sizes-after-changes.cpp",
+          "leetcode/find-if-path-exists-in-graph.cpp"
         ]
       },
       {
@@ -590,7 +594,8 @@
           "leetcode/minimum-path-sum.cpp",
           "leetcode/split-array-largest-sum.cpp",
           "leetcode/string-compression-ii.cpp",
-          "leetcode/stickers-to-spell-word.cpp"
+          "leetcode/stickers-to-spell-word.cpp",
+          "leetcode/find-the-maximum-number-of-fruits-collected.cpp"
         ]
       },
       {
@@ -656,7 +661,9 @@
           "leetcode/separate-squares-i.cpp",
           "leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp",
           "leetcode/maximize-the-minimum-powered-city.cpp",
-          "leetcode/search-a-2d-matrix.cpp"
+          "leetcode/search-a-2d-matrix.cpp",
+          "leetcode/find-smallest-letter-greater-than-target.cpp",
+          "leetcode/find-minimum-in-rotated-sorted-array.cpp"
         ]
       },
       {
@@ -695,7 +702,8 @@
           "leetcode/binary-tree-postorder-traversal.cpp",
           "leetcode/binary-tree-preorder-traversal.cpp",
           "leetcode/minimum-time-to-collect-all-apples-in-a-tree.cpp",
-          "leetcode/construct-quad-tree.cpp"
+          "leetcode/construct-quad-tree.cpp",
+          "leetcode/find-subtree-sizes-after-changes.cpp"
         ]
       },
       {
