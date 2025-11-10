@@ -595,7 +595,9 @@
           "leetcode/split-array-largest-sum.cpp",
           "leetcode/string-compression-ii.cpp",
           "leetcode/stickers-to-spell-word.cpp",
-          "leetcode/find-the-maximum-number-of-fruits-collected.cpp"
+          "leetcode/find-the-maximum-number-of-fruits-collected.cpp",
+          "leetcode/longest-consecutive-sequence.cpp",
+          "leetcode/length-of-longest-v-shaped-diagonal-segment.cpp"
         ]
       },
       {

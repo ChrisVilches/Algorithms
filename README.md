@@ -494,6 +494,8 @@ Maximization, Minimization
 * [leetcode/jump-game-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-ii.cpp)
 * [leetcode/jump-game-v.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-v.cpp)
 * [leetcode/jump-game-vi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-vi.cpp)
+* [leetcode/length-of-longest-v-shaped-diagonal-segment.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/length-of-longest-v-shaped-diagonal-segment.cpp)
+* [leetcode/longest-consecutive-sequence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/longest-consecutive-sequence.cpp)
 * [leetcode/maximal-square.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximal-square.cpp)
 * [leetcode/maximum-earnings-from-taxi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-earnings-from-taxi.cpp)
 * [leetcode/min-cost-climbing-stairs.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/min-cost-climbing-stairs.cpp)
