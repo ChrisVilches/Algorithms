@@ -103,7 +103,9 @@
           "cses/intersection_points.cpp",
           "codeforces/geometers_anonymous_club",
           "leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp",
-          "leetcode/distribute-elements-into-two-arrays-ii.cpp"
+          "leetcode/distribute-elements-into-two-arrays-ii.cpp",
+          "leetcode/make-array-empty.cpp",
+          "leetcode/range-sum-query-mutable.cpp"
         ]
       },
       {
@@ -201,7 +203,8 @@
           "leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp",
           "leetcode/separate-squares-ii.cpp",
           "codechef/LIGHT.cpp",
-          "leetcode/find-the-number-of-ways-to-place-people-i.cpp"
+          "leetcode/find-the-number-of-ways-to-place-people-i.cpp",
+          "leetcode/count-number-of-rectangles-containing-each-point.cpp"
         ]
       },
       {
