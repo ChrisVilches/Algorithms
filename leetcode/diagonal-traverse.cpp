@@ -9,16 +9,6 @@ class Solution {
 
     vector<int> ans;
 
-    if (n == 1 || m == 1) {
-      for (const vector<int>& row : mat) {
-        for (const int x : row) {
-          ans.emplace_back(x);
-        }
-      }
-
-      return ans;
-    }
-
     bool up = true;
 
     int i = 0;
