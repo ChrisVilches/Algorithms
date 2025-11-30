@@ -749,7 +749,8 @@
           "kattis/rectilinear.cpp",
           "kattis/icefloes.cpp",
           "kattis/treehouses.cpp",
-          "leetcode/check-if-the-rectangle-corner-is-reachable.cpp"
+          "leetcode/check-if-the-rectangle-corner-is-reachable.cpp",
+          "leetcode/car-fleet.cpp"
         ]
       },
       {
