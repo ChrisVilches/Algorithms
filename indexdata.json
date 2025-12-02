@@ -105,7 +105,8 @@
           "leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp",
           "leetcode/distribute-elements-into-two-arrays-ii.cpp",
           "leetcode/make-array-empty.cpp",
-          "leetcode/range-sum-query-mutable.cpp"
+          "leetcode/range-sum-query-mutable.cpp",
+          "codechef/SQUAGAME.cpp"
         ]
       },
       {
@@ -204,7 +205,8 @@
           "leetcode/separate-squares-ii.cpp",
           "codechef/LIGHT.cpp",
           "leetcode/find-the-number-of-ways-to-place-people-i.cpp",
-          "leetcode/count-number-of-rectangles-containing-each-point.cpp"
+          "leetcode/count-number-of-rectangles-containing-each-point.cpp",
+          "codechef/SQUAGAME.cpp"
         ]
       },
       {
@@ -800,7 +802,8 @@
           "LAZER",
           "FLYMODE",
           "cses/intersection_points.cpp",
-          "leetcode/escape-a-large-maze.cpp"
+          "leetcode/escape-a-large-maze.cpp",
+          "codechef/SQUAGAME.cpp"
         ]
       },
       {
@@ -847,6 +850,12 @@
           "kattis/purplerain.cpp",
           "leetcode/maximum-subarray.cpp",
           "spoj/MAXSUMSU-maximum_subset_sum.cpp"
+        ]
+      },
+      {
+        "title": "Game Theory",
+        "files": [
+          "codechef/SQUAGAME.cpp"
         ]
       }
     ]

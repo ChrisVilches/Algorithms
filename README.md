@@ -78,6 +78,7 @@ BIT (Fenwick Tree)
 * [acmicpc.net/17703-dragon_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/acmicpc.net/17703-dragon_2.cpp)
 * [codechef/FLYMODE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/FLYMODE.cpp)
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
+* [codechef/SQUAGAME.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/SQUAGAME.cpp)
 * [codeforces/excellent_views.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/excellent_views.cpp)
 * [codeforces/geometers_anonymous_club.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/geometers_anonymous_club.cpp)
 * [cses/intersection_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/intersection_points.cpp)
@@ -157,6 +158,7 @@ Sweep Line
 
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [codechef/LIGHT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LIGHT.cpp)
+* [codechef/SQUAGAME.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/SQUAGAME.cpp)
 * [codechef/TOWCNT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/TOWCNT.cpp)
 * [cses/intersection_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/intersection_points.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
@@ -689,6 +691,7 @@ Coordinate (or Arrays in General) Compression
 
 * [codechef/FLYMODE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/FLYMODE.cpp)
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
+* [codechef/SQUAGAME.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/SQUAGAME.cpp)
 * [cses/intersection_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/intersection_points.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [leetcode/escape-a-large-maze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/escape-a-large-maze.cpp)
@@ -728,4 +731,8 @@ Kadane's Algorithm (Maximum Subarray Problem)
 * [kattis/purplerain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/purplerain.cpp)
 * [leetcode/maximum-subarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-subarray.cpp)
 * [spoj/MAXSUMSU-maximum_subset_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MAXSUMSU-maximum_subset_sum.cpp)
+
+Game Theory
+
+* [codechef/SQUAGAME.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/SQUAGAME.cpp)
 
