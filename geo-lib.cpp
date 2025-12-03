@@ -13,6 +13,10 @@ struct Point {
   Point operator-(const Point p) const { return {x - p.x, y - p.y}; }
 };
 
+ostream& operator<<(ostream& os, const Point p) {
+  return os << "(" << p.x << ", " << p.y << ")";
+}
+
 struct Segment {
   Point p, q;
 
@@ -41,9 +45,9 @@ string polygon_to_str(const vector<Point>& polygon) {
   stringstream ss;
   ss << fixed << setprecision(6);
   ss << "polygon(";
-  for (int i = 0; i < (int)polygon.size(); i++) {
+  for (size_t i = 0; i < polygon.size(); i++) {
     if (i > 0) ss << ", ";
-    ss << "(" << polygon[i].x << ", " << polygon[i].y << ")";
+    ss << polygon[i];
   }
   ss << ")";
   return ss.str();
