@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
 
 struct Point {
-  int x, y;
+  ll x, y;
   Point operator-(const Point p) const { return {x - p.x, y - p.y}; }
   Point operator+(const Point p) const { return {x + p.x, y + p.y}; }
-  int operator*(const Point p) const { return x * p.x + y * p.y; }
+  ll operator*(const Point p) const { return x * p.x + y * p.y; }
   bool operator<(const Point p) const { return x < p.x || (x == p.x && y < p.y); }
   double dist(const Point p) const { return hypot(x - p.x, y - p.y); }
 };
