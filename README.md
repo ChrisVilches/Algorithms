@@ -182,6 +182,7 @@ Sweep Line
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/2043-high_mountains_faster.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2043-high_mountains_faster.cpp)
 * [urionlinejudge/2043-high_mountains.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2043-high_mountains.cpp)
+* [usaco/hill_walk.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/usaco/hill_walk.cpp)
 
 Minkowski Sum
 
