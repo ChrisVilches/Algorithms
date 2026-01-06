@@ -69,7 +69,6 @@ Segment Tree + Lazy Propagation
 * [cses/range_updates_and_sums.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/range_updates_and_sums.cpp)
 * [dmoj/IOI14-wall.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/dmoj/IOI14-wall.cpp)
 * [kattis/queryonarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/queryonarray.cpp)
-* [leetcode/falling-squares.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/falling-squares.cpp)
 * [spoj/HORRIBLE-horrible_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/HORRIBLE-horrible_queries.cpp)
 * [urionlinejudge/1477-man_elephant_and_mouse.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1477-man_elephant_and_mouse.cpp)
 

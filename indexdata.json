@@ -81,8 +81,7 @@
           "queryonarray",
           "cses/polynomial_queries.cpp",
           "range updates and sums",
-          "dmoj/IOI14-wall.cpp",
-          "leetcode/falling-squares.cpp"
+          "dmoj/IOI14-wall.cpp"
         ]
       },
       {
