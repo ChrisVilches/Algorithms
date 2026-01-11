@@ -29,9 +29,16 @@
         ]
       },
       {
-        "title": "KMP",
+        "title": "KMP and LPS (Longest Proper Prefix which is also a Suffix)",
         "files": [
-          "pattern find"
+          "pattern find",
+          "codeforces/D-prefixes_and_suffixes.cpp"
+        ]
+      },
+      {
+        "title": "Z-algorithm",
+        "files": [
+          "codeforces/D-prefixes_and_suffixes.cpp"
         ]
       }
     ]

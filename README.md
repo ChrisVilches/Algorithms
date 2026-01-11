@@ -24,9 +24,14 @@ Suffix Automaton
 * [urionlinejudge/3018-gluing_pictures_suffix_automaton.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3018-gluing_pictures_suffix_automaton.cpp)
 * [uva/10679-i_love_strings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/10679-i_love_strings.cpp)
 
-KMP
+KMP and LPS (Longest Proper Prefix Which Is Also a Suffix)
 
+* [codeforces/D-prefixes_and_suffixes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/D-prefixes_and_suffixes.cpp)
 * [spoj/NAJPF-pattern_find.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/NAJPF-pattern_find.cpp)
+
+Z-Algorithm
+
+* [codeforces/D-prefixes_and_suffixes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/D-prefixes_and_suffixes.cpp)
 
 
 ### Segment Tree, Fenwick Tree
