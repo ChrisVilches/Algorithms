@@ -7,6 +7,7 @@
 Trie
 
 * [kattis/bing.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bing.cpp)
+* [kattis/doublets.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/doublets.cpp)
 * [kattis/phonelist.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/phonelist.cpp)
 * [leetcode/implement-trie-prefix-tree.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/implement-trie-prefix-tree.cpp)
 * [uva/12506-shortest_names.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12506-shortest_names.cpp)
@@ -43,6 +44,7 @@ Segment Tree
 * [codeforces/pillars.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/pillars.cpp)
 * [cses/hotel_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/hotel_queries.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
+* [kattis/longincsubseq.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/longincsubseq.cpp)
 * [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
 * [kattis/supercomputer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/supercomputer.cpp)
 * [leetcode/container-with-most-water.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/container-with-most-water.cpp)
@@ -87,6 +89,7 @@ BIT (Fenwick Tree)
 * [codeforces/geometers_anonymous_club.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/geometers_anonymous_club.cpp)
 * [cses/intersection_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/intersection_points.cpp)
 * [kattis/bridgebuilding.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bridgebuilding.cpp)
+* [kattis/megainversions.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/megainversions.cpp)
 * [leetcode/distribute-elements-into-two-arrays-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/distribute-elements-into-two-arrays-ii.cpp)
 * [leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp)
 * [leetcode/make-array-empty.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/make-array-empty.cpp)
@@ -151,12 +154,24 @@ Convex Hull
 * [kattis/forestofcelery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forestofcelery.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
 * [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
+* [kattis/roberthood.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/roberthood.cpp)
+* [kattis/robotprotection.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/robotprotection.cpp)
 * [spoj/BSHEEP-build_the_fence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/BSHEEP-build_the_fence.cpp)
 * [urionlinejudge/1315-not_too_convex_hull_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1315-not_too_convex_hull_2.cpp)
 * [urionlinejudge/1464-onion_layers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/1464-onion_layers.cpp)
 * [urionlinejudge/2541-ingrest.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2541-ingrest.cpp)
 * [urionlinejudge/3015-dazzling_stars_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3015-dazzling_stars_2.cpp)
 * [uva/12307-smallest_enclosing_rectangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12307-smallest_enclosing_rectangle.cpp)
+
+Shoelace Formula (Polygon Area)
+
+* [cses/polygon_lattice_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/polygon_lattice_points.cpp)
+* [kattis/artappreciation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/artappreciation.cpp)
+* [kattis/convexpolygonarea.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexpolygonarea.cpp)
+* [kattis/cookiecutter.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cookiecutter.cpp)
+* [kattis/crane.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/crane.cpp)
+* [kattis/polygonarea.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygonarea.cpp)
+* [kattis/robotprotection.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/robotprotection.cpp)
 
 Sweep Line
 
@@ -172,6 +187,7 @@ Sweep Line
 * [kattis/polygon.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/polygon.cpp)
 * [kattis/rectilinear.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rectilinear.cpp)
 * [kattis/unrealestate.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/unrealestate.cpp)
+* [kattis/visitorstrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/visitorstrain.cpp)
 * [kattis/visual.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/visual.cpp)
 * [leetcode/count-number-of-rectangles-containing-each-point.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/count-number-of-rectangles-containing-each-point.cpp)
 * [leetcode/find-the-number-of-ways-to-place-people-i.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-the-number-of-ways-to-place-people-i.cpp)
@@ -213,6 +229,11 @@ Circle & Segment Intersection
 * [codeforces/cornering_at_poles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cornering_at_poles.cpp)
 * [leetcode/check-if-the-rectangle-corner-is-reachable.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/check-if-the-rectangle-corner-is-reachable.cpp)
 
+Circle & Rectangle Intersection
+
+* [kattis/asteroidavoidance.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/asteroidavoidance.cpp)
+* [leetcode/circle-and-rectangle-overlapping.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/circle-and-rectangle-overlapping.cpp)
+
 Tangents & Arcs
 
 * [codeforces/cornering_at_poles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/cornering_at_poles.cpp)
@@ -225,6 +246,7 @@ Tangents & Arcs
 Polygon Tangents
 
 * [kattis/spin.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/spin.cpp)
+* [kattis/visitorstrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/visitorstrain.cpp)
 
 Geometry with Dynamic Programming
 
@@ -247,6 +269,7 @@ Convex Polygons + Two-Pointers
 * [kattis/fasterthanlight.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fasterthanlight.cpp)
 * [kattis/forestofcelery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/forestofcelery.cpp)
 * [kattis/largesttriangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/largesttriangle.cpp)
+* [kattis/roberthood.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/roberthood.cpp)
 * [urionlinejudge/2015-cake_cut.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2015-cake_cut.cpp)
 * [urionlinejudge/2695-arranging_tiles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2695-arranging_tiles.cpp)
 * [urionlinejudge/2904-building_a_field.go](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2904-building_a_field.go)
@@ -347,6 +370,7 @@ Misc
 BFS, DFS
 
 * [codeforces/maze_in_bolt.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/maze_in_bolt.cpp)
+* [kattis/doublets.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/doublets.cpp)
 * [kattis/fontan.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fontan.cpp)
 * [kattis/keyboard.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/keyboard.cpp)
 * [kattis/moneymatters.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/moneymatters.cpp)
@@ -438,6 +462,14 @@ Topological Sort
 * [kattis/pickupsticks.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/pickupsticks.cpp)
 * [leetcode/build-a-matrix-with-conditions.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/build-a-matrix-with-conditions.cpp)
 
+Strongly Connected Components (Kosaraju)
+
+* [kattis/dominos.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/dominos.cpp)
+
+Hamiltonian Cycles (Backtracking)
+
+* [kattis/cycleseasy.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/cycleseasy.cpp)
+
 Minimum Dominating Set
 
 * [kattis/socialadvertising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/socialadvertising.cpp)
@@ -494,6 +526,7 @@ Maximization, Minimization
 * [kattis/narrowartgallery.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/narrowartgallery.cpp)
 * [kattis/nikola.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/nikola.cpp)
 * [kattis/speedrun.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speedrun.cpp)
+* [kattis/speedrunning.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speedrunning.cpp)
 * [kattis/stol.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stol.cpp)
 * [leetcode/burst-balloons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/burst-balloons.cpp)
 * [leetcode/cherry-pickup.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/cherry-pickup.cpp)
@@ -530,6 +563,14 @@ Maximization, Minimization
 * [urionlinejudge/3023-leverage_mdt.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3023-leverage_mdt.cpp)
 * [urionlinejudge/3064-elastico.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3064-elastico.cpp)
 
+Longest Increasing Subsequence
+
+* [kattis/longincsubseq.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/longincsubseq.cpp)
+* [kattis/signals.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/signals.cpp)
+* [leetcode/find-the-longest-valid-obstacle-course-at-each-position.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-the-longest-valid-obstacle-course-at-each-position.cpp)
+* [leetcode/maximum-balanced-subsequence-sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-balanced-subsequence-sum.cpp)
+* [leetcode/russian-doll-envelopes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/russian-doll-envelopes.cpp)
+
 Probability, Games, Optimal Strategy
 
 * [kattis/bachetsgame.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bachetsgame.cpp)
@@ -560,6 +601,7 @@ Binary Search
 * [kattis/monk.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/monk.cpp)
 * [kattis/mountainouslandscape.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/mountainouslandscape.cpp)
 * [kattis/rangers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/rangers.cpp)
+* [kattis/signals.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/signals.cpp)
 * [kattis/speed.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/speed.cpp)
 * [kattis/stringmultimatching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stringmultimatching.cpp)
 * [leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp)
@@ -736,6 +778,10 @@ Kadane's Algorithm (Maximum Subarray Problem)
 * [kattis/purplerain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/purplerain.cpp)
 * [leetcode/maximum-subarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-subarray.cpp)
 * [spoj/MAXSUMSU-maximum_subset_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MAXSUMSU-maximum_subset_sum.cpp)
+
+Meet in the Middle
+
+* [kattis/balanceddiet.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/balanceddiet.cpp)
 
 Game Theory
 

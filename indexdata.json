@@ -9,7 +9,8 @@
           "shortest name",
           "phonelist",
           "kattis/bing.cpp",
-          "leetcode/implement-trie-prefix-tree.cpp"
+          "leetcode/implement-trie-prefix-tree.cpp",
+          "kattis/doublets.cpp"
         ]
       },
       {
@@ -77,7 +78,8 @@
           "leetcode/russian-doll-envelopes.cpp",
           "leetcode/next-greater-element-iv.cpp",
           "leetcode/fruits-into-baskets-iii.cpp",
-          "leetcode/find-the-longest-valid-obstacle-course-at-each-position.cpp"
+          "leetcode/find-the-longest-valid-obstacle-course-at-each-position.cpp",
+          "kattis/longincsubseq.cpp"
         ]
       },
       {
@@ -112,7 +114,8 @@
           "leetcode/distribute-elements-into-two-arrays-ii.cpp",
           "leetcode/make-array-empty.cpp",
           "leetcode/range-sum-query-mutable.cpp",
-          "codechef/SQUAGAME.cpp"
+          "codechef/SQUAGAME.cpp",
+          "kattis/megainversions.cpp"
         ]
       },
       {
@@ -181,7 +184,21 @@
           "kattis/mountainouslandscape.cpp",
           "kattis/forestofcelery.cpp",
           "kattis/fasterthanlight.cpp",
-          "kattis/fence.cpp"
+          "kattis/fence.cpp",
+          "kattis/robotprotection.cpp",
+          "kattis/roberthood.cpp"
+        ]
+      },
+      {
+        "title": "Shoelace formula (polygon area)",
+        "files": [
+          "kattis/robotprotection.cpp",
+          "kattis/crane.cpp",
+          "kattis/polygonarea.cpp",
+          "kattis/convexpolygonarea.cpp",
+          "kattis/cookiecutter.cpp",
+          "kattis/artappreciation.cpp",
+          "cses/polygon_lattice_points.cpp"
         ]
       },
       {
@@ -213,7 +230,8 @@
           "leetcode/find-the-number-of-ways-to-place-people-i.cpp",
           "leetcode/count-number-of-rectangles-containing-each-point.cpp",
           "codechef/SQUAGAME.cpp",
-          "usaco/hill_walk.cpp"
+          "usaco/hill_walk.cpp",
+          "kattis/visitorstrain.cpp"
         ]
       },
       {
@@ -250,6 +268,13 @@
         ]
       },
       {
+        "title": "Circle & rectangle intersection",
+        "files": [
+          "kattis/asteroidavoidance.cpp",
+          "leetcode/circle-and-rectangle-overlapping.cpp"
+        ]
+      },
+      {
         "title": "Tangents & arcs",
         "files": [
           "cornering at poles cpp",
@@ -263,7 +288,8 @@
       {
         "title": "Polygon tangents",
         "files": [
-          "kattis/spin.cpp"
+          "kattis/spin.cpp",
+          "kattis/visitorstrain.cpp"
         ]
       },
       {
@@ -294,7 +320,8 @@
           "new year and cake",
           "kattis/forestofcelery.cpp",
           "kattis/fancy.cpp",
-          "kattis/fasterthanlight.cpp"
+          "kattis/fasterthanlight.cpp",
+          "kattis/roberthood.cpp"
         ]
       },
       {
@@ -446,7 +473,8 @@
           "leetcode/number-of-islands.cpp",
           "leetcode/shortest-bridge.cpp",
           "leetcode/find-subtree-sizes-after-changes.cpp",
-          "leetcode/find-if-path-exists-in-graph.cpp"
+          "leetcode/find-if-path-exists-in-graph.cpp",
+          "kattis/doublets.cpp"
         ]
       },
       {
@@ -508,6 +536,18 @@
           "pickupsticks",
           "kattis/artur",
           "leetcode/build-a-matrix-with-conditions.cpp"
+        ]
+      },
+      {
+        "title": "Strongly connected components (Kosaraju)",
+        "files": [
+          "kattis/dominos.cpp"
+        ]
+      },
+      {
+        "title": "Hamiltonian cycles (backtracking)",
+        "files": [
+          "kattis/cycleseasy.cpp"
         ]
       },
       {
@@ -609,7 +649,18 @@
           "leetcode/stickers-to-spell-word.cpp",
           "leetcode/find-the-maximum-number-of-fruits-collected.cpp",
           "leetcode/longest-consecutive-sequence.cpp",
-          "leetcode/length-of-longest-v-shaped-diagonal-segment.cpp"
+          "leetcode/length-of-longest-v-shaped-diagonal-segment.cpp",
+          "kattis/speedrunning.cpp"
+        ]
+      },
+      {
+        "title": "Longest increasing subsequence",
+        "files": [
+          "kattis/longincsubseq.cpp",
+          "kattis/signals.cpp",
+          "leetcode/russian-doll-envelopes.cpp",
+          "leetcode/find-the-longest-valid-obstacle-course-at-each-position.cpp",
+          "leetcode/maximum-balanced-subsequence-sum.cpp"
         ]
       },
       {
@@ -677,7 +728,8 @@
           "leetcode/maximize-the-minimum-powered-city.cpp",
           "leetcode/search-a-2d-matrix.cpp",
           "leetcode/find-smallest-letter-greater-than-target.cpp",
-          "leetcode/find-minimum-in-rotated-sorted-array.cpp"
+          "leetcode/find-minimum-in-rotated-sorted-array.cpp",
+          "kattis/signals.cpp"
         ]
       },
       {
@@ -857,6 +909,12 @@
           "kattis/purplerain.cpp",
           "leetcode/maximum-subarray.cpp",
           "spoj/MAXSUMSU-maximum_subset_sum.cpp"
+        ]
+      },
+      {
+        "title": "Meet in the middle",
+        "files": [
+          "kattis/balanceddiet.cpp"
         ]
       },
       {
