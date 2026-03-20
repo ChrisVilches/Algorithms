@@ -79,7 +79,8 @@
           "leetcode/next-greater-element-iv.cpp",
           "leetcode/fruits-into-baskets-iii.cpp",
           "leetcode/find-the-longest-valid-obstacle-course-at-each-position.cpp",
-          "kattis/longincsubseq.cpp"
+          "kattis/longincsubseq.cpp",
+          "leetcode/maximum-balanced-subsequence-sum.cpp"
         ]
       },
       {
@@ -862,7 +863,8 @@
           "FLYMODE",
           "cses/intersection_points.cpp",
           "leetcode/escape-a-large-maze.cpp",
-          "codechef/SQUAGAME.cpp"
+          "codechef/SQUAGAME.cpp",
+          "leetcode/maximum-balanced-subsequence-sum.cpp"
         ]
       },
       {

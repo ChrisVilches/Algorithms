@@ -52,6 +52,7 @@ Segment Tree
 * [leetcode/fruits-into-baskets-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/fruits-into-baskets-iii.cpp)
 * [leetcode/jump-game.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game.cpp)
 * [leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-area-rectangle-with-point-constraints-ii.cpp)
+* [leetcode/maximum-balanced-subsequence-sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-balanced-subsequence-sum.cpp)
 * [leetcode/maximum-earnings-from-taxi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-earnings-from-taxi.cpp)
 * [leetcode/next-greater-element-iv.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/next-greater-element-iv.cpp)
 * [leetcode/russian-doll-envelopes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/russian-doll-envelopes.cpp)
@@ -742,6 +743,7 @@ Coordinate (or Arrays in General) Compression
 * [cses/intersection_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/intersection_points.cpp)
 * [kattis/antimatterrain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/antimatterrain.cpp)
 * [leetcode/escape-a-large-maze.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/escape-a-large-maze.cpp)
+* [leetcode/maximum-balanced-subsequence-sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-balanced-subsequence-sum.cpp)
 * [urionlinejudge/2007-fence_the_vegetables_fail.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2007-fence_the_vegetables_fail.cpp)
 * [urionlinejudge/2700-fundraising.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/2700-fundraising.cpp)
 
