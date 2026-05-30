@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// TODO: Got TLE when re-submitting (presumably due to newly added tests).
+
 class Solution {
   vector<int> memo = vector<int>(30'007, -1);
   vector<int> prices;
