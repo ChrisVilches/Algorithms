@@ -3,7 +3,7 @@ using namespace std;
 
 class FizzBuzz {
  private:
-  int n;
+  const int n;
   barrier<> barr{4};
 
  public:
