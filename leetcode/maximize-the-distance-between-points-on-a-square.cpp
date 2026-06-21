@@ -34,8 +34,6 @@ class Solution {
       for (auto& e : edges) e.clear();
 
       for (int i = start_idx, rem = k; i - start_idx < n && i != -1; i = link[i % n]) {
-        // NOTE: This line is likely necessary, but removing it doesn't cause a wrong
-        // answer. The test cases are not adversarial enough.
         while (i < start_idx) i += n;
 
         const Point p = points[i % n];
