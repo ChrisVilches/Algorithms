@@ -62,9 +62,6 @@ struct RadixTree {
 
       for (size_t k = 0; k < seq.size() && i < s.size(); k++, i++) {
         if (seq[k] == s[i]) {
-          // same character, but it ends inside an edge
-          // ending right at the end of an edge is handled in the next node
-          // (at the exit of this method)
           if (i + 1 == s.size() && k + 1 != seq.size()) {
             const int mid = add_node(idx);
             nodes[mid].edges[seq[k + 1] - 'a'] = {seq.substr(k + 1), node};
@@ -72,7 +69,6 @@ struct RadixTree {
             return;
           }
         } else {
-          // this is when there's a bifurcation
           const int mid = add_node();
           nodes[mid].edges[s[i] - 'a'] = {string_view(s).substr(i), add_node(idx)};
           nodes[mid].edges[seq[k] - 'a'] = {seq.substr(k), node};
