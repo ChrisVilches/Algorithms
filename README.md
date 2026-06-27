@@ -26,6 +26,12 @@ Trie
 * [uva/12506-shortest_names.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12506-shortest_names.cpp)
 * [uva/12526-cellphone_typing.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/uva/12526-cellphone_typing.cpp)
 
+Radix Tree
+
+* [leetcode/minimum-number-of-valid-strings-to-form-target-i.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-number-of-valid-strings-to-form-target-i.cpp)
+* [leetcode/replace-words.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/replace-words.cpp)
+* [leetcode/word-break-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/word-break-ii.cpp)
+
 Suffix Array
 
 * [kattis/stringmultimatching.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/stringmultimatching.cpp)
