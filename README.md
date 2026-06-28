@@ -951,6 +951,7 @@ Prefix Sum
 * [leetcode/find-the-pivot-integer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-the-pivot-integer.cpp)
 * [leetcode/gas-station.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/gas-station.cpp)
 * [leetcode/left-and-right-sum-differences.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/left-and-right-sum-differences.cpp)
+* [leetcode/longest-subarray-of-1s-after-deleting-one-element.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/longest-subarray-of-1s-after-deleting-one-element.cpp)
 * [leetcode/make-sum-divisible-by-p.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/make-sum-divisible-by-p.cpp)
 * [leetcode/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold.cpp)
 * [leetcode/minimum-deletions-to-make-string-balanced.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-deletions-to-make-string-balanced.cpp)
@@ -1066,7 +1067,6 @@ Kadane's Algorithm (Maximum Subarray Problem)
 
 * [kattis/purplerain.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/purplerain.cpp)
 * [leetcode/maximum-subarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-subarray.cpp)
-* [leetcode/trionic-array-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/trionic-array-ii.cpp)
 * [spoj/MAXSUMSU-maximum_subset_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/spoj/MAXSUMSU-maximum_subset_sum.cpp)
 
 Meet in the Middle

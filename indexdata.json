@@ -1077,6 +1077,7 @@
           "leetcode/find-the-pivot-integer.cpp",
           "leetcode/gas-station.cpp",
           "leetcode/left-and-right-sum-differences.cpp",
+          "leetcode/longest-subarray-of-1s-after-deleting-one-element.cpp",
           "leetcode/make-sum-divisible-by-p.cpp",
           "leetcode/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold.cpp",
           "leetcode/minimum-deletions-to-make-string-balanced.cpp",
@@ -1199,8 +1200,7 @@
         "files": [
           "kattis/purplerain.cpp",
           "leetcode/maximum-subarray.cpp",
-          "spoj/MAXSUMSU-maximum_subset_sum.cpp",
-          "leetcode/trionic-array-ii.cpp"
+          "spoj/MAXSUMSU-maximum_subset_sum.cpp"
         ]
       },
       {
