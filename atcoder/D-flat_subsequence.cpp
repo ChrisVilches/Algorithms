@@ -42,7 +42,6 @@ int main() {
     for (int i = 0; i < N; i++) asc_idx[asc[i].second] = i;
 
     for (int i = N - 1; i >= 0; i--) {
-      // TODO: Analyze what I did here (lower/upper bound exact usage).
       const int x = lower_bound(asc, asc + N, make_pair(A[i] - K, INT_MIN)) - asc;
       const int y = upper_bound(asc, asc + N, make_pair(A[i] + K, INT_MAX)) - asc - 1;
 
