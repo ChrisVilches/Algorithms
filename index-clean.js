@@ -38,7 +38,9 @@ function getAllFiles (directory) {
   return files
 }
 
-const normalizeString = x => x.replace(/[^a-zA-Z0-9\s]/g, ' ').replace(/\s+/g, ' ').toLowerCase()
+// Non-ASCII letters (e.g. Japanese file names) are kept, otherwise they'd all
+// normalize to the same string and become impossible to tell apart.
+const normalizeString = x => x.replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').toLowerCase()
 
 function findUniqueFilePath (simplifiedFilename, allFiles) {
   let found = null

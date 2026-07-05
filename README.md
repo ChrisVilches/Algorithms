@@ -119,6 +119,8 @@ Segment Tree + Lazy Propagation
 BIT (Fenwick Tree)
 
 * [acmicpc.net/17703-dragon_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/acmicpc.net/17703-dragon_2.cpp)
+* [atcoder/F-rectilinear_polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/F-rectilinear_polygons.cpp)
+* [atcoder/I-double_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/I-double_sum.cpp)
 * [codechef/FLYMODE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/FLYMODE.cpp)
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [codechef/SQUAGAME.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/SQUAGAME.cpp)
@@ -162,6 +164,11 @@ Merge Sort Tree
 Radial Sweep (and Polar Sort)
 
 * [acmicpc.net/17703-dragon_2.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/acmicpc.net/17703-dragon_2.cpp)
+* [atcoder/009-three_point_angle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/009-three_point_angle.cpp)
+* [atcoder/D-emlauncher.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/D-emlauncher.cpp)
+* [atcoder/D-三角形の分類.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/D-三角形の分類.cpp)
+* [atcoder/F-engines.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/F-engines.cpp)
+* [atcoder/G-バス停と凸包.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/G-バス停と凸包.cpp)
 * [codechef/CNVX4HUL.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CNVX4HUL.cpp)
 * [codechef/REDBLUE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/REDBLUE.cpp)
 * [codeforces/disjoint_triangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/disjoint_triangles.cpp)
@@ -194,6 +201,8 @@ Radial Sweep (and Polar Sort)
 
 Convex Hull
 
+* [atcoder/F-visible_buildings.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/F-visible_buildings.cpp)
+* [atcoder/G-share_the_ruins_preservation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/G-share_the_ruins_preservation.cpp)
 * [kattis/convexhull.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexhull.cpp)
 * [kattis/fasterthanlight.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fasterthanlight.cpp)
 * [kattis/fence.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fence.cpp)
@@ -212,6 +221,9 @@ Convex Hull
 
 Shoelace Formula (Polygon Area)
 
+* [atcoder/F-rectilinear_polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/F-rectilinear_polygons.cpp)
+* [atcoder/G-share_the_ruins_preservation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/G-share_the_ruins_preservation.cpp)
+* [atcoder/G-バス停と凸包.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/G-バス停と凸包.cpp)
 * [cses/polygon_lattice_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/polygon_lattice_points.cpp)
 * [kattis/artappreciation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/artappreciation.cpp)
 * [kattis/convexpolygonarea.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/convexpolygonarea.cpp)
@@ -222,6 +234,7 @@ Shoelace Formula (Polygon Area)
 
 Sweep Line
 
+* [atcoder/F-rectilinear_polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/F-rectilinear_polygons.cpp)
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [codechef/LIGHT.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LIGHT.cpp)
 * [codechef/SQUAGAME.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/SQUAGAME.cpp)
@@ -347,6 +360,7 @@ Concave Polygons
 
 Point Inside Polygon
 
+* [atcoder/F-rectilinear_polygons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/F-rectilinear_polygons.cpp)
 * [atcoder/G-polygon_and_points.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/G-polygon_and_points.cpp)
 * [codeforces/mogohurea_idol.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/mogohurea_idol.cpp)
 * [kattis/domes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/domes.cpp)
@@ -387,6 +401,9 @@ Simple Polygon Detection
 Misc
 
 * [aizu/CGL_1_B-reflection.go](https://github.com/ChrisVilches/Algorithms/blob/main/aizu/CGL_1_B-reflection.go)
+* [atcoder/B-counterclockwise_rotation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/B-counterclockwise_rotation.cpp)
+* [atcoder/D-rectangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/D-rectangles.cpp)
+* [atcoder/D-レースゲーム.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/D-レースゲーム.cpp)
 * [codechef/count_the_squares.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/count_the_squares.cpp)
 * [kattis/artur.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/artur.cpp)
 * [kattis/carpet.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/carpet.cpp)
@@ -933,6 +950,7 @@ Sparse Table
 
 Prefix Sum
 
+* [atcoder/G-share_the_ruins_preservation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/G-share_the_ruins_preservation.cpp)
 * [codeforces/keylogger.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/keylogger.cpp)
 * [codeforces/new_year_and_cake.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/new_year_and_cake.cpp)
 * [cses/polynomial_queries.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/cses/polynomial_queries.cpp)
@@ -984,6 +1002,7 @@ Lowest Common Ancestor
 
 Coordinate (or Arrays in General) Compression
 
+* [atcoder/I-double_sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/I-double_sum.cpp)
 * [codechef/FLYMODE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/FLYMODE.cpp)
 * [codechef/LAZER.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/LAZER.cpp)
 * [codechef/SQUAGAME.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/SQUAGAME.cpp)

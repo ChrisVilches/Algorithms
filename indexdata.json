@@ -160,7 +160,9 @@
           "leetcode/number-of-pairs-satisfying-inequality.cpp",
           "leetcode/peaks-in-array.cpp",
           "leetcode/reverse-pairs.cpp",
-          "leetcode/sliding-window-median.cpp"
+          "leetcode/sliding-window-median.cpp",
+          "atcoder/F-rectilinear_polygons.cpp",
+          "atcoder/I-double_sum.cpp"
         ]
       },
       {
@@ -215,7 +217,12 @@
           "kattis/spin.cpp",
           "codeforces/geometers_anonymous_club",
           "codeforces/disjoint_triangles.cpp",
-          "leetcode/valid-square.cpp"
+          "leetcode/valid-square.cpp",
+          "atcoder/009-three_point_angle.cpp",
+          "atcoder/D-emlauncher.cpp",
+          "atcoder/D-三角形の分類.cpp",
+          "atcoder/F-engines.cpp",
+          "atcoder/G-バス停と凸包.cpp"
         ]
       },
       {
@@ -235,7 +242,9 @@
           "kattis/fence.cpp",
           "kattis/robotprotection.cpp",
           "kattis/roberthood.cpp",
-          "leetcode/erect-the-fence.cpp"
+          "leetcode/erect-the-fence.cpp",
+          "atcoder/F-visible_buildings.cpp",
+          "atcoder/G-share_the_ruins_preservation.cpp"
         ]
       },
       {
@@ -247,7 +256,10 @@
           "kattis/convexpolygonarea.cpp",
           "kattis/cookiecutter.cpp",
           "kattis/artappreciation.cpp",
-          "cses/polygon_lattice_points.cpp"
+          "cses/polygon_lattice_points.cpp",
+          "atcoder/F-rectilinear_polygons.cpp",
+          "atcoder/G-share_the_ruins_preservation.cpp",
+          "atcoder/G-バス停と凸包.cpp"
         ]
       },
       {
@@ -284,7 +296,8 @@
           "leetcode/find-the-number-of-ways-to-place-people-ii.cpp",
           "leetcode/rectangle-area-ii-2.cpp",
           "leetcode/rectangle-area-ii.cpp",
-          "leetcode/self-crossing.cpp"
+          "leetcode/self-crossing.cpp",
+          "atcoder/F-rectilinear_polygons.cpp"
         ]
       },
       {
@@ -410,7 +423,8 @@
           "kattis/spin.cpp",
           "atcoder/G-polygon_and_points.cpp",
           "codeforces/mogohurea idol.cpp",
-          "gravitational_wave_detector"
+          "gravitational_wave_detector",
+          "atcoder/F-rectilinear_polygons.cpp"
         ]
       },
       {
@@ -491,7 +505,10 @@
           "leetcode/projection-area-of-3d-shapes.cpp",
           "leetcode/self-crossing.cpp",
           "leetcode/surface-area-of-3d-shapes.cpp",
-          "leetcode/valid-boomerang.cpp"
+          "leetcode/valid-boomerang.cpp",
+          "atcoder/B-counterclockwise_rotation.cpp",
+          "atcoder/D-rectangles.cpp",
+          "atcoder/D-レースゲーム.cpp"
         ]
       }
     ]
@@ -1090,7 +1107,8 @@
           "leetcode/shifting-letters.cpp",
           "leetcode/statistics-from-a-large-sample.cpp",
           "leetcode/stone-game-vii.cpp",
-          "leetcode/trionic-array-ii.cpp"
+          "leetcode/trionic-array-ii.cpp",
+          "atcoder/G-share_the_ruins_preservation.cpp"
         ]
       },
       {
@@ -1120,7 +1138,8 @@
           "leetcode/number-of-pairs-satisfying-inequality.cpp",
           "leetcode/rank-transform-of-an-array.cpp",
           "leetcode/rectangle-area-ii.cpp",
-          "leetcode/reverse-pairs.cpp"
+          "leetcode/reverse-pairs.cpp",
+          "atcoder/I-double_sum.cpp"
         ]
       },
       {
