@@ -60,7 +60,8 @@
           "leetcode/number-of-subarrays-that-match-a-pattern-ii.cpp",
           "leetcode/remove-all-occurrences-of-a-substring.cpp",
           "leetcode/repeated-string-match.cpp",
-          "leetcode/string-matching-in-an-array.cpp"
+          "leetcode/string-matching-in-an-array.cpp",
+          "codeforces/D-muh_and_cube_walls.cpp"
         ]
       },
       {
@@ -222,7 +223,8 @@
           "atcoder/D-emlauncher.cpp",
           "atcoder/D-三角形の分類.cpp",
           "atcoder/F-engines.cpp",
-          "atcoder/G-バス停と凸包.cpp"
+          "atcoder/G-バス停と凸包.cpp",
+          "codeforces/birthday_cake.cpp"
         ]
       },
       {
@@ -316,7 +318,8 @@
         "files": [
           "ancient towers cpp",
           "CNVX4HUL",
-          "kattis/oldschooldays.cpp"
+          "kattis/oldschooldays.cpp",
+          "codeforces/maximal_area_quadrilateral.cpp"
         ]
       },
       {
@@ -844,7 +847,8 @@
           "leetcode/stone-game-iv.cpp",
           "leetcode/stone-game-v.cpp",
           "leetcode/stone-game-vii.cpp",
-          "leetcode/stone-game.cpp"
+          "leetcode/stone-game.cpp",
+          "codeforces/game_of_slots.cpp"
         ]
       }
     ]

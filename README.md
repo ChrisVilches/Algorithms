@@ -47,6 +47,7 @@ Suffix Automaton
 
 KMP and LPS (Longest Proper Prefix Which Is Also a Suffix)
 
+* [codeforces/D-muh_and_cube_walls.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/D-muh_and_cube_walls.cpp)
 * [codeforces/D-prefixes_and_suffixes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/D-prefixes_and_suffixes.cpp)
 * [leetcode/longest-happy-prefix.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/longest-happy-prefix.cpp)
 * [leetcode/number-of-subarrays-that-match-a-pattern-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-subarrays-that-match-a-pattern-ii.cpp)
@@ -171,6 +172,7 @@ Radial Sweep (and Polar Sort)
 * [atcoder/G-バス停と凸包.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/atcoder/G-バス停と凸包.cpp)
 * [codechef/CNVX4HUL.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CNVX4HUL.cpp)
 * [codechef/REDBLUE.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/REDBLUE.cpp)
+* [codeforces/birthday_cake.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/birthday_cake.cpp)
 * [codeforces/disjoint_triangles.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/disjoint_triangles.cpp)
 * [codeforces/geometers_anonymous_club.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/geometers_anonymous_club.cpp)
 * [kattis/fancy.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/fancy.cpp)
@@ -280,6 +282,7 @@ Minkowski Sum
 Quadrilaterals
 
 * [codechef/CNVX4HUL.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codechef/CNVX4HUL.cpp)
+* [codeforces/maximal_area_quadrilateral.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/maximal_area_quadrilateral.cpp)
 * [kattis/oldschooldays.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oldschooldays.cpp)
 * [urionlinejudge/3359-ancient_towers.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/urionlinejudge/3359-ancient_towers.cpp)
 
@@ -731,6 +734,7 @@ Longest Increasing Subsequence
 
 Probability, Games, Optimal Strategy
 
+* [codeforces/game_of_slots.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/game_of_slots.cpp)
 * [kattis/bachetsgame.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bachetsgame.cpp)
 * [leetcode/can-i-win.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/can-i-win.cpp)
 * [leetcode/divisor-game.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/divisor-game.cpp)
