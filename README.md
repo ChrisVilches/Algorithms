@@ -29,6 +29,7 @@ Trie
 Radix Tree
 
 * [leetcode/minimum-number-of-valid-strings-to-form-target-i.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-number-of-valid-strings-to-form-target-i.cpp)
+* [leetcode/partition-string.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/partition-string.cpp)
 * [leetcode/replace-words.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/replace-words.cpp)
 * [leetcode/word-break-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/word-break-ii.cpp)
 
@@ -470,6 +471,7 @@ BFS, DFS
 * [leetcode/bricks-falling-when-hit.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/bricks-falling-when-hit.cpp)
 * [leetcode/bus-routes.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/bus-routes.cpp)
 * [leetcode/check-if-there-is-a-valid-path-in-a-grid.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/check-if-there-is-a-valid-path-in-a-grid.cpp)
+* [leetcode/course-schedule-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/course-schedule-ii.cpp)
 * [leetcode/course-schedule-iv.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/course-schedule-iv.cpp)
 * [leetcode/course-schedule.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/course-schedule.cpp)
 * [leetcode/cut-off-trees-for-golf-event.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/cut-off-trees-for-golf-event.cpp)
@@ -621,10 +623,12 @@ Counting, Combinatorics, Math
 * [leetcode/find-all-possible-stable-binary-arrays-i.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-all-possible-stable-binary-arrays-i.cpp)
 * [leetcode/find-the-original-typed-string-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-the-original-typed-string-ii.cpp)
 * [leetcode/interleaving-string.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/interleaving-string.cpp)
+* [leetcode/knight-dialer.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/knight-dialer.cpp)
 * [leetcode/number-of-people-aware-of-a-secret.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-people-aware-of-a-secret.cpp)
 * [leetcode/number-of-ways-of-cutting-a-pizza.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-ways-of-cutting-a-pizza.cpp)
 * [leetcode/number-of-ways-to-paint-n-3-grid.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-ways-to-paint-n-3-grid.cpp)
 * [leetcode/number-of-zigzag-arrays-i.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-zigzag-arrays-i.cpp)
+* [leetcode/number-of-zigzag-arrays-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-zigzag-arrays-ii.cpp)
 * [leetcode/painting-a-grid-with-three-different-colors.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/painting-a-grid-with-three-different-colors.cpp)
 * [leetcode/pascals-triangle-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/pascals-triangle-ii.cpp)
 * [leetcode/pascals-triangle.rs](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/pascals-triangle.rs)
@@ -781,6 +785,7 @@ Binary Search
 * [leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/divide-an-array-into-subarrays-with-minimum-cost-ii.cpp)
 * [leetcode/dungeon-game.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/dungeon-game.cpp)
 * [leetcode/escape-the-spreading-fire.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/escape-the-spreading-fire.cpp)
+* [leetcode/find-building-where-alice-and-bob-can-meet.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-building-where-alice-and-bob-can-meet.cpp)
 * [leetcode/find-first-and-last-position-of-element-in-sorted-array.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-first-and-last-position-of-element-in-sorted-array.cpp)
 * [leetcode/find-in-mountain-array.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-in-mountain-array.cpp)
 * [leetcode/find-k-th-smallest-pair-distance.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/find-k-th-smallest-pair-distance.cpp)
@@ -963,6 +968,7 @@ Prefix Sum
 * [kattis/oldschooldays.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/oldschooldays.cpp)
 * [kattis/queryonarray.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/queryonarray.cpp)
 * [leetcode/beautiful-towers-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/beautiful-towers-ii.cpp)
+* [leetcode/best-time-to-buy-and-sell-stock-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/best-time-to-buy-and-sell-stock-iii.cpp)
 * [leetcode/concatenate-non-zero-digits-and-multiply-by-sum-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/concatenate-non-zero-digits-and-multiply-by-sum-ii.cpp)
 * [leetcode/count-of-range-sum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/count-of-range-sum.cpp)
 * [leetcode/delivering-boxes-from-storage-to-ports.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/delivering-boxes-from-storage-to-ports.cpp)
@@ -1058,6 +1064,7 @@ Ordered Set
 * [leetcode/next-greater-element-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/next-greater-element-iii.cpp)
 * [leetcode/odd-even-jump.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/odd-even-jump.cpp)
 * [leetcode/perfect-rectangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/perfect-rectangle.cpp)
+* [leetcode/self-crossing.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/self-crossing.cpp)
 * [leetcode/sliding-window-maximum.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/sliding-window-maximum.cpp)
 * [leetcode/the-skyline-problem.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/the-skyline-problem.cpp)
 * [leetcode/walking-robot-simulation.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/walking-robot-simulation.cpp)
@@ -1117,6 +1124,23 @@ One-Dimensional Sweep Line (Events, Intervals)
 * [leetcode/minimum-interval-to-include-each-query.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-interval-to-include-each-query.cpp)
 * [leetcode/minimum-number-of-arrows-to-burst-balloons.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-number-of-arrows-to-burst-balloons.cpp)
 * [leetcode/number-of-flowers-in-full-bloom.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-flowers-in-full-bloom.cpp)
+* [leetcode/self-crossing.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/self-crossing.cpp)
 * [leetcode/trapping-rain-water.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/trapping-rain-water.cpp)
 * [leetcode/two-best-non-overlapping-events.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/two-best-non-overlapping-events.cpp)
+
+Monotonic Stack, Monotonic Deque
+
+* [leetcode/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit.cpp)
+
+Heap (Priority Queue)
+
+* [leetcode/course-schedule-iii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/course-schedule-iii.cpp)
+
+Linked List
+
+* [leetcode/all-oone-data-structure.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/all-oone-data-structure.cpp)
+
+Concurrency (Mutexes, Semaphores, Threads)
+
+* [leetcode/building-h2o.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/building-h2o.cpp)
 

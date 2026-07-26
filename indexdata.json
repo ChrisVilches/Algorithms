@@ -30,6 +30,7 @@
         "title": "Radix tree",
         "files": [
           "leetcode/minimum-number-of-valid-strings-to-form-target-i.cpp",
+          "leetcode/partition-string.cpp",
           "leetcode/replace-words.cpp",
           "leetcode/word-break-ii.cpp"
         ]
@@ -590,7 +591,8 @@
           "leetcode/sum-of-root-to-leaf-binary-numbers.cpp",
           "leetcode/validate-binary-tree-nodes.cpp",
           "leetcode/word-ladder.cpp",
-          "leetcode/word-search.cpp"
+          "leetcode/word-search.cpp",
+          "leetcode/course-schedule-ii.cpp"
         ]
       },
       {
@@ -729,7 +731,9 @@
           "leetcode/pascals-triangle-ii.cpp",
           "leetcode/pascals-triangle.rs",
           "leetcode/paths-in-matrix-whose-sum-is-divisible-by-k.cpp",
-          "leetcode/ways-to-express-an-integer-as-sum-of-powers.cpp"
+          "leetcode/ways-to-express-an-integer-as-sum-of-powers.cpp",
+          "leetcode/knight-dialer.cpp",
+          "leetcode/number-of-zigzag-arrays-ii.cpp"
         ]
       },
       {
@@ -930,7 +934,8 @@
           "leetcode/sliding-window-median.cpp",
           "leetcode/sqrtx.go",
           "leetcode/two-furthest-houses-with-different-colors.cpp",
-          "leetcode/valid-perfect-square.cpp"
+          "leetcode/valid-perfect-square.cpp",
+          "leetcode/find-building-where-alice-and-bob-can-meet.cpp"
         ]
       },
       {
@@ -1112,7 +1117,8 @@
           "leetcode/statistics-from-a-large-sample.cpp",
           "leetcode/stone-game-vii.cpp",
           "leetcode/trionic-array-ii.cpp",
-          "atcoder/G-share_the_ruins_preservation.cpp"
+          "atcoder/G-share_the_ruins_preservation.cpp",
+          "leetcode/best-time-to-buy-and-sell-stock-iii.cpp"
         ]
       },
       {
@@ -1186,7 +1192,8 @@
           "leetcode/perfect-rectangle.cpp",
           "leetcode/sliding-window-maximum.cpp",
           "leetcode/the-skyline-problem.cpp",
-          "leetcode/walking-robot-simulation.cpp"
+          "leetcode/walking-robot-simulation.cpp",
+          "leetcode/self-crossing.cpp"
         ]
       },
       {
@@ -1259,7 +1266,32 @@
           "leetcode/minimum-number-of-arrows-to-burst-balloons.cpp",
           "leetcode/number-of-flowers-in-full-bloom.cpp",
           "leetcode/trapping-rain-water.cpp",
-          "leetcode/two-best-non-overlapping-events.cpp"
+          "leetcode/two-best-non-overlapping-events.cpp",
+          "leetcode/self-crossing.cpp"
+        ]
+      },
+      {
+        "title": "Monotonic stack, monotonic deque",
+        "files": [
+          "leetcode/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit.cpp"
+        ]
+      },
+      {
+        "title": "Heap (priority queue)",
+        "files": [
+          "leetcode/course-schedule-iii.cpp"
+        ]
+      },
+      {
+        "title": "Linked list",
+        "files": [
+          "leetcode/all-oone-data-structure.cpp"
+        ]
+      },
+      {
+        "title": "Concurrency (mutexes, semaphores, threads)",
+        "files": [
+          "leetcode/building-h2o.cpp"
         ]
       }
     ]
