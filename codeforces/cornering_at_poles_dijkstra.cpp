@@ -120,7 +120,6 @@ struct Node {
 
 vector<Circle> poles;
 Point robot{0, 0}, goal;
-double min_dist;
 
 bool movement_valid(Segment& s) {
   for (Circle p : poles)
@@ -128,8 +127,8 @@ bool movement_valid(Segment& s) {
   return true;
 }
 
-bool arc_intersect_any_circle(int pole_idx, Segment& in_tan, Segment& out_tan) {
-  for (int i = 0; i < (int)poles.size(); i++) {
+bool arc_intersect_any_circle(size_t pole_idx, Segment& in_tan, Segment& out_tan) {
+  for (size_t i = 0; i < poles.size(); i++) {
     if (pole_idx == i) continue;
     if (poles[pole_idx].arc_intersects(poles[i], in_tan, out_tan)) return true;
   }
@@ -147,22 +146,21 @@ int add_node(Point p, int pole_idx = -1) {
   return node_idx;
 }
 
-void solve() {
+double solve() {
   node_id = 0;
   graph.clear();
   Segment direct_robot_goal{robot, goal};
 
   if (movement_valid(direct_robot_goal)) {
-    min_dist = direct_robot_goal.length();
-    return;
+    return direct_robot_goal.length();
   }
 
-  for (int i = 0; i < (int)poles.size(); i++) points_in_pole[i] = vector<int>();
+  for (size_t i = 0; i < poles.size(); i++) points_in_pole[i] = vector<int>();
 
   const int ROBOT_NODE_ID = add_node(robot);
   const int GOAL_NODE_ID = add_node(goal);
 
-  for (int i = 0; i < (int)poles.size(); i++) {
+  for (size_t i = 0; i < poles.size(); i++) {
     for (Segment& tangent : poles[i].tangents_from_point(robot))
       if (movement_valid(tangent)) {
         int n = add_node(tangent.q, i);
@@ -175,7 +173,7 @@ void solve() {
         graph[n].edges.emplace_back(tangent.length(), GOAL_NODE_ID);
       }
 
-    for (int j = i + 1; j < (int)poles.size(); j++)
+    for (size_t j = i + 1; j < poles.size(); j++)
       for (Segment& tangent : poles[i].tangents_to(poles[j]))
         if (movement_valid(tangent)) {
           int n1 = add_node(tangent.p, i);
@@ -185,9 +183,9 @@ void solve() {
         }
   }
 
-  for (int i = 0; i < (int)poles.size(); i++) {
-    for (int j = 0; j < (int)points_in_pole[i].size(); j++)
-      for (int k = j + 1; k < (int)points_in_pole[i].size(); k++) {
+  for (size_t i = 0; i < poles.size(); i++) {
+    for (size_t j = 0; j < points_in_pole[i].size(); j++)
+      for (size_t k = j + 1; k < points_in_pole[i].size(); k++) {
         int p1 = points_in_pole[i][j];
         int p2 = points_in_pole[i][k];
 
@@ -231,17 +229,16 @@ void solve() {
     }
   }
 
-  min_dist = dist[GOAL_NODE_ID];
+  return dist[GOAL_NODE_ID];
 }
 
 int main() {
   int N;
 
   while (cin >> N >> goal.x >> goal.y) {
-    min_dist = DBL_MAX;
     poles.resize(N);
     for (auto& p : poles) cin >> p.center.x >> p.center.y;
-    solve();
+    const double min_dist = solve();
     cout << fixed << setprecision(9) << (min_dist == DBL_MAX ? 0.0 : min_dist) << endl;
   }
 }
