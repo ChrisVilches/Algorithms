@@ -28,7 +28,7 @@ function capitalizeWord (word, force = false) {
   if (maybeIsAcronym(word)) return word
   if (!force && isMinorWord(word)) return word.toLowerCase()
 
-  return word[0].toUpperCase() + word.substr(1).toLowerCase()
+  return word[0].toUpperCase() + word.slice(1).toLowerCase()
 }
 
 function prettyCapitalize (text) {

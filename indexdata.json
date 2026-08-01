@@ -895,6 +895,7 @@
           "leetcode/median-of-two-sorted-arrays.cpp",
           "leetcode/dungeon-game.cpp",
           "leetcode/find-first-and-last-position-of-element-in-sorted-array.cpp",
+          "leetcode/count-of-range-sum.cpp",
           "kattis/bridgebuilding.cpp",
           "kattis/cookiecutter.cpp",
           "leetcode/peak-index-in-a-mountain-array.cpp",
@@ -1193,7 +1194,8 @@
           "leetcode/sliding-window-maximum.cpp",
           "leetcode/the-skyline-problem.cpp",
           "leetcode/walking-robot-simulation.cpp",
-          "leetcode/self-crossing.cpp"
+          "leetcode/self-crossing.cpp",
+          "leetcode/rectangle-area-ii-2.cpp"
         ]
       },
       {
