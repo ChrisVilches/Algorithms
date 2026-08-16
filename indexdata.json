@@ -62,7 +62,11 @@
           "leetcode/remove-all-occurrences-of-a-substring.cpp",
           "leetcode/repeated-string-match.cpp",
           "leetcode/string-matching-in-an-array.cpp",
-          "codeforces/D-muh_and_cube_walls.cpp"
+          "codeforces/D-muh_and_cube_walls.cpp",
+          "leetcode/find-beautiful-indices-in-the-given-array-i.cpp",
+          "leetcode/find-beautiful-indices-in-the-given-array-ii.cpp",
+          "leetcode/form-array-by-concatenating-subarrays-of-another-array.cpp",
+          "leetcode/string-transformation.cpp"
         ]
       },
       {
@@ -512,7 +516,8 @@
           "leetcode/valid-boomerang.cpp",
           "atcoder/B-counterclockwise_rotation.cpp",
           "atcoder/D-rectangles.cpp",
-          "atcoder/D-レースゲーム.cpp"
+          "atcoder/D-レースゲーム.cpp",
+          "leetcode/angle-between-hands-of-a-clock.cpp"
         ]
       }
     ]
@@ -592,7 +597,17 @@
           "leetcode/validate-binary-tree-nodes.cpp",
           "leetcode/word-ladder.cpp",
           "leetcode/word-search.cpp",
-          "leetcode/course-schedule-ii.cpp"
+          "leetcode/course-schedule-ii.cpp",
+          "leetcode/binary-tree-level-order-traversal.cpp",
+          "leetcode/binary-tree-right-side-view.cpp",
+          "leetcode/binary-tree-zigzag-level-order-traversal.cpp",
+          "leetcode/find-all-people-with-secret.cpp",
+          "leetcode/find-the-safest-path-in-a-grid.cpp",
+          "leetcode/keys-and-rooms.cpp",
+          "leetcode/minimum-height-trees.cpp",
+          "leetcode/path-with-minimum-effort.cpp",
+          "leetcode/strange-printer-ii.cpp",
+          "leetcode/surrounded-regions.cpp"
         ]
       },
       {
@@ -641,7 +656,12 @@
           "route change",
           "millionairemadness.cpp",
           "leetcode/minimum-cost-of-a-path-with-special-roads.cpp",
-          "leetcode/minimum-obstacle-removal-to-reach-corner.cpp"
+          "leetcode/minimum-obstacle-removal-to-reach-corner.cpp",
+          "leetcode/find-a-safe-walk-through-a-grid.cpp",
+          "leetcode/find-the-safest-path-in-a-grid.cpp",
+          "leetcode/minimum-cost-to-make-at-least-one-valid-path-in-a-grid.cpp",
+          "leetcode/network-delay-time.cpp",
+          "leetcode/path-with-maximum-probability.cpp"
         ]
       },
       {
@@ -733,7 +753,10 @@
           "leetcode/paths-in-matrix-whose-sum-is-divisible-by-k.cpp",
           "leetcode/ways-to-express-an-integer-as-sum-of-powers.cpp",
           "leetcode/knight-dialer.cpp",
-          "leetcode/number-of-zigzag-arrays-ii.cpp"
+          "leetcode/number-of-zigzag-arrays-ii.cpp",
+          "leetcode/number-of-dice-rolls-with-target-sum.cpp",
+          "leetcode/string-transformation.cpp",
+          "leetcode/total-characters-in-string-after-transformations-ii.cpp"
         ]
       },
       {
@@ -817,7 +840,11 @@
           "leetcode/minimum-number-of-coins-for-fruits.cpp",
           "leetcode/minimum-number-of-valid-strings-to-form-target-i.cpp",
           "leetcode/remove-boxes.cpp",
-          "leetcode/strange-printer.cpp"
+          "leetcode/strange-printer.cpp",
+          "leetcode/find-the-maximum-length-of-valid-subsequence-ii.cpp",
+          "leetcode/longest-turbulent-subarray.cpp",
+          "leetcode/maximum-amount-of-money-robot-can-earn.cpp",
+          "leetcode/palindrome-partitioning-ii.cpp"
         ]
       },
       {
@@ -936,7 +963,12 @@
           "leetcode/sqrtx.go",
           "leetcode/two-furthest-houses-with-different-colors.cpp",
           "leetcode/valid-perfect-square.cpp",
-          "leetcode/find-building-where-alice-and-bob-can-meet.cpp"
+          "leetcode/find-building-where-alice-and-bob-can-meet.cpp",
+          "leetcode/maximum-tastiness-of-candy-basket.cpp",
+          "leetcode/path-with-minimum-effort.cpp",
+          "leetcode/search-a-2d-matrix-ii.cpp",
+          "leetcode/single-element-in-a-sorted-array.cpp",
+          "leetcode/two-sum-ii-input-array-is-sorted.cpp"
         ]
       },
       {
@@ -1008,7 +1040,12 @@
           "leetcode/sum-of-root-to-leaf-binary-numbers.cpp",
           "leetcode/symmetric-tree.rs",
           "leetcode/validate-binary-search-tree.cpp",
-          "leetcode/validate-binary-tree-nodes.cpp"
+          "leetcode/validate-binary-tree-nodes.cpp",
+          "leetcode/binary-tree-level-order-traversal.cpp",
+          "leetcode/binary-tree-right-side-view.cpp",
+          "leetcode/binary-tree-zigzag-level-order-traversal.cpp",
+          "leetcode/convert-sorted-array-to-binary-search-tree.cpp",
+          "leetcode/minimum-height-trees.cpp"
         ]
       },
       {
@@ -1021,7 +1058,8 @@
           "leetcode/happy-number.rs",
           "leetcode/linked-list-cycle.go",
           "leetcode/redundant-connection.cpp",
-          "leetcode/validate-binary-tree-nodes.cpp"
+          "leetcode/validate-binary-tree-nodes.cpp",
+          "leetcode/strange-printer-ii.cpp"
         ]
       }
     ]
@@ -1119,7 +1157,11 @@
           "leetcode/stone-game-vii.cpp",
           "leetcode/trionic-array-ii.cpp",
           "atcoder/G-share_the_ruins_preservation.cpp",
-          "leetcode/best-time-to-buy-and-sell-stock-iii.cpp"
+          "leetcode/best-time-to-buy-and-sell-stock-iii.cpp",
+          "leetcode/brick-wall.cpp",
+          "leetcode/count-submatrices-with-equal-frequency-of-x-and-y.cpp",
+          "leetcode/maximum-segment-sum-after-removals.cpp",
+          "leetcode/sum-of-distances.cpp"
         ]
       },
       {
@@ -1195,7 +1237,9 @@
           "leetcode/the-skyline-problem.cpp",
           "leetcode/walking-robot-simulation.cpp",
           "leetcode/self-crossing.cpp",
-          "leetcode/rectangle-area-ii-2.cpp"
+          "leetcode/rectangle-area-ii-2.cpp",
+          "leetcode/design-task-manager.cpp",
+          "leetcode/maximum-segment-sum-after-removals.cpp"
         ]
       },
       {
@@ -1206,7 +1250,9 @@
           "power of matrix",
           "leetcode/count-collisions-of-monkeys-on-a-polygon.cpp",
           "leetcode/knight-dialer.cpp",
-          "leetcode/number-of-zigzag-arrays-ii.cpp"
+          "leetcode/number-of-zigzag-arrays-ii.cpp",
+          "leetcode/string-transformation.cpp",
+          "leetcode/total-characters-in-string-after-transformations-ii.cpp"
         ]
       },
       {
@@ -1253,7 +1299,9 @@
         "files": [
           "leetcode/fancy-sequence.cpp",
           "leetcode/knight-dialer.cpp",
-          "leetcode/number-of-zigzag-arrays-ii.cpp"
+          "leetcode/number-of-zigzag-arrays-ii.cpp",
+          "leetcode/string-transformation.cpp",
+          "leetcode/total-characters-in-string-after-transformations-ii.cpp"
         ]
       },
       {
@@ -1269,19 +1317,33 @@
           "leetcode/number-of-flowers-in-full-bloom.cpp",
           "leetcode/trapping-rain-water.cpp",
           "leetcode/two-best-non-overlapping-events.cpp",
-          "leetcode/self-crossing.cpp"
+          "leetcode/self-crossing.cpp",
+          "leetcode/interval-list-intersections.cpp",
+          "leetcode/remove-covered-intervals.cpp"
         ]
       },
       {
         "title": "Monotonic stack, monotonic deque",
         "files": [
-          "leetcode/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit.cpp"
+          "leetcode/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit.cpp",
+          "leetcode/maximal-rectangle.cpp",
+          "leetcode/number-of-visible-people-in-a-queue.cpp"
         ]
       },
       {
         "title": "Heap (priority queue)",
         "files": [
-          "leetcode/course-schedule-iii.cpp"
+          "leetcode/course-schedule-iii.cpp",
+          "leetcode/avoid-flood-in-the-city.cpp",
+          "leetcode/remove-covered-intervals.cpp",
+          "leetcode/sort-matrix-by-diagonals.cpp"
+        ]
+      },
+      {
+        "title": "Backtracking",
+        "files": [
+          "leetcode/letter-combinations-of-a-phone-number.cpp",
+          "leetcode/permutations.cpp"
         ]
       },
       {
