@@ -1182,9 +1182,22 @@ One-Dimensional Sweep Line (Events, Intervals)
 
 Monotonic Stack, Monotonic Deque
 
+* [codeforces/beautiful_mountains.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/codeforces/beautiful_mountains.cpp)
+* [kattis/bridgebuilding.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/kattis/bridgebuilding.cpp)
+* [leetcode/132-pattern.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/132-pattern.cpp)
+* [leetcode/beautiful-towers-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/beautiful-towers-ii.cpp)
+* [leetcode/daily-temperatures.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/daily-temperatures.cpp)
+* [leetcode/final-prices-with-a-special-discount-in-a-shop.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/final-prices-with-a-special-discount-in-a-shop.cpp)
+* [leetcode/jump-game-vi.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/jump-game-vi.cpp)
 * [leetcode/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit.cpp)
+* [leetcode/max-chunks-to-make-sorted-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/max-chunks-to-make-sorted-ii.cpp)
 * [leetcode/maximal-rectangle.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximal-rectangle.cpp)
+* [leetcode/maximum-width-ramp.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/maximum-width-ramp.cpp)
+* [leetcode/minimum-number-of-coins-for-fruits.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/minimum-number-of-coins-for-fruits.cpp)
+* [leetcode/next-greater-element-i.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/next-greater-element-i.cpp)
+* [leetcode/next-greater-element-ii.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/next-greater-element-ii.cpp)
 * [leetcode/number-of-visible-people-in-a-queue.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/number-of-visible-people-in-a-queue.cpp)
+* [leetcode/online-stock-span.cpp](https://github.com/ChrisVilches/Algorithms/blob/main/leetcode/online-stock-span.cpp)
 
 Heap (Priority Queue)
 

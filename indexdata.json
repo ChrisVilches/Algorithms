@@ -145,7 +145,7 @@
           "fence the vegetables fail",
           "horrible queries BIT",
           "haybale stacking",
-          "excellent views",
+          "codeforces/excellent_views.cpp",
           "aryas death list",
           "ancient towers cpp",
           "ada and rain ii",
@@ -1327,7 +1327,20 @@
         "files": [
           "leetcode/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit.cpp",
           "leetcode/maximal-rectangle.cpp",
-          "leetcode/number-of-visible-people-in-a-queue.cpp"
+          "leetcode/number-of-visible-people-in-a-queue.cpp",
+          "leetcode/132-pattern.cpp",
+          "codeforces/beautiful_mountains.cpp",
+          "leetcode/daily-temperatures.cpp",
+          "leetcode/next-greater-element-i.cpp",
+          "leetcode/next-greater-element-ii.cpp",
+          "leetcode/online-stock-span.cpp",
+          "leetcode/beautiful-towers-ii.cpp",
+          "leetcode/maximum-width-ramp.cpp",
+          "leetcode/max-chunks-to-make-sorted-ii.cpp",
+          "leetcode/final-prices-with-a-special-discount-in-a-shop.cpp",
+          "leetcode/jump-game-vi.cpp",
+          "leetcode/minimum-number-of-coins-for-fruits.cpp",
+          "kattis/bridgebuilding.cpp"
         ]
       },
       {
